@@ -2,6 +2,15 @@
 
 Responsive corporate website for **ORIKS ENERGY CARE PVT LTD**, focused on renewable-energy EPC, power evacuation, grid connectivity, substations, transmission infrastructure, testing/commissioning and O&M.
 
+## Stack
+
+- Semantic HTML5
+- Modern responsive CSS
+- Vanilla JavaScript
+- Google Fonts: Manrope + Source Serif 4
+
+The project remains dependency-free so it can be deployed easily on Hostinger, Render, GitHub Pages, Netlify, Cloudflare Pages or any standard web host.
+
 ## Site structure
 
 - Home
@@ -9,11 +18,13 @@ Responsive corporate website for **ORIKS ENERGY CARE PVT LTD**, focused on renew
 - Services
 - Capabilities
 - Safety & Quality
-- Contact
+- Contact / Project brief
+
+## Design direction
+
+Pure white corporate theme with restrained renewable-green and navy accents. The information architecture takes inspiration from how Indian renewable EPC, wind EPC and power-evacuation companies present services such as substations, transmission, EBoP, grid connectivity, testing and commissioning. No competitor text, assets, branding or claims have been copied.
 
 ## Run locally
-
-This is a dependency-free static website. From the project root:
 
 ```bash
 python -m http.server 8080
@@ -21,18 +32,14 @@ python -m http.server 8080
 
 Then open `http://localhost:8080`.
 
-## Deployment
+## Content integrity
 
-The project can be deployed as a static site on Render, Hostinger, GitHub Pages, Netlify, Cloudflare Pages or any standard web host. No build command is required.
+The website intentionally avoids publishing unverified project counts, client logos, voltage-capacity claims, certifications or completed-project statistics. Add those only after ORIKS management confirms the information.
 
-## Content note
+## Contact form
 
-The site intentionally avoids publishing unverified project counts, client logos, voltage-capacity claims or completed-project statistics. Add those only after ORIKS management confirms the information.
+The contact page includes a browser-side EPC project brief helper. Before production launch, connect it to the company's approved email, CRM or hosting form endpoint once official contact details are supplied.
 
-## Contact form note
-
-The contact page includes a front-end project brief helper. Before production launch, connect it to the company's approved email/CRM/form endpoint once official contact details are supplied.
-
-## Registered office used in this website
+## Registered office used
 
 58/1, Ramanujanagar, Sengunthapuram, Karur, Karur, Tamil Nadu, India — 639002.
