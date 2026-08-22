@@ -1,0 +1,41 @@
+/* ORIKS homepage art direction based on the approved white / green renewable EPC concept. */
+.home-hero{position:relative;overflow:hidden;background:linear-gradient(90deg,#fff 0%,#fff 45%,#f6fbf8 100%);padding-top:18px}
+.home-hero:before{content:"";position:absolute;left:-90px;top:30px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(56,166,104,.08),transparent 68%);pointer-events:none}
+.home-hero-grid{gap:34px;align-items:center;min-height:650px}
+.hero-copy{padding:66px 0 62px;position:relative;z-index:2}
+.hero-copy h1{max-width:760px;font-size:clamp(46px,5.6vw,80px);line-height:.98}
+.hero-copy>p{max-width:650px}
+.hero-visual{min-height:620px;border-radius:30px;background-image:linear-gradient(180deg,rgba(255,255,255,.02),rgba(8,41,25,.10)),url('/images/oriks-energy-hero.svg');background-size:cover;background-position:center;box-shadow:0 28px 80px rgba(14,63,38,.13);border:1px solid #e4eee8}
+.hero-visual img{opacity:0;pointer-events:none}
+.hero-visual:after{background:linear-gradient(180deg,transparent 58%,rgba(7,37,22,.34))}
+.hero-overlay{left:24px;bottom:24px;background:rgba(255,255,255,.94);color:#102018;padding:15px 18px;border-radius:15px;box-shadow:0 14px 30px rgba(10,31,20,.12);backdrop-filter:blur(12px)}
+.hero-overlay strong{font-size:17px;color:#166f45}.hero-overlay span{opacity:.72;font-size:13px}
+.hero-strip{background:#fff;border:1px solid #e4ebe7;border-radius:18px;margin-top:-24px;position:relative;z-index:3;padding:24px 28px;box-shadow:0 18px 38px rgba(16,27,23,.06)}
+
+/* Footer energy landscape: solar, wind, substations and grid lines with subtle motion. */
+.site-footer{position:relative;background:#fff;color:var(--ink);padding:0 0 22px;border-top:1px solid #e4ebe7;overflow:hidden}
+.footer-landscape{height:190px;width:100%;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#f7fcf9 100%)}
+.footer-landscape svg{width:100%;height:100%;display:block;overflow:visible}
+.footer-cloud{fill:#fff;stroke:#d7e8de;stroke-width:1.2;opacity:.92;animation:footerCloud 16s ease-in-out infinite alternate}
+.footer-cloud.cloud-b{animation-duration:21s;animation-delay:-5s}
+.footer-sun{fill:#91d9a9;opacity:.75;transform-box:fill-box;transform-origin:center;animation:footerSun 3.8s ease-in-out infinite}
+.hill-back{fill:#e9f8ee;stroke:#b7ddc4;stroke-width:1}.hill-front{fill:#dff4e6;stroke:#9fd0b1;stroke-width:1}
+.solar-field rect{fill:#d6eee0;stroke:#3b9565;stroke-width:1.5}.solar-field line{stroke:#66ad82;stroke-width:1}
+.wind-unit{stroke:#31875c;stroke-width:2;fill:#fff}.wind-mast{stroke-width:2.4}.wind-blades{transform-box:fill-box;transform-origin:center;animation:windSpin 8s linear infinite}.wind-blades.delay{animation-duration:10.5s}
+.pylon{stroke:#7aa88b;stroke-width:1.5;fill:none}.power-line{stroke:#a9cdb6;stroke-width:1.2;fill:none;stroke-dasharray:4 5;animation:powerFlow 6s linear infinite}
+.footer-building rect{fill:#edf8f1;stroke:#6ca681;stroke-width:1.2}
+.site-footer .brand{color:var(--ink)}.site-footer .brand-mark:before,.site-footer .brand-mark i{border-color:var(--green);background:var(--green)}
+.site-footer p{color:#68766f}.footer-grid{padding-top:34px}.footer-grid a{color:#53645c}.footer-grid a:hover{color:var(--green-dark)}.footer-bottom{border-top-color:#dde7e1;color:#748078}
+
+@keyframes windSpin{to{transform:rotate(360deg)}}
+@keyframes footerCloud{from{transform:translateX(-18px)}to{transform:translateX(25px)}}
+@keyframes footerSun{0%,100%{transform:scale(1);opacity:.68}50%{transform:scale(1.15);opacity:.95}}
+@keyframes powerFlow{to{stroke-dashoffset:-36}}
+
+@media(max-width:1050px){
+  .home-hero-grid{min-height:auto}.hero-visual{min-height:520px}.hero-strip{margin-top:20px;flex-wrap:wrap;justify-content:flex-start}.footer-landscape{height:165px}
+}
+@media(max-width:720px){
+  .home-hero{padding-top:0}.hero-copy{padding:48px 0 18px}.hero-copy h1{font-size:clamp(42px,13vw,62px)}.hero-actions{align-items:flex-start;flex-direction:column;gap:17px}.hero-visual{min-height:430px;border-radius:22px;background-position:67% center}.hero-overlay{left:16px;right:16px;bottom:16px}.hero-strip{width:calc(100% - 28px);padding:18px 20px;gap:14px}.hero-strip span{font-size:10px}.footer-landscape{height:135px}.footer-grid{padding-top:24px}
+}
+@media(prefers-reduced-motion:reduce){.footer-cloud,.footer-sun,.wind-blades,.power-line{animation:none!important}}
