@@ -5,6 +5,7 @@ import ModernRouter from './ModernRouter';
 import './styles.css';
 import './oriks-home.css';
 import './home-modern.css';
+import './home-realistic.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
