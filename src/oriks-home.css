@@ -14,30 +14,32 @@
 .hero-strip{background:#fff;border:1px solid #e4ebe7;border-radius:18px;margin-top:-24px;position:relative;z-index:3;padding:24px 28px;box-shadow:0 18px 38px rgba(16,27,23,.06)}
 .hero-strip span{position:relative;padding-left:18px}.hero-strip span:before{content:"";position:absolute;left:0;top:50%;width:7px;height:7px;border-radius:50%;background:#36a269;transform:translateY(-50%);box-shadow:0 0 0 5px rgba(54,162,105,.08)}
 
-/* Footer energy landscape: solar, wind, substations and grid lines with subtle motion. */
+/* Footer energy landscape matched to the approved reference while preserving all site content. */
 .site-footer{position:relative;background:#fff;color:var(--ink);padding:0 0 22px;border-top:1px solid #e4ebe7;overflow:hidden}
-.footer-landscape{height:190px;width:100%;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#f7fcf9 100%)}
+.footer-landscape{height:210px;width:100%;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#fbfefc 55%,#eef9f1 100%)}
 .footer-landscape svg{width:100%;height:100%;display:block;overflow:visible}
-.footer-cloud{fill:#fff;stroke:#d7e8de;stroke-width:1.2;opacity:.92;animation:footerCloud 16s ease-in-out infinite alternate}
-.footer-cloud.cloud-b{animation-duration:21s;animation-delay:-5s}
-.footer-sun{fill:#91d9a9;opacity:.75;transform-box:fill-box;transform-origin:center;animation:footerSun 3.8s ease-in-out infinite}
-.hill-back{fill:#e9f8ee;stroke:#b7ddc4;stroke-width:1}.hill-front{fill:#dff4e6;stroke:#9fd0b1;stroke-width:1}
-.solar-field rect{fill:#d6eee0;stroke:#3b9565;stroke-width:1.5}.solar-field line{stroke:#66ad82;stroke-width:1}
-.wind-unit{stroke:#31875c;stroke-width:2;fill:#fff}.wind-mast{stroke-width:2.4}.wind-blades{transform-box:fill-box;transform-origin:center;animation:windSpin 8s linear infinite}.wind-blades.delay{animation-duration:10.5s}
-.pylon{stroke:#7aa88b;stroke-width:1.5;fill:none}.power-line{stroke:#a9cdb6;stroke-width:1.2;fill:none;stroke-dasharray:4 5;animation:powerFlow 6s linear infinite}
-.footer-building rect{fill:#edf8f1;stroke:#6ca681;stroke-width:1.2}
+.footer-cloud{fill:#fff;stroke:#d7e8de;stroke-width:1.1;opacity:.92;animation:footerCloud 18s ease-in-out infinite alternate}
+.footer-cloud.cloud-b{animation-duration:24s;animation-delay:-6s}
+.footer-sun{fill:#74c98f;opacity:.82;transform-box:fill-box;transform-origin:center;animation:footerSun 4s ease-in-out infinite}
+.mountain-line{fill:none;stroke:#c9d8cf;stroke-width:1.2;opacity:.95}
+.hill-back{fill:#f2fbf4;stroke:#c7e7d1;stroke-width:1}.hill-front{fill:#e5f6e9;stroke:#a9d7b8;stroke-width:1}
+.solar-field rect{fill:#d9efe2;stroke:#3b9565;stroke-width:1.4}.solar-field line{stroke:#67ad82;stroke-width:1}
+.wind-unit{stroke:#39885f;stroke-width:1.8;fill:#fff}.wind-mast{stroke-width:2.3}.wind-blades{transform-box:fill-box;transform-origin:center;animation:windSpin 8.5s linear infinite}.wind-blades.delay{animation-duration:10.5s;animation-delay:-2s}.wind-blades.delay-two{animation-duration:7.4s;animation-delay:-1.2s}
+.pylon{stroke:#8ca798;stroke-width:1.45;fill:none}.pylon-left{opacity:.82}.pylon-far{opacity:.72}.power-line{stroke:#a9cdb6;stroke-width:1.05;fill:none;stroke-dasharray:5 6;animation:powerFlow 7s linear infinite}.power-line.second{animation-duration:9s;animation-delay:-2s;opacity:.85}
+.footer-building rect{fill:#eef8f1;stroke:#79aa89;stroke-width:1.1}.land-tree line{stroke:#6ca27d;stroke-width:1.4}.land-tree circle{fill:#69c27f;opacity:.96}.footer-birds{fill:none;stroke:#7ea58e;stroke-width:1.2;animation:birdsFloat 8s ease-in-out infinite alternate}.bird-one{transform:translate(260px,118px)}.bird-two{transform:translate(1190px,105px);animation-duration:10s;animation-delay:-3s}
 .site-footer .brand{color:var(--ink)}.site-footer .brand-mark:before{border-color:var(--green);background:transparent}.site-footer .brand-mark i{background:var(--green)}
 .site-footer p{color:#68766f}.footer-grid{padding-top:34px}.footer-grid a{color:#53645c}.footer-grid a:hover{color:var(--green-dark)}.footer-bottom{border-top-color:#dde7e1;color:#748078}
 
 @keyframes windSpin{to{transform:rotate(360deg)}}
-@keyframes footerCloud{from{transform:translateX(-18px)}to{transform:translateX(25px)}}
-@keyframes footerSun{0%,100%{transform:scale(1);opacity:.68}50%{transform:scale(1.15);opacity:.95}}
-@keyframes powerFlow{to{stroke-dashoffset:-36}}
+@keyframes footerCloud{from{transform:translateX(-16px)}to{transform:translateX(28px)}}
+@keyframes footerSun{0%,100%{transform:scale(1);opacity:.72}50%{transform:scale(1.14);opacity:1}}
+@keyframes powerFlow{to{stroke-dashoffset:-44}}
+@keyframes birdsFloat{from{translate:-8px 0}to{translate:10px -3px}}
 
 @media(max-width:1050px){
-  .home-hero-grid{min-height:auto}.hero-visual{min-height:520px;background-position:70% 14%}.hero-strip{margin-top:20px;flex-wrap:wrap;justify-content:flex-start}.footer-landscape{height:165px}
+  .home-hero-grid{min-height:auto}.hero-visual{min-height:520px;background-position:70% 14%}.hero-strip{margin-top:20px;flex-wrap:wrap;justify-content:flex-start}.footer-landscape{height:175px}
 }
 @media(max-width:720px){
-  .home-hero{padding-top:0}.hero-copy{padding:48px 0 18px}.hero-copy h1{font-size:clamp(42px,13vw,62px)}.hero-actions{align-items:flex-start;flex-direction:column;gap:17px}.hero-visual{min-height:430px;border-radius:22px;background-position:70% 12%}.hero-visual:before{right:14px;top:14px;font-size:9px}.hero-overlay{left:16px;right:16px;bottom:16px}.hero-strip{width:calc(100% - 28px);padding:18px 20px;gap:14px}.hero-strip span{font-size:10px}.footer-landscape{height:135px}.footer-grid{padding-top:24px}
+  .home-hero{padding-top:0}.hero-copy{padding:48px 0 18px}.hero-copy h1{font-size:clamp(42px,13vw,62px)}.hero-actions{align-items:flex-start;flex-direction:column;gap:17px}.hero-visual{min-height:430px;border-radius:22px;background-position:70% 12%}.hero-visual:before{right:14px;top:14px;font-size:9px}.hero-overlay{left:16px;right:16px;bottom:16px}.hero-strip{width:calc(100% - 28px);padding:18px 20px;gap:14px}.hero-strip span{font-size:10px}.footer-landscape{height:145px}.footer-grid{padding-top:24px}.mountain-line{stroke-width:1}.footer-birds{display:none}
 }
-@media(prefers-reduced-motion:reduce){.footer-cloud,.footer-sun,.wind-blades,.power-line{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.footer-cloud,.footer-sun,.wind-blades,.power-line,.footer-birds{animation:none!important}}
