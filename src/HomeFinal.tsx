@@ -13,7 +13,8 @@ import {
   Zap,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Footer, Header } from './components';
+import { Header } from './components';
+import EnergyFooterFinal from './EnergyFooterFinal';
 
 const heroCards = [
   { icon: Sun, title: 'Solar EPC', text: 'Utility-scale & C&I electrical infrastructure' },
@@ -160,7 +161,7 @@ export default function HomeFinal() {
           </div>
         </section>
       </main>
-      <Footer />
+      <EnergyFooterFinal />
     </>
   );
 }
