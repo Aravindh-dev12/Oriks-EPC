@@ -1,14 +1,15 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import ModernRouter from './ModernRouter';
 import './styles.css';
 import './oriks-home.css';
+import './home-modern.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <ModernRouter />
     </BrowserRouter>
   </StrictMode>
 );
