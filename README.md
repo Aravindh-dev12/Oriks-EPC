@@ -1,45 +1,57 @@
-# ORIKS Energy Care Pvt Ltd — Corporate Website
+# ORIKS Energy Care Pvt Ltd — Renewable EPC Website
 
-Responsive corporate website for **ORIKS ENERGY CARE PVT LTD**, focused on renewable-energy EPC, power evacuation, grid connectivity, substations, transmission infrastructure, testing/commissioning and O&M.
+A responsive corporate website for **ORIKS ENERGY CARE PVT LTD**, focused on renewable-energy EPC, power evacuation, grid connectivity, pooling substations, transmission infrastructure, testing / commissioning and O&M.
 
-## Stack
+## Frontend stack
 
-- Semantic HTML5
-- Modern responsive CSS
-- Vanilla JavaScript
-- Google Fonts: Manrope + Source Serif 4
+- React 19
+- TypeScript
+- Vite 8
+- React Router
+- Responsive CSS design system
+- Browser-native IntersectionObserver animations
 
-The project remains dependency-free so it can be deployed easily on Hostinger, Render, GitHub Pages, Netlify, Cloudflare Pages or any standard web host.
+This replaces the earlier static multi-page HTML prototype with a reusable component-based frontend application.
 
-## Site structure
+## Pages
 
 - Home
 - About
 - Services
 - Capabilities
+- Projects
 - Safety & Quality
-- Contact / Project brief
+- Contact / Project Brief
 
 ## Design direction
 
-Pure white corporate theme with restrained renewable-green and navy accents. The information architecture takes inspiration from how Indian renewable EPC, wind EPC and power-evacuation companies present services such as substations, transmission, EBoP, grid connectivity, testing and commissioning. No competitor text, assets, branding or claims have been copied.
+Pure-white corporate theme with restrained renewable green, charcoal typography, strong editorial spacing and high-impact renewable / electrical infrastructure imagery. The information architecture is inspired by common patterns used by established Indian renewable EPC and power-evacuation companies: clear service families, end-to-end capability mapping, measurable project proof, safety / quality, and a technical project-enquiry flow.
+
+No competitor text, branding or proprietary assets are copied.
+
+## Content integrity
+
+The site intentionally does **not** invent ORIKS project counts, MW executed, transmission kilometres, substation ratings, client logos, certifications or utility empanelments. The Projects page provides a professional case-study format for those figures to be added after ORIKS management verifies them.
+
+## Registered office
+
+58/1, Ramanujanagar, Sengunthapuram, Karur, Karur, Tamil Nadu, India — 639002.
+
+## Contact form
+
+Because an approved ORIKS email address / CRM endpoint has not been supplied, the Contact page currently creates a structured project brief in the browser and lets the user copy it. Connect the form to the approved email, CRM or hosting form endpoint before production launch.
 
 ## Run locally
 
 ```bash
-python -m http.server 8080
+npm install
+npm run dev
 ```
 
-Then open `http://localhost:8080`.
+## Production build
 
-## Content integrity
+```bash
+npm run build
+```
 
-The website intentionally avoids publishing unverified project counts, client logos, voltage-capacity claims, certifications or completed-project statistics. Add those only after ORIKS management confirms the information.
-
-## Contact form
-
-The contact page includes a browser-side EPC project brief helper. Before production launch, connect it to the company's approved email, CRM or hosting form endpoint once official contact details are supplied.
-
-## Registered office used
-
-58/1, Ramanujanagar, Sengunthapuram, Karur, Karur, Tamil Nadu, India — 639002.
+The `public/.htaccess` file supports SPA routing on Apache / Hostinger. `public/_redirects` supports compatible static hosts such as Netlify / Render-style redirect setups.
