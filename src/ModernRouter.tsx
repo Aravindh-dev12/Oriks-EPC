@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom';
 import App from './App';
-import HomeRealistic from './HomeRealistic';
+import HomeFinal from './HomeFinal';
 
 export default function ModernRouter() {
   const location = useLocation();
-  return location.pathname === '/' ? <HomeRealistic /> : <App />;
+  return location.pathname === '/' ? <HomeFinal /> : <App />;
 }
