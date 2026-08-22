@@ -24,7 +24,7 @@
 .wind-unit{stroke:#31875c;stroke-width:2;fill:#fff}.wind-mast{stroke-width:2.4}.wind-blades{transform-box:fill-box;transform-origin:center;animation:windSpin 8s linear infinite}.wind-blades.delay{animation-duration:10.5s}
 .pylon{stroke:#7aa88b;stroke-width:1.5;fill:none}.power-line{stroke:#a9cdb6;stroke-width:1.2;fill:none;stroke-dasharray:4 5;animation:powerFlow 6s linear infinite}
 .footer-building rect{fill:#edf8f1;stroke:#6ca681;stroke-width:1.2}
-.site-footer .brand{color:var(--ink)}.site-footer .brand-mark:before,.site-footer .brand-mark i{border-color:var(--green);background:var(--green)}
+.site-footer .brand{color:var(--ink)}.site-footer .brand-mark:before{border-color:var(--green);background:transparent}.site-footer .brand-mark i{background:var(--green)}
 .site-footer p{color:#68766f}.footer-grid{padding-top:34px}.footer-grid a{color:#53645c}.footer-grid a:hover{color:var(--green-dark)}.footer-bottom{border-top-color:#dde7e1;color:#748078}
 
 @keyframes windSpin{to{transform:rotate(360deg)}}
