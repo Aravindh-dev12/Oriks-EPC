@@ -1,16 +1,18 @@
 /* ORIKS homepage art direction based on the approved white / green renewable EPC concept. */
-.home-hero{position:relative;overflow:hidden;background:linear-gradient(90deg,#fff 0%,#fff 45%,#f6fbf8 100%);padding-top:18px}
+.home-hero{position:relative;overflow:hidden;background:linear-gradient(90deg,#fff 0%,#fff 43%,#f5faf7 100%);padding-top:18px}
 .home-hero:before{content:"";position:absolute;left:-90px;top:30px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(56,166,104,.08),transparent 68%);pointer-events:none}
 .home-hero-grid{gap:34px;align-items:center;min-height:650px}
 .hero-copy{padding:66px 0 62px;position:relative;z-index:2}
 .hero-copy h1{max-width:760px;font-size:clamp(46px,5.6vw,80px);line-height:.98}
 .hero-copy>p{max-width:650px}
-.hero-visual{min-height:620px;border-radius:30px;background-image:linear-gradient(180deg,rgba(255,255,255,.02),rgba(8,41,25,.10)),url('/images/oriks-energy-hero.svg');background-size:cover;background-position:center;box-shadow:0 28px 80px rgba(14,63,38,.13);border:1px solid #e4eee8}
+.hero-visual{min-height:620px;position:relative;border-radius:30px;overflow:hidden;background-image:linear-gradient(180deg,rgba(255,255,255,.02),rgba(8,41,25,.08)),url('/images/oriks-home-reference.webp');background-size:cover;background-position:72% 16%;box-shadow:0 28px 80px rgba(14,63,38,.13);border:1px solid #e4eee8}
+.hero-visual:before{content:"Approved visual direction";position:absolute;right:20px;top:20px;z-index:3;background:rgba(255,255,255,.92);color:#176a43;border:1px solid rgba(31,138,91,.16);border-radius:999px;padding:9px 13px;font:700 10px/1 'Manrope',sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 10px 25px rgba(16,27,23,.08);backdrop-filter:blur(10px)}
 .hero-visual img{opacity:0;pointer-events:none}
-.hero-visual:after{background:linear-gradient(180deg,transparent 58%,rgba(7,37,22,.34))}
-.hero-overlay{left:24px;bottom:24px;background:rgba(255,255,255,.94);color:#102018;padding:15px 18px;border-radius:15px;box-shadow:0 14px 30px rgba(10,31,20,.12);backdrop-filter:blur(12px)}
+.hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(7,37,22,.24));pointer-events:none}
+.hero-overlay{left:24px;bottom:24px;background:rgba(255,255,255,.95);color:#102018;padding:15px 18px;border-radius:15px;box-shadow:0 14px 30px rgba(10,31,20,.12);backdrop-filter:blur(12px)}
 .hero-overlay strong{font-size:17px;color:#166f45}.hero-overlay span{opacity:.72;font-size:13px}
 .hero-strip{background:#fff;border:1px solid #e4ebe7;border-radius:18px;margin-top:-24px;position:relative;z-index:3;padding:24px 28px;box-shadow:0 18px 38px rgba(16,27,23,.06)}
+.hero-strip span{position:relative;padding-left:18px}.hero-strip span:before{content:"";position:absolute;left:0;top:50%;width:7px;height:7px;border-radius:50%;background:#36a269;transform:translateY(-50%);box-shadow:0 0 0 5px rgba(54,162,105,.08)}
 
 /* Footer energy landscape: solar, wind, substations and grid lines with subtle motion. */
 .site-footer{position:relative;background:#fff;color:var(--ink);padding:0 0 22px;border-top:1px solid #e4ebe7;overflow:hidden}
@@ -33,9 +35,9 @@
 @keyframes powerFlow{to{stroke-dashoffset:-36}}
 
 @media(max-width:1050px){
-  .home-hero-grid{min-height:auto}.hero-visual{min-height:520px}.hero-strip{margin-top:20px;flex-wrap:wrap;justify-content:flex-start}.footer-landscape{height:165px}
+  .home-hero-grid{min-height:auto}.hero-visual{min-height:520px;background-position:70% 14%}.hero-strip{margin-top:20px;flex-wrap:wrap;justify-content:flex-start}.footer-landscape{height:165px}
 }
 @media(max-width:720px){
-  .home-hero{padding-top:0}.hero-copy{padding:48px 0 18px}.hero-copy h1{font-size:clamp(42px,13vw,62px)}.hero-actions{align-items:flex-start;flex-direction:column;gap:17px}.hero-visual{min-height:430px;border-radius:22px;background-position:67% center}.hero-overlay{left:16px;right:16px;bottom:16px}.hero-strip{width:calc(100% - 28px);padding:18px 20px;gap:14px}.hero-strip span{font-size:10px}.footer-landscape{height:135px}.footer-grid{padding-top:24px}
+  .home-hero{padding-top:0}.hero-copy{padding:48px 0 18px}.hero-copy h1{font-size:clamp(42px,13vw,62px)}.hero-actions{align-items:flex-start;flex-direction:column;gap:17px}.hero-visual{min-height:430px;border-radius:22px;background-position:70% 12%}.hero-visual:before{right:14px;top:14px;font-size:9px}.hero-overlay{left:16px;right:16px;bottom:16px}.hero-strip{width:calc(100% - 28px);padding:18px 20px;gap:14px}.hero-strip span{font-size:10px}.footer-landscape{height:135px}.footer-grid{padding-top:24px}
 }
 @media(prefers-reduced-motion:reduce){.footer-cloud,.footer-sun,.wind-blades,.power-line{animation:none!important}}
