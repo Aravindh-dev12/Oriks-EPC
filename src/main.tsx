@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import ModernRouter from './ModernRouter';
 import './styles.css';
 import './home-final.css';
+import './home-link-fixes.css';
 import './corporate-pages.css';
 import './energy-footer-final.css';
 
