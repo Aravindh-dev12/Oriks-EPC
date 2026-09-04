@@ -19,19 +19,19 @@ import { Header } from './components';
 import EnergyFooterFinal from './EnergyFooterFinal';
 
 const solutions = [
-  { icon: Wind, title: 'Wind Power Infrastructure', text: 'Electrical BoP, collection systems, pooling interfaces, evacuation and commissioning support for wind projects.' },
-  { icon: Sun, title: 'Solar Power Infrastructure', text: 'Utility-scale and C&I electrical scope, evacuation systems and grid-integration support for solar projects.' },
-  { icon: Zap, title: 'Power Evacuation', text: 'HT/EHV evacuation lines, utility interfaces, bay works and the electrical path from generation to grid.' },
-  { icon: Building2, title: 'Substations & Switchyards', text: 'Civil and electrical coordination, installation, protection, metering, testing and energisation support.' },
-  { icon: Cable, title: 'Transmission Infrastructure', text: 'Route execution, tower and structure works, conductor/OPGW stringing and line charging coordination.' },
-  { icon: ClipboardCheck, title: 'Testing & Commissioning', text: 'Pre-energisation checks, protection testing, functional verification, charging and grid synchronisation support.' },
+  { icon: Wind, title: 'Wind Power Infrastructure', text: 'Electrical BoP, collection systems, pooling interfaces, evacuation and commissioning support for wind projects.', href: '/services/renewable-epc-ebop' },
+  { icon: Sun, title: 'Solar Power Infrastructure', text: 'Utility-scale and C&I electrical scope, evacuation systems and grid-integration support for solar projects.', href: '/services/renewable-epc-ebop' },
+  { icon: Zap, title: 'Power Evacuation', text: 'HT/EHV evacuation lines, utility interfaces, bay works and the electrical path from generation to grid.', href: '/services/power-evacuation' },
+  { icon: Building2, title: 'Substations & Switchyards', text: 'Civil and electrical coordination, installation, protection, metering, testing and energisation support.', href: '/services/pooling-substations-switchyards' },
+  { icon: Cable, title: 'Transmission Infrastructure', text: 'Route execution, tower and structure works, conductor/OPGW stringing and line charging coordination.', href: '/services/transmission-infrastructure' },
+  { icon: ClipboardCheck, title: 'Testing & Commissioning', text: 'Pre-energisation checks, protection testing, functional verification, charging and grid synchronisation support.', href: '/services/testing-commissioning-grid-synchronisation' },
 ];
 
 const industries = [
-  { title: 'Wind Energy', text: 'Wind-farm electrical infrastructure, EBoP and grid evacuation.', image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1400&q=82' },
-  { title: 'Solar Energy', text: 'Solar electrical systems, evacuation and utility interconnection.', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1400&q=82' },
-  { title: 'Power T&D', text: 'Substations, transmission lines, switchyards and grid interfaces.', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=82' },
-  { title: 'Hybrid & Storage', text: 'Renewable integration concepts for hybrid and emerging energy systems.', image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=82' },
+  { title: 'Wind Energy', text: 'Wind-farm electrical infrastructure, EBoP and grid evacuation.', image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1400&q=82', href: '/services/renewable-epc-ebop' },
+  { title: 'Solar Energy', text: 'Solar electrical systems, evacuation and utility interconnection.', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d5f7ac1e2fdb?auto=format&fit=crop&w=1400&q=82', href: '/services/renewable-epc-ebop' },
+  { title: 'Power T&D', text: 'Substations, transmission lines, switchyards and grid interfaces.', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=82', href: '/services/transmission-infrastructure' },
+  { title: 'Hybrid & Storage', text: 'Renewable integration concepts for hybrid and emerging energy systems.', image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=82', href: '/capabilities' },
 ];
 
 const journey = [
@@ -71,9 +71,9 @@ const caseStudies = [
 ];
 
 const insights = [
-  ['Power Evacuation', 'From renewable generation to utility grid: the interfaces that matter.'],
-  ['Substations', 'What technical buyers look for in pooling-substation and switchyard capability.'],
-  ['Commissioning', 'Why protection, metering, testing and synchronisation need to be shown clearly.'],
+  { tag: 'Power Evacuation', title: 'From renewable generation to utility grid: the interfaces that matter.', href: '/insights/power-evacuation-from-generation-to-grid' },
+  { tag: 'Substations', title: 'What technical buyers look for in pooling-substation and switchyard capability.', href: '/insights/pooling-substations-renewable-projects' },
+  { tag: 'Commissioning', title: 'Why protection, metering, testing and synchronisation need to be shown clearly.', href: '/insights/testing-before-grid-synchronisation' },
 ];
 
 export default function HomeFinal() {
@@ -126,12 +126,12 @@ export default function HomeFinal() {
             <p>Structured around the electrical work that takes renewable generation through collection, transformation, evacuation and grid synchronisation.</p>
           </div>
           <div className="container of-solution-grid">
-            {solutions.map(({ icon: Icon, title, text }, index) => (
+            {solutions.map(({ icon: Icon, title, text, href }, index) => (
               <motion.article key={title} className="of-solution-card" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .16 }} transition={{ delay: (index % 3) * .05 }}>
                 <div className="of-solution-top"><span>0{index + 1}</span><Icon size={24} /></div>
                 <h3>{title}</h3>
                 <p>{text}</p>
-                <Link to="/services">Learn more <ArrowRight size={15} /></Link>
+                <Link to={href}>Learn more <ArrowRight size={15} /></Link>
               </motion.article>
             ))}
           </div>
@@ -145,9 +145,11 @@ export default function HomeFinal() {
           <div className="container of-industry-grid">
             {industries.map((item, index) => (
               <motion.article key={item.title} className="of-industry-card" initial={{ opacity: 0, scale: .985 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: index * .04 }}>
-                <img src={item.image} alt="" />
-                <div className="of-industry-shade" />
-                <div className="of-industry-copy"><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></div>
+                <Link to={item.href} aria-label={`Explore ${item.title}`}>
+                  <img src={item.image} alt="" />
+                  <div className="of-industry-shade" />
+                  <div className="of-industry-copy"><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p><strong>Explore <ArrowRight size={15} /></strong></div>
+                </Link>
               </motion.article>
             ))}
           </div>
@@ -186,13 +188,13 @@ export default function HomeFinal() {
         <section className="of-section of-case-section">
           <div className="container of-heading-row">
             <div><span className="of-kicker">Project Stories</span><h2>Turn completed work into technical case studies.</h2></div>
-            <p>NTC-style corporate storytelling works because each project becomes evidence. ORIKS can use the same approach with its own verified EPC data, photos and video.</p>
+            <p>Established corporate sites make each project a piece of evidence. ORIKS can use the same approach with its own verified EPC data, photos and video.</p>
           </div>
           <div className="container of-case-grid">
             {caseStudies.map((item, index) => (
               <motion.article key={item.title} className={index === 0 ? 'of-case-card of-case-featured' : 'of-case-card'} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <div className="of-case-media"><img src={item.image} alt="" /></div>
-                <div className="of-case-body"><span>{item.type}</span><h3>{item.title}</h3><p>{item.text}</p><Link to="/projects">View case-study format <ArrowRight size={15} /></Link></div>
+                <div className="of-case-body"><span>{item.type}</span><h3>{item.title}</h3><p>{item.text}</p><Link to="/projects">View project library <ArrowRight size={15} /></Link></div>
               </motion.article>
             ))}
           </div>
@@ -213,7 +215,7 @@ export default function HomeFinal() {
                 <span><Network size={18} /> Protection, metering & grid interface</span>
                 <span><Wrench size={18} /> Lifecycle and O&M support</span>
               </div>
-              <Link to="/safety-quality" className="of-inline-link">Safety & quality approach <ArrowRight size={16} /></Link>
+              <Link to="/sustainability" className="of-inline-link">Safety & sustainability approach <ArrowRight size={16} /></Link>
             </motion.div>
           </div>
         </section>
@@ -221,12 +223,12 @@ export default function HomeFinal() {
         <section className="of-section of-insights-section">
           <div className="container of-heading-row">
             <div><span className="of-kicker">Insights</span><h2>Technical content that supports business development.</h2></div>
-            <p>Articles can explain ORIKS capability in the language customers search for and help the website stay active as projects, technologies and utility requirements evolve.</p>
+            <div><p>Articles can explain ORIKS capability in the language customers search for and help the website stay active as projects, technologies and utility requirements evolve.</p><Link to="/insights" className="of-inline-link">View all insights <ArrowRight size={16} /></Link></div>
           </div>
           <div className="container of-insight-grid">
-            {insights.map(([tag, title], index) => (
+            {insights.map(({ tag, title, href }, index) => (
               <motion.article key={title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .05 }}>
-                <span>{tag}</span><h3>{title}</h3><Link to="/capabilities">Explore topic <ArrowRight size={15} /></Link>
+                <span>{tag}</span><h3>{title}</h3><Link to={href}>Read article <ArrowRight size={15} /></Link>
               </motion.article>
             ))}
           </div>
@@ -234,8 +236,8 @@ export default function HomeFinal() {
 
         <section className="of-careers-strip">
           <div className="container of-careers-inner">
-            <div><span className="of-kicker of-kicker-light">Grow with ORIKS</span><h2>People, engineering and execution build every successful project.</h2><p>A careers section can be activated when ORIKS is ready to publish approved openings and recruitment contact details.</p></div>
-            <Link to="/contact" className="of-btn of-btn-light">Contact ORIKS <ArrowRight size={17} /></Link>
+            <div><span className="of-kicker of-kicker-light">Grow with ORIKS</span><h2>People, engineering and execution build every successful project.</h2><p>The careers section is prepared for future approved openings, team stories and recruitment information.</p></div>
+            <Link to="/careers" className="of-btn of-btn-light">Explore Careers <ArrowRight size={17} /></Link>
           </div>
         </section>
 
