@@ -1,96 +1,104 @@
 import { FormEvent, useMemo, useState } from 'react';
-import { Link, Navigate, Route, Routes } from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useParams } from 'react-router-dom';
 import { Arrow, CTA, Eyebrow, PageHero, PageShell, Reveal, SectionHeading } from './components';
-import { capabilitySteps, projectFormats, proofFields, services } from './data';
-
-function Home() {
-  return <PageShell>
-    <section className="home-hero">
-      <div className="container home-hero-grid">
-        <Reveal className="hero-copy">
-          <Eyebrow>Renewable Energy EPC • Electrical Infrastructure</Eyebrow>
-          <h1>Engineering the connection <em>from generation to grid.</em></h1>
-          <p>ORIKS Energy Care Pvt Ltd is positioned around the electrical infrastructure that makes renewable projects grid-ready — power evacuation, pooling substations, transmission interfaces, testing, commissioning and lifecycle support.</p>
-          <div className="hero-actions"><Link to="/services" className="button dark">Explore capabilities <Arrow /></Link><Link to="/contact" className="text-link">Discuss a project <Arrow /></Link></div>
-        </Reveal>
-        <Reveal className="hero-visual">
-          <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1800&q=88" alt="Wind turbines in a renewable energy landscape" />
-          <div className="hero-overlay"><strong>Solar • Wind • Grid</strong><span>EPC & power infrastructure</span></div>
-        </Reveal>
-      </div>
-      <div className="container hero-strip">
-        <span>Renewable EPC</span><span>Power Evacuation</span><span>Substations</span><span>Transmission</span><span>Grid Connectivity</span><span>O&M</span>
-      </div>
-    </section>
-
-    <section className="section">
-      <div className="container split-heading">
-        <Reveal><SectionHeading eyebrow="What clients need to understand" title="Your capability should be clear before the first meeting." /></Reveal>
-        <Reveal><p className="lead-copy">A strong EPC website works like a company profile, technical brochure and project portfolio in one place. It helps developers, OEMs, consultants and utility-side teams understand what you can execute before a detailed discussion begins.</p></Reveal>
-      </div>
-      <div className="container three-cards">
-        {[
-          ['01','Show the technical scope','Explain evacuation, substations, transmission, protection, metering and grid interface in the language technical buyers use.'],
-          ['02','Show how the system connects','Make the path from renewable generation through collection, transformation and grid synchronisation easy to understand.'],
-          ['03','Show proof of execution','Present future project case studies by MW, kV, MVA, route-km, location, client and executed scope once figures are verified.']
-        ].map(([n,t,d]) => <Reveal key={n}><article className="number-card"><span>{n}</span><h3>{t}</h3><p>{d}</p></article></Reveal>)}
-      </div>
-    </section>
-
-    <section className="section soft-section">
-      <div className="container"><Reveal><SectionHeading eyebrow="Core service families" title="Infrastructure behind reliable renewable power." body="Structured around the work that connects a renewable-energy asset to the grid and keeps the electrical system dependable." /></Reveal></div>
-      <div className="container service-grid">
-        {services.slice(0, 6).map((s, i) => <Reveal key={s.title}><Link to="/services" className="service-card"><div className="service-image"><img src={s.image} alt="" /></div><div className="service-content"><span className="index">0{i+1}</span><h3>{s.title}</h3><p>{s.short}</p><span className="card-link">View scope <Arrow /></span></div></Link></Reveal>)}
-      </div>
-    </section>
-
-    <section className="section">
-      <div className="container capability-layout">
-        <Reveal><div className="sticky-copy"><SectionHeading eyebrow="From generation to grid" title="One connected electrical journey." body="The website is designed to explain the full project interface rather than treating each activity as an isolated service." /><Link to="/capabilities" className="text-link">See capability map <Arrow /></Link></div></Reveal>
-        <div className="steps-list">{capabilitySteps.map(step => <Reveal key={step.n}><div className="step-row"><span>{step.n}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></div></Reveal>)}</div>
-      </div>
-    </section>
-
-    <section className="section proof-section">
-      <div className="container proof-grid">
-        <Reveal><div className="proof-media"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1500&q=84" alt="Electrical transmission infrastructure" /></div></Reveal>
-        <Reveal><div><SectionHeading eyebrow="Project portfolio standard" title="Clients compare evidence, not adjectives." body="The project section is structured so ORIKS can publish verified technical proof in the same decision-friendly format used by established EPC companies." />
-          <div className="proof-fields">{proofFields.map(([key,label]) => <div key={key}><strong>{key}</strong><span>{label}</span></div>)}</div>
-          <p className="fine-note">No unverified project capacities, client logos, certifications or completion statistics are being presented as ORIKS achievements. Those can be added after management confirmation.</p>
-        </div></Reveal>
-      </div>
-    </section>
-    <CTA />
-  </PageShell>;
-}
+import { capabilitySteps, insights, projectFormats, proofFields, services } from './data';
 
 function About() {
   return <PageShell>
-    <PageHero label="About ORIKS" title="Built around the infrastructure that makes renewable power usable." text="ORIKS Energy Care Pvt Ltd is a Karur-based company focused on renewable-energy EPC and the electrical infrastructure required for reliable grid integration." image="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1500&q=84" />
-    <section className="section"><div className="container editorial-grid"><Reveal><SectionHeading eyebrow="Our focus" title="From project requirement to energisation." /></Reveal><Reveal><div className="editorial-copy"><p>Renewable generation is only one part of the project. The plant must be collected, transformed, protected, metered, evacuated and synchronised with the utility network safely and correctly.</p><p>ORIKS is positioned around that complete interface — bringing together engineering coordination, electrical infrastructure, site execution, testing, commissioning and lifecycle support for solar, wind and hybrid projects.</p></div></Reveal></div></section>
-    <section className="section soft-section"><div className="container values-grid">{[
-      ['Engineering clarity','Translate project requirements into a clear electrical scope, interfaces and execution plan.'],
-      ['Execution discipline','Keep engineering, procurement, civil works, electrical works, quality and documentation coordinated.'],
-      ['Safety first','Treat safe systems of work, statutory compliance and energisation discipline as core project requirements.'],
-      ['Long-term reliability','Think beyond handover to maintainability, inspection, protection and dependable operation.']
-    ].map(([t,d]) => <Reveal key={t}><article><h3>{t}</h3><p>{d}</p></article></Reveal>)}</div></section>
-    <section className="section"><div className="container office-card"><Reveal><Eyebrow>Registered office</Eyebrow><h2>Karur, Tamil Nadu</h2><p>58/1, Ramanujanagar, Sengunthapuram, Karur, Karur, Tamil Nadu, India — 639002.</p></Reveal><Reveal><div className="location-panel"><span>Tamil Nadu</span><strong>Karur</strong><small>Renewable & power infrastructure focus</small></div></Reveal></div></section>
+    <PageHero
+      label="About ORIKS"
+      title="Renewable power infrastructure, explained with engineering clarity."
+      text="ORIKS Energy Care Pvt Ltd is a Karur-based renewable-energy and electrical-infrastructure company. The website is structured to present the company the way technical buyers evaluate EPC partners: capability, project interfaces, execution discipline, safety and evidence."
+      image="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=84"
+    />
+    <section className="section">
+      <div className="container editorial-grid">
+        <Reveal><SectionHeading eyebrow="Who we are" title="Focused on the infrastructure between generation and grid." /></Reveal>
+        <Reveal><div className="editorial-copy">
+          <p>Renewable generation is only one part of a working power project. The output must be collected, transformed, protected, metered, evacuated and synchronised with the utility network safely and correctly.</p>
+          <p>ORIKS is positioned around that complete electrical interface — bringing together EPC coordination, substations, transmission infrastructure, testing, commissioning and lifecycle support for solar, wind and hybrid projects.</p>
+        </div></Reveal>
+      </div>
+    </section>
+    <section className="section soft-section">
+      <div className="container"><Reveal><SectionHeading eyebrow="How we work" title="Execution needs clarity at every interface." /></Reveal></div>
+      <div className="container values-grid ntc-values">
+        {[
+          ['Engineering clarity','Translate project requirements into a clear electrical scope, interfaces and execution plan.'],
+          ['Execution discipline','Keep engineering, procurement, civil works, electrical works, quality and documentation coordinated.'],
+          ['Safety first','Treat safe systems of work, statutory compliance and energisation discipline as core project requirements.'],
+          ['Long-term reliability','Think beyond handover to maintainability, inspection, protection and dependable operation.']
+        ].map(([t,d]) => <Reveal key={t}><article><h3>{t}</h3><p>{d}</p></article></Reveal>)}
+      </div>
+    </section>
+    <section className="section">
+      <div className="container office-card"><Reveal><div><Eyebrow>Registered office</Eyebrow><h2>Karur, Tamil Nadu</h2><p>58/1, Ramanujanagar, Sengunthapuram, Karur, Karur, Tamil Nadu, India — 639002.</p></div></Reveal><Reveal><div className="location-panel"><span>Tamil Nadu</span><strong>Karur</strong><small>Renewable & power infrastructure focus</small></div></Reveal></div>
+    </section>
     <CTA />
   </PageShell>;
 }
 
-function Services() {
+function ServicesOverview() {
   return <PageShell>
-    <PageHero label="Services" title="EPC services shaped around grid-ready renewable infrastructure." text="A clear, modular service structure for developers, renewable asset owners, OEMs, consultants and infrastructure partners." image="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1500&q=84" />
-    <section className="section"><div className="container service-detail-list">{services.map((s, i) => <Reveal key={s.title}><article className="service-detail"><div className="service-detail-media"><img src={s.image} alt="" /></div><div><span className="large-index">0{i+1}</span><h2>{s.title}</h2><p>{s.short}</p><ul>{s.bullets.map(b => <li key={b}>{b}</li>)}</ul></div></article></Reveal>)}</div></section>
+    <PageHero
+      label="Solutions"
+      title="Detailed EPC solutions, not a one-page service list."
+      text="Like established infrastructure companies, each ORIKS capability is presented as its own technical solution: what it covers, how it fits into the project, the typical work packages and the evidence a client should expect to see."
+      image="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1600&q=84"
+    />
+    <section className="section">
+      <div className="container solution-index">
+        {services.map((s, i) => <Reveal key={s.slug}><Link to={`/services/${s.slug}`} className="solution-index-card">
+          <div className="solution-index-media"><img src={s.image} alt="" /></div>
+          <div className="solution-index-copy"><span>0{i + 1}</span><h2>{s.title}</h2><p>{s.short}</p><strong>Explore solution <Arrow /></strong></div>
+        </Link></Reveal>)}
+      </div>
+    </section>
+    <CTA />
+  </PageShell>;
+}
+
+function ServiceDetail() {
+  const { slug } = useParams();
+  const service = services.find(s => s.slug === slug);
+  if (!service) return <Navigate to="/services" replace />;
+  const related = services.filter(s => s.slug !== service.slug).slice(0, 3);
+  return <PageShell>
+    <section className="solution-hero">
+      <div className="solution-hero-media"><img src={service.image} alt="" /></div>
+      <div className="solution-hero-shade" />
+      <div className="container solution-hero-copy"><Reveal><Eyebrow>ORIKS Solution</Eyebrow><h1>{service.title}</h1><p>{service.short}</p><Link to="/contact" className="button light">Discuss this requirement <Arrow /></Link></Reveal></div>
+    </section>
+    <section className="section">
+      <div className="container editorial-grid">
+        <Reveal><SectionHeading eyebrow="Overview" title="Built around the real project interface." /></Reveal>
+        <Reveal><div className="editorial-copy"><p>{service.intro}</p><p>For production, this page can be strengthened further with ORIKS-approved photographs, voltage ranges, project capacities, equipment scope and completed-project references.</p></div></Reveal>
+      </div>
+    </section>
+    <section className="section soft-section">
+      <div className="container service-scope-layout">
+        <Reveal><SectionHeading eyebrow="Scope" title="Solutions we can present within this work package." body="The exact contract scope should always be aligned with the approved ORIKS proposal and project requirement." /></Reveal>
+        <div className="scope-list">{service.bullets.map((b, i) => <Reveal key={b}><div><span>0{i + 1}</span><strong>{b}</strong></div></Reveal>)}</div>
+      </div>
+    </section>
+    <section className="section">
+      <div className="container"><Reveal><SectionHeading eyebrow="Project strengths" title="What a client should understand from the page." /></Reveal>
+        <div className="strength-cards">{service.strengths.map((s, i) => <Reveal key={s}><article><span>0{i + 1}</span><h3>{s}</h3></article></Reveal>)}</div>
+      </div>
+    </section>
+    <section className="section dark-section">
+      <div className="container"><Reveal><SectionHeading eyebrow="Related solutions" title="The surrounding project interfaces." /></Reveal>
+        <div className="related-grid">{related.map(s => <Reveal key={s.slug}><Link to={`/services/${s.slug}`}><img src={s.image} alt="" /><div><h3>{s.title}</h3><span>View solution <Arrow /></span></div></Link></Reveal>)}</div>
+      </div>
+    </section>
     <CTA />
   </PageShell>;
 }
 
 function Capabilities() {
   return <PageShell>
-    <PageHero label="Capabilities" title="A complete view of the renewable-to-grid interface." text="The capability model is designed around how an EPC buyer evaluates risk: scope definition, interface management, execution, energisation and lifecycle reliability." image="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1500&q=84" />
-    <section className="section"><div className="container capability-diagram">{capabilitySteps.map((s, i) => <Reveal key={s.n}><div className="cap-node"><span>{s.n}</span><h3>{s.title}</h3><p>{s.text}</p>{i < capabilitySteps.length-1 && <i aria-hidden="true">→</i>}</div></Reveal>)}</div></section>
+    <PageHero label="Capabilities" title="A complete view of the renewable-to-grid interface." text="The capability model is designed around how an EPC buyer evaluates risk: scope definition, interface management, execution, energisation and lifecycle reliability." image="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=84" />
+    <section className="section"><div className="container capability-diagram">{capabilitySteps.map((s, i) => <Reveal key={s.n}><div className="cap-node"><span>{s.n}</span><h3>{s.title}</h3><p>{s.text}</p>{i < capabilitySteps.length - 1 && <i aria-hidden="true">→</i>}</div></Reveal>)}</div></section>
     <section className="section soft-section"><div className="container"><Reveal><SectionHeading eyebrow="Capability matrix" title="What can sit inside the project scope." /></Reveal><div className="matrix">{[
       ['Engineering','Single-line interfaces, layouts, equipment coordination, cable and earthing design inputs, protection and metering philosophy.'],
       ['Procurement','Package planning, vendor coordination, equipment interfaces, material scheduling and technical submittals.'],
@@ -105,27 +113,62 @@ function Capabilities() {
 
 function Projects() {
   return <PageShell>
-    <PageHero label="Project Portfolio" title="Show the work the way technical buyers evaluate it." text="The project section is prepared for case studies that demonstrate scale, voltage level, infrastructure scope and delivery responsibility — not just photographs." image="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1500&q=84" />
-    <section className="section"><div className="container"><Reveal><div className="notice"><strong>Content integrity</strong><p>The cards below demonstrate the format ORIKS can use for its portfolio. They are representative EPC scope examples, not claims of completed ORIKS projects. Verified project data can replace them as soon as management approves it.</p></div></Reveal></div>
+    <PageHero label="Project Portfolio" title="Project stories should prove capability, not only show photographs." text="The project library is structured like a technical case-study platform. Once ORIKS supplies verified records, each project can show capacity, voltage level, infrastructure scope, challenge, executed responsibility and result." image="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=84" />
+    <section className="section"><div className="container"><Reveal><div className="notice"><strong>Content integrity</strong><p>The cards below demonstrate the format ORIKS can use for its portfolio. They are representative EPC scope examples, not claims of completed ORIKS projects. Verified project data should replace them after management approval.</p></div></Reveal></div>
       <div className="container project-grid">{projectFormats.map(p => <Reveal key={p.title}><article className="project-card"><div className="project-image"><img src={p.image} alt="" /><span>{p.type}</span></div><div className="project-body"><h2>{p.title}</h2><ul>{p.details.map(d => <li key={d}>{d}</li>)}</ul></div></article></Reveal>)}</div>
     </section>
-    <section className="section soft-section"><div className="container proof-explainer"><Reveal><SectionHeading eyebrow="How every case study should read" title="Capacity + voltage + scope + result." body="Established EPC companies make project evidence easy to scan. ORIKS should follow the same pattern once its verified records are available." /></Reveal><Reveal><div className="proof-fields large">{proofFields.map(([key,label]) => <div key={key}><strong>{key}</strong><span>{label}</span></div>)}</div></Reveal></div></section>
+    <section className="section soft-section"><div className="container proof-explainer"><Reveal><SectionHeading eyebrow="Case-study standard" title="Capacity + voltage + scope + challenge + result." body="Established EPC and infrastructure companies make evidence easy to scan. ORIKS should use the same decision-friendly pattern once verified records are available." /></Reveal><Reveal><div className="proof-fields large">{proofFields.map(([key,label]) => <div key={key}><strong>{key}</strong><span>{label}</span></div>)}</div></Reveal></div></section>
+    <section className="section"><div className="container editorial-grid"><Reveal><SectionHeading eyebrow="Project media" title="Use real site photos and short project videos." /></Reveal><Reveal><div className="editorial-copy"><p>For the final project library, ORIKS can combine site photographs, drone footage, substation and transmission visuals, equipment close-ups and commissioning clips.</p><p>Short video clips are most useful when they explain a real project stage rather than acting only as decoration.</p></div></Reveal></div></section>
     <CTA />
   </PageShell>;
 }
 
-function Safety() {
+function Insights() {
   return <PageShell>
-    <PageHero label="Safety & Quality" title="Safe energisation starts long before the switch is closed." text="Renewable power infrastructure demands disciplined execution, documented quality checks and clear responsibility at every interface." image="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1500&q=84" />
+    <PageHero label="Insights" title="Technical knowledge that helps clients understand the work." text="NTC separates case studies and news from core service pages. ORIKS can use the same approach with practical renewable-EPC articles, project knowledge and future company updates." image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=84" />
+    <section className="section">
+      <div className="container insight-grid">{insights.map((article, i) => <Reveal key={article.slug}><Link to={`/insights/${article.slug}`} className={`insight-card ${i === 0 ? 'featured' : ''}`}>
+        <div className="insight-media"><img src={article.image} alt="" /></div>
+        <div className="insight-copy"><span>{article.category} · {article.readTime}</span><h2>{article.title}</h2><p>{article.excerpt}</p><strong>Read article <Arrow /></strong></div>
+      </Link></Reveal>)}</div>
+    </section>
+    <CTA />
+  </PageShell>;
+}
+
+function InsightDetail() {
+  const { slug } = useParams();
+  const article = insights.find(i => i.slug === slug);
+  if (!article) return <Navigate to="/insights" replace />;
+  return <PageShell>
+    <section className="article-hero"><div className="container article-hero-grid"><Reveal><div><Eyebrow>{article.category}</Eyebrow><h1>{article.title}</h1><p>{article.excerpt}</p><small>{article.readTime}</small></div></Reveal><Reveal><div className="article-hero-media"><img src={article.image} alt="" /></div></Reveal></div></section>
+    <section className="article-body"><div className="container article-body-grid"><aside><span>ORIKS Insights</span><Link to="/insights">← All articles</Link></aside><article>{article.sections.map(section => <section key={section.heading}><h2>{section.heading}</h2>{section.body.map(p => <p key={p}>{p}</p>)}</section>)}</article></div></section>
+    <section className="section soft-section"><div className="container"><Reveal><SectionHeading eyebrow="Continue reading" title="More renewable and grid-infrastructure insights." /></Reveal><div className="related-insights">{insights.filter(i => i.slug !== article.slug).slice(0,3).map(i => <Reveal key={i.slug}><Link to={`/insights/${i.slug}`}><span>{i.category}</span><h3>{i.title}</h3><strong>Read <Arrow /></strong></Link></Reveal>)}</div></div></section>
+    <CTA />
+  </PageShell>;
+}
+
+function Sustainability() {
+  return <PageShell>
+    <PageHero label="Sustainability, Safety & Quality" title="Reliable infrastructure starts with disciplined execution." text="NTC gives sustainability and Q&EHS their own corporate space. For ORIKS, the equivalent should bring safety, quality, environmental responsibility and responsible energisation together in one clear section." image="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=84" />
     <section className="section"><div className="container safety-grid">{[
       ['Plan the work','Define method statements, interfaces, permits, sequence, access and responsibilities before mobilisation.'],
-      ['Control site risk','Use task-level hazard identification, isolation discipline, PPE, toolbox talks and supervision appropriate to the activity.'],
+      ['Control site risk','Use task-level hazard identification, isolation discipline, PPE, toolbox talks and appropriate supervision.'],
       ['Build quality in','Use inspection and test plans, checklists, material verification, installation checks and punch-list closure.'],
       ['Test before energisation','Complete electrical, mechanical, protection and functional verification before charging any system.'],
       ['Document the asset','Close with drawings, test records, handover packs and agreed operating / maintenance information.'],
       ['Improve continuously','Capture lessons, recurring defects and maintenance observations to improve future execution and reliability.']
     ].map(([t,d],i) => <Reveal key={t}><article><span>0{i+1}</span><h3>{t}</h3><p>{d}</p></article></Reveal>)}</div></section>
-    <section className="section soft-section"><div className="container editorial-grid"><Reveal><SectionHeading eyebrow="Certification note" title="Publish only what can be verified." /></Reveal><Reveal><div className="editorial-copy"><p>Client logos, ISO certificates, electrical contractor licences, utility empanelments, safety statistics and project completion records should be added only when the company provides approved copies or references.</p><p>This keeps the website credible in technical and commercial due diligence.</p></div></Reveal></div></section>
+    <section className="section dark-section"><div className="container editorial-grid"><Reveal><SectionHeading eyebrow="Responsible publishing" title="Certifications and statistics should be verifiable." /></Reveal><Reveal><div className="editorial-copy"><p>Client logos, ISO certificates, electrical contractor licences, utility empanelments, safety statistics and project-completion records should be published only after ORIKS provides approved copies or references.</p><p>This protects credibility during technical and commercial due diligence.</p></div></Reveal></div></section>
+    <CTA />
+  </PageShell>;
+}
+
+function Careers() {
+  return <PageShell>
+    <PageHero label="Careers" title="Build the teams behind renewable and grid infrastructure." text="A careers section helps the company present itself as an active organisation while creating a simple place to publish future engineering, project, safety, testing and site-execution roles." image="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1600&q=84" />
+    <section className="section"><div className="container editorial-grid"><Reveal><SectionHeading eyebrow="Life at ORIKS" title="Engineering work is a team effort." /></Reveal><Reveal><div className="editorial-copy"><p>Renewable and power-infrastructure projects depend on collaboration between engineering, procurement, civil, electrical, testing, safety, quality and project-management teams.</p><p>When ORIKS supplies approved employee photographs, training activities and site-team stories, this page can become a stronger employer-brand section.</p></div></Reveal></div></section>
+    <section className="section soft-section"><div className="container"><Reveal><SectionHeading eyebrow="Future openings" title="A clean structure for job listings." /></Reveal><div className="job-grid">{['Project Engineer — Electrical','Testing & Commissioning Engineer','Site Engineer — Transmission / Substation','EHS / Safety Engineer'].map((role,i) => <Reveal key={role}><article><span>0{i+1}</span><h3>{role}</h3><p>Location and vacancy details can be published here when approved by ORIKS management.</p><Link to="/contact">Contact ORIKS <Arrow /></Link></article></Reveal>)}</div></div></section>
     <CTA />
   </PageShell>;
 }
@@ -143,7 +186,7 @@ function Contact() {
   }
   async function copyBrief() { if (!brief) return; await navigator.clipboard.writeText(brief); setCopied(true); }
   return <PageShell>
-    <PageHero label="Contact" title="Start with a clear project requirement." text="Share the project type, location, expected capacity, voltage / grid interface and the stage you are currently at. The form creates a structured brief you can send through your approved ORIKS business contact channel." image="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1500&q=84" />
+    <PageHero label="Contact" title="Start with a clear project requirement." text="Share the project type, location, expected capacity, voltage or grid interface and the stage you are currently at. The page is designed for a technical enquiry, not a generic contact form." image="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=84" />
     <section className="section"><div className="container contact-grid">
       <Reveal><div className="contact-info"><SectionHeading eyebrow="Registered office" title="Karur, Tamil Nadu" /><p>58/1, Ramanujanagar, Sengunthapuram, Karur, Karur, Tamil Nadu, India — 639002.</p><div className="contact-note"><strong>Production contact setup</strong><span>Official phone, email and CRM/form endpoint can be connected as soon as ORIKS management confirms them.</span></div></div></Reveal>
       <Reveal><form className="project-form" onSubmit={submit}>
@@ -162,12 +205,17 @@ function Contact() {
 
 export default function App() {
   return <Routes>
-    <Route path="/" element={<Home />} />
+    <Route path="/" element={<Navigate to="/" replace />} />
     <Route path="/about" element={<About />} />
-    <Route path="/services" element={<Services />} />
+    <Route path="/services" element={<ServicesOverview />} />
+    <Route path="/services/:slug" element={<ServiceDetail />} />
     <Route path="/capabilities" element={<Capabilities />} />
     <Route path="/projects" element={<Projects />} />
-    <Route path="/safety-quality" element={<Safety />} />
+    <Route path="/insights" element={<Insights />} />
+    <Route path="/insights/:slug" element={<InsightDetail />} />
+    <Route path="/sustainability" element={<Sustainability />} />
+    <Route path="/safety-quality" element={<Navigate to="/sustainability" replace />} />
+    <Route path="/careers" element={<Careers />} />
     <Route path="/contact" element={<Contact />} />
     <Route path="*" element={<Navigate to="/" replace />} />
   </Routes>;
