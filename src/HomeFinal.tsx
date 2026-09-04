@@ -5,6 +5,8 @@ import {
   Cable,
   CheckCircle2,
   ClipboardCheck,
+  FileText,
+  MapPin,
   Network,
   ShieldCheck,
   Sun,
@@ -16,148 +18,237 @@ import { Link } from 'react-router-dom';
 import { Header } from './components';
 import EnergyFooterFinal from './EnergyFooterFinal';
 
-const heroCards = [
-  { icon: Sun, title: 'Solar EPC', text: 'Utility-scale & C&I electrical infrastructure' },
-  { icon: Wind, title: 'Wind Power Infrastructure', text: 'Collection, evacuation & commissioning support' },
-  { icon: Zap, title: 'Power Evacuation', text: 'HT/EHV lines, pooling substations & bay interfaces' },
-  { icon: Network, title: 'Grid Connectivity', text: 'Protection, metering, approvals & synchronisation' },
+const solutions = [
+  { icon: Wind, title: 'Wind Power Infrastructure', text: 'Electrical BoP, collection systems, pooling interfaces, evacuation and commissioning support for wind projects.' },
+  { icon: Sun, title: 'Solar Power Infrastructure', text: 'Utility-scale and C&I electrical scope, evacuation systems and grid-integration support for solar projects.' },
+  { icon: Zap, title: 'Power Evacuation', text: 'HT/EHV evacuation lines, utility interfaces, bay works and the electrical path from generation to grid.' },
+  { icon: Building2, title: 'Substations & Switchyards', text: 'Civil and electrical coordination, installation, protection, metering, testing and energisation support.' },
+  { icon: Cable, title: 'Transmission Infrastructure', text: 'Route execution, tower and structure works, conductor/OPGW stringing and line charging coordination.' },
+  { icon: ClipboardCheck, title: 'Testing & Commissioning', text: 'Pre-energisation checks, protection testing, functional verification, charging and grid synchronisation support.' },
 ];
 
-const services = [
-  { icon: Wind, title: 'Wind Power Projects', text: 'Electrical infrastructure, collection systems, evacuation interfaces, testing and commissioning support for wind farms.' },
-  { icon: Sun, title: 'Solar Power Projects', text: 'Utility-scale and C&I solar EPC support with electrical BoP, evacuation and grid integration.' },
-  { icon: Zap, title: 'Power Evacuation', text: 'HT/EHV evacuation lines, pooling substations, utility bays and associated electrical infrastructure.' },
-  { icon: Building2, title: 'Substations & Switchyards', text: 'Engineering coordination, installation, testing and commissioning support for substations and switchyards.' },
-  { icon: Cable, title: 'Electrical Balance of Plant', text: 'Cabling, earthing, auxiliary systems, equipment interfaces and coordinated electrical site execution.' },
-  { icon: Network, title: 'Grid Connectivity', text: 'Utility coordination, metering, protection, bay extension, documentation and synchronisation support.' },
-  { icon: Wrench, title: 'Operation & Maintenance', text: 'Inspection, preventive maintenance, fault response and lifecycle support for renewable electrical assets.' },
-  { icon: ClipboardCheck, title: 'Testing & Commissioning', text: 'Pre-energisation checks, protection testing, charging, functional verification and commissioning support.' },
+const industries = [
+  { title: 'Wind Energy', text: 'Wind-farm electrical infrastructure, EBoP and grid evacuation.', image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1400&q=82' },
+  { title: 'Solar Energy', text: 'Solar electrical systems, evacuation and utility interconnection.', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1400&q=82' },
+  { title: 'Power T&D', text: 'Substations, transmission lines, switchyards and grid interfaces.', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=82' },
+  { title: 'Hybrid & Storage', text: 'Renewable integration concepts for hybrid and emerging energy systems.', image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=82' },
 ];
 
-const approach = [
-  ['01', 'Generation', 'Solar, wind or hybrid project'],
-  ['02', 'Collection', 'Plant-level electrical collection'],
-  ['03', 'Pooling', 'Substation & protection interface'],
-  ['04', 'Evacuation', 'Transmission to utility bay'],
-  ['05', 'Grid', 'Metering, synchronisation & energisation'],
+const journey = [
+  ['01', 'Generation', 'Solar, wind or hybrid asset'],
+  ['02', 'Collection', 'Plant electrical network & EBoP'],
+  ['03', 'Pooling', 'Substation, protection & metering'],
+  ['04', 'Evacuation', 'HT/EHV line and utility interface'],
+  ['05', 'Grid', 'Testing, charging & synchronisation'],
 ];
 
-const strengths = [
-  ['End-to-end EPC thinking', 'Connect engineering, procurement, site execution, testing and handover as one coordinated scope.'],
-  ['Renewable + grid interface', 'Explain both the generation side and the electrical infrastructure needed to evacuate power reliably.'],
-  ['Quality & safety first', 'Structure work around documented checks, safe energisation and disciplined site execution.'],
-  ['Clear technical communication', 'Present service scope, project interfaces and future case studies in the language technical buyers expect.'],
-  ['Lifecycle support', 'Support delivered assets through inspection, preventive maintenance, testing and O&M activities.'],
+const proofPoints = [
+  ['MW', 'Project capacity'],
+  ['kV', 'Voltage level'],
+  ['MVA', 'Substation rating'],
+  ['km', 'Transmission length'],
 ];
 
-const heroImage = 'https://images.pexels.com/photos/35105427/pexels-photo-35105427/free-photo-of-renewable-energy-landscape-with-solar-panels.jpeg?auto=compress&dpr=1&h=750&w=1260';
+const caseStudies = [
+  {
+    type: 'Wind power evacuation',
+    title: 'How a project case study should show execution proof',
+    text: 'Capacity, voltage level, pooling substation, transmission route, utility interface, testing and commissioning — presented in one technical story.',
+    image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1500&q=84',
+  },
+  {
+    type: 'Substation & transmission',
+    title: 'Show the complete package, not only project photographs',
+    text: 'A decision-maker should be able to understand what ORIKS executed, where it was executed and what part of the grid interface was delivered.',
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1500&q=84',
+  },
+  {
+    type: 'Solar grid interconnection',
+    title: 'Turn completed work into a business-development asset',
+    text: 'Verified project details can become a reusable digital portfolio for referrals, tenders, OEMs, consultants and developer conversations.',
+    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1500&q=84',
+  },
+];
+
+const insights = [
+  ['Power Evacuation', 'From renewable generation to utility grid: the interfaces that matter.'],
+  ['Substations', 'What technical buyers look for in pooling-substation and switchyard capability.'],
+  ['Commissioning', 'Why protection, metering, testing and synchronisation need to be shown clearly.'],
+];
 
 export default function HomeFinal() {
   return (
     <>
       <Header />
       <main className="of-home">
-        <section className="of-hero">
+        <section className="of-hero of-hero-ntc">
           <div className="of-hero-media" aria-hidden="true">
-            <img
-              src={heroImage}
-              alt=""
-              onError={(event) => { event.currentTarget.src = '/oriks-energy-hero.webp'; }}
-            />
+            <video autoPlay muted loop playsInline poster="/images/oriks-home-reference.webp">
+              <source src="/oriks-home.mp4" type="video/mp4" />
+            </video>
+            <img className="of-hero-poster" src="/images/oriks-home-reference.webp" alt="" />
           </div>
-          <div className="of-hero-fade" />
-          <div className="container of-hero-inner">
-            <motion.div className="of-hero-copy" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .65 }}>
-              <span className="of-kicker">Engineering the connection</span>
-              <h1>From renewable generation to <em>grid connection.</em></h1>
-              <p>ORIKS Energy Care Pvt Ltd supports solar, wind and electrical-infrastructure projects across power evacuation, substations, transmission, grid connectivity, testing, commissioning and O&M.</p>
+          <div className="of-hero-overlay" />
+          <div className="container of-hero-inner of-hero-inner-ntc">
+            <motion.div className="of-hero-copy of-hero-copy-ntc" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7 }}>
+              <span className="of-kicker of-kicker-light">Renewable EPC • Power Evacuation • Grid Infrastructure</span>
+              <h1>Engineering the path <em>from generation to grid.</em></h1>
+              <p>ORIKS Energy Care Pvt Ltd supports renewable and electrical-infrastructure projects across power evacuation, substations, transmission, grid connectivity, testing, commissioning and lifecycle support.</p>
               <div className="of-actions">
-                <Link to="/services" className="of-btn of-btn-primary">Our Services <ArrowRight size={17} /></Link>
-                <Link to="/projects" className="of-btn of-btn-secondary">View Projects <ArrowRight size={17} /></Link>
+                <Link to="/services" className="of-btn of-btn-primary">Explore Solutions <ArrowRight size={17} /></Link>
+                <Link to="/contact" className="of-btn of-btn-glass">Start a Project Enquiry <ArrowRight size={17} /></Link>
               </div>
             </motion.div>
           </div>
-          <div className="container of-hero-cards">
-            {heroCards.map(({ icon: Icon, title, text }, index) => (
-              <motion.article key={title} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .28 + index * .08 }}>
-                <span className="of-card-icon"><Icon size={25} /></span>
-                <div><h3>{title}</h3><p>{text}</p></div>
-              </motion.article>
-            ))}
+          <div className="of-hero-ribbon">
+            <div className="container of-hero-ribbon-grid">
+              {['Wind EPC & EBoP', 'Solar EPC', 'Power Evacuation', 'Substations & Switchyards', 'Transmission Lines', 'O&M'].map(item => <span key={item}>{item}</span>)}
+            </div>
           </div>
         </section>
 
-        <section className="of-section of-services">
-          <div className="container of-heading-row">
-            <div><span className="of-kicker">What we do</span><h2>Core services for renewable and power infrastructure.</h2></div>
-            <p>Focused on the electrical work that takes power from the generating asset through collection, transformation, evacuation and utility integration.</p>
+        <section className="of-intro-section">
+          <div className="container of-intro-grid">
+            <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <span className="of-kicker">From project requirement to energisation</span>
+              <h2>A corporate website should explain capability before the first meeting.</h2>
+            </motion.div>
+            <motion.div className="of-intro-copy" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <p>For EPC buyers, a website is more than an introduction. It works as a company profile, technical brochure and project portfolio — giving developers, OEMs, consultants and utility-side teams a quick view of what the company can execute.</p>
+              <Link to="/about" className="of-inline-link">About ORIKS <ArrowRight size={16} /></Link>
+            </motion.div>
           </div>
-          <div className="container of-service-grid">
-            {services.map(({ icon: Icon, title, text }, index) => (
-              <motion.article key={title} className="of-service-card" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .2 }} transition={{ delay: (index % 4) * .045 }}>
-                <span className="of-service-icon"><Icon size={27} /></span>
+        </section>
+
+        <section className="of-section of-solutions-section">
+          <div className="container of-heading-row">
+            <div><span className="of-kicker">Our Solutions</span><h2>Infrastructure behind reliable renewable power.</h2></div>
+            <p>Structured around the electrical work that takes renewable generation through collection, transformation, evacuation and grid synchronisation.</p>
+          </div>
+          <div className="container of-solution-grid">
+            {solutions.map(({ icon: Icon, title, text }, index) => (
+              <motion.article key={title} className="of-solution-card" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .16 }} transition={{ delay: (index % 3) * .05 }}>
+                <div className="of-solution-top"><span>0{index + 1}</span><Icon size={24} /></div>
                 <h3>{title}</h3>
                 <p>{text}</p>
-                <Link to="/services">Read more <ArrowRight size={14} /></Link>
+                <Link to="/services">Learn more <ArrowRight size={15} /></Link>
               </motion.article>
             ))}
           </div>
         </section>
 
-        <section className="of-approach-section">
-          <div className="container of-approach-shell">
-            <div className="of-approach-title"><span className="of-kicker">Our approach</span><h2>From Generation to Grid</h2></div>
-            <div className="of-approach-track">
-              {approach.map(([number, title, text], index) => (
-                <div className="of-approach-step" key={number}>
-                  <span className="of-step-number">{number}</span>
-                  <div><strong>{title}</strong><small>{text}</small></div>
-                  {index < approach.length - 1 && <ArrowRight className="of-step-arrow" size={17} />}
-                </div>
-              ))}
+        <section className="of-industries-section">
+          <div className="container of-heading-row of-heading-light">
+            <div><span className="of-kicker of-kicker-light">Industries We Focus</span><h2>Renewable generation meets power infrastructure.</h2></div>
+            <p>ORIKS can present its experience by industry, making it easier for visitors to find the capability that matches their project.</p>
+          </div>
+          <div className="container of-industry-grid">
+            {industries.map((item, index) => (
+              <motion.article key={item.title} className="of-industry-card" initial={{ opacity: 0, scale: .985 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: index * .04 }}>
+                <img src={item.image} alt="" />
+                <div className="of-industry-shade" />
+                <div className="of-industry-copy"><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        <section className="of-section of-journey-section">
+          <div className="container of-journey-head">
+            <div><span className="of-kicker">End-to-end view</span><h2>From Generation to Grid</h2></div>
+            <p>Instead of presenting services as isolated activities, the website explains how every electrical package connects within the project lifecycle.</p>
+          </div>
+          <div className="container of-journey-track">
+            {journey.map(([number, title, text], index) => (
+              <motion.div className="of-journey-step" key={number} initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: index * .05 }}>
+                <span>{number}</span><div><strong>{title}</strong><small>{text}</small></div>{index < journey.length - 1 && <ArrowRight size={18} />}
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        <section className="of-proof-band">
+          <div className="container of-proof-band-grid">
+            <div className="of-proof-band-copy">
+              <span className="of-kicker of-kicker-light">Project proof that matters</span>
+              <h2>Clients compare evidence, not adjectives.</h2>
+              <p>As soon as ORIKS management verifies its completed-project data, this section can publish measurable capability in the same decision-friendly format used by established EPC companies.</p>
+              <Link to="/projects" className="of-inline-link of-inline-link-light">View project portfolio <ArrowRight size={16} /></Link>
+            </div>
+            <div className="of-proof-units">
+              {proofPoints.map(([unit, label]) => <div key={unit}><strong>{unit}</strong><span>{label}</span></div>)}
+              <div><strong><MapPin size={30} /></strong><span>Project location</span></div>
+              <div><strong><FileText size={30} /></strong><span>Executed scope</span></div>
             </div>
           </div>
         </section>
 
-        <section className="of-section of-proof">
-          <div className="container of-proof-grid">
-            <motion.div className="of-proof-image" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .2 }}>
-              <img src="/oriks-energy-hero.webp" alt="Renewable generation and transmission infrastructure" />
+        <section className="of-section of-case-section">
+          <div className="container of-heading-row">
+            <div><span className="of-kicker">Project Stories</span><h2>Turn completed work into technical case studies.</h2></div>
+            <p>NTC-style corporate storytelling works because each project becomes evidence. ORIKS can use the same approach with its own verified EPC data, photos and video.</p>
+          </div>
+          <div className="container of-case-grid">
+            {caseStudies.map((item, index) => (
+              <motion.article key={item.title} className={index === 0 ? 'of-case-card of-case-featured' : 'of-case-card'} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <div className="of-case-media"><img src={item.image} alt="" /></div>
+                <div className="of-case-body"><span>{item.type}</span><h3>{item.title}</h3><p>{item.text}</p><Link to="/projects">View case-study format <ArrowRight size={15} /></Link></div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        <section className="of-safety-section">
+          <div className="container of-safety-grid">
+            <motion.div className="of-safety-media" initial={{ opacity: 0, x: -18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1600&q=84" alt="Electrical engineering and safety" />
             </motion.div>
-            <motion.div className="of-proof-copy" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .2 }}>
-              <span className="of-kicker">Built for technical buyers</span>
-              <h2>Your website should work like a brochure, capability statement and project portfolio.</h2>
-              <p>When a developer, OEM, consultant or utility-side contact hears about ORIKS, the website should quickly explain what the company can execute and how its services fit into a real project.</p>
+            <motion.div className="of-safety-copy" initial={{ opacity: 0, x: 18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+              <span className="of-kicker">Safety & Quality</span>
+              <h2>Safe energisation starts long before the switch is closed.</h2>
+              <p>The website should communicate disciplined planning, safe systems of work, inspection and test plans, protection checks, commissioning records and documented handover.</p>
               <div className="of-checks">
-                <span><CheckCircle2 size={18} /> Clear service and execution scope</span>
-                <span><CheckCircle2 size={18} /> Renewable-to-grid capability mapping</span>
-                <span><CheckCircle2 size={18} /> Project case-study structure for verified MW / kV / MVA data</span>
-                <span><CheckCircle2 size={18} /> Safety, quality and commissioning focus</span>
+                <span><ShieldCheck size={18} /> Safety-led execution</span>
+                <span><CheckCircle2 size={18} /> Inspection & test discipline</span>
+                <span><Network size={18} /> Protection, metering & grid interface</span>
+                <span><Wrench size={18} /> Lifecycle and O&M support</span>
               </div>
-              <Link to="/capabilities" className="of-inline-link">Explore capabilities <ArrowRight size={16} /></Link>
+              <Link to="/safety-quality" className="of-inline-link">Safety & quality approach <ArrowRight size={16} /></Link>
             </motion.div>
           </div>
         </section>
 
-        <section className="of-section of-strengths">
-          <div className="container">
-            <div className="of-centered-heading"><span className="of-kicker">Why ORIKS</span><h2>Built around reliable execution.</h2></div>
-            <div className="of-strength-grid">
-              {strengths.map(([title, text], index) => (
-                <motion.article key={title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .2 }} transition={{ delay: index * .05 }}>
-                  <span>{index === 2 ? <ShieldCheck size={23} /> : <CheckCircle2 size={23} />}</span>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </motion.article>
-              ))}
-            </div>
+        <section className="of-section of-insights-section">
+          <div className="container of-heading-row">
+            <div><span className="of-kicker">Insights</span><h2>Technical content that supports business development.</h2></div>
+            <p>Articles can explain ORIKS capability in the language customers search for and help the website stay active as projects, technologies and utility requirements evolve.</p>
+          </div>
+          <div className="container of-insight-grid">
+            {insights.map(([tag, title], index) => (
+              <motion.article key={title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * .05 }}>
+                <span>{tag}</span><h3>{title}</h3><Link to="/capabilities">Explore topic <ArrowRight size={15} /></Link>
+              </motion.article>
+            ))}
           </div>
         </section>
 
-        <section className="of-cta-section">
-          <div className="container of-cta">
-            <div><span className="of-kicker">Start with the requirement</span><h2>Planning a solar, wind or power-infrastructure project?</h2><p>Share the project type, location, electrical scope and current stage. ORIKS can structure the technical discussion from there.</p></div>
-            <Link to="/contact" className="of-btn of-btn-light">Discuss a Project <ArrowRight size={17} /></Link>
+        <section className="of-careers-strip">
+          <div className="container of-careers-inner">
+            <div><span className="of-kicker of-kicker-light">Grow with ORIKS</span><h2>People, engineering and execution build every successful project.</h2><p>A careers section can be activated when ORIKS is ready to publish approved openings and recruitment contact details.</p></div>
+            <Link to="/contact" className="of-btn of-btn-light">Contact ORIKS <ArrowRight size={17} /></Link>
+          </div>
+        </section>
+
+        <section className="of-conversation-section">
+          <div className="container of-conversation-grid">
+            <div><span className="of-kicker">Start the Conversation</span><h2>Have an upcoming renewable or power-infrastructure project?</h2><p>Share the project type, location, capacity, voltage level, grid interface and current stage. The project brief is structured for a technical first conversation.</p></div>
+            <div className="of-conversation-card">
+              <strong>Project Enquiry</strong>
+              <span>Wind / Solar / Power Evacuation</span>
+              <span>Substation / Transmission / Grid Connectivity</span>
+              <span>Testing / Commissioning / O&M</span>
+              <Link to="/contact" className="of-btn of-btn-primary">Send Project Brief <ArrowRight size={17} /></Link>
+            </div>
           </div>
         </section>
       </main>
