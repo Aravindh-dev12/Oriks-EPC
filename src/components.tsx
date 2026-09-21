@@ -83,6 +83,37 @@ export function SectionHeading({ eyebrow, title, body }: { eyebrow: string; titl
   return <div className="section-heading"><Eyebrow>{eyebrow}</Eyebrow><h2>{title}</h2>{body && <p>{body}</p>}</div>;
 }
 
+export function VideoHero() {
+  const videos = [
+    'https://cdn.coverr.co/videos/coverr-solar-panels-in-the-field-1579/1080p.mp4',
+    'https://cdn.coverr.co/videos/coverr-stream-next-to-the-road-4482/1080p.mp4'
+  ];
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const timer = window.setInterval(() => setIndex(v => (v + 1) % videos.length), 9000);
+    return () => window.clearInterval(timer);
+  }, []);
+  return (
+    <section className="video-hero">
+      <video key={videos[index]} className="video-hero-bg" autoPlay muted loop playsInline poster="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2200&q=86">
+        <source src={videos[index]} type="video/mp4" />
+      </video>
+      <div className="video-hero-overlay" />
+      <div className="container video-hero-content">
+        <Reveal>
+          <Eyebrow>Propcare Energy Care</Eyebrow>
+          <h1>Engineering the connection from <em>generation to grid.</em></h1>
+          <p>Renewable energy, transport infrastructure and power-delivery projects — presented through the work that moves them from plan to execution.</p>
+          <div className="hero-actions"><Link className="button light" to="/services">Explore solutions <Arrow /></Link><Link className="button ghost-light" to="/contact">Start a project <Arrow /></Link></div>
+        </Reveal>
+      </div>
+      <div className="container video-hero-bottom">
+        <span>Solar & renewable</span><span>Wind infrastructure</span><span>Power evacuation</span><span>Road & transport</span>
+      </div>
+    </section>
+  );
+}
+
 export function PageHero({ label, title, text, image }: { label: string; title: string; text: string; image?: string }) {
   return (
     <section className="page-hero ntc-page-hero">
