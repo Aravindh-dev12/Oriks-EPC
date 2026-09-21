@@ -1,7 +1,26 @@
 import { FormEvent, useMemo, useState } from 'react';
 import { Link, Navigate, Route, Routes, useParams } from 'react-router-dom';
-import { Arrow, CTA, Eyebrow, PageHero, PageShell, Reveal, SectionHeading } from './components';
+import { Arrow, CTA, Eyebrow, PageHero, PageShell, Reveal, SectionHeading, VideoHero } from './components';
 import { capabilitySteps, insights, projectFormats, proofFields, services } from './data';
+
+function Home() {
+  const media = [
+    { title: 'Solar & Renewable EPC', text: 'Solar generation, EBoP, collection, substations and grid-ready evacuation.', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1600&q=84', video: 'https://cdn.coverr.co/videos/coverr-solar-panels-in-the-field-1579/1080p.mp4' },
+    { title: 'Windmill Infrastructure', text: 'Wind-farm electrical interfaces, pooling, transmission and commissioning.', image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=84' },
+    { title: 'Power Evacuation & Transmission', text: 'HT / EHT lines, bay interfaces, substations and synchronisation.', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=84' },
+    { title: 'Road & Transport Contracts', text: 'Infrastructure execution, access, site development and transport-linked works.', image: 'https://images.unsplash.com/photo-1509390144018-eeaf65052242?auto=format&fit=crop&w=1600&q=84', video: 'https://cdn.coverr.co/videos/coverr-stream-next-to-the-road-4482/1080p.mp4' },
+    { title: 'Substations & Switchyards', text: 'Primary equipment, protection, metering, control and pre-energisation checks.', image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=1600&q=84' },
+    { title: 'Testing, Commissioning & O&M', text: 'Testing, grid synchronisation, handover and lifecycle support.', image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=84' }
+  ];
+  return <PageShell>
+    <VideoHero />
+    <section className="section"><div className="container"><Reveal><SectionHeading eyebrow="What Propcare covers" title="Renewable energy, power infrastructure and transport-linked execution." body="A visual-first capability map for solar, wind, evacuation, substations, transmission, road and transport contracts." /></Reveal>
+      <div className="media-showcase">{media.map((m, i) => <Reveal key={m.title}><article className="media-card">{m.video ? <video autoPlay muted loop playsInline poster={m.image}><source src={m.video} type="video/mp4" /></video> : <img src={m.image} alt="" />}<div className="media-card-shade" /><div className="media-card-copy"><span>0{i + 1}</span><h3>{m.title}</h3><p>{m.text}</p></div></article></Reveal>)}</div>
+    </div></section>
+    <section className="section soft-section"><div className="container editorial-grid"><Reveal><SectionHeading eyebrow="Built for EPC buyers" title="Show the contract scope, not just the finished photograph." /></Reveal><Reveal><div className="editorial-copy"><p>Each portfolio story can carry the contract type, capacity, voltage, route length, scope, delivery stage and approved project media. That makes the website useful for technical due diligence as well as brand presentation.</p><p>Verified Propcare site videos can replace the stock footage here whenever they are available.</p></div></Reveal></div></section>
+    <CTA />
+  </PageShell>;
+}
 
 function About() {
   return <PageShell>
@@ -205,7 +224,7 @@ function Contact() {
 
 export default function App() {
   return <Routes>
-    <Route path="/" element={<Navigate to="/" replace />} />
+    <Route path="/" element={<Home />} />
     <Route path="/about" element={<About />} />
     <Route path="/services" element={<ServicesOverview />} />
     <Route path="/services/:slug" element={<ServiceDetail />} />
