@@ -13,9 +13,9 @@ const nav = [
 
 export function Brand() {
   return (
-    <Link to="/" className="brand" aria-label="ORIKS Energy Care home">
+    <Link to="/" className="brand" aria-label="Propcare Energy Care home">
       <span className="brand-mark" aria-hidden="true"><i /><i /></span>
-      <span className="brand-copy"><strong>ORIKS</strong><small>ENERGY CARE</small></span>
+      <span className="brand-copy"><strong>Propcare</strong><small>ENERGY CARE</small></span>
     </Link>
   );
 }
@@ -49,11 +49,11 @@ export function Footer() {
       </div>
       <div className="container footer-grid">
         <div><h4>Solutions</h4><Link to="/services/power-evacuation">Power Evacuation</Link><Link to="/services/pooling-substations-switchyards">Substations & Switchyards</Link><Link to="/services/transmission-infrastructure">Transmission</Link><Link to="/services/testing-commissioning-grid-synchronisation">Testing & Commissioning</Link></div>
-        <div><h4>Company</h4><Link to="/about">About ORIKS</Link><Link to="/projects">Projects</Link><Link to="/sustainability">Safety & Sustainability</Link><Link to="/careers">Careers</Link></div>
+        <div><h4>Company</h4><Link to="/about">About Propcare</Link><Link to="/projects">Projects</Link><Link to="/sustainability">Safety & Sustainability</Link><Link to="/careers">Careers</Link></div>
         <div><h4>Insights</h4><Link to="/insights">Technical Articles</Link><Link to="/projects">Project Case Studies</Link><Link to="/capabilities">Capability Map</Link></div>
-        <div><h4>Registered Office</h4><p>58/1, Ramanujanagar, Sengunthapuram,<br/>Karur, Tamil Nadu, India — 639002.</p><Link to="/contact">Contact ORIKS <Arrow /></Link></div>
+        <div><h4>Registered Office</h4><p>58/1, Ramanujanagar, Sengunthapuram,<br/>Karur, Tamil Nadu, India — 639002.</p><Link to="/contact">Contact Propcare <Arrow /></Link></div>
       </div>
-      <div className="container footer-bottom"><span>© {new Date().getFullYear()} ORIKS Energy Care Pvt Ltd.</span><span>Engineering the connection from generation to grid.</span></div>
+      <div className="container footer-bottom"><span>© {new Date().getFullYear()} Propcare Energy Care Pvt Ltd.</span><span>Engineering the connection from generation to grid.</span></div>
     </footer>
   );
 }
