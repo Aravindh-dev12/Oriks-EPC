@@ -71,3 +71,45 @@
 .visual-band-card:hover video{transform:scale(1.025);transition:transform .7s ease}
 @media(max-width:900px){.visual-band-heading{grid-template-columns:1fr;gap:10px}.visual-band-grid{grid-template-columns:1fr 1fr}.visual-band-card{height:360px}}
 @media(max-width:620px){.visual-project-band{padding:72px 0}.visual-band-grid{grid-template-columns:1fr}.visual-band-card{height:340px}}
+
+
+/* NTC-inspired cinematic presentation for Propcare */
+.video-hero{min-height:calc(100svh - 72px);align-items:stretch}
+.video-hero-bg,.video-hero-poster{object-position:center center}
+.video-hero-content{display:flex;align-items:center;min-height:calc(100svh - 150px);padding:100px 0 80px}
+.video-hero-content .reveal{max-width:980px}
+.video-hero h1{max-width:980px;font-size:clamp(52px,7vw,104px);text-wrap:balance}
+.video-hero p{max-width:760px}
+.video-hero-bottom{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);width:min(var(--max),calc(100% - 44px));padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.35)}
+.video-hero-bottom span{border:0;border-radius:0;background:rgba(8,18,13,.42);padding:15px 16px;font-size:10px;line-height:1.25;backdrop-filter:blur(2px)}
+.video-hero-bottom span+span{border-left:1px solid rgba(255,255,255,.2)}
+
+.footer-visuals{grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:150px 150px;gap:12px;margin-bottom:54px}
+.footer-visual-card{height:auto;min-height:0;border-radius:16px}
+.footer-visual-card-wide{grid-row:span 2}
+.footer-visual-card:after{background:rgba(0,0,0,.16)}
+.footer-visual-card span{font-size:12px;letter-spacing:.03em}
+.footer-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:end;padding-bottom:42px}
+.footer-intro>div:first-child{border-right:1px solid #26332d;padding-right:60px}
+.footer-contact-cta{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.footer-contact-cta span{font-size:12px;color:#839088;text-transform:uppercase;letter-spacing:.12em}
+.footer-contact-cta strong{font:800 25px/1.15 'Manrope',sans-serif;color:#fff;max-width:430px;margin-bottom:14px}
+.footer-stats{margin-bottom:55px}
+.footer-stats>div{min-height:90px}
+@media(max-width:820px){
+  .video-hero{min-height:78svh}
+  .video-hero-content{min-height:78svh;padding:90px 0 120px}
+  .video-hero-bottom{position:relative;left:auto;bottom:auto;transform:none;width:min(var(--max),calc(100% - 30px));grid-template-columns:1fr 1fr;margin-top:-104px;margin-bottom:28px}
+  .video-hero-bottom span{padding:12px}
+  .footer-visuals{grid-template-columns:1fr 1fr;grid-template-rows:150px 150px}
+  .footer-visual-card-wide{grid-row:span 2}
+  .footer-intro{grid-template-columns:1fr;gap:32px}
+  .footer-intro>div:first-child{border-right:0;border-bottom:1px solid #26332d;padding-right:0;padding-bottom:28px}
+}
+@media(max-width:560px){
+  .video-hero-content{padding:80px 0 130px}
+  .video-hero h1{font-size:46px}
+  .video-hero-bottom{grid-template-columns:1fr 1fr}
+  .footer-visuals{grid-template-columns:1fr;grid-template-rows:repeat(4,145px)}
+  .footer-visual-card-wide{grid-row:auto}
+}
