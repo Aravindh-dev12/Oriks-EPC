@@ -44,15 +44,16 @@ export function Footer() {
   return (
     <footer className="site-footer ntc-footer">
       <div className="container footer-visuals">
-        <div className="footer-visual-card"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1000&q=85" alt="Solar infrastructure" /><span>Solar EPC</span></div>
-        <div className="footer-visual-card"><img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1000&q=85" alt="Wind infrastructure" /><span>Wind Infrastructure</span></div>
-        <div className="footer-visual-card"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=85" alt="Power transmission infrastructure" /><span>Power & Transmission</span></div>
+        <div className="footer-visual-card footer-visual-card-wide"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1400&q=88" alt="Solar infrastructure" /><span>01 · Solar EPC</span></div>
+        <div className="footer-visual-card"><img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1000&q=85" alt="Wind infrastructure" /><span>02 · Wind Infrastructure</span></div>
+        <div className="footer-visual-card"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=85" alt="Power transmission infrastructure" /><span>03 · Power & Transmission</span></div>
+        <div className="footer-visual-card"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=85" alt="Engineering and site execution" /><span>04 · Engineering & Site Execution</span></div>
       </div>
       <div className="container footer-intro">
         <div><Brand /><p>Renewable EPC, power evacuation, substations, transmission and grid-connectivity infrastructure for solar, wind and hybrid projects.</p></div>
-        <div><span>Start a project conversation</span><Link className="button light" to="/contact">Send project brief <Arrow /></Link></div>
+        <div className="footer-contact-cta"><span>Have a project to build?</span><strong>Bring the requirement. We’ll map the connection.</strong><Link className="button light" to="/contact">Send project brief <Arrow /></Link></div>
       </div>
-      <div className="container footer-stats"><div><strong>Solar</strong><span>Renewable EPC</span></div><div><strong>Wind</strong><span>Electrical infrastructure</span></div><div><strong>HT / EHT</strong><span>Evacuation & transmission</span></div><div><strong>O&M</strong><span>Lifecycle support</span></div></div>
+      <div className="container footer-stats"><div><strong>Solar + Wind</strong><span>Generation infrastructure</span></div><div><strong>HT / EHT</strong><span>Evacuation & transmission</span></div><div><strong>Substations</strong><span>Switchyards & protection</span></div><div><strong>O&M</strong><span>Testing & lifecycle support</span></div></div>
       <div className="container footer-grid">
         <div><h4>Solutions</h4><Link to="/services/power-evacuation">Power Evacuation</Link><Link to="/services/pooling-substations-switchyards">Substations & Switchyards</Link><Link to="/services/transmission-infrastructure">Transmission</Link><Link to="/services/testing-commissioning-grid-synchronisation">Testing & Commissioning</Link></div>
         <div><h4>Company</h4><Link to="/about">About Propcare</Link><Link to="/projects">Projects</Link><Link to="/sustainability">Safety & Sustainability</Link><Link to="/careers">Careers</Link></div>
@@ -138,14 +139,14 @@ export function VideoHero() {
       </video>
       <div className="container video-hero-content">
         <Reveal>
-          <Eyebrow>Propcare Energy Care</Eyebrow>
-          <h1>Engineering the connection from <em>generation to grid.</em></h1>
-          <p>Renewable energy, transport infrastructure and power-delivery projects — shown through clear photography and full-screen project video.</p>
+          <Eyebrow>Renewable Energy · Power Infrastructure · EPC</Eyebrow>
+          <h1>Building the infrastructure that moves clean power <em>from source to grid.</em></h1>
+          <p>Solar, wind, evacuation, substations, transmission and site execution — presented through cinematic project visuals and clear engineering scope.</p>
           <div className="hero-actions"><Link className="button light" to="/services">Explore solutions <Arrow /></Link><Link className="button ghost-light" to="/contact">Start a project <Arrow /></Link></div>
         </Reveal>
       </div>
       <div className="container video-hero-bottom">
-        <span>Solar & renewable</span><span>Wind infrastructure</span><span>Power evacuation</span><span>Road & transport</span>
+        <span>01 · Solar & renewable</span><span>02 · Wind infrastructure</span><span>03 · Power evacuation</span><span>04 · Transmission & site works</span>
       </div>
     </section>
   );
