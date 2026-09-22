@@ -43,10 +43,16 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="site-footer ntc-footer">
+      <div className="container footer-visuals">
+        <div className="footer-visual-card"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1000&q=85" alt="Solar infrastructure" /><span>Solar EPC</span></div>
+        <div className="footer-visual-card"><img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1000&q=85" alt="Wind infrastructure" /><span>Wind Infrastructure</span></div>
+        <div className="footer-visual-card"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=85" alt="Power transmission infrastructure" /><span>Power & Transmission</span></div>
+      </div>
       <div className="container footer-intro">
         <div><Brand /><p>Renewable EPC, power evacuation, substations, transmission and grid-connectivity infrastructure for solar, wind and hybrid projects.</p></div>
         <div><span>Start a project conversation</span><Link className="button light" to="/contact">Send project brief <Arrow /></Link></div>
       </div>
+      <div className="container footer-stats"><div><strong>Solar</strong><span>Renewable EPC</span></div><div><strong>Wind</strong><span>Electrical infrastructure</span></div><div><strong>HT / EHT</strong><span>Evacuation & transmission</span></div><div><strong>O&M</strong><span>Lifecycle support</span></div></div>
       <div className="container footer-grid">
         <div><h4>Solutions</h4><Link to="/services/power-evacuation">Power Evacuation</Link><Link to="/services/pooling-substations-switchyards">Substations & Switchyards</Link><Link to="/services/transmission-infrastructure">Transmission</Link><Link to="/services/testing-commissioning-grid-synchronisation">Testing & Commissioning</Link></div>
         <div><h4>Company</h4><Link to="/about">About Propcare</Link><Link to="/projects">Projects</Link><Link to="/sustainability">Safety & Sustainability</Link><Link to="/careers">Careers</Link></div>
