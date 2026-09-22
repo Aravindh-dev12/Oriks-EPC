@@ -64,8 +64,38 @@ export function Footer() {
   );
 }
 
+export function VisualProjectBand() {
+  const items = [
+    { title: 'Renewable Generation', tag: 'SOLAR & WIND', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1400&q=86', video: 'https://videos.pexels.com/video-files/9789657/9789657-uhd_2160_3840_30fps.mp4' },
+    { title: 'Power Evacuation', tag: 'HT / EHT INFRASTRUCTURE', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=86', video: 'https://videos.pexels.com/video-files/7211102/7211102-uhd_3840_2160_30fps.mp4' },
+    { title: 'Transport & Site Works', tag: 'INFRASTRUCTURE EXECUTION', image: 'https://images.unsplash.com/photo-1509390144018-eeaf65052242?auto=format&fit=crop&w=1400&q=86', video: 'https://videos.pexels.com/video-files/9906462/9906462-uhd_3840_2160_30fps.mp4' }
+  ];
+  return (
+    <section className="visual-project-band">
+      <div className="container">
+        <div className="visual-band-heading">
+          <Eyebrow>Inside the work</Eyebrow>
+          <h2>Visual proof from generation to grid.</h2>
+          <p>Use this space for approved Propcare site footage, construction photography and commissioning moments across the project lifecycle.</p>
+        </div>
+        <div className="visual-band-grid">
+          {items.map((item, i) => (
+            <article className="visual-band-card" key={item.title}>
+              <img src={item.image} alt={item.title} />
+              <video autoPlay muted loop playsInline preload="metadata" poster={item.image} aria-label={item.title}>
+                <source src={item.video} type="video/mp4" />
+              </video>
+              <div className="visual-band-copy"><span>0{i + 1} · {item.tag}</span><strong>{item.title}</strong></div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function PageShell({ children }: PropsWithChildren) {
-  return <><Header /><main>{children}</main><Footer /></>;
+  return <><Header /><main>{children}</main><VisualProjectBand /><Footer /></>;
 }
 
 export function Eyebrow({ children }: PropsWithChildren) { return <div className="eyebrow"><span />{children}</div>; }
