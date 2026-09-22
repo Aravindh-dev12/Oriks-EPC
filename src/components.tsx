@@ -85,8 +85,9 @@ export function SectionHeading({ eyebrow, title, body }: { eyebrow: string; titl
 
 export function VideoHero() {
   const videos = [
-    'https://cdn.coverr.co/videos/coverr-solar-panels-in-the-field-1579/1080p.mp4',
-    'https://cdn.coverr.co/videos/coverr-stream-next-to-the-road-4482/1080p.mp4'
+    'https://videos.pexels.com/video-files/9906462/9906462-uhd_3840_2160_30fps.mp4',
+    'https://videos.pexels.com/video-files/9789657/9789657-uhd_2160_3840_30fps.mp4',
+    'https://videos.pexels.com/video-files/7211102/7211102-uhd_3840_2160_30fps.mp4'
   ];
   const [index, setIndex] = useState(0);
   useEffect(() => {
@@ -95,15 +96,15 @@ export function VideoHero() {
   }, []);
   return (
     <section className="video-hero">
-      <video key={videos[index]} className="video-hero-bg" autoPlay muted loop playsInline poster="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2200&q=86">
+      <img className="video-hero-poster" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2200&q=90" alt="Renewable energy infrastructure" />
+      <video key={videos[index]} className="video-hero-bg" autoPlay muted loop playsInline preload="auto" poster="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2200&q=90">
         <source src={videos[index]} type="video/mp4" />
       </video>
-      <div className="video-hero-overlay" />
       <div className="container video-hero-content">
         <Reveal>
           <Eyebrow>Propcare Energy Care</Eyebrow>
           <h1>Engineering the connection from <em>generation to grid.</em></h1>
-          <p>Renewable energy, transport infrastructure and power-delivery projects — presented through the work that moves them from plan to execution.</p>
+          <p>Renewable energy, transport infrastructure and power-delivery projects — shown through clear photography and full-screen project video.</p>
           <div className="hero-actions"><Link className="button light" to="/services">Explore solutions <Arrow /></Link><Link className="button ghost-light" to="/contact">Start a project <Arrow /></Link></div>
         </Reveal>
       </div>
