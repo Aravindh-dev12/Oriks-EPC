@@ -22,8 +22,8 @@ export const services: Service[] = [
   {
     slug: 'renewable-epc-ebop',
     title: 'Renewable EPC & EBoP',
-    short: 'Electrical and infrastructure scope that carries a solar, wind or hybrid project from generation to a grid-ready system.',
-    intro: 'A renewable project has to do more than generate power. The electrical balance of plant coordinates collection, protection, earthing, cabling, auxiliary systems, civil interfaces and the final connection to the evacuation network.',
+    short: 'Integrated project execution for renewable assets, covering the electrical systems and site interfaces needed to move power toward commissioning.',
+    intro: 'ORIKS brings the plant-side electrical packages together with the civil and grid interfaces around them, so equipment, cabling, protection, earthing and auxiliary systems can be delivered as one coordinated scope.',
     bullets: ['Plant electrical systems', 'Cable & earthing networks', 'Switchgear and protection interfaces', 'Civil and electrical coordination', 'Interface management from plant to grid'],
     strengths: ['Single-window electrical scope', 'Interface-led engineering', 'Construction and commissioning coordination', 'Lifecycle-ready documentation'],
     image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=84'
@@ -31,8 +31,8 @@ export const services: Service[] = [
   {
     slug: 'power-evacuation',
     title: 'Power Evacuation',
-    short: 'End-to-end evacuation infrastructure between the generating plant, pooling point and approved utility interconnection.',
-    intro: 'Power evacuation is the electrical path that moves renewable generation from the project site to the utility network. The scope can involve collection systems, pooling substations, HT/EHT transmission lines, bay interfaces, metering, protection and grid-synchronisation support.',
+    short: 'Infrastructure that links the generating asset with the receiving substation through the required collection, transformation and transmission systems.',
+    intro: 'The evacuation package connects plant output to the designated grid interface. Depending on the project, ORIKS can coordinate collection, transformation, transmission, protection, metering, bay works and commissioning activities across that path.',
     bullets: ['Evacuation scheme coordination', 'HT / EHT line execution', 'Bay and grid interface works', 'Utility-side documentation support', 'Charging and synchronisation coordination'],
     strengths: ['Generation-to-grid thinking', 'Utility-interface focus', 'Protection and metering integration', 'Commissioning-oriented execution'],
     image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=84'
@@ -40,8 +40,8 @@ export const services: Service[] = [
   {
     slug: 'pooling-substations-switchyards',
     title: 'Pooling Substations & Switchyards',
-    short: 'Integrated civil, primary electrical, protection, metering and control works for renewable power evacuation.',
-    intro: 'Pooling substations and switchyards combine power from the plant collection system, transform it to the required evacuation voltage and provide the protection, metering, control and switching interface required for reliable grid connection.',
+    short: 'Substation and switchyard execution covering the physical installation and the electrical systems required for controlled power transfer.',
+    intro: 'A pooling station is where multiple project interfaces meet. ORIKS coordinates equipment installation, protection, metering, control, auxiliary systems, earthing and associated civil works around the approved design.',
     bullets: ['Pooling substation packages', 'AIS / GIS interface works', 'Protection, metering & control', 'Testing and pre-energisation checks', 'Cable, earthing and auxiliary systems'],
     strengths: ['Civil + electrical coordination', 'Primary and secondary systems', 'Testing discipline', 'Utility bay interface readiness'],
     image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=1600&q=84'
@@ -49,8 +49,8 @@ export const services: Service[] = [
   {
     slug: 'transmission-infrastructure',
     title: 'Transmission Infrastructure',
-    short: 'Transmission and interconnection works planned around route, right-of-way, utility interface and energisation requirements.',
-    intro: 'Transmission work is where engineering, route planning, civil execution, structures, conductor stringing, OPGW, statutory coordination and final line charging all have to come together as one project interface.',
+    short: 'Transmission execution from route preparation and structures through stringing, testing and readiness for the receiving-end connection.',
+    intro: 'Line projects require close control of access, structures, stringing, crossings, testing and utility interfaces. ORIKS approaches these activities as one execution sequence leading toward charging and handover.',
     bullets: ['Route and execution planning', 'Tower / structure works', 'Conductor and OPGW stringing', 'Right-of-way coordination support', 'Line charging coordination'],
     strengths: ['Route-aware planning', 'Interface management', 'Construction sequencing', 'Energisation-focused handover'],
     image: 'https://images.unsplash.com/photo-1509390144018-eeaf65052242?auto=format&fit=crop&w=1600&q=84'
@@ -58,8 +58,8 @@ export const services: Service[] = [
   {
     slug: 'testing-commissioning-grid-synchronisation',
     title: 'Testing, Commissioning & Grid Synchronisation',
-    short: 'A disciplined close-out process that turns constructed systems into safe, documented and energisation-ready assets.',
-    intro: 'Testing and commissioning confirm that the installed electrical system is complete, safe, protected correctly and ready to energise. The process covers inspections, functional checks, protection verification, metering, control, charging and grid synchronisation support.',
+    short: 'The final project stage where installed systems are inspected, tested, documented and prepared for safe energisation and handover.',
+    intro: 'Commissioning closes the gap between physical completion and operational readiness. ORIKS can structure inspections, functional testing, protection checks, metering and control verification, punch-list closure and energisation support around the approved commissioning plan.',
     bullets: ['Protection and functional checks', 'Pre-commissioning verification', 'Grid synchronisation support', 'Handover documentation', 'Punch-list and readiness closure'],
     strengths: ['Pre-energisation discipline', 'Protection-system focus', 'Clear test records', 'Structured handover'],
     image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=84'
@@ -67,8 +67,8 @@ export const services: Service[] = [
   {
     slug: 'operations-maintenance',
     title: 'O&M & Lifecycle Support',
-    short: 'Preventive, corrective and inspection support for substations, evacuation systems and associated renewable electrical assets.',
-    intro: 'Long-term performance depends on inspection, preventive maintenance, testing, documentation and timely response to defects. O&M planning should protect availability while keeping the electrical asset safe and maintainable.',
+    short: 'Post-commissioning support focused on inspection, maintenance, fault response and dependable operation of electrical infrastructure.',
+    intro: 'Lifecycle support keeps delivered assets maintainable after handover through planned inspections, preventive work, testing, documentation and response to identified faults.',
     bullets: ['Preventive maintenance', 'Breakdown response', 'Inspection and testing', 'Asset performance support', 'Maintenance documentation'],
     strengths: ['Lifecycle mindset', 'Condition-focused inspection', 'Testing and fault response', 'Maintainability support'],
     image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1600&q=84'
