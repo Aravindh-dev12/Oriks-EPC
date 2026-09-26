@@ -188,3 +188,24 @@
 .video-hero .hero-actions .button{font-weight:800}
 .video-hero .hero-actions .button.light{color:#111816!important;background:#fff!important}
 .video-hero .video-hero-bottom span{color:#fff!important}
+
+/* ORIKS header + media reliability fixes */
+.site-header{background:#fff!important;color:#111816!important}
+.site-header .header-inner{display:flex;align-items:center;justify-content:space-between}
+.site-header .brand{color:#111816!important;flex:0 0 auto;visibility:visible!important;opacity:1!important}
+.site-header .brand-copy,.site-header .brand-copy strong{color:#111816!important}
+.site-header .brand-copy small{color:#16804f!important}
+.site-header .brand-mark{display:grid!important;visibility:visible!important;opacity:1!important}
+.site-header .brand-mark b{position:relative;z-index:3;font:800 11px/1 'Manrope',sans-serif;color:#16804f}
+.site-header .brand-mark:before{border-color:#16804f!important}
+.site-header .brand-mark i{background:#16804f!important}
+.site-header .nav-links{margin-left:auto;color:#111816!important}
+.site-header .nav-links>a{color:#111816!important}
+.site-header .nav-links>a:not(.nav-cta):hover,.site-header .nav-links>a.active{color:#0d5a39!important}
+.site-header .nav-cta{color:#fff!important;background:#16804f!important}
+.site-header .menu-toggle span{background:#111816!important}
+.visual-project-band{display:block!important;background:#f4f7f5}
+.visual-band-card{height:420px}
+.visual-band-card video{background:#0b1510}
+.visual-band-card video::-webkit-media-controls-panel{background:linear-gradient(transparent,rgba(0,0,0,.75))}
+@media(max-width:820px){.site-header .nav-links{margin-left:0}.visual-band-card{height:340px}}
