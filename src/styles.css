@@ -180,3 +180,11 @@
  .video-hero-bottom{grid-template-columns:1fr 1fr}
  .video-hero-bottom span{padding:11px 10px}
 }
+
+
+/* Final hero typography: white only */
+.video-hero h1,.video-hero p,.video-hero .eyebrow,.video-hero .eyebrow>span{color:#fff!important}
+.video-hero h1 em{color:#c8f4d9!important}
+.video-hero .hero-actions .button{font-weight:800}
+.video-hero .hero-actions .button.light{color:#111816!important;background:#fff!important}
+.video-hero .video-hero-bottom span{color:#fff!important}
