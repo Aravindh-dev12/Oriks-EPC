@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react';
-import { Link, NavLink, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useParams } from 'react-router-dom';
 import { Arrow, Header, Footer, HeroVideo, Section, MediaCard } from './components';
 import { services } from './data';
 
