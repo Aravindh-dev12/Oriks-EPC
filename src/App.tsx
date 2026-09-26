@@ -154,7 +154,7 @@ function ServiceDetail() {
     </section>
     <section className="section soft-section">
       <div className="container service-scope-layout">
-        <Reveal><SectionHeading eyebrow="Scope" title="Solutions we can present within this work package." body="The exact contract scope should always be aligned with the approved Propcare proposal and project requirement." /></Reveal>
+        <Reveal><SectionHeading eyebrow="Scope" title="Solutions we can present within this work package." body="The exact contract scope should always be aligned with the approved ORIKS proposal and project requirement." /></Reveal>
         <div className="scope-list">{service.bullets.map((b, i) => <Reveal key={b}><div><span>0{i + 1}</span><strong>{b}</strong></div></Reveal>)}</div>
       </div>
     </section>
@@ -227,7 +227,7 @@ function InsightDetail() {
 
 function Sustainability() {
   return <PageShell>
-    <PageHero label="Sustainability, Safety & Quality" title="Reliable infrastructure starts with disciplined execution." text="reference example gives sustainability and Q&EHS their own corporate space. For Propcare, the equivalent should bring safety, quality, environmental responsibility and responsible energisation together in one clear section." image="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=84" />
+    <PageHero label="Sustainability, Safety & Quality" title="Reliable infrastructure starts with disciplined execution." text="ORIKS treats safety, quality, environmental responsibility and controlled energisation as connected parts of project delivery." image="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=84" />
     <section className="section"><div className="container safety-grid">{[
       ['Plan the work','Define method statements, interfaces, permits, sequence, access and responsibilities before mobilisation.'],
       ['Control site risk','Use task-level hazard identification, isolation discipline, PPE, toolbox talks and appropriate supervision.'],
@@ -236,7 +236,7 @@ function Sustainability() {
       ['Document the asset','Close with drawings, test records, handover packs and agreed operating / maintenance information.'],
       ['Improve continuously','Capture lessons, recurring defects and maintenance observations to improve future execution and reliability.']
     ].map(([t,d],i) => <Reveal key={t}><article><span>0{i+1}</span><h3>{t}</h3><p>{d}</p></article></Reveal>)}</div></section>
-    <section className="section dark-section"><div className="container editorial-grid"><Reveal><SectionHeading eyebrow="Responsible publishing" title="Certifications and statistics should be verifiable." /></Reveal><Reveal><div className="editorial-copy"><p>Client logos, ISO certificates, electrical contractor licences, utility empanelments, safety statistics and project-completion records should be published only after Propcare provides approved copies or references.</p><p>This keeps published project information accurate and suitable for technical and commercial review.</p></div></Reveal></div></section>
+    <section className="section dark-section"><div className="container editorial-grid"><Reveal><SectionHeading eyebrow="Responsible publishing" title="Certifications and statistics should be verifiable." /></Reveal><Reveal><div className="editorial-copy"><p>Client logos, ISO certificates, electrical contractor licences, utility empanelments, safety statistics and project-completion records should be published only after ORIKS provides approved copies or references.</p><p>This keeps published project information accurate and suitable for technical and commercial review.</p></div></Reveal></div></section>
     <CTA />
   </PageShell>;
 }
