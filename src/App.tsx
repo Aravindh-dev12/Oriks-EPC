@@ -4,24 +4,82 @@ import { Arrow, CTA, Eyebrow, PageHero, PageShell, Reveal, SectionHeading, Video
 import { capabilitySteps, insights, projectFormats, proofFields, services } from './data';
 
 function Home() {
-  const media = [
-    { title: 'Solar & Renewable EPC', text: 'Solar generation, EBoP, collection, substations and grid-ready evacuation.', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1600&q=84', video: 'https://videos.pexels.com/video-files/9789657/9789657-uhd_2160_3840_30fps.mp4' },
-    { title: 'Windmill Infrastructure', text: 'Wind-farm electrical interfaces, pooling, transmission and commissioning.', image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1600&q=84' },
-    { title: 'Power Evacuation & Transmission', text: 'HT / EHT lines, bay interfaces, substations and synchronisation.', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=84' },
-    { title: 'Road & Transport Contracts', text: 'Infrastructure execution, access, site development and transport-linked works.', image: 'https://images.unsplash.com/photo-1509390144018-eeaf65052242?auto=format&fit=crop&w=1600&q=84', video: 'https://videos.pexels.com/video-files/9906462/9906462-uhd_3840_2160_30fps.mp4' },
-    { title: 'Substations & Switchyards', text: 'Primary equipment, protection, metering, control and pre-energisation checks.', image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=1600&q=84' },
-    { title: 'Testing, Commissioning & O&M', text: 'Testing, grid synchronisation, handover and lifecycle support.', image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=84' }
+  const industries = [
+    { title: 'Solar & Renewable', text: 'Plant electrical systems, EBoP, collection, evacuation and grid interface.', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1400&q=88' },
+    { title: 'Wind Infrastructure', text: 'Electrical interfaces, pooling, transmission and commissioning support.', image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1400&q=88' },
+    { title: 'Power Transmission', text: 'HT / EHT lines, substations, bay interfaces and energisation readiness.', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=88' },
+    { title: 'Industrial Infrastructure', text: 'Electrical infrastructure and site execution for complex project environments.', image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1400&q=88' }
   ];
+
+  const journey = [
+    ['01', 'Engineer', 'Define the electrical scope, interfaces and execution sequence.'],
+    ['02', 'Build', 'Coordinate civil, electrical, procurement and site activities.'],
+    ['03', 'Connect', 'Complete evacuation, substation, transmission and utility interfaces.'],
+    ['04', 'Commission', 'Test, verify, document and prepare the system for energisation.'],
+    ['05', 'Support', 'Extend the value of the asset through O&M and lifecycle support.']
+  ];
+
+  const cases = [
+    { title: 'Wind Power Evacuation', tag: 'Representative case-study format', text: 'Collection network, pooling substation, EHV transmission and utility interface.', image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1400&q=88' },
+    { title: 'Solar Grid Interconnection', tag: 'Representative case-study format', text: 'Plant electrical scope, collection system, evacuation line and commissioning.', image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=88' },
+    { title: 'Substation & Transmission', tag: 'Representative case-study format', text: 'Primary equipment, protection, metering, bay works and pre-energisation testing.', image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=1400&q=88' }
+  ];
+
   return <PageShell>
     <VideoHero />
-    <section className="section"><div className="container"><Reveal><SectionHeading eyebrow="What Propcare covers" title="Renewable energy, power infrastructure and transport-linked execution." body="A visual-first capability map for solar, wind, evacuation, substations, transmission, road and transport contracts." /></Reveal>
-      <div className="media-showcase">{media.map((m, i) => <Reveal key={m.title}><article className="media-card"><img className="media-card-poster" src={m.image} alt="" />{m.video && <video autoPlay muted loop playsInline preload="auto" poster={m.image}><source src={m.video} type="video/mp4" /></video>}<div className="media-card-shade" /><div className="media-card-copy"><span>0{i + 1}</span><h3>{m.title}</h3><p>{m.text}</p></div></article></Reveal>)}</div>
-    </div></section>
-    <section className="section soft-section"><div className="container editorial-grid"><Reveal><SectionHeading eyebrow="Built for EPC buyers" title="Show the contract scope, not just the finished photograph." /></Reveal><Reveal><div className="editorial-copy"><p>Each portfolio story can carry the contract type, capacity, voltage, route length, scope, delivery stage and approved project media. That makes the website useful for technical due diligence as well as brand presentation.</p><p>Verified Propcare site videos can replace the stock footage here whenever they are available.</p></div></Reveal></div></section>
+
+    <section className="oriks-intro">
+      <div className="container oriks-two-col">
+        <Reveal><SectionHeading eyebrow="From source to grid" title="Infrastructure that makes renewable power deliverable." body="ORIKS Energy Care can be presented as an execution partner across generation-side electrical works, power evacuation, substations, transmission, commissioning and lifecycle support." /></Reveal>
+        <Reveal><div className="oriks-intro-copy"><p>Inspired by the visual clarity used by leading infrastructure companies, the ORIKS website now separates the story into strong visual sections: solutions, industries, project journey, proof and case studies.</p><Link className="text-link" to="/capabilities">Explore the capability map <Arrow /></Link></div></Reveal>
+      </div>
+    </section>
+
+    <section className="oriks-solutions">
+      <div className="container">
+        <Reveal><SectionHeading eyebrow="Our solutions" title="A visual catalogue of the work packages around a renewable project." body="Each capability can open into a dedicated technical page with approved project photographs, equipment visuals, scope details and verified project evidence." /></Reveal>
+        <div className="oriks-solution-grid">{services.map((s, i) => <Reveal key={s.slug}><Link to={`/services/${s.slug}`} className="oriks-solution-card"><div className="oriks-solution-image"><img src={s.image} alt="" /><span>0{i + 1}</span></div><div className="oriks-solution-body"><h3>{s.title}</h3><p>{s.short}</p><strong>View solution <Arrow /></strong></div></Link></Reveal>)}</div>
+      </div>
+    </section>
+
+    <section className="oriks-industries">
+      <div className="container">
+        <div className="oriks-section-head light"><Reveal><SectionHeading eyebrow="Industries & infrastructure" title="Show where the engineering is applied." body="Use real ORIKS site photography here as it becomes available. Until then, the visual categories establish the information architecture without inventing project claims." /></Reveal></div>
+        <div className="oriks-industry-grid">{industries.map((item, i) => <Reveal key={item.title}><article className="oriks-industry-card"><img src={item.image} alt="" /><div className="oriks-industry-shade" /><div className="oriks-industry-copy"><span>0{i + 1}</span><h3>{item.title}</h3><p>{item.text}</p></div></article></Reveal>)}</div>
+      </div>
+    </section>
+
+    <section className="oriks-journey">
+      <div className="container">
+        <Reveal><SectionHeading eyebrow="Project journey" title="Make the delivery model visible in one glance." body="A simple visual sequence helps technical buyers understand where ORIKS can participate in a project and how the interfaces connect." /></Reveal>
+        <div className="oriks-journey-track">{journey.map(([n,t,d]) => <Reveal key={n}><div className="oriks-journey-step"><span>{n}</span><div><strong>{t}</strong><small>{d}</small></div></div></Reveal>)}</div>
+      </div>
+    </section>
+
+    <section className="oriks-proof">
+      <div className="container oriks-proof-grid">
+        <Reveal><div><Eyebrow>Project proof</Eyebrow><h2>Put the numbers next to the photographs.</h2><p>When management verifies the portfolio, replace the placeholders with actual MW, kV, MVA, route length, project location and executed scope. This is the kind of evidence buyers can scan quickly.</p><Link className="button light" to="/projects">View project format <Arrow /></Link></div></Reveal>
+        <Reveal><div className="oriks-proof-units">{proofFields.map(([key,label]) => <div key={key}><strong>{key}</strong><span>{label}</span></div>)}</div></Reveal>
+      </div>
+    </section>
+
+    <section className="oriks-cases">
+      <div className="container">
+        <Reveal><SectionHeading eyebrow="Case studies" title="More project visuals, less generic stock imagery." body="Use the NTC-style case-study pattern—large image, concise challenge, scope and result—but keep every ORIKS claim backed by approved project records." /></Reveal>
+        <div className="oriks-case-grid">{cases.map((item, i) => <Reveal key={item.title}><article className={`oriks-case-card ${i === 0 ? 'featured' : ''}`}><div className="oriks-case-media"><img src={item.image} alt="" /></div><div className="oriks-case-body"><span>{item.tag}</span><h3>{item.title}</h3><p>{item.text}</p><Link to="/projects">Open project library <Arrow /></Link></div></article></Reveal>)}</div>
+      </div>
+    </section>
+
+    <section className="oriks-safety">
+      <div className="container oriks-safety-grid">
+        <Reveal><div className="oriks-safety-media"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1500&q=88" alt="Electrical engineering site work" /></div></Reveal>
+        <Reveal><div><SectionHeading eyebrow="Safety, quality & sustainability" title="Make Q&EHS a visible part of the brand." body="The NTC site gives Q&EHS and sustainability a clear place in the journey. ORIKS can use the same structure for approved safety systems, quality controls, environmental practices and commissioning discipline." /><div className="oriks-checks"><span>✓ Safe systems of work</span><span>✓ Inspection & test plans</span><span>✓ Pre-energisation checks</span><span>✓ Handover documentation</span></div><Link className="text-link" to="/sustainability">Explore safety & quality <Arrow /></Link></div></Reveal>
+      </div>
+    </section>
+
     <CTA />
   </PageShell>;
 }
-
 function About() {
   return <PageShell>
     <PageHero
