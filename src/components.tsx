@@ -14,7 +14,7 @@ const nav = [
 export function Brand() {
   return (
     <Link to="/" className="brand" aria-label="ORIKS Energy Care home">
-      <span className="brand-mark" aria-hidden="true"><i /><i /></span>
+      <span className="brand-mark" aria-hidden="true"><b>O</b><i /><i /></span>
       <span className="brand-copy"><strong>ORIKS</strong><small>ENERGY CARE</small></span>
     </Link>
   );
@@ -31,7 +31,7 @@ export function Header() {
         <button className="menu-toggle" aria-expanded={open} aria-label="Toggle navigation" onClick={() => setOpen(v => !v)}>
           <span /><span />
         </button>
-        <nav className={open ? 'nav-links open' : 'nav-links'}>
+        <nav className={open ? 'nav-links open' : 'nav-links'} aria-label="Primary navigation">
           {nav.map(([label, path]) => <NavLink key={path} to={path} className={({ isActive }) => isActive ? 'active' : ''}>{label}</NavLink>)}
           <Link className="nav-cta" to="/contact">Project enquiry</Link>
         </nav>
@@ -67,9 +67,9 @@ export function Footer() {
 
 export function VisualProjectBand() {
   const items = [
-    { title: 'Renewable Generation', tag: 'SOLAR & WIND', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1400&q=86', video: 'https://videos.pexels.com/video-files/9789657/9789657-uhd_2160_3840_30fps.mp4' },
-    { title: 'Power Evacuation', tag: 'HT / EHT INFRASTRUCTURE', image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=86', video: 'https://videos.pexels.com/video-files/7211102/7211102-uhd_3840_2160_30fps.mp4' },
-    { title: 'Transport & Site Works', tag: 'INFRASTRUCTURE EXECUTION', image: 'https://images.unsplash.com/photo-1509390144018-eeaf65052242?auto=format&fit=crop&w=1400&q=86', video: 'https://videos.pexels.com/video-files/9906462/9906462-uhd_3840_2160_30fps.mp4' }
+    { title: 'Renewable Generation', tag: 'SOLAR & WIND', image: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1400&q=86', video: 'https://videos.pexels.com/video-files/9789925/9789925-hd_1920_1080_25fps.mp4' },
+    { title: 'Wind + Solar Infrastructure', tag: 'RENEWABLE ENERGY', image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1400&q=86', video: 'https://videos.pexels.com/video-files/32939598/32939598-hd_1920_1080_25fps.mp4' },
+    { title: 'Construction & Site Works', tag: 'PROJECT EXECUTION', image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1400&q=86', video: 'https://videos.pexels.com/video-files/29820144/29820144-hd_1920_1080_25fps.mp4' }
   ];
   return (
     <section className="visual-project-band">
@@ -83,7 +83,7 @@ export function VisualProjectBand() {
           {items.map((item, i) => (
             <article className="visual-band-card" key={item.title}>
               <img src={item.image} alt={item.title} />
-              <video autoPlay muted loop playsInline preload="metadata" poster={item.image} aria-label={item.title}>
+              <video autoPlay muted loop playsInline controls preload="metadata" poster={item.image} aria-label={item.title}>
                 <source src={item.video} type="video/mp4" />
               </video>
               <div className="visual-band-copy"><span>0{i + 1} · {item.tag}</span><strong>{item.title}</strong></div>
