@@ -122,9 +122,9 @@ export function SectionHeading({ eyebrow, title, body }: { eyebrow: string; titl
 
 export function VideoHero() {
   const videos = [
-    'https://videos.pexels.com/video-files/9906462/9906462-uhd_3840_2160_30fps.mp4',
-    'https://videos.pexels.com/video-files/9789657/9789657-uhd_2160_3840_30fps.mp4',
-    'https://videos.pexels.com/video-files/7211102/7211102-uhd_3840_2160_30fps.mp4'
+    'https://videos.pexels.com/video-files/9789925/9789925-hd_1920_1080_25fps.mp4',
+    'https://videos.pexels.com/video-files/32939598/32939598-hd_1920_1080_25fps.mp4',
+    'https://videos.pexels.com/video-files/29820144/29820144-hd_1920_1080_25fps.mp4'
   ];
   const [index, setIndex] = useState(0);
   useEffect(() => {
@@ -139,9 +139,9 @@ export function VideoHero() {
       </video>
       <div className="container video-hero-content">
         <Reveal>
-          <Eyebrow>Renewable Energy · Power Infrastructure · EPC</Eyebrow>
-          <h1>Building the infrastructure that moves clean power <em>from source to grid.</em></h1>
-          <p>Solar, wind, evacuation, substations, transmission and site execution — presented through cinematic project visuals and clear engineering scope.</p>
+          <Eyebrow>ORIKS ENERGY CARE · EPC & POWER INFRASTRUCTURE</Eyebrow>
+          <h1>Engineering the infrastructure that connects <em>renewable power to the grid.</em></h1>
+          <p>Solar, wind, substations, power evacuation and transmission — engineered for dependable project execution.</p>
           <div className="hero-actions"><Link className="button light" to="/services">Explore solutions <Arrow /></Link><Link className="button ghost-light" to="/contact">Start a project <Arrow /></Link></div>
         </Reveal>
       </div>
