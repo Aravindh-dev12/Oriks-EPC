@@ -73,8 +73,7 @@ function Home() {
       <section className="metrics"><div className="wrap metric-grid"><div><strong>Solar</strong><span>Renewable EPC</span></div><div><strong>Wind</strong><span>Electrical infrastructure</span></div><div><strong>HT / EHT</strong><span>Evacuation & transmission</span></div><div><strong>O&M</strong><span>Lifecycle support</span></div></div></section>
       <section className="wrap projects"><Section eyebrow="Project approach" title="Designed for technical clarity, not decorative claims." /><div className="project-grid"><MediaCard image="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=88" title="Renewable EPC" text="Plant-side electrical systems and EBoP." /><MediaCard image="https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=1400&q=88" title="Substations & switchyards" text="Primary, secondary and grid-interface works." /><MediaCard image="https://images.unsplash.com/photo-1509390144018-eeaf65052242?auto=format&fit=crop&w=1400&q=88" title="Transmission" text="Route execution, stringing and energisation readiness." /></div></section>
       <section className="image-band"><div className="wrap image-band-grid"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1500&q=88" alt="Solar field" /><img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=1200&q=88" alt="Wind turbines" /><img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=1200&q=88" alt="Power infrastructure" /></div></section>
-      <section className="cta"><div className="wrap cta-inner"><div><span className="kicker">START A PROJECT</span><h2>Bring the requirement. We’ll map the electrical scope.</h2></div><Link className="button light" to="/contact">Project enquiry <Arrow /></Link></div></section>
-    </>
+      </>
   );
 }
 
