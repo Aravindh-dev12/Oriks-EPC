@@ -110,3 +110,10 @@
  .article-band{gap:30px}
  .copyright{display:block}.copyright span{display:block;margin-top:8px}
 }
+
+/* Hero video clarity: keep the real video prominent and HD-looking without the old iframe treatment. */
+.hero-video{min-height:calc(100svh - 82px);background:#06100c}
+.hero-video-media{width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;filter:none;image-rendering:auto}
+.hero-video .hero-shade{background:linear-gradient(90deg,rgba(3,12,8,.58) 0%,rgba(3,12,8,.24) 48%,rgba(3,12,8,.04) 100%),linear-gradient(0deg,rgba(3,12,8,.28),transparent 48%)}
+.hero-copy{padding-top:125px;padding-bottom:125px}
+@media(max-width:800px){.hero-video{min-height:calc(100svh - 70px)}.hero-video-media{object-position:center}.hero-copy{padding-top:90px;padding-bottom:90px}}
