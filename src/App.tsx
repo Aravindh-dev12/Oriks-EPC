@@ -51,6 +51,14 @@ const pageVisuals = {
       'https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=1800&q=95',
       'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1800&q=95'
     ]
+  },
+  articles: {
+    image: 'https://images.unsplash.com/photo-1509390144018-eeaf65052242?auto=format&fit=crop&w=2200&q=95',
+    gallery: [
+      'https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=2200&q=95',
+      'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=1800&q=95',
+      'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=95'
+    ]
   }
 };
 
@@ -101,18 +109,6 @@ function Sustainability() {
 
 function Articles() {
   const articles = [
-    { title: 'From generation to grid: the electrical path', text: 'A practical view of collection, transformation, evacuation and receiving-end coordination.', image: pageVisuals.insights.gallery[0] },
-    { title: 'Designing for commissioning from day one', text: 'Why testing strategy, protection, metering and documentation belong in the execution plan early.', image: pageVisuals.insights.gallery[1] },
-    { title: 'Transmission readiness in renewable projects', text: 'Route, structures, stringing, testing and energisation treated as one connected delivery sequence.', image: pageVisuals.insights.gallery[2] }
-  ];
-  return <Page title="Articles" lead="Engineering perspectives on renewable EPC, power evacuation and grid infrastructure." {...pageVisuals.insights}>
-    <Section eyebrow="Articles / Engineering notes" title="Practical knowledge from the renewable-to-grid journey." />
-    <div className="project-grid">{articles.map(a => <MediaCard key={a.title} image={a.image} title={a.title} text={a.text} />)}</div>
-  </Page>;
-}
-
-function Articles() {
-  const articles = [
     { image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1800&q=95', tag: 'GRID INFRASTRUCTURE', title: 'Designing the renewable-to-grid connection', text: 'A practical view of collection systems, evacuation, substations and the receiving-end interface.' },
     { image: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=1800&q=95', tag: 'SUBSTATIONS', title: 'What makes a substation ready for energisation?', text: 'Protection, control, metering, earthing and pre-commissioning checks that turn installed equipment into an operable system.' },
     { image: 'https://images.unsplash.com/photo-1509390144018-eeaf65052242?auto=format&fit=crop&w=1800&q=95', tag: 'TRANSMISSION', title: 'From route preparation to line charging', text: 'How route access, structures, stringing, crossings, testing and handover fit into one execution sequence.' },
@@ -125,12 +121,3 @@ function Articles() {
   </Page>;
 }
 
-function Page({ title, lead, image, gallery, children }: { title: string; lead: string; image: string; gallery: string[]; children: ReactNode }) {
-  return <><section className="inner-hero"><div className="wrap inner-grid"><div><span className="kicker">PROPCare ENERGY CARE</span><h1>{title}</h1><p>{lead}</p></div><img src={image} alt="" /></div></section><main className="wrap page-body">{children}<section className="page-gallery"><div className="gallery-large"><img src={gallery[0]} alt="Renewable infrastructure"/><span>FIELD / RENEWABLE INFRASTRUCTURE</span></div><div className="gallery-column"><img src={gallery[1]} alt="Power infrastructure"/><img src={gallery[2]} alt="Project engineering"/></div></section><section className="article-band"><div><span className="kicker">ENGINEERING NOTE</span><h2>Why the connection matters.</h2></div><p>Renewable projects are not only about generation. The electrical path through collection, transformation, protection, evacuation and grid interface has to work as one coordinated system. PROPCare presents that journey visually, package by package.</p></section></main></>;
-}
-
-function App() {
-  return <><Header /><Routes><Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/services" element={<Services />} /><Route path="/services/:slug" element={<Service />} /><Route path="/projects" element={<Projects />} /><Route path="/insights" element={<Insights />} /><Route path="/sustainability" element={<Sustainability />} /><Route path="/articles" element={<Articles />} /><Route path="/articles" element={<Articles />} /><Route path="/articles" element={<Articles />} /><Route path="/contact" element={<Contact />} /><Route path="*" element={<Home />} /></Routes><Footer /></>;
-}
-
-export default App;
