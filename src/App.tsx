@@ -121,3 +121,13 @@ function Articles() {
   </Page>;
 }
 
+
+function Page({ title, lead, image, gallery, children }: { title: string; lead: string; image: string; gallery: string[]; children: ReactNode }) {
+  return <><section className="inner-hero"><div className="wrap inner-grid"><div><span className="kicker">PROPCare ENERGY CARE</span><h1>{title}</h1><p>{lead}</p></div><img src={image} alt="" /></div></section><main className="wrap page-body">{children}<section className="page-gallery"><div className="gallery-large"><img src={gallery[0]} alt="Renewable infrastructure"/><span>FIELD / RENEWABLE INFRASTRUCTURE</span></div><div className="gallery-column"><img src={gallery[1]} alt="Power infrastructure"/><img src={gallery[2]} alt="Project engineering"/></div></section><section className="article-band"><div><span className="kicker">ENGINEERING NOTE</span><h2>Why the connection matters.</h2></div><p>Renewable projects are not only about generation. The electrical path through collection, transformation, protection, evacuation and grid interface has to work as one coordinated system. PROPCare presents that journey visually, package by package.</p></section></main></>;
+}
+
+function App() {
+  return <><Header /><Routes><Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/services" element={<Services />} /><Route path="/services/:slug" element={<Service />} /><Route path="/projects" element={<Projects />} /><Route path="/insights" element={<Insights />} /><Route path="/sustainability" element={<Sustainability />} /><Route path="/articles" element={<Articles />} /><Route path="/contact" element={<Contact />} /><Route path="*" element={<Home />} /></Routes><Footer /></>;
+}
+
+export default App;
