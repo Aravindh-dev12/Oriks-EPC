@@ -43,7 +43,7 @@ function Contact() {
 }
 
 function Page({ title, lead, image, children }: { title: string; lead: string; image: string; children: ReactNode }) {
-  return <><section className="inner-hero"><div className="wrap inner-grid"><div><span className="kicker">PROPCare ENERGY CARE</span><h1>{title}</h1><p>{lead}</p></div><img src={image} alt="" /></div></section><main className="wrap page-body">{children}</main></>;
+  return <><section className="inner-hero"><div className="wrap inner-grid"><div><span className="kicker">PROPCare ENERGY CARE</span><h1>{title}</h1><p>{lead}</p></div><img src={image} alt="" /></div></section><main className="wrap page-body">{children}<section className="page-gallery"><div className="gallery-large"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1800&q=90" alt="Solar infrastructure"/><span>FIELD / RENEWABLE GENERATION</span></div><div className="gallery-column"><img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=1200&q=90" alt="Wind infrastructure"/><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=90" alt="Grid infrastructure"/></div></section><section className="article-band"><div><span className="kicker">ENGINEERING NOTE</span><h2>Why the connection matters.</h2></div><p>Renewable projects are not only about generation. The electrical path through collection, transformation, protection, evacuation and grid interface has to work as one coordinated system. PROPCare presents that journey visually, package by package.</p></section></main></>;
 }
 
 function App() {
