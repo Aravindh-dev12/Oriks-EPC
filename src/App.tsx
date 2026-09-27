@@ -72,7 +72,6 @@ function Home() {
       <section className="wrap feature"><div className="feature-media"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1800&q=88" alt="Power transmission infrastructure" /></div><div><span className="kicker">FROM GENERATION TO GRID</span><h2>Make the electrical path visible.</h2><p>PROPCare is structured around the systems that connect renewable generation to a reliable grid interface — from collection and transformation to transmission, protection, testing and handover.</p><Link className="button" to="/services">View capability map <Arrow /></Link></div></section>
       <section className="metrics"><div className="wrap metric-grid"><div><strong>Solar</strong><span>Renewable EPC</span></div><div><strong>Wind</strong><span>Electrical infrastructure</span></div><div><strong>HT / EHT</strong><span>Evacuation & transmission</span></div><div><strong>O&M</strong><span>Lifecycle support</span></div></div></section>
       <section className="wrap projects"><Section eyebrow="Project approach" title="Designed for technical clarity, not decorative claims." /><div className="project-grid"><MediaCard image="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=88" title="Renewable EPC" text="Plant-side electrical systems and EBoP." /><MediaCard image="https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&w=1400&q=88" title="Substations & switchyards" text="Primary, secondary and grid-interface works." /><MediaCard image="https://images.unsplash.com/photo-1509390144018-eeaf65052242?auto=format&fit=crop&w=1400&q=88" title="Transmission" text="Route execution, stringing and energisation readiness." /></div></section>
-      <section className="image-band"><div className="wrap image-band-grid"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1500&q=88" alt="Solar field" /><img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=1200&q=88" alt="Wind turbines" /><img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=1200&q=88" alt="Power infrastructure" /></div></section>
       </>
   );
 }
@@ -108,8 +107,16 @@ function Sustainability() {
   return <Page title="Sustainability" lead="Building renewable infrastructure with safety, efficiency and responsible project execution." {...pageVisuals.sustainability}><Section eyebrow="Sustainability" title="Cleaner power needs disciplined infrastructure." /><p className="lead-copy">Our sustainability story is connected to the work itself: renewable generation, efficient electrical systems, safe execution, responsible site practices and lifecycle support.</p></Page>;
 }
 
-function Careers() {
-  return <Page title="Careers" lead="Build your career around renewable energy, electrical infrastructure and field engineering." {...pageVisuals.careers}><Section eyebrow="Life at PROPCare" title="Work where engineering meets the energy transition." /><p className="lead-copy">We are building a practical, field-oriented team across engineering, project execution, testing, commissioning and operations.</p><Link className="button" to="/contact">Send your profile <Arrow /></Link></Page>;
+function Articles() {
+  const articles = [
+    { title: 'From generation to grid: the electrical path', text: 'A practical view of collection, transformation, evacuation and receiving-end coordination.', image: pageVisuals.insights.gallery[0] },
+    { title: 'Designing for commissioning from day one', text: 'Why testing strategy, protection, metering and documentation belong in the execution plan early.', image: pageVisuals.insights.gallery[1] },
+    { title: 'Transmission readiness in renewable projects', text: 'Route, structures, stringing, testing and energisation treated as one connected delivery sequence.', image: pageVisuals.insights.gallery[2] }
+  ];
+  return <Page title="Articles" lead="Engineering perspectives on renewable EPC, power evacuation and grid infrastructure." {...pageVisuals.insights}>
+    <Section eyebrow="Articles / Engineering notes" title="Practical knowledge from the renewable-to-grid journey." />
+    <div className="project-grid">{articles.map(a => <MediaCard key={a.title} image={a.image} title={a.title} text={a.text} />)}</div>
+  </Page>;
 }
 
 function Page({ title, lead, image, gallery, children }: { title: string; lead: string; image: string; gallery: string[]; children: ReactNode }) {
@@ -117,7 +124,7 @@ function Page({ title, lead, image, gallery, children }: { title: string; lead: 
 }
 
 function App() {
-  return <><Header /><Routes><Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/services" element={<Services />} /><Route path="/services/:slug" element={<Service />} /><Route path="/projects" element={<Projects />} /><Route path="/insights" element={<Insights />} /><Route path="/sustainability" element={<Sustainability />} /><Route path="/careers" element={<Careers />} /><Route path="/contact" element={<Contact />} /><Route path="*" element={<Home />} /></Routes><Footer /></>;
+  return <><Header /><Routes><Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/services" element={<Services />} /><Route path="/services/:slug" element={<Service />} /><Route path="/projects" element={<Projects />} /><Route path="/insights" element={<Insights />} /><Route path="/sustainability" element={<Sustainability />} /><Route path="/articles" element={<Articles />} /><Route path="/contact" element={<Contact />} /><Route path="*" element={<Home />} /></Routes><Footer /></>;
 }
 
 export default App;
