@@ -1,6 +1,6 @@
-# ORIKS Energy Care Pvt Ltd — Renewable EPC Website
+# Propcare Energy Care Pvt Ltd — Renewable EPC Website
 
-A responsive corporate website for **ORIKS ENERGY CARE PVT LTD**, focused on renewable-energy EPC, power evacuation, grid connectivity, pooling substations, transmission infrastructure, testing / commissioning and O&M.
+A responsive corporate website for **Propcare ENERGY CARE PVT LTD**, focused on renewable-energy EPC, power evacuation, grid connectivity, pooling substations, transmission infrastructure, testing / commissioning and O&M.
 
 ## Frontend stack
 
@@ -31,7 +31,7 @@ No competitor text, branding or proprietary assets are copied.
 
 ## Content integrity
 
-The site intentionally does **not** invent ORIKS project counts, MW executed, transmission kilometres, substation ratings, client logos, certifications or utility empanelments. The Projects page provides a professional case-study format for those figures to be added after ORIKS management verifies them.
+The site intentionally does **not** invent Propcare project counts, MW executed, transmission kilometres, substation ratings, client logos, certifications or utility empanelments. The Projects page provides a professional case-study format for those figures to be added after Propcare management verifies them.
 
 ## Registered office
 
@@ -39,7 +39,7 @@ The site intentionally does **not** invent ORIKS project counts, MW executed, tr
 
 ## Contact form
 
-Because an approved ORIKS email address / CRM endpoint has not been supplied, the Contact page currently creates a structured project brief in the browser and lets the user copy it. Connect the form to the approved email, CRM or hosting form endpoint before production launch.
+Because an approved Propcare email address / CRM endpoint has not been supplied, the Contact page currently creates a structured project brief in the browser and lets the user copy it. Connect the form to the approved email, CRM or hosting form endpoint before production launch.
 
 ## Run locally
 
