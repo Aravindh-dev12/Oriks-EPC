@@ -89,7 +89,7 @@ function Services() {
 function Service() {
   const { slug } = useParams();
   const s = services.find(x => x.slug === slug) ?? services[0];
-  return <Page title={s.title} lead={s.short} image={s.image}><Section eyebrow="Scope" title="A coordinated package, defined around the project interface." /><div className="scope-grid">{s.bullets.map((x, i) => <div key={x}><span>{`0${i + 1}`}</span><h3>{x}</h3></div>)}</div><Section eyebrow="Delivery" title="Built for testing, energisation and handover." /><p className="lead-copy">{s.intro}</p></Page>;
+  return <Page title={s.title} lead={s.short} image={s.image} gallery={[s.image, pageVisuals.solutions.gallery[1], pageVisuals.solutions.gallery[2]]}><Section eyebrow="Scope" title="A coordinated package, defined around the project interface." /><div className="scope-grid">{s.bullets.map((x, i) => <div key={x}><span>{`0${i + 1}`}</span><h3>{x}</h3></div>)}</div><Section eyebrow="Delivery" title="Built for testing, energisation and handover." /><p className="lead-copy">{s.intro}</p></Page>;
 }
 
 function Projects() {
