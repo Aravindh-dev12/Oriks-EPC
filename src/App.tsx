@@ -81,7 +81,17 @@ function About() {
 }
 
 function Services() {
-  return <Page title="Our Solutions" lead="Clear work packages for the renewable-to-grid project journey." {...pageVisuals.solutions}><div className="service-list">{services.map(s => <Link to={`/services/${s.slug}`} className="list-row" key={s.slug}><span>{s.title}</span><p>{s.short}</p></Link>)}</div></Page>;
+  const featured = services.slice(0, 3);
+  return <Page title="Our Solutions" lead="Clear work packages for the renewable-to-grid project journey." {...pageVisuals.solutions}>
+    <Section eyebrow="Core solutions" title="Three connected workstreams across the renewable-to-grid interface." />
+    <div className="solutions-visual-grid">
+      {featured.map(s => <Link to={`/services/${s.slug}`} className="solution-visual-card" key={s.slug}>
+        <img src={s.image} alt={s.title} loading="lazy" />
+        <div><span>{s.title}</span><p>{s.short}</p></div>
+      </Link>)}
+    </div>
+    <div className="service-list">{services.map(s => <Link to={`/services/${s.slug}`} className="list-row" key={s.slug}><span>{s.title}</span><p>{s.short}</p></Link>)}</div>
+  </Page>;
 }
 
 function Service() {
