@@ -19,7 +19,7 @@ const pageVisuals = {
       'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200',
       'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200'
     ]
-  }
+  },
   projects: {
     image: 'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200',
     gallery: [
