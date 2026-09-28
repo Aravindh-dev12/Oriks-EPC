@@ -17,7 +17,7 @@
 .hero-video .hero-shade{z-index:2}
 .hero-video .hero-copy,.hero-video .hero-label{z-index:3}
 
-/* PROPCare visual refresh */
+/* Propcare visual refresh */
 .intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:120px;align-items:end}
 .intro-grid p{font-size:20px;line-height:1.75;color:var(--muted);margin:0 0 28px}
 .text-link{display:inline-flex;gap:10px;align-items:center;color:var(--green);font-weight:800}
@@ -64,7 +64,7 @@
 .media-card{border-radius:0;background:#f0eee5}
 .media-card img{height:340px}
 .cta{position:relative;overflow:hidden}
-.cta:before{content:"PROPCare";position:absolute;right:-30px;bottom:-70px;font:800 180px/1 Manrope;color:rgba(255,255,255,.08);letter-spacing:-.06em}
+.cta:before{content:"Propcare";position:absolute;right:-30px;bottom:-70px;font:800 180px/1 Manrope;color:rgba(255,255,255,.08);letter-spacing:-.06em}
 @media(max-width:800px){
  .hero-copy{padding-top:100px;padding-bottom:100px}
  .editorial-main,.editorial-side{height:500px}
@@ -248,7 +248,7 @@
 }
 
 
-/* Final footer readability: image stays visible behind PROPCare message. */
+/* Final footer readability: image stays visible behind Propcare message. */
 .footer-visual:after{background:linear-gradient(90deg,rgba(3,12,8,.58) 0%,rgba(3,12,8,.28) 48%,rgba(3,12,8,.08) 100%),linear-gradient(0deg,rgba(3,12,8,.24),rgba(3,12,8,.02))!important}
 .footer-visual>div{padding:88px 0!important}
 .footer-visual h2{color:#fff!important;max-width:900px!important;text-shadow:0 3px 18px rgba(0,0,0,.8)!important}
