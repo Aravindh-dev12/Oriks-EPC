@@ -831,7 +831,6 @@ img,video,iframe{max-width:100%}
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
 
-/* Keep YouTube's transient center playback UI from appearing over the hero. */
+/* The hero uses a native video with no player controls or embedded overlays. */
 .hero-video-frame{pointer-events:none;}
-.hero-video::after{content:"";position:absolute;left:50%;top:50%;width:220px;height:140px;transform:translate(-50%,-50%);border-radius:999px;background:radial-gradient(ellipse,rgba(4,15,10,.34) 0%,rgba(4,15,10,.16) 48%,transparent 76%);pointer-events:none;z-index:2;}
 .hero-copy{z-index:3;}
