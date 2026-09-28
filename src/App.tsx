@@ -6,59 +6,31 @@ import { services } from './data';
 const pageVisuals = {
   about: {
     image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
+    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
   },
   solutions: {
     image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
+    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
   },
   projects: {
     image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
+    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
   },
   contact: {
     image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
+    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
   },
   insights: {
     image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
+    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
   },
   sustainability: {
     image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
+    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
   },
   articles: {
     image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
+    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
   }
 };
 
@@ -67,11 +39,11 @@ function Home() {
     <>
       <HeroVideo />
       <section className="intro"><div className="wrap intro-grid"><div><span className="kicker">01 / THE Propcare APPROACH</span><h2>From renewable generation to a ready-to-energise grid.</h2></div><div><p>We coordinate the electrical scope between plant, substation and transmission interface — with engineering discipline, field execution and commissioning readiness.</p><Link className="text-link" to="/about">Discover Propcare</Link></div></div></section>
-      <section className="editorial-visual wrap"><div className="editorial-main"><img src="https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Large-scale solar power plant"/><div className="image-caption"><span>01</span><b>SOLAR EPC</b><em>Generation infrastructure</em></div></div><div className="editorial-stack"><div className="editorial-tile"><img src="https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Wind energy infrastructure"/><div className="image-caption"><span>02</span><b>WIND + POWER</b><em>Renewable infrastructure</em></div></div><div className="editorial-tile"><img src="https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Heavy transport and oversized logistics"/><div className="image-caption"><span>03</span><b>TRANSPORT + LOGISTICS</b><em>Heavy equipment movement</em></div></div></div></section>
+      <section className="editorial-visual wrap"><div className="editorial-main"><img src="https://images.pexels.com/photos/15663101/pexels-photo-15663101/free-photo-of-solar-panel-field.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Large-scale solar power plant" loading="lazy"/><div className="image-caption"><span>01</span><b>SOLAR EPC</b><em>Generation infrastructure</em></div></div><div className="editorial-stack"><div className="editorial-tile"><img src="https://images.pexels.com/photos/5312253/pexels-photo-5312253.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Wind energy infrastructure" loading="lazy"/><div className="image-caption"><span>02</span><b>WIND + POWER</b><em>Renewable infrastructure</em></div></div><div className="editorial-tile"><img src="https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Heavy transport and oversized logistics" loading="lazy"/><div className="image-caption"><span>03</span><b>TRANSPORT + LOGISTICS</b><em>Heavy equipment movement</em></div></div></div></section>
       <section className="dark"><div className="wrap"><Section eyebrow="Propcare / CAPABILITIES" title="From plant equipment to the point of grid connection." /><div className="service-grid">{services.map((s, i) => <Link to={`/services/${s.slug}`} className="service-card" key={s.slug}><span>{`0${i + 1}`}</span><h3>{s.title}</h3><p>{s.short}</p><b>View scope</b></Link>)}</div></div></section>
-      <section className="wrap feature"><div className="feature-media"><img src="https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Power transmission infrastructure" /></div><div><span className="kicker">FROM GENERATION TO GRID</span><h2>Make the electrical path visible.</h2><p>Propcare is structured around the systems that connect renewable generation to a reliable grid interface — from collection and transformation to transmission, protection, testing and handover.</p><Link className="button" to="/services">View capability map</Link></div></section>
+      <section className="wrap feature"><div className="feature-media"><img src="https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Power transmission infrastructure" loading="lazy" /></div><div><span className="kicker">FROM GENERATION TO GRID</span><h2>Make the electrical path visible.</h2><p>Propcare is structured around the systems that connect renewable generation to a reliable grid interface — from collection and transformation to transmission, protection, testing and handover.</p><Link className="button" to="/services">View capability map</Link></div></section>
       <section className="metrics"><div className="wrap metric-grid"><div><strong>Solar</strong><span>Renewable EPC</span></div><div><strong>Wind</strong><span>Electrical infrastructure</span></div><div><strong>HT / EHT</strong><span>Evacuation & transmission</span></div><div><strong>O&M</strong><span>Lifecycle support</span></div></div></section>
-      <section className="wrap projects"><Section eyebrow="Project approach" title="Designed for technical clarity, not decorative claims." /><div className="project-grid"><MediaCard image="https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Renewable EPC" text="Plant-side electrical systems and EBoP." /><MediaCard image="https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Substations & switchyards" text="Primary, secondary and grid-interface works." /><MediaCard image="https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Transmission" text="Route execution, stringing and energisation readiness." /></div></section>
+      <section className="wrap projects"><Section eyebrow="Project approach" title="Designed for technical clarity, not decorative claims." /><div className="project-grid"><MediaCard image="https://images.pexels.com/photos/15663101/pexels-photo-15663101/free-photo-of-solar-panel-field.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Renewable EPC" text="Plant-side electrical systems and EBoP." /><MediaCard image="https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Substations & switchyards" text="Primary, secondary and grid-interface works." /><MediaCard image="https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Transmission" text="Route execution, stringing and energisation readiness." /></div></section>
       </>
   );
 }
@@ -111,7 +83,7 @@ function Articles() {
   const articles = [
     { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'GRID INFRASTRUCTURE', title: 'Designing the renewable-to-grid connection', text: 'A practical view of collection systems, evacuation, substations and the receiving-end interface.' },
     { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'SUBSTATIONS', title: 'What makes a substation ready for energisation?', text: 'Protection, control, metering, earthing and pre-commissioning checks that turn installed equipment into an operable system.' },
-    { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'TRANSMISSION', title: 'From route preparation to line charging', text: 'How route access, structures, stringing, crossings, testing and handover fit into one execution sequence.' },
+    { image: 'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'TRANSMISSION', title: 'From route preparation to line charging', text: 'How route access, structures, stringing, crossings, testing and handover fit into one execution sequence.' },
     { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'RENEWABLE EPC', title: 'The electrical scope behind renewable generation', text: 'Why plant-side electrical systems and EBoP need to be coordinated early with the grid interface.' }
   ];
   return <Page title="Articles" lead="Engineering notes and field perspectives on renewable EPC, power evacuation and grid infrastructure." {...pageVisuals.articles}>
