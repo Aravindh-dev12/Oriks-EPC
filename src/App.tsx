@@ -5,32 +5,60 @@ import { services } from './data';
 
 const pageVisuals = {
   about: {
-    image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
+    image: 'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200',
+    gallery: [
+      'https://images.pexels.com/photos/15663101/pexels-photo-15663101/free-photo-of-solar-panel-field.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/5312253/pexels-photo-5312253.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200'
+    ]
   },
   solutions: {
     image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
+    gallery: [
+      'https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/26729215/pexels-photo-26729215/free-photo-of-men-working-on-transmission-tower.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200'
+    ]
   },
   projects: {
-    image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
+    image: 'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',
+    gallery: [
+      'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/15663101/pexels-photo-15663101/free-photo-of-solar-panel-field.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200'
+    ]
   },
   contact: {
-    image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
+    image: 'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200',
+    gallery: [
+      'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/26729215/pexels-photo-26729215/free-photo-of-men-working-on-transmission-tower.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=2200'
+    ]
   },
   insights: {
-    image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
+    image: 'https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=2200',
+    gallery: [
+      'https://images.pexels.com/photos/5312253/pexels-photo-5312253.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200'
+    ]
   },
   sustainability: {
-    image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
+    image: 'https://images.pexels.com/photos/15663101/pexels-photo-15663101/free-photo-of-solar-panel-field.jpeg?auto=compress&cs=tinysrgb&w=2200',
+    gallery: [
+      'https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/5312253/pexels-photo-5312253.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200'
+    ]
   },
   articles: {
-    image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: ['https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200','https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200']
+    image: 'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',
+    gallery: [
+      'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/26729215/pexels-photo-26729215/free-photo-of-men-working-on-transmission-tower.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=2200'
+    ]
   }
 };
 
@@ -81,10 +109,10 @@ function Sustainability() {
 
 function Articles() {
   const articles = [
-    { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'GRID INFRASTRUCTURE', title: 'Designing the renewable-to-grid connection', text: 'A practical view of collection systems, evacuation, substations and the receiving-end interface.' },
-    { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'SUBSTATIONS', title: 'What makes a substation ready for energisation?', text: 'Protection, control, metering, earthing and pre-commissioning checks that turn installed equipment into an operable system.' },
-    { image: 'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'TRANSMISSION', title: 'From route preparation to line charging', text: 'How route access, structures, stringing, crossings, testing and handover fit into one execution sequence.' },
-    { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'RENEWABLE EPC', title: 'The electrical scope behind renewable generation', text: 'Why plant-side electrical systems and EBoP need to be coordinated early with the grid interface.' }
+    { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=1800', tag: 'GRID INFRASTRUCTURE', title: 'Designing the renewable-to-grid connection', text: 'A practical view of collection systems, evacuation, substations and the receiving-end interface.' },
+    { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536/free-photo-of-power-distribution-substation.jpeg?auto=compress&cs=tinysrgb&w=1800', tag: 'SUBSTATIONS', title: 'What makes a substation ready for energisation?', text: 'Protection, control, metering, earthing and pre-commissioning checks that turn installed equipment into an operable system.' },
+    { image: 'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=1800', tag: 'TRANSMISSION', title: 'From route preparation to line charging', text: 'How route access, structures, stringing, crossings, testing and handover fit into one execution sequence.' },
+    { image: 'https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=1800', tag: 'RENEWABLE EPC', title: 'The electrical scope behind renewable generation', text: 'Why plant-side electrical systems and EBoP need to be coordinated early with the grid interface.' }
   ];
   return <Page title="Articles" lead="Engineering notes and field perspectives on renewable EPC, power evacuation and grid infrastructure." {...pageVisuals.articles}>
     <Section eyebrow="Articles / Engineering notes" title="Technical thinking, explained clearly." />
