@@ -33,11 +33,11 @@ const pageVisuals = {
     gallery: [
       'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200',
       'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=2200'
+      'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200'
     ]
   },
   insights: {
-    image: 'https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=2200',
+    image: 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',
     gallery: [
       'https://images.pexels.com/photos/27873672/pexels-photo-27873672.jpeg?auto=compress&cs=tinysrgb&w=2200',
       'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',
@@ -47,7 +47,7 @@ const pageVisuals = {
   sustainability: {
     image: 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',
     gallery: [
-      'https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',
       'https://images.pexels.com/photos/27873672/pexels-photo-27873672.jpeg?auto=compress&cs=tinysrgb&w=2200',
       'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200'
     ]
@@ -57,7 +57,7 @@ const pageVisuals = {
     gallery: [
       'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',
       'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=2200'
+      'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200'
     ]
   }
 };
@@ -122,7 +122,7 @@ function Articles() {
     { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'GRID INFRASTRUCTURE', title: 'Designing the renewable-to-grid connection', text: 'A practical view of collection systems, evacuation, substations and the receiving-end interface.' },
     { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'SUBSTATIONS', title: 'What makes a substation ready for energisation?', text: 'Protection, control, metering, earthing and pre-commissioning checks that turn installed equipment into an operable system.' },
     { image: 'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'TRANSMISSION', title: 'From route preparation to line charging', text: 'How route access, structures, stringing, crossings, testing and handover fit into one execution sequence.' },
-    { image: 'https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=1800', tag: 'RENEWABLE EPC', title: 'The electrical scope behind renewable generation', text: 'Why plant-side electrical systems and EBoP need to be coordinated early with the grid interface.' }
+    { image: 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'RENEWABLE EPC', title: 'The electrical scope behind renewable generation', text: 'Why plant-side electrical systems and EBoP need to be coordinated early with the grid interface.' }
   ];
   return <Page title="Articles" lead="Engineering notes and field perspectives on renewable EPC, power evacuation and grid infrastructure." {...pageVisuals.articles}>
     <Section eyebrow="Articles / Engineering notes" title="Technical thinking, explained clearly." />
