@@ -900,3 +900,48 @@ header{--header-height:76px;overflow:visible}
   .mobile-menu-toggle{z-index:102!important}
   .site-nav{z-index:101!important}
 }
+
+
+/* Final media reliability pass: no oversized offsets and visible fallbacks while remote media loads. */
+.hero-video{
+  position:relative!important;
+  min-height:calc(100svh - 76px)!important;
+  overflow:hidden!important;
+  background:#06100c url("https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=2200") center/cover no-repeat!important;
+}
+.hero-video-frame{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border:0!important;
+  transform:none!important;
+  filter:none!important;
+  z-index:1!important;
+}
+.hero-video-shade{z-index:2!important}
+.hero-video .hero-copy{z-index:3!important}
+.inner-grid>img,
+.page-gallery img,
+.feature-media img,
+.media-card img,
+.editorial-main img,
+.editorial-tile img,
+.footer-visual img{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  opacity:1!important;
+}
+.inner-grid>img{background:#dfe5e1}
+@media(max-width:900px){
+  .hero-video{min-height:calc(100svh - 68px)!important}
+}
+@media(max-width:560px){
+  .hero-video{min-height:calc(100svh - 64px)!important}
+}
