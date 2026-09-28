@@ -9,7 +9,7 @@ export function Header(){
     <div className="wrap nav">
       <Link to="/" className="logo" onClick={close}><span>P</span><b>Propcare</b><small>ENERGY CARE</small></Link>
       <button className={`mobile-menu-toggle${open?' is-open':''}`} aria-label={open?'Close menu':'Open menu'} aria-expanded={open} onClick={()=>setOpen(v=>!v)}><span/><span/><span/></button>
-      <nav className={open?'is-open':''}>{nav.map(([x,y])=><NavLink key={y} to={y} end={y==='/' } onClick={close}>{x}</NavLink>)}<NavLink className="nav-button" to="/contact" onClick={close}>Contact Us <Arrow/></NavLink></nav>
+      <nav className={open?'is-open':''}>{nav.map(([x,y])=><NavLink key={y} to={y} end={y==='/' } onClick={close}>{x}</NavLink>)}<NavLink className="nav-button" to="/contact" onClick={close}>Contact Us</NavLink></nav>
     </div>
   </header>
 }
