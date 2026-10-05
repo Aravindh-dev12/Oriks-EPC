@@ -1,143 +1,17 @@
 import { useState, type ReactNode } from 'react';
 import { Link, Route, Routes, useParams } from 'react-router-dom';
 import { Header, Footer, HeroVideo, Section, MediaCard } from './components';
-import { services } from './data';
-
-const pageVisuals = {
-  about: {
-    image: 'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/27873672/pexels-photo-27873672.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
-  },
-  solutions: {
-    image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
-  },
-  projects: {
-    image: 'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
-  },
-  contact: {
-    image: 'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
-  },
-  insights: {
-    image: 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/27873672/pexels-photo-27873672.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
-  },
-  sustainability: {
-    image: 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/27873672/pexels-photo-27873672.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
-  },
-  articles: {
-    image: 'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200',
-    gallery: [
-      'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200'
-    ]
-  }
-};
-
-function Home() {
-  return (
-    <>
-      <HeroVideo />
-      <section className="intro"><div className="wrap intro-grid"><div><span className="kicker">01 / THE Propcare APPROACH</span><h2>From renewable generation to a ready-to-energise grid.</h2></div><div><p>We coordinate the electrical scope between plant, substation and transmission interface — with engineering discipline, field execution and commissioning readiness.</p><Link className="text-link" to="/about">Discover Propcare</Link></div></div></section>
-      <section className="editorial-visual wrap"><div className="editorial-main"><img src="https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Large-scale solar power plant" loading="lazy"/><div className="image-caption"><span>01</span><b>SOLAR EPC</b><em>Generation infrastructure</em></div></div><div className="editorial-stack"><div className="editorial-tile"><img src="https://images.pexels.com/photos/27873672/pexels-photo-27873672.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Wind energy infrastructure" loading="lazy"/><div className="image-caption"><span>02</span><b>WIND + POWER</b><em>Renewable infrastructure</em></div></div><div className="editorial-tile"><img src="https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Heavy transport and oversized logistics" loading="lazy"/><div className="image-caption"><span>03</span><b>TRANSPORT + LOGISTICS</b><em>Heavy equipment movement</em></div></div></div></section>
-      <section className="dark"><div className="wrap"><Section eyebrow="Propcare / CAPABILITIES" title="From plant equipment to the point of grid connection." /><div className="service-grid">{services.map((s, i) => <Link to={`/services/${s.slug}`} className="service-card" key={s.slug}><span>{`0${i + 1}`}</span><h3>{s.title}</h3><p>{s.short}</p><b>View scope</b></Link>)}</div></div></section>
-      <section className="wrap feature"><div className="feature-media"><img src="https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Power transmission infrastructure" loading="lazy" /></div><div><span className="kicker">FROM GENERATION TO GRID</span><h2>Make the electrical path visible.</h2><p>Propcare is structured around the systems that connect renewable generation to a reliable grid interface — from collection and transformation to transmission, protection, testing and handover.</p><Link className="button" to="/services">View capability map</Link></div></section>
-      <section className="metrics"><div className="wrap metric-grid"><div><strong>Solar</strong><span>Renewable EPC</span></div><div><strong>Wind</strong><span>Electrical infrastructure</span></div><div><strong>HT / EHT</strong><span>Evacuation & transmission</span></div><div><strong>O&M</strong><span>Lifecycle support</span></div></div></section>
-      <section className="wrap projects"><Section eyebrow="Project approach" title="Designed for technical clarity, not decorative claims." /><div className="project-grid"><MediaCard image="https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Renewable EPC" text="Plant-side electrical systems and EBoP." /><MediaCard image="https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Substations & switchyards" text="Primary, secondary and grid-interface works." /><MediaCard image="https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Transmission" text="Route execution, stringing and energisation readiness." /></div></section>
-      </>
-  );
-}
-
-function About() {
-  return <Page title="Who We Are" lead="A focused engineering company for renewable and power-infrastructure interfaces." {...pageVisuals.about}><Section eyebrow="Our focus" title="Engineering discipline from generation to grid." /><p className="lead-copy">Propcare Energy Care Private Limited is based in Karur, Tamil Nadu. The company is positioned around renewable EPC and electrical infrastructure: power evacuation, substations, transmission, testing, commissioning and lifecycle support.</p></Page>;
-}
-
-function Services() {
-  const featured = services.slice(0, 3);
-  return <Page title="Our Solutions" lead="Clear work packages for the renewable-to-grid project journey." {...pageVisuals.solutions}>
-    <Section eyebrow="Core solutions" title="Three connected workstreams across the renewable-to-grid interface." />
-    <div className="solutions-visual-grid">
-      {featured.map(s => <Link to={`/services/${s.slug}`} className="solution-visual-card" key={s.slug}>
-        <img src={s.image} alt={s.title} loading="lazy" />
-        <div><span>{s.title}</span><p>{s.short}</p></div>
-      </Link>)}
-    </div>
-    <div className="service-list">{services.map(s => <Link to={`/services/${s.slug}`} className="list-row" key={s.slug}><span>{s.title}</span><p>{s.short}</p></Link>)}</div>
-  </Page>;
-}
-
-function Service() {
-  const { slug } = useParams();
-  const s = services.find(x => x.slug === slug) ?? services[0];
-  return <Page title={s.title} lead={s.short} image={s.image} gallery={[s.image, pageVisuals.solutions.gallery[1], pageVisuals.solutions.gallery[2]]}><Section eyebrow="Scope" title="A coordinated package, defined around the project interface." /><div className="scope-grid">{s.bullets.map((x, i) => <div key={x}><span>{`0${i + 1}`}</span><h3>{x}</h3></div>)}</div><Section eyebrow="Delivery" title="Built for testing, energisation and handover." /><p className="lead-copy">{s.intro}</p></Page>;
-}
-
-function Projects() {
-  return <Page title="Projects" lead="A clean framework for publishing verified project evidence." {...pageVisuals.projects}><div className="notice">Project photographs, MW, kV, MVA, route length, executed scope and completion status should be added only from approved Propcare records.</div><div className="project-grid"><MediaCard image="https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Wind infrastructure" text="Representative portfolio format." /><MediaCard image="https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Solar infrastructure" text="Representative portfolio format." /><MediaCard image="https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200" title="Grid infrastructure" text="Representative portfolio format." /></div></Page>;
-}
-
-function Contact() {
-  const [sent, setSent] = useState(false);
-  return <Page title="Contact Us" lead="Tell us what is being built, where it connects and where the project stands." {...pageVisuals.contact}><form className="contact-form" onSubmit={e => { e.preventDefault(); setSent(true); }}><input required placeholder="Name" /><input required placeholder="Company" /><input required type="email" placeholder="Work email" /><input placeholder="Project location" /><select defaultValue=""><option value="" disabled>Project type</option><option>Solar EPC</option><option>Wind EPC</option><option>Power evacuation</option><option>Substation / switchyard</option><option>Transmission</option><option>Testing & commissioning</option><option>O&M</option></select><textarea rows={6} placeholder="Project requirement" /><button className="button" type="submit">{sent ? 'Brief received' : 'Send project brief'}</button></form></Page>;
-}
-
-function Insights() {
-  return <Page title="Insights" lead="Engineering notes, project stories and practical lessons from renewable infrastructure delivery." {...pageVisuals.insights}><Section eyebrow="Engineering notes" title="Make the technical journey easier to understand." /><div className="project-grid"><MediaCard image={pageVisuals.insights.gallery[0]} title="Generation to grid" text="How plant, evacuation and receiving-end interfaces work together." /><MediaCard image={pageVisuals.insights.gallery[1]} title="Commissioning readiness" text="The checks that close the gap between construction and energisation." /><MediaCard image={pageVisuals.insights.gallery[2]} title="Transmission execution" text="Planning the route, structures, stringing and testing as one sequence." /></div></Page>;
-}
-
-function Sustainability() {
-  return <Page title="Sustainability" lead="Building renewable infrastructure with safety, efficiency and responsible project execution." {...pageVisuals.sustainability}><Section eyebrow="Sustainability" title="Cleaner power needs disciplined infrastructure." /><p className="lead-copy">Our sustainability story is connected to the work itself: renewable generation, efficient electrical systems, safe execution, responsible site practices and lifecycle support.</p></Page>;
-}
-
-function Articles() {
-  const articles = [
-    { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'GRID INFRASTRUCTURE', title: 'Designing the renewable-to-grid connection', text: 'A practical view of collection systems, evacuation, substations and the receiving-end interface.' },
-    { image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'SUBSTATIONS', title: 'What makes a substation ready for energisation?', text: 'Protection, control, metering, earthing and pre-commissioning checks that turn installed equipment into an operable system.' },
-    { image: 'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'TRANSMISSION', title: 'From route preparation to line charging', text: 'How route access, structures, stringing, crossings, testing and handover fit into one execution sequence.' },
-    { image: 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200', tag: 'RENEWABLE EPC', title: 'The electrical scope behind renewable generation', text: 'Why plant-side electrical systems and EBoP need to be coordinated early with the grid interface.' }
-  ];
-  return <Page title="Articles" lead="Engineering notes and field perspectives on renewable EPC, power evacuation and grid infrastructure." {...pageVisuals.articles}>
-    <Section eyebrow="Articles / Engineering notes" title="Technical thinking, explained clearly." />
-    <p className="lead-copy">Practical articles from the project interface — covering renewable EPC, substations, transmission, testing and the decisions that affect safe, reliable energisation.</p>
-    <div className="articles-grid">{articles.map(a => <article className="article-card" key={a.title}><img src={a.image} alt={a.title}/><div><span className="kicker">{a.tag}</span><h3>{a.title}</h3><p>{a.text}</p><span className="text-link">Read article</span></div></article>)}</div>
-  </Page>;
-}
-
-
-function Page({ title, lead, image, gallery, children }: { title: string; lead: string; image: string; gallery: string[]; children: ReactNode }) {
-  return <><section className="inner-hero"><div className="wrap inner-grid"><div><span className="kicker">Propcare ENERGY CARE</span><h1>{title}</h1><p>{lead}</p></div><img src={image} alt="" onError={e => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200'; }} /></div></section><main className="wrap page-body">{children}<section className="page-gallery"><div className="gallery-large"><img src={gallery[0]} alt="Renewable infrastructure" loading="eager" onError={e => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200'; }}/><span>FIELD / RENEWABLE INFRASTRUCTURE</span></div><div className="gallery-column"><img src={gallery[1]} alt="Power infrastructure" loading="lazy" onError={e => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.pexels.com/photos/26729215/pexels-photo-26729215.jpeg?auto=compress&cs=tinysrgb&w=2200'; }}/><img src={gallery[2]} alt="Project engineering" loading="lazy" onError={e => { e.currentTarget.onerror = null; e.currentTarget.src = 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200'; }}/></div></section><section className="article-band"><div><span className="kicker">ENGINEERING NOTE</span><h2>Why the connection matters.</h2></div><p>Renewable projects are not only about generation. The electrical path through collection, transformation, protection, evacuation and grid interface has to work as one coordinated system. Propcare presents that journey visually, package by package.</p></section></main></>;
-}
-
-function App() {
-  return <><Header /><Routes><Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/services" element={<Services />} /><Route path="/services/:slug" element={<Service />} /><Route path="/projects" element={<Projects />} /><Route path="/insights" element={<Insights />} /><Route path="/sustainability" element={<Sustainability />} /><Route path="/articles" element={<Articles />} /><Route path="/contact" element={<Contact />} /><Route path="*" element={<Home />} /></Routes><Footer /></>;
-}
-
-export default App;
+import { articles, services, works } from './data';
+const solar = 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200';
+const grid = 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200';
+const fallback = [solar, grid, 'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200'];
+function Home() { return <><HeroVideo /><section className="intro"><div className="wrap intro-grid"><div><span className="kicker">01 / WHO WE ARE</span><h2>Infrastructure that makes clean energy move.</h2></div><div><p>Propecare Infra Projects brings together renewable EPC, electrical infrastructure and heavy transport for projects that need dependable execution from site to grid.</p><Link className="text-link" to="/about">Discover Propecare</Link></div></div></section><section className="editorial-visual wrap"><div className="editorial-main"><img src={solar} alt="Solar panels in a renewable energy field" /><div className="image-caption"><span>01</span><b>SOLAR PROJECTS</b><em>Renewable generation</em></div></div><div className="editorial-stack"><Link className="editorial-tile" to="/works/windmill"><img src="https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Wind turbines" /><div className="image-caption"><span>02</span><b>WINDMILL</b><em>Clean power infrastructure</em></div></Link><Link className="editorial-tile" to="/works/transport"><img src="https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Heavy transport truck" /><div className="image-caption"><span>03</span><b>TRANSPORT</b><em>Heavy movement and logistics</em></div></Link></div></section><section className="dark"><div className="wrap"><Section eyebrow="PROPECARE / SOLUTIONS" title="One partner across every project interface." /><div className="service-grid">{services.map((s, i) => <Link to={`/services/${s.slug}`} className="service-card" key={s.slug}><span>0{i + 1}</span><h3>{s.title}</h3><p>{s.short}</p><b>View scope</b></Link>)}</div></div></section><section className="wrap projects"><Section eyebrow="LATEST FROM PROPECARE" title="Ideas, updates and field perspectives." /><div className="project-grid">{articles.slice(0, 3).map(a => <MediaCard key={a.title} image={a.image} title={a.title} text={a.text} />)}</div></section></> }
+function About() { return <Page title="Who We Are" lead="A project partner for renewable energy, infrastructure and movement." image={grid}><Section eyebrow="Our story" title="Practical experience. Responsible execution. Long-term relationships." /><p className="lead-copy">Propecare Infra Projects is a Karur-based company serving the renewable energy and infrastructure sector. From solar and windmill projects to transport and logistics, we coordinate the people, equipment and site decisions that keep ambitious projects moving.</p><div className="values-grid"><div><b>01</b><h3>Built around trust</h3><p>Clear communication and accountable delivery at every stage.</p></div><div><b>02</b><h3>Made for the field</h3><p>Planning that respects real routes, real sites and real constraints.</p></div><div><b>03</b><h3>Ready for tomorrow</h3><p>Infrastructure that supports a cleaner and more connected future.</p></div></div></Page> }
+function Works() { return <Page title="Our Works" lead="From renewable generation to the movement of critical equipment." image={solar}><Section eyebrow="Our works" title="Specialist capabilities across the clean-energy project lifecycle." /><div className="solutions-visual-grid">{works.map(w => <Link to={`/works/${w.slug}`} className="solution-visual-card" key={w.slug}><img src={w.image} alt={w.title} /><div><span>{w.title}</span><p>{w.short}</p></div></Link>)}</div></Page> }
+function Work() { const { slug } = useParams(); const work = works.find(w => w.slug === slug) ?? works[0]; return <Page title={work.title} lead={work.short} image={work.image}><Section eyebrow="Scope of work" title="Capability designed for safe, reliable delivery." /><div className="scope-grid">{work.bullets.map((x, i) => <div key={x}><span>0{i + 1}</span><h3>{x}</h3></div>)}</div><Link className="button" to="/contact">Discuss this capability</Link></Page> }
+function Solutions() { return <Page title="Our Solutions" lead="Clear packages for renewable and infrastructure projects." image={grid}><Section eyebrow="Solutions" title="From engineering and construction to commissioning support." /><div className="service-list">{services.map(s => <Link to={`/services/${s.slug}`} className="list-row" key={s.slug}><span>{s.title}</span><p>{s.short}</p></Link>)}</div></Page> }
+function Resources({ kind = 'all' }: { kind?: string }) { const title = kind === 'blogs' ? 'Blogs' : kind === 'media' ? 'Media' : kind === 'updates' ? 'New Updates' : 'Resources'; return <Page title={title} lead="Stories, project perspectives and company news from Propecare." image={grid}><Section eyebrow="Resources" title="Useful context from the work behind the work." /><div className="articles-grid">{articles.map(a => <article className="article-card" key={a.title}><img src={a.image} alt={a.title} /><div><span className="kicker">{a.tag}</span><h3>{a.title}</h3><p>{a.text}</p><Link className="text-link" to="/contact">Talk to our team</Link></div></article>)}</div></Page> }
+function Clients() { return <Page title="Our Clients" lead="Built for developers, operators, institutions and partners who value dependable delivery." image={solar}><Section eyebrow="Our clients" title="Partnerships grounded in performance." /><p className="lead-copy">We work alongside solar developers, wind operators, EPC partners, industrial businesses and public stakeholders. Every engagement begins with understanding the brief, site and schedule, then building the right team around it.</p><div className="client-types"><span>Renewable developers</span><span>EPC partners</span><span>Industrial businesses</span><span>Infrastructure operators</span></div></Page> }
+function Contact() { const [sent, setSent] = useState(false); return <Page title="Contact Us" lead="Tell us what you are building, where it is moving and how we can help." image={grid}><div className="contact-layout"><div><Section eyebrow="Start a conversation" title="Let’s make the next project move." /><p className="lead-copy">Share the basics and our team will get back to you about solar, windmill, transport, EPC or infrastructure requirements.</p><div className="contact-details"><b>+91 9790005158</b><span>propecareindia@gmail.com</span><span>Karur, Tamil Nadu, India</span></div></div><form className="contact-form" onSubmit={e => { e.preventDefault(); setSent(true); }}><input required placeholder="Name" /><input required placeholder="Company" /><input required type="email" placeholder="Work email" /><select defaultValue=""><option value="" disabled>What can we help with?</option><option>Solar</option><option>Windmill</option><option>Transport & logistics</option><option>Infrastructure / EPC</option></select><textarea rows={6} placeholder="Tell us about your project" /><button className="button" type="submit">{sent ? 'Message received' : 'Send enquiry'}</button></form></div></Page> }
+function Page({ title, lead, image, children }: { title: string; lead: string; image: string; children: ReactNode }) { return <><section className="inner-hero"><div className="wrap inner-grid"><div><span className="kicker">PROPECARE INFRA PROJECTS</span><h1>{title}</h1><p>{lead}</p></div><img src={image} alt="" /></div></section><main className="wrap page-body">{children}<section className="page-gallery"><div className="gallery-large"><img src={image} alt="Renewable infrastructure" /><span>FIELD / PROPECARE PROJECTS</span></div><div className="gallery-column">{fallback.slice(0, 2).map((src, i) => <img src={src} alt="Infrastructure project" key={src + i} />)}</div></section></main></> }
+export default function App() { return <><Header /><Routes><Route path="/" element={<Home />} /><Route path="/about" element={<About />} /><Route path="/works" element={<Works />} /><Route path="/works/:slug" element={<Work />} /><Route path="/services" element={<Solutions />} /><Route path="/services/:slug" element={<Solutions />} /><Route path="/resources" element={<Resources />} /><Route path="/resources/:kind" element={<Resources />} /><Route path="/clients" element={<Clients />} /><Route path="/contact" element={<Contact />} /><Route path="*" element={<Home />} /></Routes><Footer /></> }
