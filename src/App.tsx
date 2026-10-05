@@ -266,59 +266,30 @@ function ProjectDetail() {
             {/* Unified Media Grid */}
             <div className="unified-media-grid">
               {displayedItems.map((item: any, idx: number) => {
-                if (item.type === 'video') {
-                  return (
-                    <div className="unified-media-card video-card-item" key={item.id || idx}>
-                      <div className="media-video-wrapper">
-                        <video
-                          controls
-                          playsInline
-                          preload="metadata"
-                          poster={item.poster}
-                          className="unified-card-video"
-                          src={item.src}
-                          onError={(e) => {
-                            const target = e.currentTarget;
-                            if (item.fallbackSrc && target.src !== item.fallbackSrc) {
-                              target.src = item.fallbackSrc;
-                              target.load();
-                            }
-                          }}
-                        >
-                          <source src={item.src} type="video/mp4" />
-                          {item.fallbackSrc && <source src={item.fallbackSrc} type="video/mp4" />}
-                          Your browser does not support HTML5 video playback.
-                        </video>
-                        <span className="card-badge video-badge">
-                          <Play size={10} fill="#fff" /> {item.tag || 'DRONE VIDEO'}
-                        </span>
-                        {item.duration && <span className="card-duration-badge">{item.duration}</span>}
-                      </div>
-                      <div className="media-card-details">
-                        <b>{item.title}</b>
-                        {item.subtitle && <p>{item.subtitle}</p>}
-                      </div>
-                    </div>
-                  );
-                }
-
+                const isVideo = item.type === 'video';
                 return (
                   <div 
-                    className="unified-media-card image-card-item" 
-                    key={idx}
+                    className="unified-media-card" 
+                    key={item.id || idx}
                     onClick={() => setLightboxItem(item)}
                     role="button"
                     tabIndex={0}
                   >
                     <div className="media-img-wrapper">
-                      <img src={item.url} alt={item.title} loading="lazy" />
-                      <div className="media-card-overlay">
-                        <span className="card-badge image-badge">{item.tag || 'SITE PHOTO'}</span>
-                        <b>{item.title}</b>
-                      </div>
-                      <div className="media-expand-hint">
-                        <span>Click to view</span>
-                      </div>
+                      <img src={item.poster || item.url} alt={item.title} loading="lazy" />
+                      
+                      {isVideo ? (
+                        <>
+                          <div className="media-video-play-center">
+                            <Play size={24} fill="#fff" />
+                          </div>
+                          {item.duration && <span className="video-duration-pill-tag">{item.duration}</span>}
+                        </>
+                      ) : (
+                        <div className="media-expand-hint">
+                          <span>Click to view</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
@@ -327,7 +298,7 @@ function ProjectDetail() {
           </div>
         )}
 
-        {/* High-Resolution Image Lightbox Modal */}
+        {/* High-Resolution Fullscreen Lightbox Modal (Images & Fullscreen Videos) */}
         {lightboxItem && (
           <div className="media-lightbox-backdrop" onClick={() => setLightboxItem(null)}>
             <div className="media-lightbox-content" onClick={(e) => e.stopPropagation()}>
@@ -335,14 +306,41 @@ function ProjectDetail() {
                 type="button" 
                 className="lightbox-close-btn" 
                 onClick={() => setLightboxItem(null)}
-                aria-label="Close image viewer"
+                aria-label="Close media viewer"
               >
                 ✕
               </button>
-              <img src={lightboxItem.url} alt={lightboxItem.title} />
+
+              {lightboxItem.type === 'video' ? (
+                <div className="lightbox-video-container">
+                  <video
+                    controls
+                    autoPlay
+                    playsInline
+                    className="lightbox-fullscreen-video"
+                    src={lightboxItem.src}
+                    poster={lightboxItem.poster}
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (lightboxItem.fallbackSrc && target.src !== lightboxItem.fallbackSrc) {
+                        target.src = lightboxItem.fallbackSrc;
+                        target.load();
+                        target.play().catch(() => {});
+                      }
+                    }}
+                  >
+                    <source src={lightboxItem.src} type="video/mp4" />
+                    {lightboxItem.fallbackSrc && <source src={lightboxItem.fallbackSrc} type="video/mp4" />}
+                    Your browser does not support HTML5 video playback.
+                  </video>
+                </div>
+              ) : (
+                <img src={lightboxItem.url} alt={lightboxItem.title} />
+              )}
+
               <div className="lightbox-caption">
-                <span className="card-badge image-badge">{lightboxItem.tag || 'HIGH-RES CAPTURE'}</span>
                 <b>{lightboxItem.title}</b>
+                {lightboxItem.subtitle && <span> — {lightboxItem.subtitle}</span>}
               </div>
             </div>
           </div>
