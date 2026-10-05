@@ -1,5 +1,5 @@
-import { useState, useRef, type ReactNode } from 'react';
-import { Link, Route, Routes, useParams } from 'react-router-dom';
+import { useState, useRef, useEffect, type ReactNode } from 'react';
+import { Link, Route, Routes, useParams, useLocation } from 'react-router-dom';
 import { ArrowUpRight, SunMedium, Zap, Factory, Truck, Wind, CheckCircle2, Building2, MapPin, ShieldCheck, Play, ArrowLeft } from 'lucide-react';
 import { Header, Footer, HeroVideo, Section, MediaCard } from './components';
 import { articles, clients, research, services, sectors, works } from './data';
@@ -7,8 +7,16 @@ import { articles, clients, research, services, sectors, works } from './data';
 const solar = 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const grid = 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const transmission = 'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200';
-const wind = 'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200';
+const wind = 'https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const transport = 'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [pathname]);
+  return null;
+}
 
 function Home() {
   return <>
@@ -57,7 +65,6 @@ function Home() {
         <div className="insight-grid">{articles.slice(0,3).map(a=><Link className="insight-link" key={a.slug} to={'/resources/blog/'+a.slug}><MediaCard image={a.image} title={a.title} text={a.text}/></Link>)}</div>
       </div>
     </section>
-    <section className="cta-strip"><div className="wrap"><div><span className="kicker">READY FOR THE NEXT PHASE?</span><h2>Bring us the scope, site and schedule.</h2></div><Link className="button light" to="/contact">Start a project</Link></div></section>
   </>;
 }
 
@@ -168,12 +175,29 @@ function ProjectDetail() {
     ...(foundProject.media || []).map((m: any) => ({ ...m, type: 'image', category: m.category || 'aerial' }))
   ];
 
+  const customCategoryLabels: Record<string, string> = {
+    video: 'Drone Videos',
+    aerial: 'Aerial Surveys',
+    civil: 'Structure & BOS',
+    ground: 'Ground Progress',
+    electrical: 'Substation & Grid',
+    logistics: 'Heavy Haulage & Convoy',
+    transport: 'Transport Operations'
+  };
+
+  const rawCategories = Array.from(new Set(allMediaItems.map((i: any) => i.category).filter(Boolean)));
+  const orderedCategories = [
+    ...(foundProject.videos?.length ? ['video'] : []),
+    ...rawCategories.filter((c: string) => c !== 'video')
+  ];
+
   const categories = [
     { id: 'all', label: 'All Project Media', count: allMediaItems.length },
-    ...(foundProject.videos?.length ? [{ id: 'video', label: 'Drone Videos', count: foundProject.videos.length }] : []),
-    { id: 'aerial', label: 'Aerial Surveys', count: allMediaItems.filter((i: any) => i.category === 'aerial').length },
-    { id: 'civil', label: 'Structure & BOS', count: allMediaItems.filter((i: any) => i.category === 'civil').length },
-    { id: 'electrical', label: 'Substation & Grid', count: allMediaItems.filter((i: any) => i.category === 'electrical').length }
+    ...orderedCategories.map((cat: string) => ({
+      id: cat,
+      label: customCategoryLabels[cat] || (cat.charAt(0).toUpperCase() + cat.slice(1)),
+      count: allMediaItems.filter((i: any) => i.category === cat).length
+    }))
   ].filter(c => c.count > 0);
 
   const displayedItems = activeCategory === 'all' 
@@ -438,4 +462,4 @@ function Page({type,title,lead,image,children}:{type:string;title:string;lead:st
  return <><section className={'page-masthead page-masthead--'+type}><img className="page-masthead-image" src={image} alt=""/><div className="page-masthead-overlay"/><div className="wrap page-masthead-content"><span className="kicker">PROPECARE / {type.replace('-',' ').toUpperCase()}</span><h1>{title}</h1><p>{lead}</p><div className="masthead-actions"><Link className="button light" to="/contact">Discuss a project</Link><span>Solar · Wind · EPC · Logistics</span></div></div><div className="masthead-index"><span>{type==='about'?'01':type==='work'?'02':type.includes('service')?'03':type.includes('resources')?'04':type==='clients'?'05':type==='contact'?'06':'07'}</span><span>FIELD-READY INFRASTRUCTURE</span></div></section><main className={'page-body page-body--'+type}>{children}</main></>;
 }
 
-export default function App(){return <><Header/><Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/works" element={<Works/>}/><Route path="/works/projects/:projectId" element={<ProjectDetail/>}/><Route path="/works/:slug" element={<Work/>}/><Route path="/services" element={<Solutions/>}/><Route path="/services/:slug" element={<Service/>}/><Route path="/resources" element={<Resources/>}/><Route path="/resources/blog/:slug" element={<Article/>}/><Route path="/resources/:kind" element={<Resources/>}/><Route path="/clients" element={<Clients/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes><Footer/></>}
+export default function App(){return <><ScrollToTop/><Header/><Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/works" element={<Works/>}/><Route path="/works/projects/:projectId" element={<ProjectDetail/>}/><Route path="/works/:slug" element={<Work/>}/><Route path="/services" element={<Solutions/>}/><Route path="/services/:slug" element={<Service/>}/><Route path="/resources" element={<Resources/>}/><Route path="/resources/blog/:slug" element={<Article/>}/><Route path="/resources/:kind" element={<Resources/>}/><Route path="/clients" element={<Clients/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes><Footer/></>}

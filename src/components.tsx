@@ -1,5 +1,5 @@
-import { PropsWithChildren, useState, type ComponentType } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { PropsWithChildren, useState, useRef, useEffect, type ComponentType } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { SunMedium, Wind, Truck, BookOpen, Film, BellRing, LucideProps } from 'lucide-react';
 
 const logo='https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-removebg-preview-mKj19QeGR8YjdR7AHpirSguJJ6zt6q.png';
@@ -48,8 +48,68 @@ export function Header(){
   <nav className={open?'site-nav is-open':'site-nav'} aria-label="Main navigation">{nav.map(item=>item.children?<div className="nav-dropdown" key={item.href}><NavLink to={item.href} onClick={close}>{item.label}<span className="dropdown-chevron"/></NavLink><div className="dropdown-menu">{item.children.map(child=>{const Icon=child.icon;return <Link key={child.href} to={child.href} onClick={close} className="dropdown-item-link"><Icon size={16} strokeWidth={2} className="nav-item-icon"/><span>{child.label}</span></Link>})}</div></div>:<NavLink key={item.href} to={item.href} end={item.href==='/' } onClick={close}>{item.label}</NavLink>)}<NavLink className="nav-button" to="/contact" onClick={close}>Contact Us</NavLink></nav>
  </div></header>;
 }
-export function Footer(){return <footer><div className="footer-visual"><img src="https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Power transmission infrastructure"/><div><span className="kicker">PROPECARE INFRA PROJECTS</span><h2>Engineering a cleaner, connected tomorrow.</h2><p>Renewable EPC, electrical infrastructure and specialist movement — coordinated around the realities of the field.</p><Link className="button light" to="/contact">Start a conversation</Link></div></div><div className="wrap footer-main"><div className="footer-brand"><Link className="brand footer-brand-logo" to="/"><img src={logo} alt="Propecare"/><span><b>PROPECARE</b><small>INFRA PROJECTS</small></span></Link><p>Renewable infrastructure, EPC delivery and heavy transport solutions from generation to grid. Built for dependable project delivery across Tamil Nadu and beyond.</p></div><div><b>Explore</b><Link to="/about">Who We Are</Link><Link to="/works">Our Works</Link><Link to="/works/solar" className="footer-sub-link"><SunMedium size={14}/> Solar Projects</Link><Link to="/works/windmill" className="footer-sub-link"><Wind size={14}/> Wind Projects</Link><Link to="/works/transport" className="footer-sub-link"><Truck size={14}/> Transport &amp; Logistics</Link><Link to="/services">Our Solutions</Link><Link to="/clients">Our Clients</Link></div><div><b>Resources</b><Link to="/resources/blogs" className="footer-sub-link"><BookOpen size={14}/> Blogs</Link><Link to="/resources/media" className="footer-sub-link"><Film size={14}/> Media</Link><Link to="/resources/updates" className="footer-sub-link"><BellRing size={14}/> New Updates</Link><Link to="/contact">Contact Us</Link></div><div><b>Reach us</b><p>+91 9790005158<br/>propecareindia@gmail.com<br/>Karur, Tamil Nadu</p><Link to="/contact">Project enquiry →</Link></div></div><div className="wrap copyright">© {new Date().getFullYear()} Propecare Infra Projects <span>Solar · Windmill · Transport · EPC</span></div></footer>}
-export function HeroVideo(){return <section className="hero-video"><video className="hero-video-frame" autoPlay muted loop playsInline preload="auto" poster="https://images.pexels.com/photos/9893729/pexels-photo-9893729.jpeg?auto=compress&cs=tinysrgb&w=2200"><source src="https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4" type="video/mp4"/></video><div className="hero-shade"/><div className="wrap hero-copy"><span className="kicker">PROPECARE INFRA PROJECTS · RENEWABLE EPC</span><h1>Powering progress from <i>generation to movement.</i></h1><p>Solar. Windmill. Transport. Infrastructure. One trusted partner for ambitious projects.</p><div><Link className="button light" to="/works">Explore our works</Link><Link className="button outline-light" to="/contact">Start a project</Link></div></div></section>}
+export function Footer(){
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+  return <footer>{isHome && <div className="footer-visual"><img src="https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Power transmission infrastructure"/><div><span className="kicker">PROPECARE INFRA PROJECTS</span><h2>Engineering a cleaner, connected tomorrow.</h2><p>Renewable EPC, electrical infrastructure and specialist movement — coordinated around the realities of the field.</p><Link className="button light" to="/contact">Start a conversation</Link></div></div>}<div className="wrap footer-main"><div className="footer-brand"><Link className="brand footer-brand-logo" to="/"><img src={logo} alt="Propecare"/><span><b>PROPECARE</b><small>INFRA PROJECTS</small></span></Link><p>Renewable infrastructure, EPC delivery and heavy transport solutions from generation to grid. Built for dependable project delivery across Tamil Nadu and beyond.</p></div><div><b>Explore</b><Link to="/about">Who We Are</Link><Link to="/works">Our Works</Link><Link to="/works/solar" className="footer-sub-link"><SunMedium size={14}/> Solar Projects</Link><Link to="/works/windmill" className="footer-sub-link"><Wind size={14}/> Wind Projects</Link><Link to="/works/transport" className="footer-sub-link"><Truck size={14}/> Transport &amp; Logistics</Link><Link to="/services">Our Solutions</Link><Link to="/clients">Our Clients</Link></div><div><b>Resources</b><Link to="/resources/blogs" className="footer-sub-link"><BookOpen size={14}/> Blogs</Link><Link to="/resources/media" className="footer-sub-link"><Film size={14}/> Media</Link><Link to="/resources/updates" className="footer-sub-link"><BellRing size={14}/> New Updates</Link><Link to="/contact">Contact Us</Link></div><div><b>Reach us</b><p>+91 9790005158<br/>propecareindia@gmail.com<br/>Karur, Tamil Nadu</p><Link to="/contact">Project enquiry →</Link></div></div><div className="wrap copyright">© {new Date().getFullYear()} Propecare Infra Projects <span>Solar · Windmill · Transport · EPC</span></div></footer>}
+export function HeroVideo(){
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const setStartTime = () => {
+      if (video.currentTime < 5) {
+        video.currentTime = 5;
+      }
+    };
+
+    video.addEventListener('loadedmetadata', setStartTime);
+    if (video.readyState >= 1) {
+      setStartTime();
+    }
+
+    const handleTimeUpdate = () => {
+      if (video.currentTime < 4.8 && !video.seeking) {
+        video.currentTime = 5;
+      }
+    };
+    video.addEventListener('timeupdate', handleTimeUpdate);
+
+    return () => {
+      video.removeEventListener('loadedmetadata', setStartTime);
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, []);
+
+  return (
+    <section className="hero-video">
+      <video
+        ref={videoRef}
+        className="hero-video-frame"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+      >
+        <source src="/videos/out%202k%20.mp4#t=5" type="video/mp4" />
+        <source src="/videos/out 2k .mp4#t=5" type="video/mp4" />
+      </video>
+      <div className="hero-shade"/>
+      <div className="wrap hero-copy">
+        <span className="kicker">PROPECARE INFRA PROJECTS · RENEWABLE EPC</span>
+        <h1>Powering progress from <i>generation to movement.</i></h1>
+        <p>Solar. Windmill. Transport. Infrastructure. One trusted partner for ambitious projects.</p>
+        <div>
+          <Link className="button light" to="/works">Explore our works</Link>
+          <Link className="button outline-light" to="/contact">Start a project</Link>
+        </div>
+      </div>
+    </section>
+  );
+}
 export function Section({eyebrow,title,children}:{eyebrow:string;title:string;children?:PropsWithChildren['children']}){return <div className="section-head"><span className="kicker">{eyebrow}</span><h2>{title}</h2>{children}</div>}
 export function MediaCard({image,title,text}:{image:string;title:string;text:string}){return <article className="media-card"><img src={image} alt={title} loading="lazy"/><div><span>PROPECARE</span><h3>{title}</h3><p>{text}</p></div></article>}
 export{logo};

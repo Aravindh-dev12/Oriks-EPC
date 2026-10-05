@@ -1,7 +1,7 @@
 const solar='https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const grid='https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const transmission='https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200';
-const wind='https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200';
+const wind='https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const transport='https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200';
 
 export const works=[
@@ -17,210 +17,300 @@ export const works=[
   details:['Translate drawings and site constraints into an executable package.','Coordinate electrical systems around the generation block and balance-of-plant.','Keep plant output connected to the receiving infrastructure and schedule.','Align equipment, protection, cable and grid-interface requirements.','Build evidence into construction and commissioning instead of after it.'],
   steps:['Review site, drawings and delivery scope','Coordinate procurement and construction interfaces','Inspect, test and resolve punch points','Compile handover evidence'],
   stepDetails:['Confirm access, layout, quantities, interfaces and milestones.','Keep contractors and material readiness aligned to the work sequence.','Verify installation quality and functional readiness.','Close documentation gaps before the package is considered complete.'],
-  projects:[
+   projects:[
     {
       id:'solar-1',
-      title:'Solar Project 1 — 240 MW Utility Solar Park',
-      name:'Project Solar 1',
-      capacity:'240 MW',
-      client:'Leading Clean Energy IPP Developer',
-      location:'Karur District, Tamil Nadu, India',
+      title:'Solar Project 1 — Thuraiyur Solar Plant',
+      name:'Thuraiyur Solar Plant',
+      capacity:'Utility Scale Solar Park',
+      client:'Utility Clean Energy IPP Developer',
+      location:'Thuraiyur, Tiruchirappalli District, Tamil Nadu',
       status:'Commissioned & Energised',
       tag:'FLAGSHIP UTILITY EPC',
       scope:'Turnkey civil balance-of-plant, pile foundation drilling & casting, mounting structure assembly, tracker alignment, DC array cabling, inverter station integration, and power evacuation to grid substation.',
-      image:'/projects/solar-1/aerial-overview-1.jpg',
-      stat:'240 MW Utility Scale',
+      image:'/projects/solar/solar1/DJI_0028.JPG',
+      stat:'Utility Scale Generation',
       metrics:[
-        {label:'Total Capacity',value:'240 MW'},
-        {label:'Location',value:'Karur, Tamil Nadu'},
+        {label:'Total Scale',value:'Utility Scale Solar'},
+        {label:'Location',value:'Thuraiyur, Trichy, TN'},
         {label:'Client',value:'Utility IPP Developer'},
-        {label:'Scope',value:'Civil BOS, MMS, Foundation, Cabling'},
-        {label:'Site Acres',value:'950+ Acres'},
-        {label:'Evacuation',value:'230kV / 110kV Substation Intertie'}
+        {label:'Scope',value:'Civil BOS, MMS, Foundation & Cabling'},
+        {label:'Footage Records',value:'22 Drone Videos & 21 Site Photos'},
+        {label:'Evacuation',value:'High-Voltage Pooling Substation Intertie'}
       ],
       media:[
-        {type:'image',category:'aerial',tag:'AERIAL OVERVIEW',url:'/projects/solar-1/aerial-overview-1.jpg',title:'Aerial Drone Overview — 240 MW Field Array'},
-        {type:'image',category:'aerial',tag:'DRONE PANORAMA',url:'/projects/solar-1/DJI_0028.JPG',title:'Drone High-Angle Panorama — Solar Array & Access Corridors (DJI_0028)'},
-        {type:'image',category:'civil',tag:'STRUCTURE ROW',url:'/projects/solar-1/DJI_0031.JPG',title:'Overhead PV Table Pitch & Mounting Rows (DJI_0031)'},
-        {type:'image',category:'electrical',tag:'INVERTER BLOCK',url:'/projects/solar-1/DJI_0032.JPG',title:'Structural Grid Calibration & Inverter Blocks (DJI_0032)'},
-        {type:'image',category:'aerial',tag:'MAPPING AXIS',url:'/projects/solar-1/DJI_0034.JPG',title:'High-Altitude Drone Mapping & Substation Axis (DJI_0034)'},
-        {type:'image',category:'aerial',tag:'FIELD BOUNDARY',url:'/projects/solar-1/DJI_0035.JPG',title:'Complete Field Layout & Boundary Fencing (DJI_0035)'},
-        {type:'image',category:'civil',tag:'TRACKER ALIGNMENT',url:'/projects/solar-1/DJI_0058.JPG',title:'Tracker Alignment & DC Trenching Corridors (DJI_0058)'},
-        {type:'image',category:'aerial',tag:'WIDE HORIZON',url:'/projects/solar-1/aerial-panorama-2.jpg',title:'Wide Angle Horizon — Solar Array & Substation Road'},
-        {type:'image',category:'civil',tag:'MOUNTING RAILS',url:'/projects/solar-1/drone-grid-zoom-3.jpg',title:'Precision Grid Section — Mounting Rails & Tables'},
-        {type:'image',category:'civil',tag:'ARRAY PITCH',url:'/projects/solar-1/drone-grid-angle-4.jpg',title:'Array Pitch & Row Alignment Inspection'},
-        {type:'image',category:'civil',tag:'STRUCTURE QA',url:'/projects/solar-1/site-mounting-5.jpg',title:'Field Engineer Mounting Structure Verification'},
-        {type:'image',category:'civil',tag:'PROPECARE CREW',url:'/projects/solar-1/site-crew-6.jpg',title:'Propecare Infra On-Site Quality Assurance Team'},
-        {type:'image',category:'civil',tag:'FOUNDATIONS',url:'/projects/solar-1/site-foundation-7.jpg',title:'Concrete Concreting & Foundation Casting'}
+        {type:'image',category:'aerial',tag:'AERIAL PANORAMA',url:'/projects/solar/solar1/DJI_0028.JPG',title:'Drone High-Angle Panorama — Solar Array & Corridors (DJI_0028)'},
+        {type:'image',category:'aerial',tag:'STRUCTURE ROW',url:'/projects/solar/solar1/DJI_0031.JPG',title:'Overhead PV Table Pitch & Mounting Rows (DJI_0031)'},
+        {type:'image',category:'electrical',tag:'INVERTER BLOCK',url:'/projects/solar/solar1/DJI_0032.JPG',title:'Structural Grid Calibration & Inverter Stations (DJI_0032)'},
+        {type:'image',category:'aerial',tag:'MAPPING AXIS',url:'/projects/solar/solar1/DJI_0034.JPG',title:'High-Altitude Drone Mapping & Substation Axis (DJI_0034)'},
+        {type:'image',category:'aerial',tag:'FIELD BOUNDARY',url:'/projects/solar/solar1/DJI_0035.JPG',title:'Complete Field Layout & Boundary Fencing (DJI_0035)'},
+        {type:'image',category:'aerial',tag:'TRACKER ALIGNMENT',url:'/projects/solar/solar1/DJI_0058.JPG',title:'Tracker Alignment & DC Trenching Corridors (DJI_0058)'},
+        {type:'image',category:'civil',tag:'STRUCTURE ASSEMBLY',url:'/projects/solar/solar1/DSC_0165.JPG',title:'Mounting Structure Assembly & Torque Inspection (DSC_0165)'},
+        {type:'image',category:'civil',tag:'PILE RAMMING',url:'/projects/solar/solar1/DSC_0166.JPG',title:'Tracker Pile Alignment and Ramming Verification (DSC_0166)'},
+        {type:'image',category:'civil',tag:'MOUNTING RAILS',url:'/projects/solar/solar1/DSC_0167.JPG',title:'PV Module Mounting Rails & Fastener Quality Check (DSC_0167)'},
+        {type:'image',category:'civil',tag:'ARRAY STRUCTURAL QA',url:'/projects/solar/solar1/DSC_0168.JPG',title:'Array Structural Stability & Level Verification (DSC_0168)'},
+        {type:'image',category:'electrical',tag:'DC CABLING',url:'/projects/solar/solar1/DSC_0170.JPG',title:'DC String Cabling & Combiner Box Interconnection (DSC_0170)'},
+        {type:'image',category:'ground',tag:'CABLE TRENCHING',url:'/projects/solar/solar1/DSC_0171.JPG',title:'Underground Cable Laying & Trench Backfilling (DSC_0171)'},
+        {type:'image',category:'electrical',tag:'TRANSFORMER YARD',url:'/projects/solar/solar1/DSC_0209.JPG',title:'Inverter Transformer Station & Yard Civil Works (DSC_0209)'},
+        {type:'image',category:'electrical',tag:'HT CABLE CONDUITS',url:'/projects/solar/solar1/DSC_0210.JPG',title:'High-Voltage Cable Conduits & Earthing Grid (DSC_0210)'},
+        {type:'image',category:'ground',tag:'FOUNDATION CURING',url:'/projects/solar/solar1/DSC_0211.JPG',title:'Civil Foundation Concreting & Quality Curing (DSC_0211)'},
+        {type:'image',category:'ground',tag:'CENTRAL CORRIDOR',url:'/projects/solar/solar1/DSC_0267.JPG',title:'Field Row Alignment Along Main Access Corridor (DSC_0267)'},
+        {type:'image',category:'electrical',tag:'ELECTRICAL PRE-COMM',url:'/projects/solar/solar1/DSC_0278.JPG',title:'Pre-Commissioning Electrical Block Verification (DSC_0278)'},
+        {type:'image',category:'civil',tag:'TABLE PITCH CALIBRATION',url:'/projects/solar/solar1/DSC_9761.JPG',title:'PV Table Pitch & Tilt Angle Calibration (DSC_9761)'},
+        {type:'image',category:'civil',tag:'TORQUE MARK QA',url:'/projects/solar/solar1/DSC_9762.JPG',title:'Structural Bolt Torque Marking & QA Signoff (DSC_9762)'},
+        {type:'image',category:'electrical',tag:'DC DISCONNECT REVIEW',url:'/projects/solar/solar1/DSC_9771.JPG',title:'DC Disconnect Switches & Junction Box Review (DSC_9771)'},
+        {type:'image',category:'electrical',tag:'INVERTER PAD CONDUITS',url:'/projects/solar/solar1/DSC_9772.JPG',title:'Inverter Foundation Pad & Stub-Up Conduits (DSC_9772)'},
+        {type:'image',category:'ground',tag:'SITE HANDOVER AUDIT',url:'/projects/solar/solar1/DSC_9813.JPG',title:'Perimeter Safety Audit & Handover Inspection (DSC_9813)'}
       ],
       videos:[
         {
-          id:'video-1',
+          id:'video-s1-1',
           type:'video',
           category:'video',
           tag:'DRONE SURVEY · 4K',
           title:'01 · Aerial Field Panorama & Layout',
-          subtitle:'Wide-angle drone sweep across 950+ acres and central access corridors',
+          subtitle:'Wide-angle drone sweep across solar park and central access corridors',
           duration:'1:15',
-          src:'/projects/solar/Solar%201/DJI_0025.MP4',
-          fallbackSrc:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
-          poster:'/projects/solar-1/DJI_0028.JPG'
+          src:'/projects/solar/solar1/DJI_0025.MP4',
+          poster:'/projects/solar/solar1/DJI_0028.JPG'
         },
         {
-          id:'video-2',
+          id:'video-s1-2',
           type:'video',
           category:'video',
           tag:'SUBSTATION SURVEY',
           title:'02 · 33kV Pooling Yard & Inverter Bays',
           subtitle:'Drone inspection of transformer yards and electrical interconnections',
           duration:'1:32',
-          src:'/projects/solar/Solar%201/DJI_0038.MP4',
-          fallbackSrc:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
-          poster:'/projects/solar-1/DJI_0031.JPG'
+          src:'/projects/solar/solar1/DJI_0038.MP4',
+          poster:'/projects/solar/solar1/DJI_0031.JPG'
         },
         {
-          id:'video-3',
+          id:'video-s1-3',
           type:'video',
           category:'video',
           tag:'STRUCTURE INSPECTION',
           title:'03 · Tracker Pitch & Table Alignment',
           subtitle:'Row-by-row structure calibration and module table tilt inspection',
           duration:'0:58',
-          src:'/projects/solar/Solar%201/DJI_0046.MP4',
-          fallbackSrc:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
-          poster:'/projects/solar-1/DJI_0032.JPG'
+          src:'/projects/solar/solar1/DJI_0046.MP4',
+          poster:'/projects/solar/solar1/DJI_0032.JPG'
         },
         {
-          id:'video-4',
+          id:'video-s1-4',
           type:'video',
           category:'video',
           tag:'CIVIL FOUNDATIONS',
           title:'04 · Civil Foundations & DC Trenching',
           subtitle:'Low-altitude flight reviewing pile casting and underground collection cabling',
           duration:'2:04',
-          src:'/projects/solar/Solar%201/DJI_0050.MP4',
-          fallbackSrc:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
-          poster:'/projects/solar-1/DJI_0034.JPG'
+          src:'/projects/solar/solar1/DJI_0050.MP4',
+          poster:'/projects/solar/solar1/DJI_0034.JPG'
         },
         {
-          id:'video-5',
+          id:'video-s1-5',
           type:'video',
           category:'video',
           tag:'TRANSMISSION INTERTIE',
           title:'05 · Boundary Security & Evacuation Line',
-          subtitle:'Perimeter corridor mapping and 230kV grid intertie transmission line',
+          subtitle:'Perimeter corridor mapping and grid intertie transmission route',
           duration:'1:45',
-          src:'/projects/solar/Solar%201/DJI_0061.MP4',
-          fallbackSrc:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
-          poster:'/projects/solar-1/DJI_0035.JPG'
+          src:'/projects/solar/solar1/DJI_0061.MP4',
+          poster:'/projects/solar/solar1/DJI_0035.JPG'
         },
         {
-          id:'video-6',
+          id:'video-s1-6',
           type:'video',
           category:'video',
-          tag:'PLANT SHOWCASE · 4K',
-          title:'06 · 240 MW Energisation Showcase',
-          subtitle:'High-definition showcase flight across completed and energised solar park',
+          tag:'CENTRAL GRID MAPPING',
+          title:'06 · High-Altitude Central Grid Survey',
+          subtitle:'Continuous aerial survey monitoring overall site progress and table arrays',
+          duration:'2:18',
+          src:'/projects/solar/solar1/DJI_0062.MP4',
+          poster:'/projects/solar/solar1/DJI_0058.JPG'
+        },
+        {
+          id:'video-s1-7',
+          type:'video',
+          category:'video',
+          tag:'STRUCTURAL ROWS',
+          title:'07 · Low-Level Mounting Rows Sweep',
+          subtitle:'Detailed low-altitude flight inspecting tracker row alignment and clearance',
+          duration:'1:24',
+          src:'/projects/solar/solar1/DJI_0068.MP4',
+          poster:'/projects/solar/solar1/DJI_0028.JPG'
+        },
+        {
+          id:'video-s1-8',
+          type:'video',
+          category:'video',
+          tag:'ELECTRICAL YARDS',
+          title:'08 · Inverter Station & Transformer Yard',
+          subtitle:'Close drone pass of pooling substation transformers and switchgear pads',
+          duration:'1:10',
+          src:'/projects/solar/solar1/DJI_0073.MP4',
+          poster:'/projects/solar/solar1/DJI_0032.JPG'
+        },
+        {
+          id:'video-s1-9',
+          type:'video',
+          category:'video',
+          tag:'SITE BOUNDARIES',
+          title:'09 · Southern Array & Road Corridors',
+          subtitle:'Site perimeter inspection, internal roads, and drainage buffer zones',
+          duration:'1:35',
+          src:'/projects/solar/solar1/DJI_0086.MP4',
+          poster:'/projects/solar/solar1/DJI_0035.JPG'
+        },
+        {
+          id:'video-s1-10',
+          type:'video',
+          category:'video',
+          tag:'FLAGSHIP SHOWCASE',
+          title:'10 · Thuraiyur Plant Energisation Showcase',
+          subtitle:'Cinematic drone flight across completed and energised utility solar array',
           duration:'0:42',
-          src:'/projects/solar/Solar%201/DJI_0097.MP4',
-          fallbackSrc:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
-          poster:'/projects/solar-1/DJI_0058.JPG'
+          src:'/projects/solar/solar1/DJI_0097.MP4',
+          poster:'/projects/solar/solar1/DJI_0058.JPG'
+        },
+        {
+          id:'video-s1-11',
+          type:'video',
+          category:'video',
+          tag:'COMMISSIONING SWEEP',
+          title:'11 · Comprehensive Plant Handover Flight',
+          subtitle:'Full site verification footage recorded during grid synchronization',
+          duration:'2:30',
+          src:'/projects/solar/solar1/DJI_0102.MP4',
+          poster:'/projects/solar/solar1/DJI_0028.JPG'
         }
       ],
-      videoNotice:'High-resolution aerial surveys and site video documentation recorded during execution and grid commissioning.'
+      videoNotice:'High-resolution aerial drone surveys and DSLR on-site progress photography recorded during Thuraiyur solar plant civil and electrical commissioning.'
     },
     {
       id:'solar-2',
-      title:'Solar Project 2 — 150 MW Ground Mount Solar Facility',
+      title:'Solar Project 2 — Ground Mount Utility Solar Facility',
       name:'Project Solar 2',
-      capacity:'150 MW',
-      client:'Tamil Nadu Green Energy Corporation / Private IPP',
-      location:'Tirupur Cluster, Tamil Nadu, India',
+      capacity:'Utility Ground-Mount Solar',
+      client:'Clean Energy IPP / Power Producer',
+      location:'Tamil Nadu, India',
       status:'Operational Handover',
       tag:'GROUND-MOUNT EPC',
-      scope:'Ramming alignment, fixed-tilt PV structure fabrication, tracker calibration, 33kV internal collection system, and transformer yard interface.',
-      image:'/projects/solar-1/drone-grid-zoom-3.jpg',
-      stat:'150 MW Capacity',
+      scope:'Civil balance-of-plant, pile ramming & structure alignment, tracker calibration, 33kV internal collection system, inverter stations, and transformer yard interface.',
+      image:'/projects/solar/solar2/DJI_0127.JPG',
+      stat:'Utility Scale Ground Mount',
       metrics:[
-        {label:'Total Capacity',value:'150 MW'},
-        {label:'Location',value:'Tirupur Cluster, TN'},
+        {label:'Project Type',value:'Ground Mount Solar Park'},
+        {label:'Location',value:'Tamil Nadu, India'},
         {label:'Client',value:'Renewable Power Developer'},
-        {label:'Scope',value:'MMS Installation & 33kV Collection'},
-        {label:'Grid Tie',value:'110kV Pooling Substation'}
+        {label:'Scope',value:'MMS Installation, Civil BOS & 33kV Collection'},
+        {label:'Footage Records',value:'7 Drone Videos & 21 Site Photos'},
+        {label:'Grid Tie',value:'33kV / 110kV Pooling Substation'}
       ],
       media:[
-        {type:'image',url:'/projects/solar-1/drone-grid-zoom-3.jpg',title:'Tracker Calibration and Row Inspection'},
-        {type:'image',url:'/projects/solar-1/site-mounting-5.jpg',title:'Structure Alignment Quality Check'}
-      ]
-    },
-    {
-      id:'solar-3',
-      title:'Solar Project 3 — 85 MW Industrial Open-Access Park',
-      name:'Project Solar 3',
-      capacity:'85 MW',
-      client:'Commercial & Industrial Consortium',
-      location:'Dindigul Region, Tamil Nadu, India',
-      status:'Energised',
-      tag:'OPEN-ACCESS C&I',
-      scope:'High-voltage evacuation line, metering substation setup, inverter transformer stations, and HT panel interconnection for industrial power feed.',
-      image:'/projects/solar-1/aerial-panorama-2.jpg',
-      stat:'85 MW C&I Evacuation',
-      metrics:[
-        {label:'Total Capacity',value:'85 MW'},
-        {label:'Location',value:'Dindigul, TN'},
-        {label:'Client',value:'C&I Textile & Heavy Industry'},
-        {label:'Scope',value:'HT Evacuation & Metering'}
+        {type:'image',category:'aerial',tag:'AERIAL OVERVIEW',url:'/projects/solar/solar2/DJI_0127.JPG',title:'Drone High-Angle Overview — Solar Array Layout & Corridors (DJI_0127)'},
+        {type:'image',category:'aerial',tag:'ARRAY ROWS',url:'/projects/solar/solar2/DJI_20260530153215_0778_D.JPG',title:'Aerial Drone Panorama — PV Table Pitch & Module Rows (0778_D)'},
+        {type:'image',category:'aerial',tag:'GRID MAPPING',url:'/projects/solar/solar2/DJI_20260530155152_0800_D.JPG',title:'High-Altitude Drone Mapping & Access Roads (0800_D)'},
+        {type:'image',category:'aerial',tag:'PERIMETER FLIGHT',url:'/projects/solar/solar2/DJI_20260530165855_0826_D.JPG',title:'Site Boundary & Substation Approach Flight (0826_D)'},
+        {type:'image',category:'civil',tag:'PILE FOUNDATIONS',url:'/projects/solar/solar2/DSC_0179.JPG',title:'Pile Foundation Ramming & MMS Alignment (DSC_0179)'},
+        {type:'image',category:'civil',tag:'MOUNTING RAILS',url:'/projects/solar/solar2/DSC_0180.JPG',title:'Structure Assembly & Rail Fastening Verification (DSC_0180)'},
+        {type:'image',category:'civil',tag:'TABLE INSTALLATION',url:'/projects/solar/solar2/DSC_0181.JPG',title:'Solar PV Table Installation & Tilt Inspection (DSC_0181)'},
+        {type:'image',category:'civil',tag:'STRUCTURAL QA',url:'/projects/solar/solar2/DSC_0182.JPG',title:'Mounting System Rigidity & Torque Mark Audit (DSC_0182)'},
+        {type:'image',category:'electrical',tag:'DC TRENCHING',url:'/projects/solar/solar2/DSC_0191.JPG',title:'Underground DC Trenching & Conduit Layout (DSC_0191)'},
+        {type:'image',category:'electrical',tag:'STRING CABLING',url:'/projects/solar/solar2/DSC_0192.JPG',title:'String Cable Pulling & Routing Verification (DSC_0192)'},
+        {type:'image',category:'electrical',tag:'INVERTER FOUNDATION',url:'/projects/solar/solar2/DSC_0193.JPG',title:'Inverter Station Civil Foundation & Equipment Pad (DSC_0193)'},
+        {type:'image',category:'electrical',tag:'COMBINER BOXES',url:'/projects/solar/solar2/DSC_0194.JPG',title:'DC Combiner Box Mounting & Harness Termination (DSC_0194)'},
+        {type:'image',category:'ground',tag:'INTERNAL ROADS',url:'/projects/solar/solar2/DSC_0244.JPG',title:'Internal Access Road Grading & Compaction (DSC_0244)'},
+        {type:'image',category:'ground',tag:'DRAINAGE BUFFER',url:'/projects/solar/solar2/DSC_0245.JPG',title:'Site Drainage Corridors & Erosion Protection (DSC_0245)'},
+        {type:'image',category:'electrical',tag:'SUBSTATION YARD',url:'/projects/solar/solar2/DSC_0255.JPG',title:'Pooling Substation Yard Civil & Foundation Works (DSC_0255)'},
+        {type:'image',category:'electrical',tag:'EARTHING GRID',url:'/projects/solar/solar2/DSC_0269.JPG',title:'Ground Earthing Grid Installation & Testing (DSC_0269)'},
+        {type:'image',category:'electrical',tag:'TRANSFORMER PAD',url:'/projects/solar/solar2/DSC_0270.JPG',title:'Step-Up Transformer Foundation & Containment Pit (DSC_0270)'},
+        {type:'image',category:'civil',tag:'TORQUE SIGN-OFF',url:'/projects/solar/solar2/DSC_9754.JPG',title:'Precision Torque Mark Quality Assurance Sign-Off (DSC_9754)'},
+        {type:'image',category:'electrical',tag:'VOC TESTING',url:'/projects/solar/solar2/DSC_9755.JPG',title:'String Open-Circuit Voltage & Insulation Testing (DSC_9755)'},
+        {type:'image',category:'electrical',tag:'CONTROL ROOM',url:'/projects/solar/solar2/DSC_9756.JPG',title:'SCADA Monitoring & Control Room Interface (DSC_9756)'},
+        {type:'image',category:'ground',tag:'SECURITY PERIMETER',url:'/projects/solar/solar2/DSC_9757.JPG',title:'Perimeter Fencing & Site Access Gates (DSC_9757)'},
+        {type:'image',category:'ground',tag:'SITE HANDOVER',url:'/projects/solar/solar2/DSC_9812.JPG',title:'Final Field Execution Review & Commissioning Audit (DSC_9812)'}
       ],
-      media:[
-        {type:'image',url:'/projects/solar-1/aerial-panorama-2.jpg',title:'Open-Access Solar Farm Panorama'},
-        {type:'image',url:'/projects/solar-1/site-crew-6.jpg',title:'Propecare Field Execution Crew'}
-      ]
-    },
-    {
-      id:'solar-4',
-      title:'Solar Project 4 — 120 MW High-Efficiency BOS Installation',
-      name:'Project Solar 4',
-      capacity:'120 MW',
-      client:'National Renewable Energy OEM / Developer',
-      location:'Coimbatore Solar Belt, Tamil Nadu',
-      status:'Commissioning Stage',
-      tag:'EBoP INTEGRATION',
-      scope:'Specialized batch mix foundation casting, DC trenching, module interconnections, SCADA weather station integration, and pre-commissioning testing.',
-      image:'/projects/solar-1/site-foundation-7.jpg',
-      stat:'120 MW EBoP Package',
-      metrics:[
-        {label:'Total Capacity',value:'120 MW'},
-        {label:'Location',value:'Coimbatore Belt, TN'},
-        {label:'Client',value:'National EPC Partner'},
-        {label:'Scope',value:'Civil BOS, SCADA & Testing'}
+      videos:[
+        {
+          id:'video-s2-1',
+          type:'video',
+          category:'video',
+          tag:'DRONE SURVEY · 4K',
+          title:'01 · Initial Site Layout & Boundary Flight',
+          subtitle:'Drone overview establishing field topography, layout, and work fronts',
+          duration:'0:45',
+          src:'/projects/solar/solar2/DJI_0091.MP4',
+          poster:'/projects/solar/solar2/DJI_0127.JPG'
+        },
+        {
+          id:'video-s2-2',
+          type:'video',
+          category:'video',
+          tag:'STRUCTURE INSPECTION',
+          title:'02 · Array Mounting & Structure Calibration',
+          subtitle:'Detailed drone sweep over mounting structures and table alignment',
+          duration:'1:18',
+          src:'/projects/solar/solar2/DJI_0112.MP4',
+          poster:'/projects/solar/solar2/DJI_20260530153215_0778_D.JPG'
+        },
+        {
+          id:'video-s2-3',
+          type:'video',
+          category:'video',
+          tag:'CIVIL BOS',
+          title:'03 · Table Pitch & Civil BOS Inspection',
+          subtitle:'Close-range drone review of ramming piles and structural brackets',
+          duration:'1:02',
+          src:'/projects/solar/solar2/DJI_0114.MP4',
+          poster:'/projects/solar/solar2/DJI_20260530155152_0800_D.JPG'
+        },
+        {
+          id:'video-s2-4',
+          type:'video',
+          category:'video',
+          tag:'ELECTRICAL BLOCKS',
+          title:'04 · Inverter Blocks & Internal Roadways',
+          subtitle:'Flight across internal access roads, inverter stations, and collection trenches',
+          duration:'1:40',
+          src:'/projects/solar/solar2/DJI_0152.MP4',
+          poster:'/projects/solar/solar2/DJI_20260530165855_0826_D.JPG'
+        },
+        {
+          id:'video-s2-5',
+          type:'video',
+          category:'video',
+          tag:'MASTER PANORAMA · 4K',
+          title:'05 · Master Field Panorama & 4K Aerial Sweep',
+          subtitle:'High-altitude comprehensive panorama flight spanning the entire generation facility',
+          duration:'3:12',
+          src:'/projects/solar/solar2/DJI_0163.MP4',
+          poster:'/projects/solar/solar2/DJI_0127.JPG'
+        },
+        {
+          id:'video-s2-6',
+          type:'video',
+          category:'video',
+          tag:'EVACUATION CORRIDOR',
+          title:'06 · Electrical Trenching & Evacuation Corridor',
+          subtitle:'Low-level flight path following 33kV collection routes to pooling interface',
+          duration:'1:14',
+          src:'/projects/solar/solar2/DJI_0198.MP4',
+          poster:'/projects/solar/solar2/DJI_20260530153215_0778_D.JPG'
+        },
+        {
+          id:'video-s2-7',
+          type:'video',
+          category:'video',
+          tag:'COMMISSIONING FLIGHT',
+          title:'07 · Final Operational Handover Flight',
+          subtitle:'High-definition completion inspection across all generation blocks',
+          duration:'1:22',
+          src:'/projects/solar/solar2/DJI_0224.MP4',
+          poster:'/projects/solar/solar2/DJI_20260530165855_0826_D.JPG'
+        }
       ],
-      media:[
-        {type:'image',url:'/projects/solar-1/site-foundation-7.jpg',title:'Civil BOS Concreting & Foundation Casting'},
-        {type:'image',url:'/projects/solar-1/aerial-overview-1.jpg',title:'Array Infrastructure Layout'}
-      ]
-    },
-    {
-      id:'solar-5',
-      title:'Solar Project 5 — 60 MW Rooftop & Distributed Industrial Solar',
-      name:'Project Solar 5',
-      capacity:'60 MW',
-      client:'Industrial Manufacturing Hub',
-      location:'Karur & Erode Industrial Zones, TN',
-      status:'Operational',
-      tag:'DISTRIBUTED POWER',
-      scope:'Factory roof structural reinforcement, non-penetrating mounting fixtures, string inverter integration, and zero-export protection synchronisation.',
-      image:'/projects/solar-1/site-crew-6.jpg',
-      stat:'60 MW Distributed',
-      metrics:[
-        {label:'Total Capacity',value:'60 MW'},
-        {label:'Location',value:'Karur & Erode, TN'},
-        {label:'Client',value:'Automotive & Manufacturing Facilities'},
-        {label:'Scope',value:'Rooftop & Ground Hybrid Installation'}
-      ],
-      media:[
-        {type:'image',url:'/projects/solar-1/site-crew-6.jpg',title:'Site Crew Safety & Execution Review'},
-        {type:'image',url:'/projects/solar-1/drone-grid-angle-4.jpg',title:'Array Alignment Quality Audit'}
-      ]
+      videoNotice:'High-resolution aerial surveys and site video documentation recorded during execution and grid commissioning.'
     }
   ]
  },
@@ -231,123 +321,12 @@ export const works=[
   short:'Electrical infrastructure, balance-of-plant coordination and site interfaces for wind-energy projects.',
   headline:'Wind projects combine power infrastructure with difficult physical access.',
   description:'Wind sites add long-distance access, turbine-component logistics, construction sequencing and electrical collection or evacuation interfaces. Propercare separates those constraints, then reconnects them into one delivery sequence.',
-  image:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',
+  image:'https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=2200',
   bullets:['Wind-farm electrical works','Collection and pooling systems','Evacuation infrastructure','Turbine-site interface coordination','Testing and commissioning'],
   details:['Coordinate site electrical packages around turbine and civil interfaces.','Support collection and pooling infrastructure from turbine strings toward the grid interface.','Plan the receiving infrastructure with protection and energisation in view.','Make access, delivery windows and site readiness visible to the project team.','Close the loop through inspection, testing and commissioning records.'],
   steps:['Map turbine, electrical and logistics interfaces','Prepare package sequence and site readiness','Execute electrical and support works','Test, energise and hand over'],
   stepDetails:['Identify dependencies between turbine deliveries, civil works and electrical packages.','Align materials, crews, access and work fronts.','Control construction against the approved sequence.','Compile test results and readiness evidence for the next stage.'],
-  projects:[
-    {
-      id:'wind-1',
-      title:'Wind Project 1 — 300 MW Muppandal Wind Corridor Substation',
-      name:'Project Wind 1',
-      capacity:'300 MW',
-      client:'Global Turbine OEM & State Utility',
-      location:'Muppandal, Kanyakumari, Tamil Nadu',
-      status:'Commissioned',
-      tag:'POOLING SUBSTATION & 33kV',
-      scope:'Turnkey 33kV/230kV pooling substation, feeder switchgear installation, overhead power evacuation towers, and grid intertie synchronization.',
-      image:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'300 MW Pooling Capacity',
-      metrics:[
-        {label:'Total Capacity',value:'300 MW'},
-        {label:'Location',value:'Muppandal Corridor, TN'},
-        {label:'Client',value:'Global OEM & IPP'},
-        {label:'Scope',value:'Pooling Substation & 33kV Lines'}
-      ],
-      media:[
-        {type:'image',url:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Turbine String Array & Substation Approach'}
-      ]
-    },
-    {
-      id:'wind-2',
-      title:'Wind Project 2 — 180 MW Kayathar Heavy Hardstand Engineering',
-      name:'Project Wind 2',
-      capacity:'180 MW',
-      client:'Independent Wind Power Producer',
-      location:'Kayathar, Thoothukudi District, TN',
-      status:'Operational',
-      tag:'HARDSTAND & CIVIL BOP',
-      scope:'65 crane pads and heavy-lift hardstands engineered for 800-tonne crawler crane mobilization, turbine pad compaction, and access road stabilization.',
-      image:'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'65 Heavy Turbine Pads',
-      metrics:[
-        {label:'Total Capacity',value:'180 MW'},
-        {label:'Location',value:'Kayathar Wind Belt, TN'},
-        {label:'Client',value:'Renewable Wind IPP'},
-        {label:'Scope',value:'Crane Hardstands & Internal Roads'}
-      ],
-      media:[
-        {type:'image',url:'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Heavy Hardstand Infrastructure Construction'}
-      ]
-    },
-    {
-      id:'wind-3',
-      title:'Wind Project 3 — 125 MW Udumalpet WTG Collection Network',
-      name:'Project Wind 3',
-      capacity:'125 MW',
-      client:'Leading Clean Energy Conglomerate',
-      location:'Udumalpet Wind Zone, Tirupur, TN',
-      status:'Commissioned',
-      tag:'33kV CABLE INTERFACES',
-      scope:'33kV underground and overhead collection circuits, transformer pad connections, ring main unit installation, and protection verification.',
-      image:'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'125 MW Collection',
-      metrics:[
-        {label:'Total Capacity',value:'125 MW'},
-        {label:'Location',value:'Udumalpet Zone, TN'},
-        {label:'Client',value:'Clean Energy Developer'},
-        {label:'Scope',value:'33kV Collection Network & RMU'}
-      ],
-      media:[
-        {type:'image',url:'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'33kV Switchyard & Line Interconnection'}
-      ]
-    },
-    {
-      id:'wind-4',
-      title:'Wind Project 4 — 210 MW Palakkad Gap Component Staging',
-      name:'Project Wind 4',
-      capacity:'210 MW',
-      client:'Turbine OEM Manufacturing Partner',
-      location:'Palakkad Pass - Pollachi Corridor',
-      status:'Executed',
-      tag:'STAGING & MARSHALLING',
-      scope:'Centralized 25-acre marshalling yard management, tower section staging, nacelle mechanical inspection, and precision site haulage dispatch.',
-      image:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'210 MW Turbine Logistics',
-      metrics:[
-        {label:'Total Capacity',value:'210 MW'},
-        {label:'Location',value:'Pollachi - Palakkad, TN/KL'},
-        {label:'Client',value:'Global Turbine OEM'},
-        {label:'Scope',value:'Marshalling Yard & Just-in-Time Delivery'}
-      ],
-      media:[
-        {type:'image',url:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Turbine Component Marshalling & Logistics'}
-      ]
-    },
-    {
-      id:'wind-5',
-      title:'Wind Project 5 — 90 MW Repowering & Substation Upgrade',
-      name:'Project Wind 5',
-      capacity:'90 MW',
-      client:'Tamil Nadu Power Utility Partner',
-      location:'Dharapuram, Tirupur District, TN',
-      status:'Commissioned',
-      tag:'REPOWERING & MODERNIZATION',
-      scope:'Decommissioning coordination for aging turbines, site civil reprofiling for modern high-capacity 3.3MW WTGs, and pooling yard protection upgrade.',
-      image:'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'90 MW Modernization',
-      metrics:[
-        {label:'Total Capacity',value:'90 MW'},
-        {label:'Location',value:'Dharapuram Belt, TN'},
-        {label:'Client',value:'Power Generation Group'},
-        {label:'Scope',value:'Repowering Civil & Substation Retracking'}
-      ],
-      media:[
-        {type:'image',url:'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'High Voltage Testing & Verification'}
-      ]
-    }
-  ]
+  projects:[]
  },
  {
   slug:'transport',
@@ -364,113 +343,126 @@ export const works=[
   projects:[
     {
       id:'transport-1',
-      title:'Transport Project 1 — 160T Heavy Power Transformer Haulage',
+      title:'Transport Project 1 — Heavy ODC & Multimodal Logistics',
       name:'Project Transport 1',
-      capacity:'160T Payload',
-      client:'State Transmission Corporation / Transformer OEM',
-      location:'Chennai Port to Central Substation, Karur, TN',
+      capacity:'Heavy ODC Payload',
+      client:'State Transmission Corporation / Heavy Electrical OEM',
+      location:'Tamil Nadu Highway Corridor, India',
       status:'Successfully Delivered',
       tag:'ODC HEAVY HAULAGE',
-      scope:'16-axle hydraulic multi-axle modular trailer transport of 160-tonne 400kV generator transformer across 380 km highway with comprehensive bridge bypass engineering.',
-      image:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'160-Tonne Single Piece',
+      scope:'Hydraulic multi-axle modular trailer conveyance of heavy transformers and oversized renewable equipment with comprehensive route surveys, bridge bypass engineering, and live drone convoy tracking.',
+      image:'/projects/transport/transport1/DJI_0078.JPG',
+      stat:'Multi-Axle Heavy Haulage',
       metrics:[
-        {label:'Cargo Weight',value:'160 Tonnes'},
-        {label:'Equipment',value:'16-Axle Hydraulic Modular Trailer'},
-        {label:'Route Distance',value:'380 km Inter-district Haul'},
-        {label:'Clearance',value:'NHAI & MoRTH Special Permits'}
+        {label:'Movement Type',value:'ODC Heavy Modular Movement'},
+        {label:'Equipment',value:'Hydraulic Multi-Axle Modular Trailer Fleet'},
+        {label:'Corridor Scope',value:'Highway & Rural Inter-District Transit'},
+        {label:'Footage Records',value:'8 Drone Videos & 9 Site Photos'},
+        {label:'Route Feasibility',value:'Bridge Bypass & Overhead Wire Clearance'},
+        {label:'Safety Standard',value:'Zero-Incident Escorted Convoy'}
       ],
       media:[
-        {type:'image',url:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Hydraulic Modular Multi-Axle Haulage En Route'}
-      ]
-    },
-    {
-      id:'transport-2',
-      title:'Transport Project 2 — 84m Long Rotor Blade Fleet Movement',
-      name:'Project Transport 2',
-      capacity:'84-Metre Blades',
-      client:'Leading Wind Turbine Manufacturer',
-      location:'Tuticorin Harbor to Muppandal Wind Park',
-      status:'Completed on Schedule',
-      tag:'WIND BLADE SPECIALIST',
-      scope:'Conveyance of 36 rotor blades measuring 84.5 metres each using specialized extendable triple-telescopic blade trailers with hydraulic turning adapters.',
-      image:'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'36 Blades Moved (84.5m Each)',
-      metrics:[
-        {label:'Blade Length',value:'84.5 Metres Each'},
-        {label:'Volume',value:'36 Blades Moved'},
-        {label:'Equipment',value:'Extendable Triple-Telescopic Trailers'},
-        {label:'Safety',value:'Zero-Incident Convoy Operations'}
+        {type:'image',category:'aerial',tag:'CONVOY TRANSIT',url:'/projects/transport/transport1/DJI_0078.JPG',title:'Drone High-Angle View — Hydraulic Modular Trailer in Transit (DJI_0078)'},
+        {type:'image',category:'aerial',tag:'HIGHWAY CORRIDOR',url:'/projects/transport/transport1/DJI_0079.JPG',title:'Aerial Perspective of Escorted Heavy Haulage Convoy (DJI_0079)'},
+        {type:'image',category:'logistics',tag:'JUNCTION CLEARANCE',url:'/projects/transport/transport1/DJI_0092.JPG',title:'Highway Intersection Turning Radius & Road Clearance (DJI_0092)'},
+        {type:'image',category:'logistics',tag:'ELEVATED TRANSIT',url:'/projects/transport/transport1/DJI_0098.JPG',title:'Bridge Structure Transit & Axle Load Distribution (DJI_0098)'},
+        {type:'image',category:'logistics',tag:'RURAL CORRIDOR',url:'/projects/transport/transport1/DJI_0099.JPG',title:'Rural Access Road Navigation & Pilot Escort Alignment (DJI_0099)'},
+        {type:'image',category:'logistics',tag:'HYDRAULIC STABILITY',url:'/projects/transport/transport1/DJI_0101.JPG',title:'Trailer Hydraulic Bed Stability & Ground Clearance Inspection (DJI_0101)'},
+        {type:'image',category:'transport',tag:'SUBSTATION APPROACH',url:'/projects/transport/transport1/DJI_0110.JPG',title:'Site Approach Road Arrival & Final Turn Execution (DJI_0110)'},
+        {type:'image',category:'transport',tag:'BAY POSITIONING',url:'/projects/transport/transport1/DJI_0120.JPG',title:'Substation Bay Delivery & Precision Positioning (DJI_0120)'},
+        {type:'image',category:'transport',tag:'COMPLETION & HANDOVER',url:'/projects/transport/transport1/DJI_0126.JPG',title:'Final Cargo Tie-Down Release & Handover Sign-Off (DJI_0126)'}
       ],
-      media:[
-        {type:'image',url:'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Wind Blade Transport Fleet Convoy'}
-      ]
-    },
-    {
-      id:'transport-3',
-      title:'Transport Project 3 — 400kV Gas Insulated Switchgear (GIS) Logistics',
-      name:'Project Transport 3',
-      capacity:'Specialized ODC Package',
-      client:'EPC Switchgear Multilateral Contractor',
-      location:'Bengaluru to Coimbatore Substation',
-      status:'Delivered & Placed',
-      tag:'SENSITIVE GIS CARGO',
-      scope:'Air-suspension low-bed trailer transport of sensitive GIS compartments with shock-logging telemetry and direct bay-positioning offloading.',
-      image:'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'Zero-G Shock Log Compliance',
-      metrics:[
-        {label:'Cargo',value:'400kV GIS Modules'},
-        {label:'Trailer',value:'Air-Suspension Low-Bed Fleet'},
-        {label:'Monitoring',value:'Real-Time 3-Axis Shock Loggers'},
-        {label:'Destination',value:'Indoor Substation Bay'}
+      videos:[
+        {
+          id:'video-t1-1',
+          type:'video',
+          category:'video',
+          tag:'CONVOY MOBILISATION',
+          title:'01 · Highway Convoy Mobilisation Flight',
+          subtitle:'Drone tracking flight over hydraulic multi-axle modular convoy starting transit',
+          duration:'1:12',
+          src:'/projects/transport/transport1/DJI_0064.MP4',
+          poster:'/projects/transport/transport1/DJI_0078.JPG'
+        },
+        {
+          id:'video-t1-2',
+          type:'video',
+          category:'video',
+          tag:'AXLE CLEARANCE',
+          title:'02 · Hydraulic Multi-Axle Turn & Clearance Sweep',
+          subtitle:'Overhead drone review of multi-axle steering and turning clearance geometry',
+          duration:'0:48',
+          src:'/projects/transport/transport1/DJI_0081.MP4',
+          poster:'/projects/transport/transport1/DJI_0079.JPG'
+        },
+        {
+          id:'video-t1-3',
+          type:'video',
+          category:'video',
+          tag:'CRITICAL BEND',
+          title:'03 · Critical Bend & Intersection Navigation',
+          subtitle:'Precision cornering and traffic control coordination captured by drone',
+          duration:'0:35',
+          src:'/projects/transport/transport1/DJI_0102.MP4',
+          poster:'/projects/transport/transport1/DJI_0092.JPG'
+        },
+        {
+          id:'video-t1-4',
+          type:'video',
+          category:'video',
+          tag:'BRIDGE TRANSIT',
+          title:'04 · Highway Bridge & Elevated Section Transit',
+          subtitle:'Drone monitoring bridge approach, slow crawl speed, and weight dispersion',
+          duration:'1:05',
+          src:'/projects/transport/transport1/DJI_0103.MP4',
+          poster:'/projects/transport/transport1/DJI_0098.JPG'
+        },
+        {
+          id:'video-t1-5',
+          type:'video',
+          category:'video',
+          tag:'BYPASS CORRIDOR',
+          title:'05 · Rural Corridor & Bypass Route Transit',
+          subtitle:'Convoy progression along engineered bypass route with police pilot escort',
+          duration:'1:20',
+          src:'/projects/transport/transport1/DJI_0106.MP4',
+          poster:'/projects/transport/transport1/DJI_0099.JPG'
+        },
+        {
+          id:'video-t1-6',
+          type:'video',
+          category:'video',
+          tag:'LOW-ALTITUDE ESCORT',
+          title:'06 · Low-Altitude Convoy Escort & Axle Monitoring',
+          subtitle:'Continuous close-up flight assessing trailer stability, tie-downs, and clearance',
+          duration:'0:42',
+          src:'/projects/transport/transport1/DJI_0107.MP4',
+          poster:'/projects/transport/transport1/DJI_0101.JPG'
+        },
+        {
+          id:'video-t1-7',
+          type:'video',
+          category:'video',
+          tag:'SITE ARRIVAL',
+          title:'07 · Final Substation Approach & Access Road',
+          subtitle:'Arrival at the destination substation and negotiation of entry gates',
+          duration:'0:40',
+          src:'/projects/transport/transport1/DJI_0112.MP4',
+          poster:'/projects/transport/transport1/DJI_0110.JPG'
+        },
+        {
+          id:'video-t1-8',
+          type:'video',
+          category:'video',
+          tag:'BAY PLACEMENT',
+          title:'08 · Bay Offloading & Precision Alignment Survey',
+          subtitle:'Final positioning of heavy cargo into the transformer foundation bay',
+          duration:'1:18',
+          src:'/projects/transport/transport1/DJI_0118.MP4',
+          poster:'/projects/transport/transport1/DJI_0120.JPG'
+        }
       ],
-      media:[
-        {type:'image',url:'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Substation Bay Delivery & Offloading'}
-      ]
-    },
-    {
-      id:'transport-4',
-      title:'Transport Project 4 — Multimodal Port-to-Site Tower Logistics',
-      name:'Project Transport 4',
-      capacity:'72 WTG Tower Sections',
-      client:'Wind Farm Project Developer',
-      location:'Ennore Port to Tirunelveli Site',
-      status:'Completed',
-      tag:'MULTIMODAL ODC',
-      scope:'Vessel discharge, port marshaling, long-distance road haulage, bridge structural load recalculation, and night transport under police pilot escort.',
-      image:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'72 Tower Sections Delivered',
-      metrics:[
-        {label:'Cargo',value:'72 Wind Tower Sections'},
-        {label:'Port',value:'Ennore Port, Chennai'},
-        {label:'Transit',value:'Night-time Highway Convoy'},
-        {label:'Status',value:'100% On-Time Delivery'}
-      ],
-      media:[
-        {type:'image',url:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Tower Section Convoy & Site Approach'}
-      ]
-    },
-    {
-      id:'transport-5',
-      title:'Transport Project 5 — Complete Turnkey Route Survey & Civil Bypass',
-      name:'Project Transport 5',
-      capacity:'420 km Route Clearance',
-      client:'Renewable Heavy Haulage Operator',
-      location:'Southern Corridor, Tamil Nadu & Kerala',
-      status:'Engineered & Cleared',
-      tag:'ROUTE FEASIBILITY',
-      scope:'Laser 3D clearance scanning, turning radius computer simulation, temporary median modifications, overhead wire lifts, and bridge reinforcement verification.',
-      image:'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'420 km Route Feasibility',
-      metrics:[
-        {label:'Survey Scope',value:'420 km Total Corridor'},
-        {label:'Bypass Works',value:'12 Temporary Civil Deviations'},
-        {label:'Technology',value:'3D Laser Clearance Profiling'},
-        {label:'Compliance',value:'Complete PWD & NH Approvals'}
-      ],
-      media:[
-        {type:'image',url:'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Corridor Route Survey & Road Engineering'}
-      ]
+      videoNotice:'Drone surveillance and convoy progression records captured during critical highway and site delivery operations.'
     }
   ]
  }
