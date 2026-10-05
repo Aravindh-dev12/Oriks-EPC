@@ -38,7 +38,7 @@ function Home() {
     <section className="home-solutions">
       <div className="wrap">
         <div className="split-heading"><div><span className="kicker">03 / DELIVERY SYSTEM</span><h2>From scope definition to handover.</h2></div><p>Industry leaders increasingly organise renewable delivery around specialist capabilities, route intelligence, engineering interfaces, safety and evidence. Propercare uses the same project logic at the scale of each assignment.</p></div>
-        <div className="solution-rail">{services.map((s,i)=><Link to={'/services/'+s.slug} className="solution-rail-item" key={s.slug}><span>0{i+1}</span><div><h3>{s.title}</h3><p>{s.short}</p></div><b>↗</b></Link>)}</div>
+        <div className="solution-rail">{services.map((s,i)=>{const Icon=s.slug.includes('epc')?SunMedium:s.slug.includes('power')?Zap:s.slug.includes('substation')?Factory:s.slug.includes('testing')?Zap:Truck;return <Link to={'/services/'+s.slug} className="solution-rail-item" key={s.slug}><span className="solution-icon"><Icon size={25} strokeWidth={1.7}/></span><div><span className="solution-number">0{i+1}</span><h3>{s.title}</h3><p>{s.short}</p></div><ArrowUpRight className="solution-arrow" size={22} strokeWidth={1.8}/></Link>})}</div>
       </div>
     </section>
 
