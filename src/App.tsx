@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { Link, Route, Routes, useParams } from 'react-router-dom';
+import { ArrowUpRight, SunMedium, Zap, Factory, Truck } from 'lucide-react';
 import { Header, Footer, HeroVideo, Section, MediaCard } from './components';
 import { articles, clients, research, services, sectors, works } from './data';
 
