@@ -53,7 +53,7 @@ function Home() {
 
     <section className="home-insights">
       <div className="wrap"><Section eyebrow="05 / INSIGHTS" title="What the renewable project market is teaching us." />
-        <div className="insight-grid">{articles.slice(0,3).map(a=><MediaCard key={a.title} image={a.image} title={a.title} text={a.text}/>)}</div>
+        <div className="insight-grid">{articles.slice(0,3).map(a=><Link className="insight-link" key={a.slug} to={'/resources/blog/'+a.slug}><MediaCard image={a.image} title={a.title} text={a.text}/></Link>)}</div>
       </div>
     </section>
     <section className="cta-strip"><div className="wrap"><div><span className="kicker">READY FOR THE NEXT PHASE?</span><h2>Bring us the scope, site and schedule.</h2></div><Link className="button light" to="/contact">Start a project</Link></div></section>
@@ -121,8 +121,22 @@ function Resources({kind='all'}:{kind?:string}) {
  const title=kind==='blogs'?'Blogs':kind==='media'?'Media':kind==='updates'?'New Updates':'Resources';
  return <Page type="resources" title={title} lead="Field perspectives, project education and renewable-market context." image={grid}>
    <div className="resource-header"><span className="kicker">PROPECARE / INSIGHTS</span><h2>Useful information before the next project decision.</h2><p>Our resource layer turns project experience and market research into practical guidance: route planning, EPC interfaces, electrical scope, commissioning and renewable project readiness.</p></div>
-   <div className="articles-grid">{filtered.map(a=><article className="article-card" key={a.title}><img src={a.image} alt={a.title}/><div><span className="kicker">{a.tag}</span><h3>{a.title}</h3><p>{a.text}</p><Link className="text-link" to="/contact">Discuss the requirement →</Link></div></article>)}</div>
+   <div className="articles-grid">{filtered.map(a=><article className="article-card" key={a.slug}><img src={a.image} alt={a.title}/><div><span className="kicker">{a.tag} · {a.date}</span><h3>{a.title}</h3><p>{a.text}</p><div className="article-meta"><span>{a.readTime}</span><Link className="text-link" to={'/resources/blog/'+a.slug}>Read article →</Link></div></div></article>)}</div>
    <Link className="research-banner" to="/resources/industry-references"><span>MARKET RESEARCH</span><b>See the external industry references behind our new content strategy ↗</b></Link>
+ </Page>;
+}
+
+function Article() {
+ const {slug}=useParams();
+ const article=articles.find(a=>a.slug===slug)??articles[0];
+ return <Page type="article" title={article.title} lead={article.text} image={article.image}>
+   <article className="article-detail">
+     <div className="article-detail-head"><div><span className="kicker">{article.tag} / {article.date}</span><h2>{article.title}</h2></div><div><b>{article.readTime}</b><span>Research-led editorial</span></div></div>
+     <p className="article-dek">{article.text}</p>
+     <div className="article-content">{article.content.map(([heading,body])=><section key={heading}><h3>{heading}</h3><p>{body}</p></section>)}</div>
+     <div className="article-source"><span>PRIMARY REFERENCE</span><div><b>{article.sourceName}</b><a href={article.source} target="_blank" rel="noreferrer">Open source ↗</a></div></div>
+     <div className="article-next"><Link className="button" to="/resources/blog">More articles</Link><Link className="text-link" to="/contact">Discuss a project →</Link></div>
+   </article>
  </Page>;
 }
 
@@ -147,4 +161,4 @@ function Page({type,title,lead,image,children}:{type:string;title:string;lead:st
  return <><section className={'page-masthead page-masthead--'+type}><img className="page-masthead-image" src={image} alt=""/><div className="page-masthead-overlay"/><div className="wrap page-masthead-content"><span className="kicker">PROPECARE / {type.replace('-',' ').toUpperCase()}</span><h1>{title}</h1><p>{lead}</p><div className="masthead-actions"><Link className="button light" to="/contact">Discuss a project</Link><span>Solar · Wind · EPC · Logistics</span></div></div><div className="masthead-index"><span>{type==='about'?'01':type==='work'?'02':type.includes('service')?'03':type.includes('resources')?'04':type==='clients'?'05':type==='contact'?'06':'07'}</span><span>FIELD-READY INFRASTRUCTURE</span></div></section><main className={'page-body page-body--'+type}>{children}</main></>;
 }
 
-export default function App(){return <><Header/><Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/works" element={<Works/>}/><Route path="/works/:slug" element={<Work/>}/><Route path="/services" element={<Solutions/>}/><Route path="/services/:slug" element={<Service/>}/><Route path="/resources" element={<Resources/>}/><Route path="/resources/:kind" element={<Resources/>}/><Route path="/clients" element={<Clients/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes><Footer/></>}
+export default function App(){return <><Header/><Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/works" element={<Works/>}/><Route path="/works/:slug" element={<Work/>}/><Route path="/services" element={<Solutions/>}/><Route path="/services/:slug" element={<Service/>}/><Route path="/resources" element={<Resources/>}/><Route path="/resources/blog/:slug" element={<Article/>}/><Route path="/resources/:kind" element={<Resources/>}/><Route path="/clients" element={<Clients/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes><Footer/></>}
