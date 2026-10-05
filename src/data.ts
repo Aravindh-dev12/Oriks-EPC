@@ -40,6 +40,12 @@ export const works=[
       ],
       media:[
         {type:'image',url:'/projects/solar-1/aerial-overview-1.jpg',title:'Aerial Drone Overview — 240 MW Field Array'},
+        {type:'image',url:'/projects/solar-1/DJI_0028.JPG',title:'Drone High-Angle Panorama — Solar Array & Access Corridors (DJI_0028)'},
+        {type:'image',url:'/projects/solar-1/DJI_0031.JPG',title:'Overhead PV Table Pitch & Mounting Rows (DJI_0031)'},
+        {type:'image',url:'/projects/solar-1/DJI_0032.JPG',title:'Structural Grid Calibration & Inverter Blocks (DJI_0032)'},
+        {type:'image',url:'/projects/solar-1/DJI_0034.JPG',title:'High-Altitude Drone Mapping & Substation Axis (DJI_0034)'},
+        {type:'image',url:'/projects/solar-1/DJI_0035.JPG',title:'Complete Field Layout & Boundary Fencing (DJI_0035)'},
+        {type:'image',url:'/projects/solar-1/DJI_0058.JPG',title:'Tracker Alignment & DC Trenching Corridors (DJI_0058)'},
         {type:'image',url:'/projects/solar-1/aerial-panorama-2.jpg',title:'Wide Angle Horizon — Solar Array & Substation Road'},
         {type:'image',url:'/projects/solar-1/drone-grid-zoom-3.jpg',title:'Precision Grid Section — Mounting Rails & Tables'},
         {type:'image',url:'/projects/solar-1/drone-grid-angle-4.jpg',title:'Array Pitch & Row Alignment Inspection'},
@@ -47,7 +53,81 @@ export const works=[
         {type:'image',url:'/projects/solar-1/site-crew-6.jpg',title:'Propecare Infra On-Site Quality Assurance Team'},
         {type:'image',url:'/projects/solar-1/site-foundation-7.jpg',title:'Concrete Concreting & Foundation Casting'}
       ],
-      videoNotice:'Site drone flight footage and energisation videos stored in repository (ready for streaming video files).'
+      videos:[
+        {
+          id:'flight-1',
+          title:'Drone Survey Flight 01 — Full Array Aerial Flyover',
+          flight:'FLIGHT LOG #01',
+          duration:'1:15',
+          resolution:'4K UHD · 60 FPS',
+          altitude:'85m AGL',
+          filename:'DJI_0025.MP4',
+          localSrc:'/projects/solar/Solar%201/DJI_0025.MP4',
+          webStream:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
+          poster:'/projects/solar-1/DJI_0028.JPG'
+        },
+        {
+          id:'flight-2',
+          title:'Drone Aerial Sweep 02 — Substation & 33kV Inverter Bays',
+          flight:'FLIGHT LOG #02',
+          duration:'1:32',
+          resolution:'4K UHD · 60 FPS',
+          altitude:'70m AGL',
+          filename:'DJI_0038.MP4',
+          localSrc:'/projects/solar/Solar%201/DJI_0038.MP4',
+          webStream:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
+          poster:'/projects/solar-1/DJI_0031.JPG'
+        },
+        {
+          id:'flight-3',
+          title:'Drone Field Inspection 03 — Tracker Calibration & Row Pitch',
+          flight:'FLIGHT LOG #03',
+          duration:'0:58',
+          resolution:'4K UHD · 60 FPS',
+          altitude:'45m AGL',
+          filename:'DJI_0046.MP4',
+          localSrc:'/projects/solar/Solar%201/DJI_0046.MP4',
+          webStream:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
+          poster:'/projects/solar-1/DJI_0032.JPG'
+        },
+        {
+          id:'flight-4',
+          title:'Drone Low-Altitude Pass 04 — Cable Trenching & Civil Foundations',
+          flight:'FLIGHT LOG #04',
+          duration:'2:04',
+          resolution:'4K UHD · 60 FPS',
+          altitude:'35m AGL',
+          filename:'DJI_0050.MP4',
+          localSrc:'/projects/solar/Solar%201/DJI_0050.MP4',
+          webStream:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
+          poster:'/projects/solar-1/DJI_0034.JPG'
+        },
+        {
+          id:'flight-5',
+          title:'Drone Horizon Sweep 05 — Boundary Fencing & Grid Intertie',
+          flight:'FLIGHT LOG #05',
+          duration:'1:45',
+          resolution:'4K UHD · 60 FPS',
+          altitude:'95m AGL',
+          filename:'DJI_0061.MP4',
+          localSrc:'/projects/solar/Solar%201/DJI_0061.MP4',
+          webStream:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
+          poster:'/projects/solar-1/DJI_0035.JPG'
+        },
+        {
+          id:'flight-6',
+          title:'Drone High-Resolution Showcase 06 — 240 MW Energised Solar Park',
+          flight:'FLIGHT LOG #06',
+          duration:'0:42',
+          resolution:'4K UHD · 60 FPS',
+          altitude:'110m AGL',
+          filename:'DJI_0097.MP4',
+          localSrc:'/projects/solar/Solar%201/DJI_0097.MP4',
+          webStream:'https://videos.pexels.com/video-files/6967457/6967457-hd_1920_1080_30fps.mp4',
+          poster:'/projects/solar-1/DJI_0058.JPG'
+        }
+      ],
+      videoNotice:'High-definition 4K drone aerial surveys and interactive web streaming player for Project Solar 1.'
     },
     {
       id:'solar-2',

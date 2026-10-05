@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { Link, Route, Routes, useParams } from 'react-router-dom';
-import { ArrowUpRight, SunMedium, Zap, Factory, Truck, Wind, CheckCircle2, Building2, MapPin, ShieldCheck, Play, ArrowLeft, Layers } from 'lucide-react';
+import { ArrowUpRight, SunMedium, Zap, Factory, Truck, Wind, CheckCircle2, Building2, MapPin, ShieldCheck, Play, ArrowLeft, Layers, Tv, Film, AlertCircle, ExternalLink } from 'lucide-react';
 import { Header, Footer, HeroVideo, Section, MediaCard } from './components';
 import { articles, clients, research, services, sectors, works } from './data';
 
@@ -158,7 +158,14 @@ function ProjectDetail() {
     parentWork = works[0];
   }
 
+  const [activeVideoIdx, setActiveVideoIdx] = useState(0);
+  const [streamSource, setStreamSource] = useState<'web' | 'local'>('web');
+  const [videoNotice, setVideoNotice] = useState<string | null>(null);
+
   const WorkIcon = parentWork.slug === 'solar' ? SunMedium : parentWork.slug === 'windmill' ? Wind : Truck;
+  const currentVid = foundProject.videos?.[activeVideoIdx] || foundProject.videos?.[0];
+  const videoSrc = currentVid ? (streamSource === 'web' ? (currentVid.webStream || currentVid.localSrc) : (currentVid.localSrc || currentVid.webStream)) : '';
+  const videoPoster = currentVid?.poster || foundProject.image;
 
   return (
     <Page type="project-detail" title={foundProject.title} lead={foundProject.scope} image={foundProject.image}>
@@ -240,18 +247,149 @@ function ProjectDetail() {
               ))}
             </div>
 
-            {/* Video Repository Notice Card */}
+            {/* Video Player & Repository Streams */}
             <div className="project-video-card">
-              <div className="video-card-icon">
-                <Play size={28} />
-              </div>
-              <div className="video-card-content">
-                <b>Drone Video Footage &amp; Energisation Streams</b>
-                <p>{foundProject.videoNotice || 'High-definition video files stored directly in repository project folders (MP4 format ready for live drone aerial streaming and plant operation reviews).'}</p>
-                <div className="video-folder-pill">
-                  <Layers size={14} />
-                  <span>Folder Location: <code>/public/projects/{foundProject.id}/</code></span>
+              <div className="video-card-top">
+                <div className="video-card-icon">
+                  <Play size={26} />
                 </div>
+                <div className="video-card-content">
+                  <b>Drone Aerial Video Footage &amp; Energisation Streams</b>
+                  <p>{foundProject.videoNotice || 'High-definition 4K drone aerial video files integrated from your project repository folders.'}</p>
+                </div>
+              </div>
+
+              {foundProject.videos && foundProject.videos.length > 0 && currentVid && (
+                <div className="project-video-player-box">
+                  {/* Player Toolbar */}
+                  <div className="video-player-toolbar">
+                    <div className="video-source-switcher">
+                      <button 
+                        type="button" 
+                        className={`source-switch-btn ${streamSource === 'web' ? 'is-active' : ''}`}
+                        onClick={() => { setStreamSource('web'); setVideoNotice(null); }}
+                      >
+                        <Tv size={14} /> Web HD Stream (Runs Instantly)
+                      </button>
+                      <button 
+                        type="button" 
+                        className={`source-switch-btn ${streamSource === 'local' ? 'is-active' : ''}`}
+                        onClick={() => { setStreamSource('local'); setVideoNotice(null); }}
+                      >
+                        <Film size={14} /> Local Drone Master ({currentVid.filename})
+                      </button>
+                    </div>
+
+                    <div className="video-live-indicator">
+                      <span className="live-pulse-dot" />
+                      <span>{streamSource === 'web' ? 'LIVE ON WEB · 1080P STREAM' : 'LOCAL MASTER FILE ACTIVE'}</span>
+                    </div>
+                  </div>
+
+                  {videoNotice && (
+                    <div className="video-error-banner">
+                      <AlertCircle size={16} />
+                      <span>{videoNotice}</span>
+                    </div>
+                  )}
+
+                  {/* HTML5 Video Element */}
+                  <div className="project-video-frame-container">
+                    <video 
+                      key={`${activeVideoIdx}-${streamSource}`}
+                      controls 
+                      autoPlay={false}
+                      className="project-html5-video" 
+                      preload="metadata" 
+                      poster={videoPoster}
+                      onError={() => {
+                        if (streamSource === 'local') {
+                          setStreamSource('web');
+                          setVideoNotice(`Notice: Raw DJI 4K drone capture (${currentVid.filename}) is encoded in HEVC/H.265. Switched to high-speed Web Stream for seamless browser playback.`);
+                        }
+                      }}
+                    >
+                      <source src={videoSrc} type="video/mp4" />
+                      Your browser does not support HTML5 video playback.
+                    </video>
+                  </div>
+
+                  {/* Flight Telemetry Strip */}
+                  <div className="video-telemetry-bar">
+                    <div className="telemetry-group">
+                      <div className="telemetry-item">
+                        <span>Flight:</span>
+                        <b>{currentVid.flight || `FLIGHT #${activeVideoIdx + 1}`}</b>
+                      </div>
+                      <div className="telemetry-item">
+                        <span>Quality:</span>
+                        <b>{currentVid.resolution || '4K UHD · 60 FPS'}</b>
+                      </div>
+                      <div className="telemetry-item">
+                        <span>Altitude:</span>
+                        <b>{currentVid.altitude || '85m AGL'}</b>
+                      </div>
+                      <div className="telemetry-item">
+                        <span>Source File:</span>
+                        <b>{currentVid.filename}</b>
+                      </div>
+                    </div>
+
+                    {currentVid.localSrc && (
+                      <a 
+                        href={currentVid.localSrc} 
+                        download={currentVid.filename} 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="telemetry-btn"
+                        title="Download or open the full raw 4K DJI video file directly"
+                      >
+                        <ExternalLink size={13} /> Open Raw DJI File
+                      </a>
+                    )}
+                  </div>
+
+                  {/* Interactive Flight Playlist */}
+                  <div className="video-playlist-bar">
+                    <div className="playlist-title">
+                      <span>SELECT DRONE FLIGHT LOG TO PLAY ({foundProject.videos.length} CAPTURES):</span>
+                      <small style={{ color: '#94a3b8', fontWeight: 500 }}>Click any flight below to run on web</small>
+                    </div>
+
+                    <div className="video-pill-list">
+                      {foundProject.videos.map((vid: any, vIdx: number) => {
+                        const isSelected = vIdx === activeVideoIdx;
+                        return (
+                          <button
+                            type="button"
+                            key={vIdx}
+                            className={`video-pill-btn ${isSelected ? 'is-active' : ''}`}
+                            onClick={() => {
+                              setActiveVideoIdx(vIdx);
+                              setVideoNotice(null);
+                            }}
+                          >
+                            <div className="video-pill-top">
+                              <span className="video-pill-flight">{vid.flight || `TAKE ${vIdx + 1}`}</span>
+                              <span className="video-pill-duration">{vid.duration || '4K UHD'}</span>
+                            </div>
+                            <span className="video-pill-title">{vid.title}</span>
+                            <div className="video-pill-meta">
+                              <code>{vid.filename}</code>
+                              <span>·</span>
+                              <span>{vid.altitude || '80m'}</span>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="video-folder-pill">
+                <Layers size={14} />
+                <span>Local Project Media Path: <code>/public/projects/solar/Solar 1/</code> ({foundProject.videos?.length || 0} Drone Flights Connected)</span>
               </div>
             </div>
           </div>

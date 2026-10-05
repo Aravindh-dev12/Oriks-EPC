@@ -6,3 +6,8 @@ dist-ssr
 .env.*
 .DS_Store
 Thumbs.db
+*.MP4
+*.mp4
+*.DNG
+*.dng
+
