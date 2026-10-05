@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, type ReactNode } from 'react';
 import { Link, Route, Routes, useParams, useLocation } from 'react-router-dom';
 import { ArrowUpRight, SunMedium, Zap, Factory, Truck, Wind, CheckCircle2, Building2, MapPin, ShieldCheck, Play, ArrowLeft } from 'lucide-react';
 import { Header, Footer, HeroVideo, Section, MediaCard } from './components';
-import { articles, clients, research, services, sectors, works } from './data';
+import { articles, clients, newsUpdates, research, services, sectors, works } from './data';
 
 const solar = 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const grid = 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200';
@@ -96,6 +96,37 @@ function Works() {
         </div>
       </Link>;
     })}</div>
+
+    {/* Showcase delivered projects across all active sectors */}
+    <div className="work-projects-showcase" style={{marginTop:'60px'}}>
+      <div style={{marginBottom:'24px'}}>
+        <span className="kicker">DELIVERED &amp; EXECUTED PROJECTS</span>
+        <h2>Verified Track Record &amp; Field Delivery</h2>
+        <p style={{maxWidth:'680px',color:'var(--muted)',marginTop:'6px',fontSize:'15px',lineHeight:'1.6'}}>
+          Review our actively executed utility solar plants and heavy multimodal transport operations with on-site imagery, technical specifications, and drone footage.
+        </p>
+      </div>
+      <div className="work-projects-grid">
+        {works.flatMap(w => (w.projects || []).map(p => ({ ...p, sectorSlug: w.slug, sectorTitle: w.title }))).map((p) => (
+          <Link to={'/works/projects/' + p.id} className="work-project-card" key={p.id}>
+            <div className="work-project-img">
+              <img src={p.image} alt={p.title} />
+              <span className="work-project-capacity-pill">{p.capacity}</span>
+            </div>
+            <div className="work-project-body">
+              <span className="work-project-tag">{p.tag} · {p.location}</span>
+              <h4>{p.title}</h4>
+              <p>{p.scope}</p>
+              <div className="work-project-stat">
+                <b>{p.stat}</b>
+                <span className="view-project-link">View Project Scope &amp; Media →</span>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+
     <div className="sector-strip">{sectors.map(s=><div key={s.name}><b>{s.name}</b><span>{s.focus}</span></div>)}</div>
   </Page>;
 }
@@ -411,19 +442,335 @@ function Service() {
  </Page>;
 }
 
-function Resources({kind='all'}:{kind?:string}) {
- if(kind==='industry-references') return <Page type="resources-research" title="Industry References" lead="A researched reference set behind Propercare’s renewable, logistics and EPC positioning." image={grid}>
-   <div className="research-intro"><span className="kicker">MARKET RESEARCH / 2026</span><h2>What leading renewable and specialist logistics sites are doing well.</h2><p>We reviewed the sites you supplied to identify useful patterns: service-led navigation, project case studies, route and cargo planning, technology/product depth, local solar conversion journeys, sustainability reporting and clear contact paths. These references inform Propercare’s content architecture; they are not Propercare partners or clients.</p></div>
-   <div className="research-grid">{research.map((r,i)=><article key={r.name}><span>0{i+1}</span><div><small>{r.category}</small><h3>{r.name}</h3><p>{r.learning}</p><a href={r.url} target="_blank" rel="noreferrer">Visit reference ↗</a></div></article>)}</div>
-   <div className="research-principles"><h3>Applied to Propercare</h3><div><b>Service depth</b><span>Separate pages for EPC, evacuation, substations and commissioning.</span></div><div><b>Project evidence</b><span>Sector pages and delivery sequences rather than generic capability cards.</span></div><div><b>Local relevance</b><span>Content shaped for Tamil Nadu renewable and industrial project conditions.</span></div><div><b>Trust signals</b><span>Clear scope, safety, testing, documentation and enquiry pathways.</span></div></div>
- </Page>;
- const filtered=kind==='blogs'?articles.filter(a=>a.tag!=='UPDATES'):kind==='updates'?articles.filter(a=>a.tag==='UPDATES'):articles;
- const title=kind==='blogs'?'Blogs':kind==='media'?'Media':kind==='updates'?'New Updates':'Resources';
- return <Page type="resources" title={title} lead="Field perspectives, project education and renewable-market context." image={grid}>
-   <div className="resource-header"><span className="kicker">PROPECARE / INSIGHTS</span><h2>Useful information before the next project decision.</h2><p>Our resource layer turns project experience and market research into practical guidance: route planning, EPC interfaces, electrical scope, commissioning and renewable project readiness.</p></div>
-   <div className="articles-grid">{filtered.map(a=><article className="article-card" key={a.slug}><img src={a.image} alt={a.title}/><div><span className="kicker">{a.tag} · {a.date}</span><h3>{a.title}</h3><p>{a.text}</p><div className="article-meta"><span>{a.readTime}</span><Link className="text-link" to={'/resources/blog/'+a.slug}>Read article →</Link></div></div></article>)}</div>
-   <Link className="research-banner" to="/resources/industry-references"><span>MARKET RESEARCH</span><b>See the external industry references behind our new content strategy ↗</b></Link>
- </Page>;
+function BlogsPage() {
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const blogList = articles.filter(a => a.tag !== 'UPDATES');
+  const categories = ['all', ...Array.from(new Set(blogList.map(a => a.tag)))];
+  const displayed = activeCategory === 'all' ? blogList : blogList.filter(a => a.tag === activeCategory);
+
+  return (
+    <Page type="resources-blogs" title="Technical Blogs & Field Insights" lead="Engineering playbooks, field execution methodologies, and clean-energy infrastructure knowledge from the ground." image={grid}>
+      <div className="resource-header">
+        <span className="kicker">TECHNICAL ARTICLES &amp; PERSPECTIVES</span>
+        <h2>Deep Dives into EPC, Evacuation, Substation &amp; ODC Engineering</h2>
+        <p>Our engineering insights turn field lessons and utility-scale delivery into practical guidance for developers, EPCs, and asset owners across South India.</p>
+      </div>
+
+      <div className="media-category-bar" style={{marginBottom: '32px'}}>
+        {categories.map((c) => (
+          <button
+            key={c}
+            type="button"
+            className={`media-category-pill ${activeCategory === c ? 'is-active' : ''}`}
+            onClick={() => setActiveCategory(c)}
+          >
+            <span>{c.toUpperCase()}</span>
+            <span className="category-pill-count">{c === 'all' ? blogList.length : blogList.filter(a => a.tag === c).length}</span>
+          </button>
+        ))}
+      </div>
+
+      <div className="articles-grid">
+        {displayed.map((a) => (
+          <article className="article-card" key={a.slug}>
+            <img src={a.image} alt={a.title} />
+            <div>
+              <span className="kicker">{a.tag} · {a.date}</span>
+              <h3>{a.title}</h3>
+              <p>{a.text}</p>
+              <div className="article-meta">
+                <span>{a.readTime}</span>
+                <Link className="text-link" to={'/resources/blog/' + a.slug}>Read article →</Link>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <Link className="research-banner" to="/resources/industry-references" style={{marginTop: '40px'}}>
+        <span>MARKET RESEARCH</span>
+        <b>See the external industry references behind our content and engineering strategy ↗</b>
+      </Link>
+    </Page>
+  );
+}
+
+function MediaPage() {
+  const [activeTab, setActiveTab] = useState<'all' | 'video' | 'image'>('all');
+  const [activeProject, setActiveProject] = useState<string>('all');
+  const [lightboxItem, setLightboxItem] = useState<any>(null);
+
+  // Aggregate all media items across all executed projects
+  const allMedia = works.flatMap(w => 
+    (w.projects || []).flatMap(p => 
+      (p.mediaItems || []).map((m: any) => ({
+        ...m,
+        projectId: p.id,
+        projectTitle: p.title,
+        sectorTitle: w.title,
+        sectorSlug: w.slug
+      }))
+    )
+  );
+
+  const videoCount = allMedia.filter(m => m.type === 'video').length;
+  const imageCount = allMedia.filter(m => m.type === 'image').length;
+
+  const projectOptions = [
+    { id: 'all', label: 'All Projects (' + allMedia.length + ')' },
+    { id: 'solar-1', label: 'Thuraiyur 50 MW Solar' },
+    { id: 'solar-2', label: 'Ground Mount 25 MW Solar' },
+    { id: 'transport-1', label: 'Heavy ODC & Logistics' },
+  ];
+
+  const displayed = allMedia.filter(item => {
+    const matchesTab = activeTab === 'all' ? true : item.type === activeTab;
+    const matchesProject = activeProject === 'all' ? true : item.projectId === activeProject;
+    return matchesTab && matchesProject;
+  });
+
+  return (
+    <Page type="resources-media" title="Project Media & Verified Footage" lead="Comprehensive archive of 4K drone videography, civil engineering progress, and high-resolution site photography from our active projects." image={solar}>
+      <div className="resource-header">
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',flexWrap:'wrap',gap:'20px'}}>
+          <div>
+            <span className="kicker">CENTRAL MEDIA VAULT · {allMedia.length} RECORDS</span>
+            <h2>Field Evidence, Drone Fly-overs &amp; Civil Works Archive</h2>
+            <p style={{maxWidth:'700px'}}>Direct inspection of mounting structures, high-voltage evacuation lines, substation transformer positioning, and ODC heavy hydraulic axle haulage.</p>
+          </div>
+          <div style={{display:'flex',gap:'10px',flexWrap:'wrap'}}>
+            <span className="media-type-badge video" style={{padding:'8px 16px',fontSize:'13px'}}>🎥 {videoCount} Drone Videos</span>
+            <span className="media-type-badge photo" style={{padding:'8px 16px',fontSize:'13px'}}>📷 {imageCount} Site Photos</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Filter Tabs: By Media Type and By Project */}
+      <div style={{display:'flex',flexDirection:'column',gap:'12px',marginBottom:'30px'}}>
+        <div className="media-category-bar">
+          <button
+            type="button"
+            className={`media-category-pill ${activeTab === 'all' ? 'is-active' : ''}`}
+            onClick={() => setActiveTab('all')}
+          >
+            <span>All Media</span>
+            <span className="category-pill-count">{allMedia.length}</span>
+          </button>
+          <button
+            type="button"
+            className={`media-category-pill ${activeTab === 'video' ? 'is-active' : ''}`}
+            onClick={() => setActiveTab('video')}
+          >
+            <span>🎥 Drone &amp; Site Videos</span>
+            <span className="category-pill-count">{videoCount}</span>
+          </button>
+          <button
+            type="button"
+            className={`media-category-pill ${activeTab === 'image' ? 'is-active' : ''}`}
+            onClick={() => setActiveTab('image')}
+          >
+            <span>📷 High-Res Photos</span>
+            <span className="category-pill-count">{imageCount}</span>
+          </button>
+        </div>
+
+        <div className="media-category-bar" style={{background:'rgba(255,255,255,0.03)'}}>
+          {projectOptions.map(p => (
+            <button
+              key={p.id}
+              type="button"
+              className={`media-category-pill ${activeProject === p.id ? 'is-active' : ''}`}
+              onClick={() => setActiveProject(p.id)}
+            >
+              <span>{p.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Grid of All Media Items */}
+      <div className="unified-media-grid">
+        {displayed.map((item: any, idx: number) => {
+          const isVideo = item.type === 'video';
+          return (
+            <div 
+              className="unified-media-card" 
+              key={item.id || idx}
+              onClick={() => setLightboxItem(item)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && setLightboxItem(item)}
+            >
+              <div className="media-thumbnail-wrapper">
+                {isVideo ? (
+                  <>
+                    <video
+                      src={item.url}
+                      muted
+                      preload="metadata"
+                      playsInline
+                      className="card-media-video"
+                    />
+                    <div className="play-button-overlay">
+                      <Play size={22} fill="white" strokeWidth={0} />
+                    </div>
+                    <span className="media-badge video-badge">DRONE VIDEO</span>
+                  </>
+                ) : (
+                  <>
+                    <img
+                      src={item.url}
+                      alt={item.title}
+                      loading="lazy"
+                      className="card-media-img"
+                    />
+                    <span className="media-badge photo-badge">SITE PHOTO</span>
+                  </>
+                )}
+                <span className="media-category-chip">{item.category}</span>
+              </div>
+              <div className="media-card-info">
+                <span className="media-card-project-pill">{item.projectTitle}</span>
+                <h4 className="media-card-title">{item.title}</h4>
+                <p className="media-card-desc">{item.description}</p>
+                <div className="media-card-footer">
+                  <span className="media-action-hint">{isVideo ? 'Watch Video ↗' : 'View Full Image ↗'}</span>
+                  <Link 
+                    to={'/works/projects/' + item.projectId} 
+                    className="media-card-project-link"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Scope →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Fullscreen Modal Lightbox */}
+      {lightboxItem && (
+        <div 
+          className="media-lightbox-overlay" 
+          onClick={() => setLightboxItem(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="lightbox-content-box" onClick={(e) => e.stopPropagation()}>
+            <button 
+              type="button" 
+              className="lightbox-close-btn"
+              onClick={() => setLightboxItem(null)}
+              aria-label="Close Preview"
+            >
+              ✕
+            </button>
+            <div className="lightbox-media-container">
+              {lightboxItem.type === 'video' ? (
+                <video
+                  src={lightboxItem.url}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="lightbox-player"
+                />
+              ) : (
+                <img
+                  src={lightboxItem.url}
+                  alt={lightboxItem.title}
+                  className="lightbox-image"
+                />
+              )}
+            </div>
+            <div className="lightbox-details">
+              <div className="lightbox-header-row">
+                <div>
+                  <span className="lightbox-category-tag">{lightboxItem.projectTitle} · {lightboxItem.category}</span>
+                  <h3>{lightboxItem.title}</h3>
+                </div>
+                <span className="lightbox-type-pill">{lightboxItem.type === 'video' ? 'VIDEO FOOTAGE' : 'HIGH-RES PHOTO'}</span>
+              </div>
+              <p>{lightboxItem.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </Page>
+  );
+}
+
+function UpdatesPage() {
+  return (
+    <Page type="resources-updates" title="Company Updates & Project Milestones" lead="Official project notices, grid synchronisation milestones, fleet additions, and corporate safety records." image={transmission}>
+      <div className="updates-page-container">
+        <div className="updates-hero-block">
+          <span className="kicker">OFFICIAL DISPATCHES &amp; MILESTONES</span>
+          <h2>Timely Project Execution Notices &amp; Industry Bulletins</h2>
+          <p>Real-time log of our operational achievements, statutory approvals, grid interconnections, and heavy haulage dispatches across Tamil Nadu and regional corridors.</p>
+        </div>
+
+        <div className="updates-feed">
+          {newsUpdates.map((item) => (
+            <article className="update-card" key={item.id}>
+              <div className="update-card-header">
+                <span className="update-category-badge">{item.category}</span>
+                <time className="update-date">{item.date}</time>
+              </div>
+              <h3>{item.title}</h3>
+              <p className="update-summary">{item.summary}</p>
+              
+              <div className="update-highlights-list">
+                {item.highlights.map((h, i) => (
+                  <div key={i} className="update-highlight-item">
+                    <CheckCircle2 size={16} />
+                    <span>{h}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="update-card-footer">
+                <span className="update-location">📍 {item.location}</span>
+                <Link to="/contact" className="update-action-link">Discuss Similar Scope →</Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </Page>
+  );
+}
+
+function IndustryReferences() {
+  return (
+    <Page type="resources-research" title="Industry References" lead="A researched reference set behind Propercare’s renewable, logistics and EPC positioning." image={grid}>
+      <div className="research-intro">
+        <span className="kicker">MARKET RESEARCH / 2026</span>
+        <h2>What leading renewable and specialist logistics sites are doing well.</h2>
+        <p>We reviewed industry benchmarks to identify useful patterns: service-led navigation, project case studies, route and cargo planning, technology/product depth, local solar conversion journeys, sustainability reporting and clear contact paths. These references inform Propercare’s content architecture.</p>
+      </div>
+      <div className="research-grid">
+        {research.map((r, i) => (
+          <article key={r.name}>
+            <span>0{i + 1}</span>
+            <div>
+              <small>{r.category}</small>
+              <h3>{r.name}</h3>
+              <p>{r.learning}</p>
+              <a href={r.url} target="_blank" rel="noreferrer">Visit reference ↗</a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div className="research-principles">
+        <h3>Applied to Propercare</h3>
+        <div><b>Service depth</b><span>Separate pages for EPC, evacuation, substations and commissioning.</span></div>
+        <div><b>Project evidence</b><span>Sector pages and delivery sequences rather than generic capability cards.</span></div>
+        <div><b>Local relevance</b><span>Content shaped for Tamil Nadu renewable and industrial project conditions.</span></div>
+        <div><b>Trust signals</b><span>Clear scope, safety, testing, documentation and enquiry pathways.</span></div>
+      </div>
+    </Page>
+  );
 }
 
 function Article() {
@@ -462,4 +809,31 @@ function Page({type,title,lead,image,children}:{type:string;title:string;lead:st
  return <><section className={'page-masthead page-masthead--'+type}><img className="page-masthead-image" src={image} alt=""/><div className="page-masthead-overlay"/><div className="wrap page-masthead-content"><span className="kicker">PROPECARE / {type.replace('-',' ').toUpperCase()}</span><h1>{title}</h1><p>{lead}</p><div className="masthead-actions"><Link className="button light" to="/contact">Discuss a project</Link><span>Solar · Wind · EPC · Logistics</span></div></div><div className="masthead-index"><span>{type==='about'?'01':type==='work'?'02':type.includes('service')?'03':type.includes('resources')?'04':type==='clients'?'05':type==='contact'?'06':'07'}</span><span>FIELD-READY INFRASTRUCTURE</span></div></section><main className={'page-body page-body--'+type}>{children}</main></>;
 }
 
-export default function App(){return <><ScrollToTop/><Header/><Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/works" element={<Works/>}/><Route path="/works/projects/:projectId" element={<ProjectDetail/>}/><Route path="/works/:slug" element={<Work/>}/><Route path="/services" element={<Solutions/>}/><Route path="/services/:slug" element={<Service/>}/><Route path="/resources" element={<Resources/>}/><Route path="/resources/blog/:slug" element={<Article/>}/><Route path="/resources/:kind" element={<Resources/>}/><Route path="/clients" element={<Clients/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes><Footer/></>}
+export default function App(){
+  return (
+    <>
+      <ScrollToTop/>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/works" element={<Works/>}/>
+        <Route path="/works/projects/:projectId" element={<ProjectDetail/>}/>
+        <Route path="/works/:slug" element={<Work/>}/>
+        <Route path="/services" element={<Solutions/>}/>
+        <Route path="/services/:slug" element={<Service/>}/>
+        <Route path="/resources" element={<BlogsPage/>}/>
+        <Route path="/resources/blogs" element={<BlogsPage/>}/>
+        <Route path="/resources/blog" element={<BlogsPage/>}/>
+        <Route path="/resources/media" element={<MediaPage/>}/>
+        <Route path="/resources/updates" element={<UpdatesPage/>}/>
+        <Route path="/resources/industry-references" element={<IndustryReferences/>}/>
+        <Route path="/resources/blog/:slug" element={<Article/>}/>
+        <Route path="/clients" element={<Clients/>}/>
+        <Route path="/contact" element={<Contact/>}/>
+        <Route path="*" element={<Home/>}/>
+      </Routes>
+      <Footer/>
+    </>
+  );
+}

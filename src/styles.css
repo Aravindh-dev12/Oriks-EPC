@@ -317,7 +317,35 @@ footer{background:var(--navy);color:#fff}.footer-visual{position:relative;min-he
   .unified-media-grid{grid-template-columns:1fr}
   .media-section-head{flex-direction:column;align-items:flex-start}
   .media-category-bar{gap:8px}
-  .media-category-pill{padding:7px 14px;font-size:12px}
+/* --- Media Page Badges & Filters --- */
+.media-project-badge{position:absolute;top:14px;left:14px;background:rgba(7,26,39,.85);color:#8bd7c1;padding:4px 10px;border-radius:4px;font:800 11px Manrope;letter-spacing:.06em;z-index:2;border:1px solid rgba(139,215,193,.3)}
+.media-type-badge{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.75);color:#fff;padding:4px 9px;border-radius:4px;font:700 10px Manrope;letter-spacing:.05em;z-index:2}
+.media-card-title-bar{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(7,26,39,.92) 50%);padding:24px 16px 14px;color:#fff;z-index:2}
+.media-card-title-bar h4{font:700 14px/1.35 Manrope;margin:0 0 4px;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.media-card-title-bar span{font-size:11px;color:#cbd9d4;text-transform:uppercase;letter-spacing:.05em}
+
+/* --- Updates & News Timeline Styles --- */
+.updates-page-container{max-width:1100px;margin:0 auto 90px;padding:0 24px}
+.updates-feed{display:flex;flex-direction:column;gap:32px;margin-top:36px}
+.update-card{background:#fff;border:1px solid #dbe7e1;border-radius:8px;overflow:hidden;display:grid;grid-template-columns:360px 1fr;transition:all .25s ease}
+.update-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(7,26,39,.09);border-color:#b8d6c7}
+.update-card-img{position:relative;width:100%;height:100%;min-height:220px;overflow:hidden;background:#0c1713}
+.update-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.update-card:hover .update-card-img img{transform:scale(1.05)}
+.update-card-body{padding:32px 36px;display:flex;flex-direction:column;justify-content:center}
+.update-card-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;font:700 12px Manrope}
+.update-tag-pill{background:#edf6f1;color:var(--teal);padding:3px 10px;border-radius:4px;letter-spacing:.06em}
+.update-date{color:#64748b}
+.update-card h3{font:800 22px/1.25 Manrope;letter-spacing:-.03em;margin:0 0 12px;color:var(--navy)}
+.update-card p{color:#475569;font-size:15px;line-height:1.65;margin:0 0 18px}
+.update-card-link{display:inline-flex;align-items:center;gap:6px;font:800 13px Manrope;color:var(--teal);text-decoration:none;transition:gap .2s}
+.update-card-link:hover{gap:10px}
+
+/* --- Responsive for Updates --- */
+@media(max-width:850px){
+  .update-card{grid-template-columns:1fr}
+  .update-card-img{height:220px}
+  .update-card-body{padding:24px 20px}
 }
 
 

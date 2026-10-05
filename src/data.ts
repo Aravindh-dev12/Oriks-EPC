@@ -513,3 +513,56 @@ export const research=[
  {name:'Adani Green Energy',category:'UTILITY RENEWABLES',learning:'Useful benchmark for combining generation scale, sustainability, water stewardship, reporting and stakeholder communication.',url:'https://www.adanigreenenergy.com/'},
  {name:'L&T Green Energy',category:'ENGINEERING & INFRASTRUCTURE',learning:'Reference for positioning renewables within a larger engineering capability across solar, wind and infrastructure delivery.',url:'https://www.larsentoubro.com/green-energy'}
 ];
+
+export const newsUpdates = [
+  {
+    id: 'update-1',
+    title: 'Propecare Completes Flagship Civil BOS & MMS Installation at Thuraiyur Solar Plant',
+    date: '04 OCT 2026',
+    tag: 'PROJECT MILESTONE',
+    category: 'Solar EPC',
+    summary: 'Our site engineering teams have achieved 100% completion of pile foundation casting, tracker table pitch calibration, and 33kV collection cabling at the Thuraiyur utility solar plant in Tiruchirappalli District.',
+    image: '/projects/solar/solar1/DJI_0028.JPG',
+    link: '/works/projects/solar-1'
+  },
+  {
+    id: 'update-2',
+    title: '160-Tonne Generator Transformer Safely Delivered via 16-Axle Hydraulic Modular Trailer',
+    date: '28 SEP 2026',
+    tag: 'ODC HAULAGE',
+    category: 'Heavy Logistics',
+    summary: 'Propecare Logistics coordinated an escorted 380 km multimodal highway haulage for a critical 400kV generator transformer, negotiating bridge bypass engineering and zero-incident site gate offloading.',
+    image: '/projects/transport/transport1/DJI_0078.JPG',
+    link: '/works/projects/transport-1'
+  },
+  {
+    id: 'update-3',
+    title: 'Site Mobilisation & Drone Topographic Mapping Initiated for Solar Project 2 Ground-Mount Facility',
+    date: '18 SEP 2026',
+    tag: 'FIELD MOBILISATION',
+    category: 'Solar BOS',
+    summary: 'High-precision RTK drone surveys and structural ramming tests have commenced across the project terrain in Tamil Nadu, laying the groundwork for rapid mounting assembly and 33kV pooling yard integration.',
+    image: '/projects/solar/solar2/DJI_0127.JPG',
+    link: '/works/projects/solar-2'
+  },
+  {
+    id: 'update-4',
+    title: 'Tamil Nadu Green Energy Corridor: New Grid Interconnection Regulations for Utility Generators',
+    date: '05 SEP 2026',
+    tag: 'REGULATORY UPDATE',
+    category: 'Grid Compliance',
+    summary: 'State transmission authorities release updated compliance guidelines for automated SCADA telemetry, telemetry verification, and harmonic injection audits at 110kV/230kV pooling substations.',
+    image: 'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',
+    link: '/services/substations'
+  },
+  {
+    id: 'update-5',
+    title: 'Propecare Expands Fleet of Specialized Hydraulic Modular Axles & Drone Survey Gear',
+    date: '22 AUG 2026',
+    tag: 'CAPABILITY EXPANSION',
+    category: 'Logistics Fleet',
+    summary: 'Acquisition of additional heavy multi-axle modular transport lines and commercial DJI survey drones equipped with high-resolution multispectral cameras for ongoing solar and infrastructure projects.',
+    image: '/projects/transport/transport1/DJI_0098.JPG',
+    link: '/services/epc'
+  }
+];
