@@ -1,164 +1,150 @@
 import { useState, type ReactNode } from 'react';
 import { Link, Route, Routes, useParams } from 'react-router-dom';
 import { Header, Footer, HeroVideo, Section, MediaCard } from './components';
-import { articles, clients, services, works } from './data';
+import { articles, clients, research, services, sectors, works } from './data';
 
 const solar = 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const grid = 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const transmission = 'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200';
+const wind = 'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200';
+const transport = 'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200';
 
 function Home() {
   return <>
     <HeroVideo />
-    <section className="intro">
-      <div className="wrap intro-grid">
-        <div><span className="kicker">01 / WHO WE ARE</span><h2>Infrastructure that makes clean energy move.</h2></div>
-        <div><p>Propecare Infra Projects brings together renewable EPC, electrical infrastructure and heavy transport for projects that need dependable execution from site to grid.</p><Link className="text-link" to="/about">Discover Propecare →</Link></div>
+    <section className="home-intro">
+      <div className="wrap home-intro-grid">
+        <div><span className="kicker">01 / PROPECARE</span><h2>Renewable infrastructure needs more than a contractor.</h2></div>
+        <div><p>It needs people who understand the interfaces between generation, electrical systems, access, transport, commissioning and the grid. Propercare brings those conversations together early so projects can move with fewer hand-offs.</p><Link className="text-link" to="/about">See how we work →</Link></div>
+      </div>
+      <div className="wrap home-stat-row">
+        <div><b>01</b><span>Renewable infrastructure partner</span></div>
+        <div><b>03</b><span>Primary work sectors</span></div>
+        <div><b>04</b><span>Core delivery packages</span></div>
+        <div><b>360°</b><span>Generation-to-grid view</span></div>
       </div>
     </section>
 
-    <section className="wrap editorial-visual">
-      <Link className="editorial-main" to="/works/solar"><img src={solar} alt="Solar panels" /><div className="image-caption"><span>01</span><b>SOLAR PROJECTS</b><em>Renewable generation</em></div></Link>
-      <div className="editorial-stack">
-        <Link className="editorial-tile" to="/works/windmill"><img src={works[1].image} alt="Wind turbines" /><div className="image-caption"><span>02</span><b>WINDMILL</b><em>Clean power infrastructure</em></div></Link>
-        <Link className="editorial-tile" to="/works/transport"><img src={works[2].image} alt="Heavy transport" /><div className="image-caption"><span>03</span><b>TRANSPORT</b><em>Heavy movement and logistics</em></div></Link>
+    <section className="home-sector-showcase">
+      <div className="wrap"><Section eyebrow="02 / WHERE WE WORK" title="Three project environments. One practical delivery mindset." />
+        <div className="sector-feature-grid">
+          <Link className="sector-feature sector-feature--large" to="/works/solar"><img src={solar} alt="Solar infrastructure"/><div><span>01</span><h3>Solar</h3><p>Plant infrastructure, electrical balance-of-plant and power evacuation.</p></div></Link>
+          <Link className="sector-feature" to="/works/windmill"><img src={wind} alt="Wind turbines"/><div><span>02</span><h3>Wind</h3><p>Electrical packages, site interfaces and movement of turbine components.</p></div></Link>
+          <Link className="sector-feature" to="/works/transport"><img src={transport} alt="Heavy transport logistics"/><div><span>03</span><h3>Heavy movement</h3><p>ODC planning, route readiness and site delivery for critical equipment.</p></div></Link>
+        </div>
       </div>
     </section>
 
-    <section className="dark">
+    <section className="home-solutions">
       <div className="wrap">
-        <Section eyebrow="PROPECARE / SOLUTIONS" title="One partner across every project interface." />
-        <p className="section-intro">From engineering and procurement to construction, power evacuation, commissioning and specialist movement, our teams help reduce coordination gaps and keep delivery accountable.</p>
-        <div className="service-grid">{services.map((s, i) => <Link to={`/services/${s.slug}`} className="service-card" key={s.slug}><span>0{i + 1}</span><h3>{s.title}</h3><p>{s.short}</p><b>View scope →</b></Link>)}</div>
+        <div className="split-heading"><div><span className="kicker">03 / DELIVERY SYSTEM</span><h2>From scope definition to handover.</h2></div><p>Industry leaders increasingly organise renewable delivery around specialist capabilities, route intelligence, engineering interfaces, safety and evidence. Propercare uses the same project logic at the scale of each assignment.</p></div>
+        <div className="solution-rail">{services.map((s,i)=><Link to={'/services/'+s.slug} className="solution-rail-item" key={s.slug}><span>0{i+1}</span><div><h3>{s.title}</h3><p>{s.short}</p></div><b>↗</b></Link>)}</div>
       </div>
     </section>
 
-    <section className="wrap metrics">
-      <div><strong>03</strong><span>Core project areas</span></div><div><strong>04</strong><span>Delivery capabilities</span></div><div><strong>01</strong><span>Accountable project partner</span></div><div><strong>360°</strong><span>Site-to-grid perspective</span></div>
+    <section className="home-method">
+      <div className="wrap method-layout">
+        <div className="method-image"><img src={grid} alt="Electrical infrastructure"/><div><span>FIELD PRINCIPLE</span><b>Make the interfaces visible before they become problems.</b></div></div>
+        <div><span className="kicker">04 / HOW WE DELIVER</span><h2>Plan the route. Control the interface. Prove the handover.</h2>
+          <div className="method-list">{['Scope the real requirement','Validate site and route constraints','Coordinate people, equipment and documentation','Test, close out and hand over'].map((x,i)=><div key={x}><span>0{i+1}</span><b>{x}</b><p>{['Understand the cargo, capacity, drawings, access and project milestones before mobilisation.','Identify physical, electrical, regulatory and operational constraints while there is still time to respond.','Keep procurement, contractors, transport, construction and commissioning aligned to one delivery sequence.','Capture evidence, resolve punch points and leave the client with a clear completion record.'][i]}</p></div>)}</div>
+        </div>
+      </div>
     </section>
 
-    <section className="wrap projects"><Section eyebrow="LATEST FROM PROPECARE" title="Ideas, updates and field perspectives." /><div className="project-grid">{articles.slice(0, 3).map(a => <MediaCard key={a.title} image={a.image} title={a.title} text={a.text} />)}</div></section>
-    <section className="cta-strip"><div className="wrap"><div><span className="kicker">READY TO DISCUSS THE NEXT PHASE?</span><h2>Bring us the site, scope and schedule.</h2></div><Link className="button light" to="/contact">Start a project</Link></div></section>
+    <section className="home-insights">
+      <div className="wrap"><Section eyebrow="05 / INSIGHTS" title="What the renewable project market is teaching us." />
+        <div className="insight-grid">{articles.slice(0,3).map(a=><MediaCard key={a.title} image={a.image} title={a.title} text={a.text}/>)}</div>
+      </div>
+    </section>
+    <section className="cta-strip"><div className="wrap"><div><span className="kicker">READY FOR THE NEXT PHASE?</span><h2>Bring us the scope, site and schedule.</h2></div><Link className="button light" to="/contact">Start a project</Link></div></section>
   </>;
 }
 
 function About() {
-  return <Page title="Who We Are" lead="A project partner for renewable energy, infrastructure and movement." image={grid}>
-    <Section eyebrow="Our story" title="Practical experience. Responsible execution. Long-term relationships." />
-    <p className="lead-copy">Propecare Infra Projects is a Karur-based company serving the renewable energy and infrastructure sector. We work across solar, wind, electrical infrastructure, EPC support and specialist transport, coordinating the people, equipment and site decisions that keep ambitious projects moving.</p>
-    <div className="values-grid">{[
-      ['01','Built around trust','Clear communication, realistic commitments and accountable delivery at every stage.'],
-      ['02','Made for the field','Planning that respects real routes, real sites, weather, access and project constraints.'],
-      ['03','Ready for tomorrow','Infrastructure thinking that supports cleaner generation and stronger energy networks.'],
-      ['04','Safety by design','Methodical preparation, competent coordination and attention to site interfaces.'],
-      ['05','One accountable team','Fewer hand-off gaps between planning, execution, reporting and handover.'],
-      ['06','Built to scale','Flexible project support for individual packages and multi-interface delivery programmes.']
-    ].map(([n,t,d])=><article key={n}><b>{n}</b><h3>{t}</h3><p>{d}</p></article>)}</div>
-    <section className="content-band"><div><span className="kicker">OUR APPROACH</span><h3>Plan clearly. Execute carefully. Communicate early.</h3></div><p>Every project has its own constraints. Our role is to turn those constraints into a practical delivery plan, align the interfaces and stay close enough to the field to act before small issues become schedule problems.</p></section>
+  return <Page type="about" title="Who We Are" lead="A field-focused infrastructure partner for renewable energy and power projects." image={grid}>
+    <div className="about-opening"><div><span className="kicker">THE PROPECARE VIEW</span><h2>Clean-energy projects are won at the interfaces.</h2></div><p>Propercare Infra Projects works across renewable generation, electrical infrastructure and specialist movement. Our role is to make the practical connections between engineering intent and site execution clearer: what needs to arrive, where it needs to go, what must be ready before it arrives and what evidence is needed before handover.</p></div>
+    <div className="about-values">{[['01','Execution','Turn drawings, schedules and requirements into coordinated field activity.'],['02','Engineering','Respect equipment limits, access constraints, electrical interfaces and commissioning logic.'],['03','Safety','Build route, site and work controls into the plan rather than treating them as paperwork after the fact.'],['04','Communication','Give clients and partners a usable view of progress, dependencies, decisions and risks.'],['05','Adaptability','Scale the team around a package instead of forcing every project into one template.'],['06','Accountability','Close the loop from mobilisation through testing, documentation and handover.']].map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div>
+    <div className="about-band"><div><span className="kicker">WHAT WE LEARNED FROM THE MARKET</span><h3>The best renewable sites treat logistics, engineering and commissioning as one conversation.</h3></div><div><p>Across the industry, leading logistics specialists emphasise cargo analysis, route surveys, equipment selection and site readiness; renewable EPC companies emphasise design, construction, testing and long-term support; larger energy groups emphasise scale, reliability and sustainability. Propercare’s proposition sits at the intersection of those needs.</p><Link className="text-link" to="/resources/industry-references">View industry research →</Link></div></div>
+    <div className="about-standards"><div><span>PROJECT DISCIPLINE</span><b>Scope before mobilisation</b><p>Clear inputs, responsibilities and acceptance criteria.</p></div><div><span>FIELD DISCIPLINE</span><b>Control the interfaces</b><p>Site, transport, electrical and contractor dependencies stay visible.</p></div><div><span>HANDOVER DISCIPLINE</span><b>Evidence before close</b><p>Testing, records and punch-list closure support confident handover.</p></div></div>
   </Page>;
 }
 
 function Works() {
-  return <Page title="Our Works" lead="From renewable generation to the movement of critical equipment." image={solar}>
-    <Section eyebrow="Our works" title="Specialist capabilities across the clean-energy project lifecycle." />
-    <div className="solutions-visual-grid">{works.map(w => <Link to={`/works/${w.slug}`} className="solution-visual-card" key={w.slug}><img src={w.image} alt={w.title}/><div><span>{w.title}</span><p>{w.short}</p></div></Link>)}</div>
-    <div className="work-note"><span className="kicker">DELIVERY FOCUS</span><h3>Renewable infrastructure is an interface business.</h3><p>Generation equipment, electrical systems, civil access, transport and grid connection all have to work together. We build our scope around those interfaces.</p></div>
+  return <Page type="work" title="Our Works" lead="Sector-led project capabilities, built around the conditions that make renewable infrastructure difficult." image={solar}>
+    <div className="works-intro"><div><span className="kicker">SECTOR MAP</span><h2>Different assets. Different risks. Different delivery logic.</h2></div><p>Solar has electrical and grid interfaces. Wind adds large components, access and heavy movement. Industrial transport is a route-engineering problem. Our pages separate these realities instead of treating them as one generic service.</p></div>
+    <div className="works-stack">{works.map((w,i)=><Link to={'/works/'+w.slug} className="work-row" key={w.slug}><div className="work-row-number">0{i+1}</div><div className="work-row-image"><img src={w.image} alt={w.title}/></div><div className="work-row-copy"><span>{w.category}</span><h3>{w.title}</h3><p>{w.short}</p><b>Explore sector ↗</b></div></Link>)}</div>
+    <div className="sector-strip">{sectors.map(s=><div key={s.name}><b>{s.name}</b><span>{s.focus}</span></div>)}</div>
   </Page>;
 }
 
 function Work() {
-  const { slug } = useParams();
-  const work = works.find(w => w.slug === slug) ?? works[0];
-  return <Page title={work.title} lead={work.short} image={work.image}>
-    <Section eyebrow="Scope of work" title="Capability designed for safe, reliable delivery." />
-    <div className="scope-grid">{work.bullets.map((x, i) => <div key={x}><span>0{i + 1}</span><h3>{x}</h3><p>Planned, coordinated and delivered around site conditions, interfaces and project milestones.</p></div>)}</div>
-    {work.slug === 'transport' && <section className="logistics-journey">
-      <div className="logistics-heading"><span className="kicker">OVERSIZED CARGO / FROM ORIGIN TO SITE</span><h2>Every safe movement starts before the vehicle moves.</h2><p>Renewable components are often long, heavy, high-value and sensitive to handling. A dependable plan connects cargo data, route feasibility, permits, equipment, escorting and site readiness.</p></div>
-      <div className="journey-steps">{[
-        ['01','Cargo & dimension review','Confirm dimensions, weight, lifting points, handling limits and delivery sequence.'],
-        ['02','Route feasibility','Assess road geometry, turning radii, overhead obstructions, bridges, access restrictions and temporary works.'],
-        ['03','Movement engineering','Match trailers and support equipment to the cargo, route and loading method; plan permits and escorts.'],
-        ['04','Site delivery & handover','Coordinate arrival windows, unloading area, lifting plan, communication and proof of delivery.']
-      ].map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div>
-      <div className="logistics-callout"><b>Project inputs that help us scope a movement</b><p>Origin and destination · component drawings and dimensions · target dates · access constraints · unloading and crane requirements.</p><Link className="text-link" to="/contact">Plan a transport enquiry →</Link></div>
-    </section>}
-
-    <div className="service-detail-grid"><div><span className="kicker">WHERE WE ADD VALUE</span><h3>Clear scope and field coordination</h3><p>We help clients connect engineering intent with practical site execution, keeping dependencies visible and decisions moving.</p></div><div><span className="kicker">NEXT STEP</span><h3>Have a live project?</h3><p>Share your location, scope and target dates. We can discuss the right package for the next phase.</p><Link className="button" to="/contact">Discuss this capability</Link></div></div>
+  const {slug}=useParams(); const work=works.find(w=>w.slug===slug)??works[0];
+  return <Page type="work-detail" title={work.title} lead={work.short} image={work.image}>
+    <div className="detail-lead"><div><span className="kicker">SECTOR PLAYBOOK</span><h2>{work.headline}</h2></div><p>{work.description}</p></div>
+    <div className="capability-panels">{work.bullets.map((x,i)=><article key={x}><span>0{i+1}</span><h3>{x}</h3><p>{work.details[i]}</p></article>)}</div>
+    <div className="work-process"><div className="work-process-image"><img src={work.image} alt={work.title}/></div><div><span className="kicker">TYPICAL DELIVERY FLOW</span>{work.steps.map((x,i)=><div className="numbered-line" key={x}><span>0{i+1}</span><div><b>{x}</b><p>{work.stepDetails[i]}</p></div></div>)}</div></div>
+    <div className="sector-cta"><div><span className="kicker">PROJECT INPUTS</span><h3>Location, asset type, scope and target date are enough to start the conversation.</h3></div><Link className="button" to="/contact">Discuss this sector</Link></div>
   </Page>;
 }
 
 function Solutions() {
-  return <Page title="Our Solutions" lead="Clear packages for renewable and infrastructure projects." image={transmission}>
-    <Section eyebrow="Solutions" title="Engineering, construction and commissioning support without the coordination gaps." />
-    <p className="lead-copy">Our solutions are structured around the real interfaces of renewable and electrical infrastructure projects. Choose a capability to see the scope, delivery focus and typical project requirements.</p>
-    <div className="service-list">{services.map(s => <Link to={`/services/${s.slug}`} className="list-row" key={s.slug}><span>{s.title}</span><p>{s.short}</p><b>Explore →</b></Link>)}</div>
-    <section className="process-grid">{['Scope & site review','Engineering & procurement','Construction coordination','Testing & handover'].map((x,i)=><div key={x}><span>0{i+1}</span><h3>{x}</h3><p>Defined responsibilities, clear interfaces and practical reporting throughout the package.</p></div>)}</section>
+  return <Page type="solutions" title="Our Solutions" lead="Specialist delivery packages for renewable generation, electrical infrastructure and project movement." image={transmission}>
+    <div className="solutions-intro"><span className="kicker">CAPABILITY ARCHITECTURE</span><h2>Choose the package. Keep the interfaces connected.</h2><p>Rather than presenting one oversized list of services, Propercare groups work around the decisions clients actually make: build the plant, evacuate the power, establish the substation, or get the asset tested and ready for operation.</p></div>
+    <div className="solution-cards">{services.map((s,i)=><Link to={'/services/'+s.slug} key={s.slug} className="solution-card"><img src={s.image} alt={s.title}/><div><span>0{i+1} / SOLUTION</span><h3>{s.title}</h3><p>{s.short}</p><b>See scope →</b></div></Link>)}</div>
+    <div className="solutions-process"><div><span className="kicker">01</span><h3>Define</h3><p>Scope, drawings, site conditions, quantities, dates and interfaces.</p></div><div><span className="kicker">02</span><h3>Coordinate</h3><p>Resources, procurement, contractors, access, testing and reporting.</p></div><div><span className="kicker">03</span><h3>Execute</h3><p>Field activity managed against the agreed sequence and controls.</p></div><div><span className="kicker">04</span><h3>Close</h3><p>Testing evidence, punch-list closure, records and handover.</p></div></div>
   </Page>;
 }
 
-const serviceScope: Record<string,string[]> = {
-  epc:['Design basis and scope alignment','Bill of quantities and procurement tracking','Civil, mechanical and electrical interface coordination','Site progress, quality and safety records','Punch-list closure and handover dossier'],
-  evacuation:['Plant collection system and cable routes','Transformer and switchgear interfaces','Protection, metering and grid coordination','Pre-commissioning and test documentation','Energisation readiness and close-out'],
-  substations:['Primary equipment and layout coordination','Control, relay and protection systems','Earthing, cabling and interlocking checks','Inspection and functional test planning','As-built records and handover'],
-  testing:['Inspection and approved test-plan review','Cable, equipment and protection testing','Functional checks and interlock verification','Issue tracking and test-record compilation','Readiness review for synchronisation and handover']
+const serviceScope:Record<string,string[]>={
+ epc:['Engineering scope alignment','Procurement and material readiness','Civil, mechanical and electrical interfaces','Construction coordination and progress control','Quality records and handover'],
+ evacuation:['Collection system and cable routes','Transformers and switchgear interfaces','Protection, metering and grid coordination','Pre-commissioning documentation','Energisation readiness'],
+ substations:['Primary equipment layout','Protection and control systems','Earthing, cabling and interlocking','Inspection and functional testing','As-built and handover records'],
+ testing:['Approved test-plan coordination','Cable and equipment testing','Protection and functional checks','Defect and punch-point tracking','Synchronisation and handover readiness']
 };
 
 function Service() {
-  const { slug } = useParams();
-  const service = services.find(s => s.slug === slug) ?? services[0];
-  const detail = {
-    epc: ['Integrated engineering, procurement and construction support','Coordinate engineering inputs, material readiness, site execution and handover across renewable infrastructure packages.'],
-    evacuation: ['Power evacuation from plant to grid interface','Support collection, transformation, protection and evacuation infrastructure with attention to route, equipment and commissioning interfaces.'],
-    substations: ['Substations and switchyard delivery support','Coordinate primary and secondary systems, protection, metering, testing and energisation readiness.'],
-    testing: ['Testing and commissioning support','Inspection, functional testing, documentation and synchronisation support to move assets confidently toward handover.']
-  }[service.slug] ?? ['Project delivery support','Practical coordination for complex infrastructure packages.'];
-  return <Page title={service.title} lead={detail[0]} image={service.image}>
-    <Section eyebrow="SOLUTION DETAIL" title={detail[0]} />
-    <p className="lead-copy">{detail[1]}</p>
-    <div className="detail-columns"><div><span className="kicker">TYPICAL SCOPE</span><ul className="check-list">{(serviceScope[service.slug] ?? ['Scope and site review','Interface and execution planning','Resource and contractor coordination','Progress reporting and documentation','Completion and handover support']).map(x=><li key={x}>{x}</li>)}</ul>/div><div><span className="kicker">WHY IT MATTERS</span><h3>Fewer surprises between design, site and grid.</h3><p>Our approach keeps dependencies visible and creates a clearer path from scope definition to completion.</p><Link className="button" to="/contact">Talk to our team</Link></div></div>
-  </Page>;
+ const {slug}=useParams(); const s=services.find(x=>x.slug===slug)??services[0];
+ return <Page type="service-detail" title={s.title} lead={s.lead} image={s.image}>
+   <div className="service-hero-copy"><div><span className="kicker">SOLUTION / {s.code}</span><h2>{s.headline}</h2></div><p>{s.description}</p></div>
+   <div className="service-scope-layout"><div className="service-scope-list">{(serviceScope[s.slug]??[]).map((x,i)=><div key={x}><span>0{i+1}</span><b>{x}</b></div>)}</div><div className="service-side"><span className="kicker">WHY THIS PACKAGE EXISTS</span><h3>{s.why}</h3><p>{s.outcome}</p><Link className="button" to="/contact">Request a project discussion</Link></div></div>
+   <div className="service-checkpoints"><span className="kicker">CLIENT CHECKPOINTS</span><div>{s.checkpoints.map(x=><article key={x[0]}><b>{x[0]}</b><p>{x[1]}</p></article>)}</div></div>
+ </Page>;
 }
 
-function Resources({ kind = 'all' }: { kind?: string }) {
-  const filtered = kind === 'blogs' ? articles.filter(a => ['SOLAR','WIND','TRANSPORT'].includes(a.tag)) : kind === 'updates' ? articles.filter(a => a.tag === 'UPDATES') : articles;
-  const title = kind === 'blogs' ? 'Blogs' : kind === 'media' ? 'Media' : kind === 'updates' ? 'New Updates' : 'Resources';
-  return <Page title={title} lead="Stories, project perspectives and company news from Propecare." image={grid}>
-    <Section eyebrow="Resources" title="Useful context from the work behind the work." />
-    <div className="articles-grid">{filtered.map(a => <article className="article-card" key={a.title}><img src={a.image} alt={a.title}/><div><span className="kicker">{a.tag}</span><h3>{a.title}</h3><p>{a.text}</p><Link className="text-link" to="/contact">Talk to our team →</Link></div></article>)}</div>
-  </Page>;
+function Resources({kind='all'}:{kind?:string}) {
+ if(kind==='industry-references') return <Page type="resources-research" title="Industry References" lead="A researched reference set behind Propercare’s renewable, logistics and EPC positioning." image={grid}>
+   <div className="research-intro"><span className="kicker">MARKET RESEARCH / 2026</span><h2>What leading renewable and specialist logistics sites are doing well.</h2><p>We reviewed the sites you supplied to identify useful patterns: service-led navigation, project case studies, route and cargo planning, technology/product depth, local solar conversion journeys, sustainability reporting and clear contact paths. These references inform Propercare’s content architecture; they are not Propercare partners or clients.</p></div>
+   <div className="research-grid">{research.map((r,i)=><article key={r.name}><span>0{i+1}</span><div><small>{r.category}</small><h3>{r.name}</h3><p>{r.learning}</p><a href={r.url} target="_blank" rel="noreferrer">Visit reference ↗</a></div></article>)}</div>
+   <div className="research-principles"><h3>Applied to Propercare</h3><div><b>Service depth</b><span>Separate pages for EPC, evacuation, substations and commissioning.</span></div><div><b>Project evidence</b><span>Sector pages and delivery sequences rather than generic capability cards.</span></div><div><b>Local relevance</b><span>Content shaped for Tamil Nadu renewable and industrial project conditions.</span></div><div><b>Trust signals</b><span>Clear scope, safety, testing, documentation and enquiry pathways.</span></div></div>
+ </Page>;
+ const filtered=kind==='blogs'?articles.filter(a=>a.tag!=='UPDATES'):kind==='updates'?articles.filter(a=>a.tag==='UPDATES'):articles;
+ const title=kind==='blogs'?'Blogs':kind==='media'?'Media':kind==='updates'?'New Updates':'Resources';
+ return <Page type="resources" title={title} lead="Field perspectives, project education and renewable-market context." image={grid}>
+   <div className="resource-header"><span className="kicker">PROPECARE / INSIGHTS</span><h2>Useful information before the next project decision.</h2><p>Our resource layer turns project experience and market research into practical guidance: route planning, EPC interfaces, electrical scope, commissioning and renewable project readiness.</p></div>
+   <div className="articles-grid">{filtered.map(a=><article className="article-card" key={a.title}><img src={a.image} alt={a.title}/><div><span className="kicker">{a.tag}</span><h3>{a.title}</h3><p>{a.text}</p><Link className="text-link" to="/contact">Discuss the requirement →</Link></div></article>)}</div>
+   <Link className="research-banner" to="/resources/industry-references"><span>MARKET RESEARCH</span><b>See the external industry references behind our new content strategy ↗</b></Link>
+ </Page>;
 }
 
 function Clients() {
-  return <Page title="Our Clients" lead="Built for developers, operators, institutions and partners who value dependable delivery." image={solar}>
-    <Section eyebrow="Our clients" title="Partnerships grounded in performance." />
-    <p className="lead-copy">We work alongside renewable developers, EPC partners, industrial businesses, operators and infrastructure stakeholders. Every engagement starts by understanding the brief, site and schedule, then building the right delivery team around it.</p>
-    <div className="client-showcase">{clients.map(client => <article className={`client-card client-${client.tone}`} key={client.name}><div className="client-mark">{client.mark}</div><p>{client.name}</p></article>)}</div>
-    <div className="client-assurance"><div><span className="kicker">HOW WE WORK</span><h3>One brief. One accountable team.</h3><p>We align scope, route, resources and reporting before work begins, giving every stakeholder a clearer view of progress, interfaces and next decisions.</p></div><div><span className="kicker">WHAT CLIENTS VALUE</span><ul><li>Responsive project coordination</li><li>Site-ready planning and documentation</li><li>Safety-conscious execution</li><li>Practical handover support</li></ul></div></div>
-  </Page>;
+ return <Page type="clients" title="Our Clients" lead="A partnership model for developers, EPCs, manufacturers, operators and infrastructure stakeholders." image={solar}>
+   <div className="clients-opening"><span className="kicker">WHO WE SUPPORT</span><h2>Built around the people who have to make the project work.</h2><p>Propercare should not claim relationships it has not earned. Instead, this page explains the stakeholder groups we are designed to support and the information each group needs from a project partner.</p></div>
+   <div className="stakeholder-grid">{clients.map((c,i)=><article key={c.name}><span>0{i+1}</span><h3>{c.name}</h3><p>{c.need}</p><b>{c.value}</b></article>)}</div>
+   <div className="client-proof"><div><span className="kicker">FOR DEVELOPERS & OWNERS</span><h3>Visibility on scope, progress, risk and readiness.</h3><p>Use Propercare when coordination across multiple delivery interfaces needs one practical point of contact.</p></div><div><span className="kicker">FOR EPC & OEM PARTNERS</span><h3>Execution support that respects your engineering package.</h3><p>Bring us the defined scope and site constraints; we focus on the field, logistics and handover interfaces around it.</p></div></div>
+ </Page>;
 }
 
 function Contact() {
-  const [sent, setSent] = useState(false);
-  return <Page title="Contact Us" lead="Tell us what you are building, where it is moving and how we can help." image={transmission}>
-    <div className="contact-layout"><div><Section eyebrow="Start a conversation" title="Let’s make the next project move." /><p className="lead-copy">Share the basics and our team will get back to you about solar, windmill, transport, EPC or infrastructure requirements.</p><div className="contact-details"><b>+91 9790005158</b><span>propecareindia@gmail.com</span><span>Karur, Tamil Nadu, India</span></div><div className="contact-points"><span>Solar & wind infrastructure</span><span>Electrical & EPC packages</span><span>Heavy transport & logistics</span></div></div><form className="contact-form" onSubmit={e => {e.preventDefault();setSent(true)}}><label>Name<input required placeholder="Your name"/></label><label>Company<input required placeholder="Company name"/></label><label>Work email<input required type="email" placeholder="name@company.com"/></label><label>Project type<select defaultValue=""><option value="" disabled>Select a requirement</option><option>Solar</option><option>Windmill</option><option>Transport & logistics</option><option>Infrastructure / EPC</option></select></label><label>Project details<textarea rows={6} placeholder="Location, scope, capacity, route or target dates"/></label><button className="button" type="submit">{sent ? 'Message received ✓' : 'Send enquiry'}</button></form></div>
-  </Page>;
+ const [sent,setSent]=useState(false);
+ return <Page type="contact" title="Contact Us" lead="Start with the project facts. We will help identify the right delivery package." image={transmission}>
+  <div className="contact-command"><div><span className="kicker">PROJECT DESK</span><h2>Tell us what needs to move, build, connect or commission.</h2><p>Useful inputs include project location, asset type, approximate capacity or dimensions, current phase, target dates and any known access or grid constraints.</p><div className="contact-details"><b>+91 9790005158</b><span>propecareindia@gmail.com</span><span>Karur, Tamil Nadu, India</span></div></div>
+  <form className="contact-form" onSubmit={e=>{e.preventDefault();setSent(true)}}><div className="form-heading"><span>ENQUIRY</span><b>{sent?'Thank you — enquiry captured.':'Project information'}</b></div><label>Name<input required placeholder="Your name"/></label><label>Company<input required placeholder="Company / organisation"/></label><label>Work email<input required type="email" placeholder="name@company.com"/></label><label>Requirement<select defaultValue=""><option value="" disabled>Select a requirement</option><option>Solar EPC / electrical works</option><option>Wind infrastructure</option><option>Heavy transport / ODC logistics</option><option>Power evacuation</option><option>Substation / switchyard</option><option>Testing & commissioning</option></select></label><label>Project details<textarea rows={6} placeholder="Location, scope, capacity, cargo dimensions, route or target date"/></label><button className="button" type="submit">{sent?'Enquiry submitted ✓':'Send project enquiry'}</button></form></div>
+  <div className="contact-route"><span>WHAT HAPPENS NEXT</span><div><b>01 / Review</b><p>We understand the scope and missing inputs.</p></div><div><b>02 / Discuss</b><p>We clarify site, route, engineering and schedule constraints.</p></div><div><b>03 / Define</b><p>We identify the appropriate package and next technical step.</p></div></div>
+ </Page>;
 }
 
-function Page({title,lead,image,children}:{title:string;lead:string;image:string;children:ReactNode}) {
-  const type = title.toLowerCase().includes('contact') ? 'contact' : title.toLowerCase().includes('client') ? 'clients' : title.toLowerCase().includes('resource') || ['blogs','media','new updates'].includes(title.toLowerCase()) ? 'resources' : title.toLowerCase().includes('solution') || services.some(s=>s.title===title) ? 'solutions' : title.toLowerCase().includes('work') || works.some(w=>w.title===title) ? 'work' : title.toLowerCase().includes('who') ? 'about' : 'page';
-  return <>
-    <section className={`page-masthead page-masthead--${type}`}>
-      <img className="page-masthead-image" src={image} alt="" />
-      <div className="page-masthead-overlay" />
-      <div className="wrap page-masthead-content">
-        <span className="kicker">PROPECARE INFRA PROJECTS / {type.toUpperCase()}</span>
-        <h1>{title}</h1><p>{lead}</p>
-        <div className="masthead-actions"><Link className="button light" to="/contact">Discuss a project</Link><span>Solar · Wind · EPC · Logistics</span></div>
-      </div>
-      <div className="masthead-index"><span>01</span><span>FIELD-READY INFRASTRUCTURE</span></div>
-    </section>
-    <main className={`page-body page-body--${type}`}>{children}</main>
-  </>;
+function Page({type,title,lead,image,children}:{type:string;title:string;lead:string;image:string;children:ReactNode}) {
+ return <><section className={'page-masthead page-masthead--'+type}><img className="page-masthead-image" src={image} alt=""/><div className="page-masthead-overlay"/><div className="wrap page-masthead-content"><span className="kicker">PROPECARE / {type.replace('-',' ').toUpperCase()}</span><h1>{title}</h1><p>{lead}</p><div className="masthead-actions"><Link className="button light" to="/contact">Discuss a project</Link><span>Solar · Wind · EPC · Logistics</span></div></div><div className="masthead-index"><span>{type==='about'?'01':type==='work'?'02':type.includes('service')?'03':type.includes('resources')?'04':type==='clients'?'05':type==='contact'?'06':'07'}</span><span>FIELD-READY INFRASTRUCTURE</span></div></section><main className={'page-body page-body--'+type}>{children}</main></>;
 }
 
 export default function App(){return <><Header/><Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/works" element={<Works/>}/><Route path="/works/:slug" element={<Work/>}/><Route path="/services" element={<Solutions/>}/><Route path="/services/:slug" element={<Service/>}/><Route path="/resources" element={<Resources/>}/><Route path="/resources/:kind" element={<Resources/>}/><Route path="/clients" element={<Clients/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes><Footer/></>}
