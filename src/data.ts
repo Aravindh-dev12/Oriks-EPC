@@ -5,9 +5,123 @@ const wind='https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?a
 const transport='https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200';
 
 export const works=[
- {slug:'solar',category:'SOLAR / GENERATION',title:'Solar Projects',short:'Solar EPC support, electrical balance-of-plant and grid-facing infrastructure for utility, commercial and industrial assets.',headline:'Build the plant with the grid in mind.',description:'Solar delivery is not only a module-and-structure exercise. It depends on site conditions, DC and AC systems, protection, evacuation, testing, documentation and the operating context around the plant.',image:'https://images.pexels.com/photos/15663101/pexels-photo-15663101/free-photo-of-solar-panel-field.jpeg?auto=compress&cs=tinysrgb&w=2200',bullets:['Site and EPC scope coordination','DC / AC electrical infrastructure','Power evacuation interfaces','HT, protection and metering coordination','Testing, documentation and handover'],details:['Translate drawings and site constraints into an executable package.','Coordinate electrical systems around the generation block and balance-of-plant.','Keep plant output connected to the receiving infrastructure and schedule.','Align equipment, protection, cable and grid-interface requirements.','Build evidence into construction and commissioning instead of after it.'],steps:['Review site, drawings and delivery scope','Coordinate procurement and construction interfaces','Inspect, test and resolve punch points','Compile handover evidence'],stepDetails:['Confirm access, layout, quantities, interfaces and milestones.','Keep contractors and material readiness aligned to the work sequence.','Verify installation quality and functional readiness.','Close documentation gaps before the package is considered complete.']},
- {slug:'windmill',category:'WIND / TURBINE INFRASTRUCTURE',title:'Wind Projects',short:'Electrical infrastructure, balance-of-plant coordination and site interfaces for wind-energy projects.',headline:'Wind projects combine power infrastructure with difficult physical access.',description:'Wind sites add long-distance access, turbine-component logistics, construction sequencing and electrical collection or evacuation interfaces. Propercare separates those constraints, then reconnects them into one delivery sequence.',image:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',bullets:['Wind-farm electrical works','Collection and pooling systems','Evacuation infrastructure','Turbine-site interface coordination','Testing and commissioning'],details:['Coordinate site electrical packages around turbine and civil interfaces.','Support collection and pooling infrastructure from turbine strings toward the grid interface.','Plan the receiving infrastructure with protection and energisation in view.','Make access, delivery windows and site readiness visible to the project team.','Close the loop through inspection, testing and commissioning records.'],steps:['Map turbine, electrical and logistics interfaces','Prepare package sequence and site readiness','Execute electrical and support works','Test, energise and hand over'],stepDetails:['Identify dependencies between turbine deliveries, civil works and electrical packages.','Align materials, crews, access and work fronts.','Control construction against the approved sequence.','Compile test results and readiness evidence for the next stage.']},
- {slug:'transport',category:'ODC / HEAVY MOVEMENT',title:'Transport & Logistics',short:'Route-led movement of oversized renewable and industrial equipment, from cargo assessment through site delivery.',headline:'The safest heavy movement is engineered before it moves.',description:'Industry leaders in wind and ODC logistics emphasise cargo analysis, route surveys, equipment selection, permits, escorts, staging and site readiness. Propercare uses that project logic to frame every movement enquiry.',image:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',bullets:['Cargo and dimension assessment','Route survey and feasibility','ODC equipment planning','Permit and movement coordination','Site delivery and handover'],details:['Start with the actual dimensions, weight, lifting points and handling limitations.','Review roads, turns, bridges, clearances, access and temporary works.','Match the transport configuration to cargo and route conditions.','Coordinate the approvals and movement controls needed for execution.','Align arrival, unloading, lifting and site acceptance.'],steps:['Capture cargo and origin / destination data','Survey and validate the route','Engineer the movement and mobilisation','Deliver, unload and close the movement'],stepDetails:['Gather drawings, dimensions, weight, target dates and site contacts.','Identify constraints before equipment is committed.','Define configuration, sequence, controls and responsibilities.','Coordinate the final approach and proof of delivery.']}
+ {
+  slug:'solar',
+  category:'SOLAR / GENERATION',
+  title:'Solar Projects',
+  short:'Solar EPC support, electrical balance-of-plant and grid-facing infrastructure for utility, commercial and industrial assets.',
+  headline:'Build the plant with the grid in mind.',
+  description:'Solar delivery is not only a module-and-structure exercise. It depends on site conditions, DC and AC systems, protection, evacuation, testing, documentation and the operating context around the plant.',
+  image:'https://images.pexels.com/photos/15663101/pexels-photo-15663101/free-photo-of-solar-panel-field.jpeg?auto=compress&cs=tinysrgb&w=2200',
+  bullets:['Site and EPC scope coordination','DC / AC electrical infrastructure','Power evacuation interfaces','HT, protection and metering coordination','Testing, documentation and handover'],
+  details:['Translate drawings and site constraints into an executable package.','Coordinate electrical systems around the generation block and balance-of-plant.','Keep plant output connected to the receiving infrastructure and schedule.','Align equipment, protection, cable and grid-interface requirements.','Build evidence into construction and commissioning instead of after it.'],
+  steps:['Review site, drawings and delivery scope','Coordinate procurement and construction interfaces','Inspect, test and resolve punch points','Compile handover evidence'],
+  stepDetails:['Confirm access, layout, quantities, interfaces and milestones.','Keep contractors and material readiness aligned to the work sequence.','Verify installation quality and functional readiness.','Close documentation gaps before the package is considered complete.'],
+  projects:[
+    {
+      title:'Solar Structure & Foundation Works',
+      location:'Karur, Tamil Nadu',
+      tag:'ON-SITE EPC',
+      scope:'Pile foundations, ramming alignment, mounting frame calibration and ground-mount PV array installation.',
+      image:'/images/propecare-site-1.jpg',
+      stat:'50+ MW Capacity Supported'
+    },
+    {
+      title:'Field Crew Installation & Civil BOS',
+      location:'Dindigul & Tirupur Cluster',
+      tag:'FIELD EXECUTION',
+      scope:'Precision leveling, tracker/fixed-tilt structural assembly and dedicated on-site safety and quality compliance.',
+      image:'/images/propecare-site-2.jpg',
+      stat:'Zero-Incident Safety Record'
+    },
+    {
+      title:'Concrete Concreting & Foundation Pouring',
+      location:'Coimbatore Belt, Tamil Nadu',
+      tag:'INFRASTRUCTURE BOS',
+      scope:'Specialized batch mix casting, structural durability testing, and cable trench readiness for electrical cabling.',
+      image:'/images/propecare-site-3.jpg',
+      stat:'100% Quality Conformance'
+    }
+  ]
+ },
+ {
+  slug:'windmill',
+  category:'WIND / TURBINE INFRASTRUCTURE',
+  title:'Wind Projects',
+  short:'Electrical infrastructure, balance-of-plant coordination and site interfaces for wind-energy projects.',
+  headline:'Wind projects combine power infrastructure with difficult physical access.',
+  description:'Wind sites add long-distance access, turbine-component logistics, construction sequencing and electrical collection or evacuation interfaces. Propercare separates those constraints, then reconnects them into one delivery sequence.',
+  image:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',
+  bullets:['Wind-farm electrical works','Collection and pooling systems','Evacuation infrastructure','Turbine-site interface coordination','Testing and commissioning'],
+  details:['Coordinate site electrical packages around turbine and civil interfaces.','Support collection and pooling infrastructure from turbine strings toward the grid interface.','Plan the receiving infrastructure with protection and energisation in view.','Make access, delivery windows and site readiness visible to the project team.','Close the loop through inspection, testing and commissioning records.'],
+  steps:['Map turbine, electrical and logistics interfaces','Prepare package sequence and site readiness','Execute electrical and support works','Test, energise and hand over'],
+  stepDetails:['Identify dependencies between turbine deliveries, civil works and electrical packages.','Align materials, crews, access and work fronts.','Control construction against the approved sequence.','Compile test results and readiness evidence for the next stage.'],
+  projects:[
+    {
+      title:'Wind Farm Pooling Substation & Cabling',
+      location:'Muppandal / Kayathar Corridor',
+      tag:'ELECTRICAL BOP',
+      scope:'33kV internal collection networks, pooling switchyard interfaces and power evacuation line planning.',
+      image:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      stat:'33kV / 110kV Interconnection'
+    },
+    {
+      title:'Turbine Foundation & Civil Site Prep',
+      location:'Udumalpet Wind Belt',
+      tag:'CIVIL INTERFACES',
+      scope:'Turbine pad readiness, heavy crane hardstand preparation and access route stabilization for tower mobilization.',
+      image:'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      stat:'High Load-Bearing Hardstands'
+    },
+    {
+      title:'Turbine Component Site Logistics',
+      location:'Palakkad Gap Access Corridor',
+      tag:'SITE LOGISTICS',
+      scope:'Nacelle and blade arrival staging, escort coordination and secure laydown yard management.',
+      image:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      stat:'Precision Turnkey Delivery'
+    }
+  ]
+ },
+ {
+  slug:'transport',
+  category:'ODC / HEAVY MOVEMENT',
+  title:'Transport & Logistics',
+  short:'Route-led movement of oversized renewable and industrial equipment, from cargo assessment through site delivery.',
+  headline:'The safest heavy movement is engineered before it moves.',
+  description:'Industry leaders in wind and ODC logistics emphasise cargo analysis, route surveys, equipment selection, permits, escorts, staging and site readiness. Propercare uses that project logic to frame every movement enquiry.',
+  image:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',
+  bullets:['Cargo and dimension assessment','Route survey and feasibility','ODC equipment planning','Permit and movement coordination','Site delivery and handover'],
+  details:['Start with the actual dimensions, weight, lifting points and handling limitations.','Review roads, turns, bridges, clearances, access and temporary works.','Match the transport configuration to cargo and route conditions.','Coordinate the approvals and movement controls needed for execution.','Align arrival, unloading, lifting and site acceptance.'],
+  steps:['Capture cargo and origin / destination data','Survey and validate the route','Engineer the movement and mobilisation','Deliver, unload and close the movement'],
+  stepDetails:['Gather drawings, dimensions, weight, target dates and site contacts.','Identify constraints before equipment is committed.','Define configuration, sequence, controls and responsibilities.','Coordinate the final approach and proof of delivery.'],
+  projects:[
+    {
+      title:'Heavy Power Transformer Relocation',
+      location:'Chennai to Central Tamil Nadu',
+      tag:'ODC HAULAGE',
+      scope:'Hydraulic multi-axle modular transport of 120-tonne power transformer with complete bridge and route clearance.',
+      image:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      stat:'120T Single Cargo Movement'
+    },
+    {
+      title:'Wind Turbine Blade & Tower Haulage',
+      location:'Tuticorin Port to Wind Farms',
+      tag:'RENEWABLE LOGISTICS',
+      scope:'Extendable trailer transport for long rotor blades and multi-section wind towers with pilot escort and safety convoy.',
+      image:'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      stat:'Zero-Delay Port Evacuation'
+    },
+    {
+      title:'Route Survey & Site Feasibility Engineering',
+      location:'Southern Railway & NH Crossings',
+      tag:'ROUTE INTELLIGENCE',
+      scope:'Geometric turn analysis, vertical clearance surveys, bypass civil works and local authority permission management.',
+      image:'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      stat:'100% Clear Route Assurance'
+    }
+  ]
+ }
 ];
 export const services=[
  {slug:'epc',code:'EPC',title:'EPC & EBoP',lead:'Integrated project support from engineering scope through construction and handover.',headline:'Make engineering intent executable at site.',description:'A coordinated package for renewable infrastructure where engineering, procurement, construction, quality and handover have to move as one sequence.',short:'Engineering, procurement and construction packages coordinated around site realities and handover requirements.',image:works[0].image,why:'Renewable EPC work creates risk at the interfaces between design, materials, contractors and site execution.',outcome:'Propercare focuses on making responsibilities, readiness and acceptance criteria visible before field activity accelerates.',checkpoints:[['SCOPE','Drawings, quantities, responsibilities and acceptance criteria are clear.'],['MATERIAL','Critical equipment and materials are aligned with the construction sequence.'],['SITE','Work fronts, access, safety controls and contractor interfaces are ready.'],['CLOSE','Quality records, testing and punch-list closure support handover.']]},

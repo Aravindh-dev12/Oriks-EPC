@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { Link, Route, Routes, useParams } from 'react-router-dom';
-import { ArrowUpRight, SunMedium, Zap, Factory, Truck } from 'lucide-react';
+import { ArrowUpRight, SunMedium, Zap, Factory, Truck, Wind, CheckCircle2 } from 'lucide-react';
 import { Header, Footer, HeroVideo, Section, MediaCard } from './components';
 import { articles, clients, research, services, sectors, works } from './data';
 
@@ -73,16 +73,65 @@ function About() {
 function Works() {
   return <Page type="work" title="Our Works" lead="Sector-led project capabilities, built around the conditions that make renewable infrastructure difficult." image={solar}>
     <div className="works-intro"><div><span className="kicker">SECTOR MAP</span><h2>Different assets. Different risks. Different delivery logic.</h2></div><p>Solar has electrical and grid interfaces. Wind adds large components, access and heavy movement. Industrial transport is a route-engineering problem. Our pages separate these realities instead of treating them as one generic service.</p></div>
-    <div className="works-stack">{works.map((w,i)=><Link to={'/works/'+w.slug} className="work-row" key={w.slug}><div className="work-row-number">0{i+1}</div><div className="work-row-image"><img src={w.image} alt={w.title}/></div><div className="work-row-copy"><span>{w.category}</span><h3>{w.title}</h3><p>{w.short}</p><b>Explore sector ↗</b></div></Link>)}</div>
+    <div className="works-stack">{works.map((w,i)=>{
+      const WorkIcon = w.slug === 'solar' ? SunMedium : w.slug === 'windmill' ? Wind : Truck;
+      return <Link to={'/works/'+w.slug} className="work-row" key={w.slug}>
+        <div className="work-row-number">0{i+1}</div>
+        <div className="work-row-image"><img src={w.image} alt={w.title}/></div>
+        <div className="work-row-copy">
+          <span>{w.category}</span>
+          <div className="work-row-title-wrap">
+            <span className="work-row-icon-badge"><WorkIcon size={24} strokeWidth={1.8}/></span>
+            <h3>{w.title}</h3>
+          </div>
+          <p>{w.short}</p>
+          <b>Explore sector ↗</b>
+        </div>
+      </Link>;
+    })}</div>
     <div className="sector-strip">{sectors.map(s=><div key={s.name}><b>{s.name}</b><span>{s.focus}</span></div>)}</div>
   </Page>;
 }
 
 function Work() {
   const {slug}=useParams(); const work=works.find(w=>w.slug===slug)??works[0];
+  const WorkIcon = work.slug === 'solar' ? SunMedium : work.slug === 'windmill' ? Wind : Truck;
   return <Page type="work-detail" title={work.title} lead={work.short} image={work.image}>
-    <div className="detail-lead"><div><span className="kicker">SECTOR PLAYBOOK</span><h2>{work.headline}</h2></div><p>{work.description}</p></div>
+    <div className="detail-lead">
+      <div>
+        <div style={{display:'inline-flex',alignItems:'center',gap:'8px',marginBottom:'10px'}}>
+          <span className="work-row-icon-badge" style={{width:'34px',height:'34px'}}><WorkIcon size={18} strokeWidth={2}/></span>
+          <span className="kicker" style={{margin:0}}>SECTOR PLAYBOOK</span>
+        </div>
+        <h2>{work.headline}</h2>
+      </div>
+      <p>{work.description}</p>
+    </div>
     <div className="capability-panels">{work.bullets.map((x,i)=><article key={x}><span>0{i+1}</span><h3>{x}</h3><p>{work.details[i]}</p></article>)}</div>
+    {work.projects && work.projects.length > 0 && (
+      <div className="work-projects-showcase">
+        <span className="kicker">DELIVERED &amp; EXECUTED PROJECTS</span>
+        <h3>Real-world execution track record in {work.title}.</h3>
+        <div className="work-projects-grid">
+          {work.projects.map((p, idx) => (
+            <div className="work-project-card" key={idx}>
+              <div className="work-project-img">
+                <img src={p.image} alt={p.title} />
+              </div>
+              <div className="work-project-body">
+                <span className="work-project-tag">{p.tag} · {p.location}</span>
+                <h4>{p.title}</h4>
+                <p>{p.scope}</p>
+                <div className="work-project-stat">
+                  <b>{p.stat}</b>
+                  <span>Verified Field Scope</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
     <div className="work-process"><div className="work-process-image"><img src={work.image} alt={work.title}/></div><div><span className="kicker">TYPICAL DELIVERY FLOW</span>{work.steps.map((x,i)=><div className="numbered-line" key={x}><span>0{i+1}</span><div><b>{x}</b><p>{work.stepDetails[i]}</p></div></div>)}</div></div>
     <div className="sector-cta"><div><span className="kicker">PROJECT INPUTS</span><h3>Location, asset type, scope and target date are enough to start the conversation.</h3></div><Link className="button" to="/contact">Discuss this sector</Link></div>
   </Page>;
@@ -153,7 +202,8 @@ function Contact() {
  const [sent,setSent]=useState(false);
  return <Page type="contact" title="Contact Us" lead="Start with the project facts. We will help identify the right delivery package." image={transmission}>
   <div className="contact-command"><div><span className="kicker">PROJECT DESK</span><h2>Tell us what needs to move, build, connect or commission.</h2><p>Useful inputs include project location, asset type, approximate capacity or dimensions, current phase, target dates and any known access or grid constraints.</p><div className="contact-details"><b>+91 9790005158</b><span>propecareindia@gmail.com</span><span>Karur, Tamil Nadu, India</span></div></div>
-  <form className="contact-form" onSubmit={e=>{e.preventDefault();setSent(true)}}><div className="form-heading"><span>ENQUIRY</span><b>{sent?'Thank you — enquiry captured.':'Project information'}</b></div><label>Name<input required placeholder="Your name"/></label><label>Company<input required placeholder="Company / organisation"/></label><label>Work email<input required type="email" placeholder="name@company.com"/></label><label>Requirement<select defaultValue=""><option value="" disabled>Select a requirement</option><option>Solar EPC / electrical works</option><option>Wind infrastructure</option><option>Heavy transport / ODC logistics</option><option>Power evacuation</option><option>Substation / switchyard</option><option>Testing & commissioning</option></select></label><label>Project details<textarea rows={6} placeholder="Location, scope, capacity, cargo dimensions, route or target date"/></label><button className="button" type="submit">{sent?'Enquiry submitted ✓':'Send project enquiry'}</button></form></div>
+  <form className="contact-form" onSubmit={e=>{e.preventDefault();setSent(true)}}><div className="form-heading"><span>ENQUIRY</span><b>{sent?'Thank you — enquiry captured.':'Project information'}</b></div><label>Name<input required placeholder="Your name"/></label><label>Company<input required placeholder="Company / organisation"/></label><label>Work email<input required type="email" placeholder="name@company.com"/></label><label>Phone<input type="tel" placeholder="+91 XXXXX XXXXX"/></label><label>Requirement<select defaultValue=""><option value="" disabled>Select a requirement</option><option>Solar EPC / electrical works</option><option>Wind infrastructure</option><option>Heavy transport / ODC logistics</option><option>Power evacuation</option><option>Substation / switchyard</option><option>Testing &amp; commissioning</option></select></label><label>Project details<textarea rows={5} placeholder="Location, scope, capacity, cargo dimensions, route or target date"/></label><button className="button" type="submit">{sent?'Enquiry submitted ✓':'Send project enquiry'}</button></form></div>
+  <div className="contact-gallery"><span className="kicker">OUR TEAM AT WORK</span><h3>Solar infrastructure delivery across Tamil Nadu.</h3><div className="contact-gallery-grid"><div className="contact-gallery-card"><img src="/images/propecare-site-1.jpg" alt="Worker installing solar mounting structure on site"/><small>SITE WORK</small><span>Mounting Structure Installation</span></div><div className="contact-gallery-card"><img src="/images/propecare-site-2.jpg" alt="Propecare branded crew working on solar infrastructure"/><small>FIELD TEAM</small><span>Propecare Crew On-Site</span></div><div className="contact-gallery-card"><img src="/images/propecare-site-3.jpg" alt="Team pouring cement for solar panel foundations"/><small>FOUNDATION</small><span>Solar Foundation Works</span></div></div></div>
   <div className="contact-route"><span>WHAT HAPPENS NEXT</span><div><b>01 / Review</b><p>We understand the scope and missing inputs.</p></div><div><b>02 / Discuss</b><p>We clarify site, route, engineering and schedule constraints.</p></div><div><b>03 / Define</b><p>We identify the appropriate package and next technical step.</p></div></div>
  </Page>;
 }
