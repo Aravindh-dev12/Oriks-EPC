@@ -9,6 +9,14 @@ export const services = [
   { slug: 'substations', title: 'Substations & Switchyards', short: 'Primary and secondary systems for controlled power transfer, protection and metering.', image: 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200' },
   { slug: 'testing', title: 'Testing & Commissioning', short: 'Inspection, testing, functional verification and synchronisation support before handover.', image: 'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200' }
 ];
+export const clients = [
+  { name: 'Sun Edison Energy India Pvt Ltd', mark: 'SunEdison', tone: 'orange' },
+  { name: 'PRV Construction Pvt Ltd', mark: 'PRV', tone: 'navy' },
+  { name: 'Avant-Garde Engineers & Consultants Pvt Ltd', mark: 'AVANT-GARDE', tone: 'red' },
+  { name: 'Renewable energy developers', mark: 'RENEWABLE', tone: 'teal' },
+  { name: 'Industrial and infrastructure partners', mark: 'INFRA', tone: 'green' },
+  { name: 'Power and project operators', mark: 'POWER', tone: 'blue' },
+];
 export const articles = [
   { tag: 'SOLAR', title: 'The electrical scope behind a solar project', text: 'How plant-side systems, cabling, protection and evacuation come together for dependable generation.', image: works[0].image },
   { tag: 'WIND', title: 'Making wind infrastructure site-ready', text: 'The coordination points that matter before heavy components and electrical packages reach site.', image: works[1].image },
