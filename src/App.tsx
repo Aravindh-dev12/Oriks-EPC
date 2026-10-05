@@ -108,7 +108,12 @@ function Service() {
   return <Page title={service.title} lead={detail[0]} image={service.image}>
     <Section eyebrow="SOLUTION DETAIL" title={detail[0]} />
     <p className="lead-copy">{detail[1]}</p>
-    <div className="detail-columns"><div><span className="kicker">TYPICAL SCOPE</span><ul className="check-list">{['Site and scope review','Interface and execution planning','Resource and contractor coordination','Progress reporting and documentation','Testing, completion and handover support'].map(x=><li key={x}>{x}</li>)}</ul></div><div><span className="kicker">WHY IT MATTERS</span><h3>Fewer surprises between design, site and grid.</h3><p>Our approach keeps dependencies visible and creates a clearer path from scope definition to completion.</p><Link className="button" to="/contact">Talk to our team</Link></div></div>
+    <div className="detail-columns"><div><span className="kicker">TYPICAL SCOPE</span><ul className="check-list">{({
+      epc:['Design basis and scope alignment','Bill of quantities and procurement tracking','Civil, mechanical and electrical interface coordination','Site progress, quality and safety records','Punch-list closure and handover dossier'],
+      evacuation:['Plant collection system and cable routes','Transformer and switchgear interfaces','Protection, metering and grid coordination','Pre-commissioning and test documentation','Energisation readiness and close-out'],
+      substations:['Primary equipment and layout coordination','Control, relay and protection systems','Earthing, cabling and interlocking checks','Inspection and functional test planning','As-built records and handover'],
+      testing:['Inspection and approved test-plan review','Cable, equipment and protection testing','Functional checks and interlock verification','Issue tracking and test-record compilation','Readiness review for synchronisation and handover']
+    } as Record<string,string[]>)[service.slug] ?? ['Scope and site review','Interface and execution planning','Resource and contractor coordination','Progress reporting and documentation','Completion and handover support']).map(x=><li key={x}>{x}</li>)}</ul></div><div><span className="kicker">WHY IT MATTERS</span><h3>Fewer surprises between design, site and grid.</h3><p>Our approach keeps dependencies visible and creates a clearer path from scope definition to completion.</p><Link className="button" to="/contact">Talk to our team</Link></div></div>
   </Page>;
 }
 
