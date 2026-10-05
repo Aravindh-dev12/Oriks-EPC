@@ -158,11 +158,27 @@ function ProjectDetail() {
     parentWork = works[0];
   }
 
-  const [activeVideoIdx, setActiveVideoIdx] = useState(0);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [lightboxItem, setLightboxItem] = useState<any>(null);
 
   const WorkIcon = parentWork.slug === 'solar' ? SunMedium : parentWork.slug === 'windmill' ? Wind : Truck;
-  const currentVid = foundProject.videos?.[activeVideoIdx] || foundProject.videos?.[0];
+
+  const allMediaItems = [
+    ...(foundProject.videos || []).map((v: any) => ({ ...v, type: 'video', category: 'video' })),
+    ...(foundProject.media || []).map((m: any) => ({ ...m, type: 'image', category: m.category || 'aerial' }))
+  ];
+
+  const categories = [
+    { id: 'all', label: 'All Project Media', count: allMediaItems.length },
+    ...(foundProject.videos?.length ? [{ id: 'video', label: 'Drone Videos', count: foundProject.videos.length }] : []),
+    { id: 'aerial', label: 'Aerial Surveys', count: allMediaItems.filter((i: any) => i.category === 'aerial').length },
+    { id: 'civil', label: 'Structure & BOS', count: allMediaItems.filter((i: any) => i.category === 'civil').length },
+    { id: 'electrical', label: 'Substation & Grid', count: allMediaItems.filter((i: any) => i.category === 'electrical').length }
+  ].filter(c => c.count > 0);
+
+  const displayedItems = activeCategory === 'all' 
+    ? allMediaItems 
+    : allMediaItems.filter((item: any) => item.category === activeCategory);
 
   return (
     <Page type="project-detail" title={foundProject.title} lead={foundProject.scope} image={foundProject.image}>
@@ -221,113 +237,114 @@ function ProjectDetail() {
           </div>
         )}
 
-        {/* Project Media Gallery */}
-        {foundProject.media && foundProject.media.length > 0 && (
-          <div className="project-media-section">
+        {/* Unified Project Media & Video Showcase */}
+        {allMediaItems.length > 0 && (
+          <div className="project-unified-media-section">
             <div className="media-section-head">
               <div>
                 <span className="kicker">PROJECT MEDIA &amp; VERIFIED SITE FOOTAGE</span>
-                <h3>High-resolution site imagery &amp; field captures.</h3>
+                <h3>High-resolution site imagery, civil progress &amp; drone videos.</h3>
               </div>
-              <span className="media-count-badge">{foundProject.media.length} Site Media Captures</span>
+              <span className="media-count-badge">{allMediaItems.length} Total Records</span>
             </div>
 
-            <div className="project-media-grid">
-              {foundProject.media.map((med: any, idx: number) => (
-                <div className={`project-media-card ${idx === 0 ? 'media-featured' : ''}`} key={idx}>
-                  <img src={med.url} alt={med.title} loading="lazy" />
-                  <div className="media-card-overlay">
-                    <span className="media-type-tag">SITE PHOTO</span>
-                    <b>{med.title}</b>
-                  </div>
-                </div>
+            {/* Category Filter Tabs */}
+            <div className="media-category-bar">
+              {categories.map((cat) => (
+                <button
+                  type="button"
+                  key={cat.id}
+                  className={`media-category-pill ${activeCategory === cat.id ? 'is-active' : ''}`}
+                  onClick={() => setActiveCategory(cat.id)}
+                >
+                  <span>{cat.label}</span>
+                  <span className="category-pill-count">{cat.count}</span>
+                </button>
               ))}
             </div>
 
-            {/* Site Video Showcase */}
-            {foundProject.videos && foundProject.videos.length > 0 && currentVid && (
-              <div className="project-video-card">
-                <div className="video-card-top">
-                  <div className="video-card-icon">
-                    <Play size={26} />
-                  </div>
-                  <div className="video-card-content">
-                    <b>Site Video Footage &amp; Aerial Drone Surveys</b>
-                    <p>{foundProject.videoNotice || 'Watch verified site footage, infrastructure installation progress, and completed energisation across the facility.'}</p>
-                  </div>
-                </div>
-
-                <div className="project-video-player-box">
-                  {/* HTML5 Video Element */}
-                  <div className="project-video-frame-container">
-                    <video 
-                      ref={videoRef}
-                      key={activeVideoIdx}
-                      controls 
-                      playsInline
-                      preload="metadata" 
-                      poster={currentVid.poster || foundProject.image}
-                      className="project-html5-video" 
-                      src={currentVid.src}
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        if (currentVid.fallbackSrc && target.src !== currentVid.fallbackSrc) {
-                          target.src = currentVid.fallbackSrc;
-                          target.load();
-                        }
-                      }}
-                    >
-                      <source src={currentVid.src} type="video/mp4" />
-                      {currentVid.fallbackSrc && <source src={currentVid.fallbackSrc} type="video/mp4" />}
-                      Your browser does not support HTML5 video playback.
-                    </video>
-                  </div>
-
-                  {/* Active Video Info Bar */}
-                  <div className="video-info-strip">
-                    <div className="video-info-text">
-                      <span className="video-now-playing">NOW PLAYING</span>
-                      <h4>{currentVid.title}</h4>
-                      <p>{currentVid.subtitle || 'Site inspection and aerial survey footage.'}</p>
+            {/* Unified Media Grid */}
+            <div className="unified-media-grid">
+              {displayedItems.map((item: any, idx: number) => {
+                if (item.type === 'video') {
+                  return (
+                    <div className="unified-media-card video-card-item" key={item.id || idx}>
+                      <div className="media-video-wrapper">
+                        <video
+                          controls
+                          playsInline
+                          preload="metadata"
+                          poster={item.poster}
+                          className="unified-card-video"
+                          src={item.src}
+                          onError={(e) => {
+                            const target = e.currentTarget;
+                            if (item.fallbackSrc && target.src !== item.fallbackSrc) {
+                              target.src = item.fallbackSrc;
+                              target.load();
+                            }
+                          }}
+                        >
+                          <source src={item.src} type="video/mp4" />
+                          {item.fallbackSrc && <source src={item.fallbackSrc} type="video/mp4" />}
+                          Your browser does not support HTML5 video playback.
+                        </video>
+                        <span className="card-badge video-badge">
+                          <Play size={10} fill="#fff" /> {item.tag || 'DRONE VIDEO'}
+                        </span>
+                        {item.duration && <span className="card-duration-badge">{item.duration}</span>}
+                      </div>
+                      <div className="media-card-details">
+                        <b>{item.title}</b>
+                        {item.subtitle && <p>{item.subtitle}</p>}
+                      </div>
                     </div>
-                    <span className="video-duration-pill">{currentVid.duration || 'Video'}</span>
-                  </div>
+                  );
+                }
 
-                  {/* Clean Video Playlist with Thumbnails */}
-                  <div className="video-playlist-bar">
-                    <span className="playlist-heading">SELECT VIDEO TO WATCH ({foundProject.videos.length} RECORDINGS)</span>
-                    <div className="video-playlist-grid">
-                      {foundProject.videos.map((vid: any, vIdx: number) => {
-                        const isSelected = vIdx === activeVideoIdx;
-                        return (
-                          <button
-                            type="button"
-                            key={vIdx}
-                            className={`video-playlist-card ${isSelected ? 'is-active' : ''}`}
-                            onClick={() => {
-                              setActiveVideoIdx(vIdx);
-                              setTimeout(() => {
-                                videoRef.current?.play().catch(() => {});
-                              }, 150);
-                            }}
-                          >
-                            <div className="video-card-thumb">
-                              <img src={vid.poster || foundProject.image} alt={vid.title} />
-                              <span className="thumb-play-btn"><Play size={12} fill="#fff" /></span>
-                              <span className="thumb-duration">{vid.duration || 'Video'}</span>
-                            </div>
-                            <div className="video-card-meta">
-                              <span className="video-card-title">{vid.title}</span>
-                              <span className="video-card-sub">{vid.subtitle || 'Verified field footage'}</span>
-                            </div>
-                          </button>
-                        );
-                      })}
+                return (
+                  <div 
+                    className="unified-media-card image-card-item" 
+                    key={idx}
+                    onClick={() => setLightboxItem(item)}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    <div className="media-img-wrapper">
+                      <img src={item.url} alt={item.title} loading="lazy" />
+                      <div className="media-card-overlay">
+                        <span className="card-badge image-badge">{item.tag || 'SITE PHOTO'}</span>
+                        <b>{item.title}</b>
+                      </div>
+                      <div className="media-expand-hint">
+                        <span>Click to view</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* High-Resolution Image Lightbox Modal */}
+        {lightboxItem && (
+          <div className="media-lightbox-backdrop" onClick={() => setLightboxItem(null)}>
+            <div className="media-lightbox-content" onClick={(e) => e.stopPropagation()}>
+              <button 
+                type="button" 
+                className="lightbox-close-btn" 
+                onClick={() => setLightboxItem(null)}
+                aria-label="Close image viewer"
+              >
+                ✕
+              </button>
+              <img src={lightboxItem.url} alt={lightboxItem.title} />
+              <div className="lightbox-caption">
+                <span className="card-badge image-badge">{lightboxItem.tag || 'HIGH-RES CAPTURE'}</span>
+                <b>{lightboxItem.title}</b>
               </div>
-            )}
+            </div>
           </div>
         )}
 
