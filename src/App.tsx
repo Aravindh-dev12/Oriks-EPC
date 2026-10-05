@@ -72,6 +72,17 @@ function Work() {
   return <Page title={work.title} lead={work.short} image={work.image}>
     <Section eyebrow="Scope of work" title="Capability designed for safe, reliable delivery." />
     <div className="scope-grid">{work.bullets.map((x, i) => <div key={x}><span>0{i + 1}</span><h3>{x}</h3><p>Planned, coordinated and delivered around site conditions, interfaces and project milestones.</p></div>)}</div>
+    {work.slug === 'transport' && <section className="logistics-journey">
+      <div className="logistics-heading"><span className="kicker">OVERSIZED CARGO / FROM ORIGIN TO SITE</span><h2>Every safe movement starts before the vehicle moves.</h2><p>Renewable components are often long, heavy, high-value and sensitive to handling. A dependable plan connects cargo data, route feasibility, permits, equipment, escorting and site readiness.</p></div>
+      <div className="journey-steps">{[
+        ['01','Cargo & dimension review','Confirm dimensions, weight, lifting points, handling limits and delivery sequence.'],
+        ['02','Route feasibility','Assess road geometry, turning radii, overhead obstructions, bridges, access restrictions and temporary works.'],
+        ['03','Movement engineering','Match trailers and support equipment to the cargo, route and loading method; plan permits and escorts.'],
+        ['04','Site delivery & handover','Coordinate arrival windows, unloading area, lifting plan, communication and proof of delivery.']
+      ].map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div>
+      <div className="logistics-callout"><b>Project inputs that help us scope a movement</b><p>Origin and destination · component drawings and dimensions · target dates · access constraints · unloading and crane requirements.</p><Link className="text-link" to="/contact">Plan a transport enquiry →</Link></div>
+    </section>}
+
     <div className="service-detail-grid"><div><span className="kicker">WHERE WE ADD VALUE</span><h3>Clear scope and field coordination</h3><p>We help clients connect engineering intent with practical site execution, keeping dependencies visible and decisions moving.</p></div><div><span className="kicker">NEXT STEP</span><h3>Have a live project?</h3><p>Share your location, scope and target dates. We can discuss the right package for the next phase.</p><Link className="button" to="/contact">Discuss this capability</Link></div></div>
   </Page>;
 }
@@ -127,7 +138,20 @@ function Contact() {
 }
 
 function Page({title,lead,image,children}:{title:string;lead:string;image:string;children:ReactNode}) {
-  return <><section className="inner-hero"><div className="wrap inner-grid"><div><span className="kicker">PROPECARE INFRA PROJECTS</span><h1>{title}</h1><p>{lead}</p></div><img src={image} alt=""/></div></section><main className="page-body">{children}<section className="delivery-principles wrap"><div><span className="kicker">01 / DISCOVER</span><h3>Understand the brief</h3><p>We start with the site, scope, route and schedule so the delivery plan reflects conditions on the ground.</p></div><div><span className="kicker">02 / DELIVER</span><h3>Coordinate every interface</h3><p>People, equipment, contractors and stakeholders stay aligned through practical project coordination.</p></div><div><span className="kicker">03 / SUPPORT</span><h3>Stay close through handover</h3><p>From execution updates to completion support, we remain focused on a clear, responsible finish.</p></div></section><section className="page-gallery wrap"><div className="gallery-large"><img src={image} alt="Renewable infrastructure"/><span>FIELD / PROPECARE PROJECTS</span></div><div className="gallery-column"><img src={solar} alt="Solar project"/><img src={transmission} alt="Power infrastructure"/></div></section></main></>;
+  const type = title.toLowerCase().includes('contact') ? 'contact' : title.toLowerCase().includes('client') ? 'clients' : title.toLowerCase().includes('resource') || ['blogs','media','new updates'].includes(title.toLowerCase()) ? 'resources' : title.toLowerCase().includes('solution') || services.some(s=>s.title===title) ? 'solutions' : title.toLowerCase().includes('work') || works.some(w=>w.title===title) ? 'work' : title.toLowerCase().includes('who') ? 'about' : 'page';
+  return <>
+    <section className={`page-masthead page-masthead--${type}`}>
+      <img className="page-masthead-image" src={image} alt="" />
+      <div className="page-masthead-overlay" />
+      <div className="wrap page-masthead-content">
+        <span className="kicker">PROPECARE INFRA PROJECTS / {type.toUpperCase()}</span>
+        <h1>{title}</h1><p>{lead}</p>
+        <div className="masthead-actions"><Link className="button light" to="/contact">Discuss a project</Link><span>Solar · Wind · EPC · Logistics</span></div>
+      </div>
+      <div className="masthead-index"><span>01</span><span>FIELD-READY INFRASTRUCTURE</span></div>
+    </section>
+    <main className={`page-body page-body--${type}`}>{children}</main>
+  </>;
 }
 
 export default function App(){return <><Header/><Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/works" element={<Works/>}/><Route path="/works/:slug" element={<Work/>}/><Route path="/services" element={<Solutions/>}/><Route path="/services/:slug" element={<Service/>}/><Route path="/resources" element={<Resources/>}/><Route path="/resources/:kind" element={<Resources/>}/><Route path="/clients" element={<Clients/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes><Footer/></>}
