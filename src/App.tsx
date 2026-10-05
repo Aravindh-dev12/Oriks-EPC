@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { Link, Route, Routes, useParams } from 'react-router-dom';
-import { ArrowUpRight, SunMedium, Zap, Factory, Truck, Wind, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, SunMedium, Zap, Factory, Truck, Wind, CheckCircle2, Building2, MapPin, ShieldCheck, Play, ArrowLeft, Layers } from 'lucide-react';
 import { Header, Footer, HeroVideo, Section, MediaCard } from './components';
 import { articles, clients, research, services, sectors, works } from './data';
 
@@ -113,10 +113,11 @@ function Work() {
         <span className="kicker">DELIVERED &amp; EXECUTED PROJECTS</span>
         <h3>Real-world execution track record in {work.title}.</h3>
         <div className="work-projects-grid">
-          {work.projects.map((p, idx) => (
-            <div className="work-project-card" key={idx}>
+          {work.projects.map((p) => (
+            <Link to={'/works/projects/' + p.id} className="work-project-card" key={p.id}>
               <div className="work-project-img">
                 <img src={p.image} alt={p.title} />
+                <span className="work-project-capacity-pill">{p.capacity}</span>
               </div>
               <div className="work-project-body">
                 <span className="work-project-tag">{p.tag} · {p.location}</span>
@@ -124,10 +125,10 @@ function Work() {
                 <p>{p.scope}</p>
                 <div className="work-project-stat">
                   <b>{p.stat}</b>
-                  <span>Verified Field Scope</span>
+                  <span className="view-project-link">View Project Scope &amp; Media →</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -135,6 +136,142 @@ function Work() {
     <div className="work-process"><div className="work-process-image"><img src={work.image} alt={work.title}/></div><div><span className="kicker">TYPICAL DELIVERY FLOW</span>{work.steps.map((x,i)=><div className="numbered-line" key={x}><span>0{i+1}</span><div><b>{x}</b><p>{work.stepDetails[i]}</p></div></div>)}</div></div>
     <div className="sector-cta"><div><span className="kicker">PROJECT INPUTS</span><h3>Location, asset type, scope and target date are enough to start the conversation.</h3></div><Link className="button" to="/contact">Discuss this sector</Link></div>
   </Page>;
+}
+
+function ProjectDetail() {
+  const { projectId } = useParams();
+  // Find project across all sectors
+  let foundProject: any = null;
+  let parentWork: any = null;
+  for (const w of works) {
+    const proj = w.projects?.find((p: any) => p.id === projectId);
+    if (proj) {
+      foundProject = proj;
+      parentWork = w;
+      break;
+    }
+  }
+
+  if (!foundProject) {
+    // Default to solar-1 if not found
+    foundProject = works[0].projects?.[0];
+    parentWork = works[0];
+  }
+
+  const WorkIcon = parentWork.slug === 'solar' ? SunMedium : parentWork.slug === 'windmill' ? Wind : Truck;
+
+  return (
+    <Page type="project-detail" title={foundProject.title} lead={foundProject.scope} image={foundProject.image}>
+      <div className="project-detail-container">
+        {/* Breadcrumb & Navigation */}
+        <div className="project-detail-nav">
+          <Link to={'/works/' + parentWork.slug} className="back-link">
+            <ArrowLeft size={16} /> Back to {parentWork.title}
+          </Link>
+          <div className="project-sector-tag">
+            <WorkIcon size={16} />
+            <span>{parentWork.category}</span>
+          </div>
+        </div>
+
+        {/* Project Header Info */}
+        <div className="project-header-card">
+          <div className="project-header-main">
+            <span className="kicker">{foundProject.tag} · {foundProject.status}</span>
+            <h2>{foundProject.name} — {foundProject.capacity}</h2>
+            <p className="project-summary-text">{foundProject.scope}</p>
+          </div>
+          <div className="project-meta-box">
+            <div className="meta-item">
+              <span className="meta-label"><Building2 size={16} /> Client / Developer</span>
+              <b className="meta-val">{foundProject.client}</b>
+            </div>
+            <div className="meta-item">
+              <span className="meta-label"><MapPin size={16} /> Project Location</span>
+              <b className="meta-val">{foundProject.location}</b>
+            </div>
+            <div className="meta-item">
+              <span className="meta-label"><Zap size={16} /> Installed Capacity</span>
+              <b className="meta-val highlight">{foundProject.capacity}</b>
+            </div>
+            <div className="meta-item">
+              <span className="meta-label"><ShieldCheck size={16} /> Execution Status</span>
+              <b className="meta-val status-badge">{foundProject.status}</b>
+            </div>
+          </div>
+        </div>
+
+        {/* Project Metrics Grid */}
+        {foundProject.metrics && (
+          <div className="project-metrics-section">
+            <span className="kicker">KEY SPECIFICATIONS &amp; FACTS</span>
+            <h3>Field parameters and engineering scope delivered.</h3>
+            <div className="project-metrics-grid">
+              {foundProject.metrics.map((m: any, idx: number) => (
+                <div className="metric-card" key={idx}>
+                  <span>{m.label}</span>
+                  <b>{m.value}</b>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Project Media Gallery */}
+        {foundProject.media && foundProject.media.length > 0 && (
+          <div className="project-media-section">
+            <div className="media-section-head">
+              <div>
+                <span className="kicker">PROJECT MEDIA &amp; VERIFIED SITE FOOTAGE</span>
+                <h3>High-resolution site imagery &amp; field captures.</h3>
+              </div>
+              <span className="media-count-badge">{foundProject.media.length} Site Media Captures</span>
+            </div>
+
+            <div className="project-media-grid">
+              {foundProject.media.map((med: any, idx: number) => (
+                <div className={`project-media-card ${idx === 0 ? 'media-featured' : ''}`} key={idx}>
+                  <img src={med.url} alt={med.title} loading="lazy" />
+                  <div className="media-card-overlay">
+                    <span className="media-type-tag">SITE PHOTO</span>
+                    <b>{med.title}</b>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Video Repository Notice Card */}
+            <div className="project-video-card">
+              <div className="video-card-icon">
+                <Play size={28} />
+              </div>
+              <div className="video-card-content">
+                <b>Drone Video Footage &amp; Energisation Streams</b>
+                <p>{foundProject.videoNotice || 'High-definition video files stored directly in repository project folders (MP4 format ready for live drone aerial streaming and plant operation reviews).'}</p>
+                <div className="video-folder-pill">
+                  <Layers size={14} />
+                  <span>Folder Location: <code>/public/projects/{foundProject.id}/</code></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Bottom CTA & Related Projects */}
+        <div className="project-cta-block">
+          <div>
+            <span className="kicker">INTERESTED IN SIMILAR SCALE?</span>
+            <h3>Deploying solar, wind, or heavy logistics infrastructure in Tamil Nadu?</h3>
+            <p>Our project desk coordinates site survey, civil foundations, mounting systems, pooling substations, and route haulage with single-source accountability.</p>
+          </div>
+          <div className="cta-actions">
+            <Link className="button light" to="/contact">Enquire About This Scope</Link>
+            <Link className="button outline-light" to={'/works/' + parentWork.slug}>View All {parentWork.title}</Link>
+          </div>
+        </div>
+      </div>
+    </Page>
+  );
 }
 
 function Solutions() {
@@ -212,4 +349,4 @@ function Page({type,title,lead,image,children}:{type:string;title:string;lead:st
  return <><section className={'page-masthead page-masthead--'+type}><img className="page-masthead-image" src={image} alt=""/><div className="page-masthead-overlay"/><div className="wrap page-masthead-content"><span className="kicker">PROPECARE / {type.replace('-',' ').toUpperCase()}</span><h1>{title}</h1><p>{lead}</p><div className="masthead-actions"><Link className="button light" to="/contact">Discuss a project</Link><span>Solar · Wind · EPC · Logistics</span></div></div><div className="masthead-index"><span>{type==='about'?'01':type==='work'?'02':type.includes('service')?'03':type.includes('resources')?'04':type==='clients'?'05':type==='contact'?'06':'07'}</span><span>FIELD-READY INFRASTRUCTURE</span></div></section><main className={'page-body page-body--'+type}>{children}</main></>;
 }
 
-export default function App(){return <><Header/><Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/works" element={<Works/>}/><Route path="/works/:slug" element={<Work/>}/><Route path="/services" element={<Solutions/>}/><Route path="/services/:slug" element={<Service/>}/><Route path="/resources" element={<Resources/>}/><Route path="/resources/blog/:slug" element={<Article/>}/><Route path="/resources/:kind" element={<Resources/>}/><Route path="/clients" element={<Clients/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes><Footer/></>}
+export default function App(){return <><Header/><Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/works" element={<Works/>}/><Route path="/works/projects/:projectId" element={<ProjectDetail/>}/><Route path="/works/:slug" element={<Work/>}/><Route path="/services" element={<Solutions/>}/><Route path="/services/:slug" element={<Service/>}/><Route path="/resources" element={<Resources/>}/><Route path="/resources/blog/:slug" element={<Article/>}/><Route path="/resources/:kind" element={<Resources/>}/><Route path="/clients" element={<Clients/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes><Footer/></>}

@@ -19,28 +19,128 @@ export const works=[
   stepDetails:['Confirm access, layout, quantities, interfaces and milestones.','Keep contractors and material readiness aligned to the work sequence.','Verify installation quality and functional readiness.','Close documentation gaps before the package is considered complete.'],
   projects:[
     {
-      title:'Solar Structure & Foundation Works',
-      location:'Karur, Tamil Nadu',
-      tag:'ON-SITE EPC',
-      scope:'Pile foundations, ramming alignment, mounting frame calibration and ground-mount PV array installation.',
-      image:'/images/propecare-site-1.jpg',
-      stat:'50+ MW Capacity Supported'
+      id:'solar-1',
+      title:'Solar Project 1 — 240 MW Utility Solar Park',
+      name:'Project Solar 1',
+      capacity:'240 MW',
+      client:'Leading Clean Energy IPP Developer',
+      location:'Karur District, Tamil Nadu, India',
+      status:'Commissioned & Energised',
+      tag:'FLAGSHIP UTILITY EPC',
+      scope:'Turnkey civil balance-of-plant, pile foundation drilling & casting, mounting structure assembly, tracker alignment, DC array cabling, inverter station integration, and power evacuation to grid substation.',
+      image:'/projects/solar-1/aerial-overview-1.jpg',
+      stat:'240 MW Utility Scale',
+      metrics:[
+        {label:'Total Capacity',value:'240 MW'},
+        {label:'Location',value:'Karur, Tamil Nadu'},
+        {label:'Client',value:'Utility IPP Developer'},
+        {label:'Scope',value:'Civil BOS, MMS, Foundation, Cabling'},
+        {label:'Site Acres',value:'950+ Acres'},
+        {label:'Evacuation',value:'230kV / 110kV Substation Intertie'}
+      ],
+      media:[
+        {type:'image',url:'/projects/solar-1/aerial-overview-1.jpg',title:'Aerial Drone Overview — 240 MW Field Array'},
+        {type:'image',url:'/projects/solar-1/aerial-panorama-2.jpg',title:'Wide Angle Horizon — Solar Array & Substation Road'},
+        {type:'image',url:'/projects/solar-1/drone-grid-zoom-3.jpg',title:'Precision Grid Section — Mounting Rails & Tables'},
+        {type:'image',url:'/projects/solar-1/drone-grid-angle-4.jpg',title:'Array Pitch & Row Alignment Inspection'},
+        {type:'image',url:'/projects/solar-1/site-mounting-5.jpg',title:'Field Engineer Mounting Structure Verification'},
+        {type:'image',url:'/projects/solar-1/site-crew-6.jpg',title:'Propecare Infra On-Site Quality Assurance Team'},
+        {type:'image',url:'/projects/solar-1/site-foundation-7.jpg',title:'Concrete Concreting & Foundation Casting'}
+      ],
+      videoNotice:'Site drone flight footage and energisation videos stored in repository (ready for streaming video files).'
     },
     {
-      title:'Field Crew Installation & Civil BOS',
-      location:'Dindigul & Tirupur Cluster',
-      tag:'FIELD EXECUTION',
-      scope:'Precision leveling, tracker/fixed-tilt structural assembly and dedicated on-site safety and quality compliance.',
-      image:'/images/propecare-site-2.jpg',
-      stat:'Zero-Incident Safety Record'
+      id:'solar-2',
+      title:'Solar Project 2 — 150 MW Ground Mount Solar Facility',
+      name:'Project Solar 2',
+      capacity:'150 MW',
+      client:'Tamil Nadu Green Energy Corporation / Private IPP',
+      location:'Tirupur Cluster, Tamil Nadu, India',
+      status:'Operational Handover',
+      tag:'GROUND-MOUNT EPC',
+      scope:'Ramming alignment, fixed-tilt PV structure fabrication, tracker calibration, 33kV internal collection system, and transformer yard interface.',
+      image:'/projects/solar-1/drone-grid-zoom-3.jpg',
+      stat:'150 MW Capacity',
+      metrics:[
+        {label:'Total Capacity',value:'150 MW'},
+        {label:'Location',value:'Tirupur Cluster, TN'},
+        {label:'Client',value:'Renewable Power Developer'},
+        {label:'Scope',value:'MMS Installation & 33kV Collection'},
+        {label:'Grid Tie',value:'110kV Pooling Substation'}
+      ],
+      media:[
+        {type:'image',url:'/projects/solar-1/drone-grid-zoom-3.jpg',title:'Tracker Calibration and Row Inspection'},
+        {type:'image',url:'/projects/solar-1/site-mounting-5.jpg',title:'Structure Alignment Quality Check'}
+      ]
     },
     {
-      title:'Concrete Concreting & Foundation Pouring',
-      location:'Coimbatore Belt, Tamil Nadu',
-      tag:'INFRASTRUCTURE BOS',
-      scope:'Specialized batch mix casting, structural durability testing, and cable trench readiness for electrical cabling.',
-      image:'/images/propecare-site-3.jpg',
-      stat:'100% Quality Conformance'
+      id:'solar-3',
+      title:'Solar Project 3 — 85 MW Industrial Open-Access Park',
+      name:'Project Solar 3',
+      capacity:'85 MW',
+      client:'Commercial & Industrial Consortium',
+      location:'Dindigul Region, Tamil Nadu, India',
+      status:'Energised',
+      tag:'OPEN-ACCESS C&I',
+      scope:'High-voltage evacuation line, metering substation setup, inverter transformer stations, and HT panel interconnection for industrial power feed.',
+      image:'/projects/solar-1/aerial-panorama-2.jpg',
+      stat:'85 MW C&I Evacuation',
+      metrics:[
+        {label:'Total Capacity',value:'85 MW'},
+        {label:'Location',value:'Dindigul, TN'},
+        {label:'Client',value:'C&I Textile & Heavy Industry'},
+        {label:'Scope',value:'HT Evacuation & Metering'}
+      ],
+      media:[
+        {type:'image',url:'/projects/solar-1/aerial-panorama-2.jpg',title:'Open-Access Solar Farm Panorama'},
+        {type:'image',url:'/projects/solar-1/site-crew-6.jpg',title:'Propecare Field Execution Crew'}
+      ]
+    },
+    {
+      id:'solar-4',
+      title:'Solar Project 4 — 120 MW High-Efficiency BOS Installation',
+      name:'Project Solar 4',
+      capacity:'120 MW',
+      client:'National Renewable Energy OEM / Developer',
+      location:'Coimbatore Solar Belt, Tamil Nadu',
+      status:'Commissioning Stage',
+      tag:'EBoP INTEGRATION',
+      scope:'Specialized batch mix foundation casting, DC trenching, module interconnections, SCADA weather station integration, and pre-commissioning testing.',
+      image:'/projects/solar-1/site-foundation-7.jpg',
+      stat:'120 MW EBoP Package',
+      metrics:[
+        {label:'Total Capacity',value:'120 MW'},
+        {label:'Location',value:'Coimbatore Belt, TN'},
+        {label:'Client',value:'National EPC Partner'},
+        {label:'Scope',value:'Civil BOS, SCADA & Testing'}
+      ],
+      media:[
+        {type:'image',url:'/projects/solar-1/site-foundation-7.jpg',title:'Civil BOS Concreting & Foundation Casting'},
+        {type:'image',url:'/projects/solar-1/aerial-overview-1.jpg',title:'Array Infrastructure Layout'}
+      ]
+    },
+    {
+      id:'solar-5',
+      title:'Solar Project 5 — 60 MW Rooftop & Distributed Industrial Solar',
+      name:'Project Solar 5',
+      capacity:'60 MW',
+      client:'Industrial Manufacturing Hub',
+      location:'Karur & Erode Industrial Zones, TN',
+      status:'Operational',
+      tag:'DISTRIBUTED POWER',
+      scope:'Factory roof structural reinforcement, non-penetrating mounting fixtures, string inverter integration, and zero-export protection synchronisation.',
+      image:'/projects/solar-1/site-crew-6.jpg',
+      stat:'60 MW Distributed',
+      metrics:[
+        {label:'Total Capacity',value:'60 MW'},
+        {label:'Location',value:'Karur & Erode, TN'},
+        {label:'Client',value:'Automotive & Manufacturing Facilities'},
+        {label:'Scope',value:'Rooftop & Ground Hybrid Installation'}
+      ],
+      media:[
+        {type:'image',url:'/projects/solar-1/site-crew-6.jpg',title:'Site Crew Safety & Execution Review'},
+        {type:'image',url:'/projects/solar-1/drone-grid-angle-4.jpg',title:'Array Alignment Quality Audit'}
+      ]
     }
   ]
  },
@@ -58,28 +158,114 @@ export const works=[
   stepDetails:['Identify dependencies between turbine deliveries, civil works and electrical packages.','Align materials, crews, access and work fronts.','Control construction against the approved sequence.','Compile test results and readiness evidence for the next stage.'],
   projects:[
     {
-      title:'Wind Farm Pooling Substation & Cabling',
-      location:'Muppandal / Kayathar Corridor',
-      tag:'ELECTRICAL BOP',
-      scope:'33kV internal collection networks, pooling switchyard interfaces and power evacuation line planning.',
+      id:'wind-1',
+      title:'Wind Project 1 — 300 MW Muppandal Wind Corridor Substation',
+      name:'Project Wind 1',
+      capacity:'300 MW',
+      client:'Global Turbine OEM & State Utility',
+      location:'Muppandal, Kanyakumari, Tamil Nadu',
+      status:'Commissioned',
+      tag:'POOLING SUBSTATION & 33kV',
+      scope:'Turnkey 33kV/230kV pooling substation, feeder switchgear installation, overhead power evacuation towers, and grid intertie synchronization.',
       image:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'33kV / 110kV Interconnection'
+      stat:'300 MW Pooling Capacity',
+      metrics:[
+        {label:'Total Capacity',value:'300 MW'},
+        {label:'Location',value:'Muppandal Corridor, TN'},
+        {label:'Client',value:'Global OEM & IPP'},
+        {label:'Scope',value:'Pooling Substation & 33kV Lines'}
+      ],
+      media:[
+        {type:'image',url:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Turbine String Array & Substation Approach'}
+      ]
     },
     {
-      title:'Turbine Foundation & Civil Site Prep',
-      location:'Udumalpet Wind Belt',
-      tag:'CIVIL INTERFACES',
-      scope:'Turbine pad readiness, heavy crane hardstand preparation and access route stabilization for tower mobilization.',
+      id:'wind-2',
+      title:'Wind Project 2 — 180 MW Kayathar Heavy Hardstand Engineering',
+      name:'Project Wind 2',
+      capacity:'180 MW',
+      client:'Independent Wind Power Producer',
+      location:'Kayathar, Thoothukudi District, TN',
+      status:'Operational',
+      tag:'HARDSTAND & CIVIL BOP',
+      scope:'65 crane pads and heavy-lift hardstands engineered for 800-tonne crawler crane mobilization, turbine pad compaction, and access road stabilization.',
       image:'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'High Load-Bearing Hardstands'
+      stat:'65 Heavy Turbine Pads',
+      metrics:[
+        {label:'Total Capacity',value:'180 MW'},
+        {label:'Location',value:'Kayathar Wind Belt, TN'},
+        {label:'Client',value:'Renewable Wind IPP'},
+        {label:'Scope',value:'Crane Hardstands & Internal Roads'}
+      ],
+      media:[
+        {type:'image',url:'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Heavy Hardstand Infrastructure Construction'}
+      ]
     },
     {
-      title:'Turbine Component Site Logistics',
-      location:'Palakkad Gap Access Corridor',
-      tag:'SITE LOGISTICS',
-      scope:'Nacelle and blade arrival staging, escort coordination and secure laydown yard management.',
+      id:'wind-3',
+      title:'Wind Project 3 — 125 MW Udumalpet WTG Collection Network',
+      name:'Project Wind 3',
+      capacity:'125 MW',
+      client:'Leading Clean Energy Conglomerate',
+      location:'Udumalpet Wind Zone, Tirupur, TN',
+      status:'Commissioned',
+      tag:'33kV CABLE INTERFACES',
+      scope:'33kV underground and overhead collection circuits, transformer pad connections, ring main unit installation, and protection verification.',
+      image:'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      stat:'125 MW Collection',
+      metrics:[
+        {label:'Total Capacity',value:'125 MW'},
+        {label:'Location',value:'Udumalpet Zone, TN'},
+        {label:'Client',value:'Clean Energy Developer'},
+        {label:'Scope',value:'33kV Collection Network & RMU'}
+      ],
+      media:[
+        {type:'image',url:'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'33kV Switchyard & Line Interconnection'}
+      ]
+    },
+    {
+      id:'wind-4',
+      title:'Wind Project 4 — 210 MW Palakkad Gap Component Staging',
+      name:'Project Wind 4',
+      capacity:'210 MW',
+      client:'Turbine OEM Manufacturing Partner',
+      location:'Palakkad Pass - Pollachi Corridor',
+      status:'Executed',
+      tag:'STAGING & MARSHALLING',
+      scope:'Centralized 25-acre marshalling yard management, tower section staging, nacelle mechanical inspection, and precision site haulage dispatch.',
       image:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'Precision Turnkey Delivery'
+      stat:'210 MW Turbine Logistics',
+      metrics:[
+        {label:'Total Capacity',value:'210 MW'},
+        {label:'Location',value:'Pollachi - Palakkad, TN/KL'},
+        {label:'Client',value:'Global Turbine OEM'},
+        {label:'Scope',value:'Marshalling Yard & Just-in-Time Delivery'}
+      ],
+      media:[
+        {type:'image',url:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Turbine Component Marshalling & Logistics'}
+      ]
+    },
+    {
+      id:'wind-5',
+      title:'Wind Project 5 — 90 MW Repowering & Substation Upgrade',
+      name:'Project Wind 5',
+      capacity:'90 MW',
+      client:'Tamil Nadu Power Utility Partner',
+      location:'Dharapuram, Tirupur District, TN',
+      status:'Commissioned',
+      tag:'REPOWERING & MODERNIZATION',
+      scope:'Decommissioning coordination for aging turbines, site civil reprofiling for modern high-capacity 3.3MW WTGs, and pooling yard protection upgrade.',
+      image:'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      stat:'90 MW Modernization',
+      metrics:[
+        {label:'Total Capacity',value:'90 MW'},
+        {label:'Location',value:'Dharapuram Belt, TN'},
+        {label:'Client',value:'Power Generation Group'},
+        {label:'Scope',value:'Repowering Civil & Substation Retracking'}
+      ],
+      media:[
+        {type:'image',url:'https://images.pexels.com/photos/33689077/pexels-photo-33689077/free-photo-of-engineer-inspects-power-transmission-tower-outdoors.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'High Voltage Testing & Verification'}
+      ]
     }
   ]
  },
@@ -97,28 +283,114 @@ export const works=[
   stepDetails:['Gather drawings, dimensions, weight, target dates and site contacts.','Identify constraints before equipment is committed.','Define configuration, sequence, controls and responsibilities.','Coordinate the final approach and proof of delivery.'],
   projects:[
     {
-      title:'Heavy Power Transformer Relocation',
-      location:'Chennai to Central Tamil Nadu',
-      tag:'ODC HAULAGE',
-      scope:'Hydraulic multi-axle modular transport of 120-tonne power transformer with complete bridge and route clearance.',
+      id:'transport-1',
+      title:'Transport Project 1 — 160T Heavy Power Transformer Haulage',
+      name:'Project Transport 1',
+      capacity:'160T Payload',
+      client:'State Transmission Corporation / Transformer OEM',
+      location:'Chennai Port to Central Substation, Karur, TN',
+      status:'Successfully Delivered',
+      tag:'ODC HEAVY HAULAGE',
+      scope:'16-axle hydraulic multi-axle modular trailer transport of 160-tonne 400kV generator transformer across 380 km highway with comprehensive bridge bypass engineering.',
       image:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'120T Single Cargo Movement'
+      stat:'160-Tonne Single Piece',
+      metrics:[
+        {label:'Cargo Weight',value:'160 Tonnes'},
+        {label:'Equipment',value:'16-Axle Hydraulic Modular Trailer'},
+        {label:'Route Distance',value:'380 km Inter-district Haul'},
+        {label:'Clearance',value:'NHAI & MoRTH Special Permits'}
+      ],
+      media:[
+        {type:'image',url:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Hydraulic Modular Multi-Axle Haulage En Route'}
+      ]
     },
     {
-      title:'Wind Turbine Blade & Tower Haulage',
-      location:'Tuticorin Port to Wind Farms',
-      tag:'RENEWABLE LOGISTICS',
-      scope:'Extendable trailer transport for long rotor blades and multi-section wind towers with pilot escort and safety convoy.',
+      id:'transport-2',
+      title:'Transport Project 2 — 84m Long Rotor Blade Fleet Movement',
+      name:'Project Transport 2',
+      capacity:'84-Metre Blades',
+      client:'Leading Wind Turbine Manufacturer',
+      location:'Tuticorin Harbor to Muppandal Wind Park',
+      status:'Completed on Schedule',
+      tag:'WIND BLADE SPECIALIST',
+      scope:'Conveyance of 36 rotor blades measuring 84.5 metres each using specialized extendable triple-telescopic blade trailers with hydraulic turning adapters.',
       image:'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'Zero-Delay Port Evacuation'
+      stat:'36 Blades Moved (84.5m Each)',
+      metrics:[
+        {label:'Blade Length',value:'84.5 Metres Each'},
+        {label:'Volume',value:'36 Blades Moved'},
+        {label:'Equipment',value:'Extendable Triple-Telescopic Trailers'},
+        {label:'Safety',value:'Zero-Incident Convoy Operations'}
+      ],
+      media:[
+        {type:'image',url:'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Wind Blade Transport Fleet Convoy'}
+      ]
     },
     {
-      title:'Route Survey & Site Feasibility Engineering',
-      location:'Southern Railway & NH Crossings',
-      tag:'ROUTE INTELLIGENCE',
-      scope:'Geometric turn analysis, vertical clearance surveys, bypass civil works and local authority permission management.',
+      id:'transport-3',
+      title:'Transport Project 3 — 400kV Gas Insulated Switchgear (GIS) Logistics',
+      name:'Project Transport 3',
+      capacity:'Specialized ODC Package',
+      client:'EPC Switchgear Multilateral Contractor',
+      location:'Bengaluru to Coimbatore Substation',
+      status:'Delivered & Placed',
+      tag:'SENSITIVE GIS CARGO',
+      scope:'Air-suspension low-bed trailer transport of sensitive GIS compartments with shock-logging telemetry and direct bay-positioning offloading.',
       image:'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',
-      stat:'100% Clear Route Assurance'
+      stat:'Zero-G Shock Log Compliance',
+      metrics:[
+        {label:'Cargo',value:'400kV GIS Modules'},
+        {label:'Trailer',value:'Air-Suspension Low-Bed Fleet'},
+        {label:'Monitoring',value:'Real-Time 3-Axis Shock Loggers'},
+        {label:'Destination',value:'Indoor Substation Bay'}
+      ],
+      media:[
+        {type:'image',url:'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Substation Bay Delivery & Offloading'}
+      ]
+    },
+    {
+      id:'transport-4',
+      title:'Transport Project 4 — Multimodal Port-to-Site Tower Logistics',
+      name:'Project Transport 4',
+      capacity:'72 WTG Tower Sections',
+      client:'Wind Farm Project Developer',
+      location:'Ennore Port to Tirunelveli Site',
+      status:'Completed',
+      tag:'MULTIMODAL ODC',
+      scope:'Vessel discharge, port marshaling, long-distance road haulage, bridge structural load recalculation, and night transport under police pilot escort.',
+      image:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      stat:'72 Tower Sections Delivered',
+      metrics:[
+        {label:'Cargo',value:'72 Wind Tower Sections'},
+        {label:'Port',value:'Ennore Port, Chennai'},
+        {label:'Transit',value:'Night-time Highway Convoy'},
+        {label:'Status',value:'100% On-Time Delivery'}
+      ],
+      media:[
+        {type:'image',url:'https://images.pexels.com/photos/2888337/pexels-photo-2888337.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Tower Section Convoy & Site Approach'}
+      ]
+    },
+    {
+      id:'transport-5',
+      title:'Transport Project 5 — Complete Turnkey Route Survey & Civil Bypass',
+      name:'Project Transport 5',
+      capacity:'420 km Route Clearance',
+      client:'Renewable Heavy Haulage Operator',
+      location:'Southern Corridor, Tamil Nadu & Kerala',
+      status:'Engineered & Cleared',
+      tag:'ROUTE FEASIBILITY',
+      scope:'Laser 3D clearance scanning, turning radius computer simulation, temporary median modifications, overhead wire lifts, and bridge reinforcement verification.',
+      image:'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',
+      stat:'420 km Route Feasibility',
+      metrics:[
+        {label:'Survey Scope',value:'420 km Total Corridor'},
+        {label:'Bypass Works',value:'12 Temporary Civil Deviations'},
+        {label:'Technology',value:'3D Laser Clearance Profiling'},
+        {label:'Compliance',value:'Complete PWD & NH Approvals'}
+      ],
+      media:[
+        {type:'image',url:'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200',title:'Corridor Route Survey & Road Engineering'}
+      ]
     }
   ]
  }
