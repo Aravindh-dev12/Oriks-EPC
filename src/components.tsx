@@ -94,6 +94,7 @@ export function HeroVideo(){
         playsInline
         preload="auto"
       >
+        <source src="/videos/hero-out-2k.mp4#t=5" type="video/mp4" />
         <source src="/videos/out%202k%20.mp4#t=5" type="video/mp4" />
         <source src="/videos/out 2k .mp4#t=5" type="video/mp4" />
       </video>
