@@ -32,7 +32,7 @@ function Home() {
     <section className="home-intro">
       <div className="wrap home-intro-grid">
         <div><span className="kicker">01 / PROPECARE</span><h2>Renewable infrastructure needs more than a contractor.</h2></div>
-        <div><p>It needs people who understand the interfaces between generation, electrical systems, access, transport, commissioning and the grid. Propercare brings those conversations together early so projects can move with fewer hand-offs.</p><Link className="text-link" to="/about">See how we work →</Link></div>
+        <div><p>It needs people who understand the interfaces between generation, electrical systems, access, transport, commissioning and the grid. Propercare brings those conversations together early so projects can move with fewer hand-offs.</p><Link className="text-link" to="/about" style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><span>See how we work</span><ArrowRight size={14}/></Link></div>
       </div>
       <div className="wrap home-stat-row">
         <div><b>01</b><span>Renewable infrastructure partner</span></div>
@@ -80,7 +80,7 @@ function About() {
   return <Page type="about" title="Who We Are" lead="A field-focused infrastructure partner for renewable energy and power projects." image={grid}>
     <div className="about-opening"><div><span className="kicker">THE PROPECARE VIEW</span><h2>Clean-energy projects are won at the interfaces.</h2></div><p>Propercare Infra Projects works across renewable generation, electrical infrastructure and specialist movement. Our role is to make the practical connections between engineering intent and site execution clearer: what needs to arrive, where it needs to go, what must be ready before it arrives and what evidence is needed before handover.</p></div>
     <div className="about-values">{[['01','Execution','Turn drawings, schedules and requirements into coordinated field activity.'],['02','Engineering','Respect equipment limits, access constraints, electrical interfaces and commissioning logic.'],['03','Safety','Build route, site and work controls into the plan rather than treating them as paperwork after the fact.'],['04','Communication','Give clients and partners a usable view of progress, dependencies, decisions and risks.'],['05','Adaptability','Scale the team around a package instead of forcing every project into one template.'],['06','Accountability','Close the loop from mobilisation through testing, documentation and handover.']].map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div>
-    <div className="about-band"><div><span className="kicker">WHAT WE LEARNED FROM THE MARKET</span><h3>The best renewable sites treat logistics, engineering and commissioning as one conversation.</h3></div><div><p>Across the industry, leading logistics specialists emphasise cargo analysis, route surveys, equipment selection and site readiness; renewable EPC companies emphasise design, construction, testing and long-term support; larger energy groups emphasise scale, reliability and sustainability. Propercare’s proposition sits at the intersection of those needs.</p><Link className="text-link" to="/resources/industry-references">View industry research →</Link></div></div>
+    <div className="about-band"><div><span className="kicker">WHAT WE LEARNED FROM THE MARKET</span><h3>The best renewable sites treat logistics, engineering and commissioning as one conversation.</h3></div><div><p>Across the industry, leading logistics specialists emphasise cargo analysis, route surveys, equipment selection and site readiness; renewable EPC companies emphasise design, construction, testing and long-term support; larger energy groups emphasise scale, reliability and sustainability. Propercare’s proposition sits at the intersection of those needs.</p><Link className="text-link" to="/resources/industry-references" style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><span>View industry research</span><ArrowRight size={14}/></Link></div></div>
     <div className="about-standards"><div><span>PROJECT DISCIPLINE</span><b>Scope before mobilisation</b><p>Clear inputs, responsibilities and acceptance criteria.</p></div><div><span>FIELD DISCIPLINE</span><b>Control the interfaces</b><p>Site, transport, electrical and contractor dependencies stay visible.</p></div><div><span>HANDOVER DISCIPLINE</span><b>Evidence before close</b><p>Testing, records and punch-list closure support confident handover.</p></div></div>
   </Page>;
 }
@@ -100,7 +100,7 @@ function Works() {
             <h3>{w.title}</h3>
           </div>
           <p>{w.short}</p>
-          <b>Explore sector ↗</b>
+          <b style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><span>Explore sector</span><ArrowRight size={14}/></b>
         </div>
       </Link>;
     })}</div>
@@ -127,7 +127,7 @@ function Works() {
               <p>{p.scope}</p>
               <div className="work-project-stat">
                 <b>{p.stat}</b>
-                <span className="view-project-link">View Project Scope &amp; Media →</span>
+                <span className="view-project-link" style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><span>View Project Scope &amp; Media</span><ArrowRight size={14}/></span>
               </div>
             </div>
           </Link>
@@ -171,7 +171,7 @@ function Work() {
                 <p>{p.scope}</p>
                 <div className="work-project-stat">
                   <b>{p.stat}</b>
-                  <span className="view-project-link">View Project Scope &amp; Media →</span>
+                  <span className="view-project-link" style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><span>View Project Scope &amp; Media</span><ArrowRight size={14}/></span>
                 </div>
               </div>
             </Link>
@@ -429,7 +429,7 @@ function ProjectDetail() {
 function Solutions() {
   return <Page type="solutions" title="Our Solutions" lead="Specialist delivery packages for renewable generation, electrical infrastructure and project movement." image={transmission}>
     <div className="solutions-intro"><span className="kicker">CAPABILITY ARCHITECTURE</span><h2>Choose the package. Keep the interfaces connected.</h2><p>Rather than presenting one oversized list of services, Propercare groups work around the decisions clients actually make: build the plant, evacuate the power, establish the substation, or get the asset tested and ready for operation.</p></div>
-    <div className="solution-cards">{services.map((s,i)=><Link to={'/services/'+s.slug} key={s.slug} className="solution-card"><img src={s.image} alt={s.title}/><div><span>0{i+1} / SOLUTION</span><h3>{s.title}</h3><p>{s.short}</p><b>See scope →</b></div></Link>)}</div>
+    <div className="solution-cards">{services.map((s,i)=><Link to={'/services/'+s.slug} key={s.slug} className="solution-card"><img src={s.image} alt={s.title}/><div><span>0{i+1} / SOLUTION</span><h3>{s.title}</h3><p>{s.short}</p><b style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><span>See scope</span><ArrowRight size={14}/></b></div></Link>)}</div>
     <div className="solutions-process"><div><span className="kicker">01</span><h3>Define</h3><p>Scope, drawings, site conditions, quantities, dates and interfaces.</p></div><div><span className="kicker">02</span><h3>Coordinate</h3><p>Resources, procurement, contractors, access, testing and reporting.</p></div><div><span className="kicker">03</span><h3>Execute</h3><p>Field activity managed against the agreed sequence and controls.</p></div><div><span className="kicker">04</span><h3>Close</h3><p>Testing evidence, punch-list closure, records and handover.</p></div></div>
   </Page>;
 }
@@ -571,7 +571,7 @@ function MediaPage() {
                   <small className="channel-stats">{sc.stats}</small>
                   <a href={sc.url} target="_blank" rel="noopener noreferrer" className="channel-btn">
                     <span>{sc.actionText}</span>
-                    <ArrowRight size={15} />
+                    <ExternalLink size={15} />
                   </a>
                 </div>
               </div>
@@ -823,7 +823,7 @@ function IndustryReferences() {
               <small>{r.category}</small>
               <h3>{r.name}</h3>
               <p>{r.learning}</p>
-              <a href={r.url} target="_blank" rel="noreferrer">Visit reference ↗</a>
+              <a href={r.url} target="_blank" rel="noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><span>Visit reference</span><ExternalLink size={13}/></a>
             </div>
           </article>
         ))}
@@ -847,8 +847,8 @@ function Article() {
      <div className="article-detail-head"><div><span className="kicker">{article.tag} / {article.date}</span><h2>{article.title}</h2></div><div><b>{article.readTime}</b><span>Research-led editorial</span></div></div>
      <p className="article-dek">{article.text}</p>
      <div className="article-content">{article.content.map(([heading,body])=><section key={heading}><h3>{heading}</h3><p>{body}</p></section>)}</div>
-     <div className="article-source"><span>PRIMARY REFERENCE</span><div><b>{article.sourceName}</b><a href={article.source} target="_blank" rel="noreferrer">Open source ↗</a></div></div>
-     <div className="article-next"><Link className="button" to="/resources/blog">More articles</Link><Link className="text-link" to="/contact">Discuss a project →</Link></div>
+     <div className="article-source"><span>PRIMARY REFERENCE</span><div><b>{article.sourceName}</b><a href={article.source} target="_blank" rel="noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><span>Open source</span><ExternalLink size={13}/></a></div></div>
+     <div className="article-next"><Link className="button" to="/resources/blog">More articles</Link><Link className="text-link" to="/contact" style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><span>Discuss a project</span><ArrowRight size={14}/></Link></div>
    </article>
  </Page>;
 }

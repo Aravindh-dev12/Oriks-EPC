@@ -607,7 +607,7 @@ export const socialChannels = [
     badge: 'OFFICIAL YOUTUBE',
     desc: 'Watch full 4K drone sweeps across utility solar arrays, heavy ODC 16-axle transport convoys, and 33kV pooling substation energisation documentaries.',
     url: 'https://www.youtube.com/@PropecareInfraProjects',
-    actionText: 'Visit YouTube Channel ↗',
+    actionText: 'Visit YouTube Channel',
     color: '#FF0000',
     stats: '24+ Project Videos · 4K Drone Filming'
   },
@@ -620,7 +620,7 @@ export const socialChannels = [
     badge: 'OFFICIAL INSTAGRAM',
     desc: 'Daily field engineering reels, site crew snapshots, tracker table torque inspections, and ground-mount progress stories direct from Tamil Nadu.',
     url: 'https://www.instagram.com/propecareinfra',
-    actionText: 'Follow on Instagram ↗',
+    actionText: 'Follow on Instagram',
     color: '#E1306C',
     stats: '150+ Site Posts & Field Reels'
   },
@@ -633,7 +633,7 @@ export const socialChannels = [
     badge: 'OFFICIAL LINKEDIN',
     desc: 'Official project completion announcements, grid compliance whitepapers, heavy haulage route simulations, and renewable EPC milestones.',
     url: 'https://www.linkedin.com/company/propecare-infra-projects',
-    actionText: 'Connect on LinkedIn ↗',
+    actionText: 'Connect on LinkedIn',
     color: '#0A66C2',
     stats: 'Executive Updates & Technical Case Studies'
   }
