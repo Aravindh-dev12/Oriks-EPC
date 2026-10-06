@@ -251,13 +251,35 @@ footer{background:var(--navy);color:#fff}.footer-visual{position:relative;min-he
 .media-section-head h3{font:800 clamp(26px,3.5vw,40px)/1.1 Manrope;letter-spacing:-.04em;margin:10px 0 0}
 .media-count-badge{background:var(--navy);color:#8bd7c1;padding:8px 18px;border-radius:24px;font-size:12px;font-weight:800;letter-spacing:.08em;flex-shrink:0}
 
-/* --- Category Filter Bar --- */
-.media-category-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
-.media-category-pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #cbdcd2;color:var(--ink);padding:9px 18px;border-radius:999px;font:700 13px Manrope;cursor:pointer;transition:all .2s ease}
-.media-category-pill:hover{border-color:var(--teal);color:var(--teal);background:#f2f8f5}
-.media-category-pill.is-active{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 4px 14px rgba(7,26,39,.18)}
-.category-pill-count{background:rgba(0,0,0,.08);color:inherit;font-size:11px;padding:2px 7px;border-radius:12px;font-weight:800}
-.media-category-pill.is-active .category-pill-count{background:rgba(139,215,193,.25);color:#8bd7c1}
+/* --- Blog Filter Section (Polished Toolbar & Spacing) --- */
+.blog-filter-section{width:min(1180px,calc(100% - 48px));margin:36px auto 44px;background:#f8faf9;border:1px solid #dbe7e1;border-radius:10px;padding:20px 24px}
+.blog-filter-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #e5ede8}
+.blog-filter-label{display:inline-flex;align-items:center;gap:8px;font:800 11px Manrope;letter-spacing:.12em;color:var(--teal);text-transform:uppercase}
+.blog-filter-count{font-size:12px;font-weight:700;color:#64748b}
+.blog-filter-pills-wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.blog-filter-pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #cbdcd2;color:var(--ink);padding:8px 16px;border-radius:999px;font:700 12.5px Manrope;cursor:pointer;transition:all .2s ease}
+.blog-filter-pill:hover{border-color:var(--teal);color:var(--teal);background:#f0f7f3;transform:translateY(-1px)}
+.blog-filter-pill.is-active{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 4px 14px rgba(7,26,39,.16)}
+.blog-pill-badge{background:rgba(0,0,0,.08);color:inherit;font-size:10.5px;padding:2px 7px;border-radius:10px;font-weight:800}
+.blog-filter-pill.is-active .blog-pill-badge{background:rgba(139,215,193,.25);color:#8bd7c1}
+
+/* --- Channel Feed Section & Toolbar --- */
+.channel-feed-section{width:min(1180px,calc(100% - 48px));margin:50px auto 40px}
+.channel-feed-header{margin-bottom:24px}
+.channel-feed-header h2{font:800 clamp(28px,3.5vw,44px)/1.05 Manrope;letter-spacing:-.04em;margin:12px 0 8px}
+.channel-feed-header p{color:var(--muted);font-size:16px;max-width:720px;line-height:1.6}
+.channel-filter-toolbar{margin-bottom:30px}
+.channel-filter-pills{display:flex;flex-wrap:wrap;gap:10px}
+.channel-filter-pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #cbdcd2;color:var(--ink);padding:10px 20px;border-radius:999px;font:700 13px Manrope;cursor:pointer;transition:all .2s ease}
+.channel-filter-pill:hover{border-color:var(--teal);color:var(--teal);background:#f2f8f5}
+.channel-filter-pill.is-active{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 4px 14px rgba(7,26,39,.18)}
+.channel-pill-count{background:rgba(0,0,0,.08);color:inherit;font-size:11px;padding:2px 7px;border-radius:12px;font-weight:800}
+.channel-filter-pill.is-active .channel-pill-count{background:rgba(139,215,193,.25);color:#8bd7c1}
+
+/* Lucide Meta Icons */
+.meta-icon{display:inline-block;vertical-align:middle;margin-right:4px;color:var(--teal)}
+.dropdown-chevron-icon{margin-left:3px;transition:transform .2s ease}
+.nav-dropdown:hover .dropdown-chevron-icon{transform:rotate(180deg)}
 
 /* --- Social Channels Spotlight Banner --- */
 .social-channels-section{width:min(1180px,calc(100% - 48px));margin:0 auto 40px}
