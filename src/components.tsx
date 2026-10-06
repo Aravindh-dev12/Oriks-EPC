@@ -59,28 +59,22 @@ export function HeroVideo(){
     const video = videoRef.current;
     if (!video) return;
 
-    const setStartTime = () => {
-      if (video.currentTime < 5) {
-        video.currentTime = 5;
-      }
-    };
-
-    video.addEventListener('loadedmetadata', setStartTime);
-    if (video.readyState >= 1) {
-      setStartTime();
+    // Ensure autoplay triggers on all modern mobile and desktop browsers
+    video.muted = true;
+    video.defaultMuted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay policy prevented; retry on first user interaction
+        const handleInteraction = () => {
+          video.play().catch(() => {});
+          window.removeEventListener('click', handleInteraction);
+          window.removeEventListener('touchstart', handleInteraction);
+        };
+        window.addEventListener('click', handleInteraction, { once: true });
+        window.addEventListener('touchstart', handleInteraction, { once: true });
+      });
     }
-
-    const handleTimeUpdate = () => {
-      if (video.currentTime < 4.8 && !video.seeking) {
-        video.currentTime = 5;
-      }
-    };
-    video.addEventListener('timeupdate', handleTimeUpdate);
-
-    return () => {
-      video.removeEventListener('loadedmetadata', setStartTime);
-      video.removeEventListener('timeupdate', handleTimeUpdate);
-    };
   }, []);
 
   return (
@@ -94,9 +88,8 @@ export function HeroVideo(){
         playsInline
         preload="auto"
       >
-        <source src="/videos/hero-out-2k.mp4#t=5" type="video/mp4" />
+        <source src="/videos/hero-out-2k.mp4" type="video/mp4" />
         <source src="/videos/out%202k%20.mp4#t=5" type="video/mp4" />
-        <source src="/videos/out 2k .mp4#t=5" type="video/mp4" />
       </video>
       <div className="hero-shade"/>
       <div className="wrap hero-copy">

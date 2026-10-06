@@ -8,6 +8,7 @@ dist-ssr
 Thumbs.db
 *.MP4
 *.mp4
+!public/videos/hero-out-2k.mp4
 *.DNG
 *.dng
 
