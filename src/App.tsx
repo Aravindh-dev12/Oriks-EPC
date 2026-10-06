@@ -38,7 +38,7 @@ function Home() {
       <div className="wrap"><Section eyebrow="02 / WHERE WE WORK" title="Three project environments. One practical delivery mindset." />
         <div className="sector-feature-grid">
           <Link className="sector-feature sector-feature--large" to="/works/solar"><img src={solar} alt="Solar infrastructure"/><div><span>01</span><h3>Solar</h3><p>Plant infrastructure, electrical balance-of-plant and power evacuation.</p></div></Link>
-          <Link className="sector-feature" to="/works/windmill"><img src={wind} alt="Wind turbines"/><div><span>02</span><h3>Wind</h3><p>Electrical packages, site interfaces and movement of turbine components.</p></div></Link>
+          <Link className="sector-feature sector-feature--wind" to="/works/windmill"><img src={wind} alt="Wind turbines"/><div><span>02</span><h3>Wind</h3><p>Electrical packages, site interfaces and movement of turbine components.</p></div></Link>
           <Link className="sector-feature" to="/works/transport"><img src={transport} alt="Heavy transport logistics"/><div><span>03</span><h3>Heavy movement</h3><p>ODC planning, route readiness and site delivery for critical equipment.</p></div></Link>
         </div>
       </div>
