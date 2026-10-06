@@ -1,8 +1,15 @@
 import { useState, useRef, useEffect, type ReactNode } from 'react';
 import { Link, Route, Routes, useParams, useLocation } from 'react-router-dom';
-import { ArrowUpRight, SunMedium, Zap, Factory, Truck, Wind, CheckCircle2, Building2, MapPin, ShieldCheck, Play, ArrowLeft } from 'lucide-react';
+import { 
+  ArrowUpRight, SunMedium, Zap, Factory, Truck, Wind, CheckCircle2, 
+  Building2, MapPin, ShieldCheck, Play, ArrowLeft, ArrowRight, 
+  Youtube, Instagram, Linkedin, ExternalLink, Video, Image as ImageIcon 
+} from 'lucide-react';
 import { Header, Footer, HeroVideo, Section, MediaCard } from './components';
-import { articles, clients, newsUpdates, research, services, sectors, works } from './data';
+import { 
+  articles, clients, newsUpdates, research, services, sectors, works, 
+  socialChannels, socialMediaPosts 
+} from './data';
 
 const solar = 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const grid = 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200';
@@ -449,14 +456,14 @@ function BlogsPage() {
   const displayed = activeCategory === 'all' ? blogList : blogList.filter(a => a.tag === activeCategory);
 
   return (
-    <Page type="resources-blogs" title="Technical Blogs & Field Insights" lead="Engineering playbooks, field execution methodologies, and clean-energy infrastructure knowledge from the ground." image={grid}>
+    <Page type="resources-blogs" title="Renewable &amp; Logistics Insights" lead="Engineering playbooks, field execution methodologies, grid codes and infrastructure knowledge from the ground." image={solar}>
       <div className="resource-header">
-        <span className="kicker">TECHNICAL ARTICLES &amp; PERSPECTIVES</span>
+        <span className="kicker">ARTICLES &amp; FIELD PERSPECTIVES</span>
         <h2>Deep Dives into EPC, Evacuation, Substation &amp; ODC Engineering</h2>
         <p>Our engineering insights turn field lessons and utility-scale delivery into practical guidance for developers, EPCs, and asset owners across South India.</p>
       </div>
 
-      <div className="media-category-bar" style={{marginBottom: '32px'}}>
+      <div className="media-category-bar" style={{marginBottom: '36px'}}>
         {categories.map((c) => (
           <button
             key={c}
@@ -473,118 +480,222 @@ function BlogsPage() {
       <div className="articles-grid">
         {displayed.map((a) => (
           <article className="article-card" key={a.slug}>
-            <img src={a.image} alt={a.title} />
-            <div>
-              <span className="kicker">{a.tag} · {a.date}</span>
-              <h3>{a.title}</h3>
-              <p>{a.text}</p>
-              <div className="article-meta">
-                <span>{a.readTime}</span>
-                <Link className="text-link" to={'/resources/blog/' + a.slug}>Read article →</Link>
+            <div className="article-card-image-wrap">
+              <img src={a.image} alt={a.title} loading="lazy" />
+              <span className="article-category-badge">{a.tag}</span>
+            </div>
+            <div className="article-card-body">
+              <div className="article-card-meta">
+                <span className="article-date">📅 {a.date}</span>
+                <span className="article-read-pill">⏱️ {a.readTime}</span>
+              </div>
+              <h3 className="article-card-title">{a.title}</h3>
+              <p className="article-card-excerpt">{a.text}</p>
+              <div className="article-card-action">
+                <Link className="article-read-btn" to={'/resources/blog/' + a.slug}>
+                  <span>Read Article</span>
+                  <ArrowRight size={16} className="btn-arrow-icon" />
+                </Link>
               </div>
             </div>
           </article>
         ))}
       </div>
 
-      <Link className="research-banner" to="/resources/industry-references" style={{marginTop: '40px'}}>
-        <span>MARKET RESEARCH</span>
-        <b>See the external industry references behind our content and engineering strategy ↗</b>
+      <Link className="research-banner" to="/resources/industry-references" style={{marginTop: '50px'}}>
+        <div>
+          <span>MARKET BENCHMARKS</span>
+          <b>See the external industry references behind our content and engineering strategy ↗</b>
+        </div>
+        <ArrowUpRight size={22} />
       </Link>
     </Page>
   );
 }
 
 function MediaPage() {
-  const [activeTab, setActiveTab] = useState<'all' | 'video' | 'image'>('all');
+  const [activeTab, setActiveTab] = useState<string>('all');
   const [activeProject, setActiveProject] = useState<string>('all');
   const [lightboxItem, setLightboxItem] = useState<any>(null);
 
-  // Aggregate all media items across all executed projects
-  const allMedia = works.flatMap(w => 
+  // Combine Social Media broadcasts (YouTube, Instagram, LinkedIn) + On-Site verified records
+  const siteMedia = works.flatMap(w => 
     (w.projects || []).flatMap((p: any) => [
       ...(p.videos || []).map((v: any) => ({
         ...v,
+        id: v.id,
+        title: v.title,
+        subtitle: p.title,
         url: v.src,
+        videoUrl: v.src,
+        poster: v.poster || p.image,
         type: 'video' as const,
-        category: v.category || 'video',
+        platform: 'site-drone',
+        category: 'aerial',
+        tag: v.tag || 'DRONE SURVEY · 4K',
+        duration: v.duration,
         projectId: p.id,
         projectTitle: p.title,
         sectorTitle: w.title,
-        sectorSlug: w.slug
+        sectorSlug: w.slug,
+        description: v.subtitle || 'High-altitude drone survey and structural inspection footage from site.'
       })),
-      ...(p.media || []).map((m: any) => ({
+      ...(p.media || []).map((m: any, mIdx: number) => ({
         ...m,
+        id: `${p.id}-photo-${mIdx}`,
+        title: m.title,
+        subtitle: p.title,
         url: m.url,
+        poster: m.url,
         type: 'image' as const,
-        category: m.category || 'aerial',
+        platform: 'site-photo',
+        category: m.category || 'ground',
+        tag: m.tag || 'SITE RECORD',
         projectId: p.id,
         projectTitle: p.title,
         sectorTitle: w.title,
-        sectorSlug: w.slug
+        sectorSlug: w.slug,
+        description: `Verified high-resolution engineering photography of ${m.title} at ${p.location}.`
       }))
     ])
   );
 
-  const videoCount = allMedia.filter(m => m.type === 'video').length;
-  const imageCount = allMedia.filter(m => m.type === 'image').length;
+  const formattedSocialMedia = socialMediaPosts.map(post => ({
+    ...post,
+    url: post.videoUrl || post.poster,
+    poster: post.poster
+  }));
+
+  const allMedia = [...formattedSocialMedia, ...siteMedia];
+
+  const youtubeCount = allMedia.filter(m => m.platform === 'youtube').length;
+  const instagramCount = allMedia.filter(m => m.platform === 'instagram').length;
+  const linkedinCount = allMedia.filter(m => m.platform === 'linkedin').length;
+  const droneCount = allMedia.filter(m => m.platform === 'site-drone').length;
+  const photoCount = allMedia.filter(m => m.platform === 'site-photo').length;
+
+  const tabOptions = [
+    { id: 'all', label: 'All Media & Social', count: allMedia.length },
+    { id: 'youtube', label: 'YouTube Videos', count: youtubeCount, icon: Youtube },
+    { id: 'instagram', label: 'Instagram Reels', count: instagramCount, icon: Instagram },
+    { id: 'linkedin', label: 'LinkedIn Dispatches', count: linkedinCount, icon: Linkedin },
+    { id: 'site-drone', label: 'On-Site 4K Drone', count: droneCount, icon: Video },
+    { id: 'site-photo', label: 'Ground Photos', count: photoCount, icon: ImageIcon },
+  ];
 
   const projectOptions = [
-    { id: 'all', label: 'All Projects (' + allMedia.length + ')' },
+    { id: 'all', label: 'All Projects & Channels' },
     { id: 'solar-1', label: 'Thuraiyur 50 MW Solar' },
     { id: 'solar-2', label: 'Ground Mount 25 MW Solar' },
     { id: 'transport-1', label: 'Heavy ODC & Logistics' },
   ];
 
   const displayed = allMedia.filter(item => {
-    const matchesTab = activeTab === 'all' ? true : item.type === activeTab;
-    const matchesProject = activeProject === 'all' ? true : item.projectId === activeProject;
+    let matchesTab = true;
+    if (activeTab === 'all') {
+      matchesTab = true;
+    } else if (activeTab === 'youtube') {
+      matchesTab = item.platform === 'youtube';
+    } else if (activeTab === 'instagram') {
+      matchesTab = item.platform === 'instagram';
+    } else if (activeTab === 'linkedin') {
+      matchesTab = item.platform === 'linkedin';
+    } else if (activeTab === 'site-drone') {
+      matchesTab = item.platform === 'site-drone';
+    } else if (activeTab === 'site-photo') {
+      matchesTab = item.platform === 'site-photo';
+    }
+
+    let matchesProject = true;
+    if (activeProject !== 'all') {
+      matchesProject = item.projectId === activeProject;
+    }
+
     return matchesTab && matchesProject;
   });
 
   return (
-    <Page type="resources-media" title="Project Media & Verified Footage" lead="Comprehensive archive of 4K drone videography, civil engineering progress, and high-resolution site photography from our active projects." image={solar}>
-      <div className="resource-header">
+    <Page type="resources-media" title="Media &amp; Digital Broadcast Hub" lead="Official project broadcasts, YouTube field documentaries, Instagram engineering reels, LinkedIn dispatches, and 4K aerial drone archives." image={solar}>
+      {/* Official Social Media Channels Banner */}
+      <div className="social-channels-section">
+        <div className="social-channels-header">
+          <div>
+            <span className="kicker">OFFICIAL DIGITAL BROADCASTS &amp; SOCIAL CHANNELS</span>
+            <h2>Follow Propecare on Official Channels</h2>
+            <p>Catch daily site updates, live 4K drone sweeps, heavy haulage convoys, and technical whitepapers across YouTube, Instagram, and LinkedIn.</p>
+          </div>
+        </div>
+
+        <div className="social-channels-grid">
+          {socialChannels.map((sc) => {
+            const ChannelIcon = sc.platform === 'youtube' ? Youtube : sc.platform === 'instagram' ? Instagram : Linkedin;
+            return (
+              <div className={`social-channel-card social-channel-${sc.platform}`} key={sc.platform}>
+                <div className="channel-card-top">
+                  <div className="channel-icon-badge">
+                    <ChannelIcon size={26} />
+                  </div>
+                  <span className="channel-badge-pill">{sc.badge}</span>
+                </div>
+                <h3 className="channel-name">{sc.name}</h3>
+                <span className="channel-handle">{sc.handle} · {sc.subscribers}</span>
+                <p className="channel-desc">{sc.desc}</p>
+                <div className="channel-footer">
+                  <small className="channel-stats">{sc.stats}</small>
+                  <a href={sc.url} target="_blank" rel="noopener noreferrer" className="channel-btn">
+                    <span>{sc.actionText}</span>
+                    <ExternalLink size={14} />
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Central Media Vault Header */}
+      <div className="resource-header" style={{marginTop: '60px'}}>
         <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',flexWrap:'wrap',gap:'20px'}}>
           <div>
-            <span className="kicker">CENTRAL MEDIA VAULT · {allMedia.length} RECORDS</span>
-            <h2>Field Evidence, Drone Fly-overs &amp; Civil Works Archive</h2>
-            <p style={{maxWidth:'700px'}}>Direct inspection of mounting structures, high-voltage evacuation lines, substation transformer positioning, and ODC heavy hydraulic axle haulage.</p>
+            <span className="kicker">MEDIA VAULT · {allMedia.length} VERIFIED ENTRIES</span>
+            <h2>Field Evidence, Social Broadcasts &amp; Site Footage</h2>
+            <p style={{maxWidth:'700px'}}>Filter through YouTube video features, Instagram reels, LinkedIn dispatches, and on-site 4K aerial drone recordings.</p>
           </div>
           <div style={{display:'flex',gap:'10px',flexWrap:'wrap'}}>
-            <span className="media-type-badge video" style={{padding:'8px 16px',fontSize:'13px'}}>🎥 {videoCount} Drone Videos</span>
-            <span className="media-type-badge photo" style={{padding:'8px 16px',fontSize:'13px'}}>📷 {imageCount} Site Photos</span>
+            <span className="media-type-badge youtube" style={{padding:'8px 14px',fontSize:'13px',display:'inline-flex',alignItems:'center',gap:'6px'}}>
+              <Youtube size={15}/> {youtubeCount} YouTube
+            </span>
+            <span className="media-type-badge instagram" style={{padding:'8px 14px',fontSize:'13px',display:'inline-flex',alignItems:'center',gap:'6px'}}>
+              <Instagram size={15}/> {instagramCount} Instagram
+            </span>
+            <span className="media-type-badge linkedin" style={{padding:'8px 14px',fontSize:'13px',display:'inline-flex',alignItems:'center',gap:'6px'}}>
+              <Linkedin size={15}/> {linkedinCount} LinkedIn
+            </span>
+            <span className="media-type-badge drone" style={{padding:'8px 14px',fontSize:'13px',display:'inline-flex',alignItems:'center',gap:'6px'}}>
+              <Video size={15}/> {droneCount} Drone
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Filter Tabs: By Media Type and By Project */}
-      <div style={{display:'flex',flexDirection:'column',gap:'12px',marginBottom:'30px'}}>
+      {/* Filter Tabs */}
+      <div style={{display:'flex',flexDirection:'column',gap:'12px',marginBottom:'36px'}}>
         <div className="media-category-bar">
-          <button
-            type="button"
-            className={`media-category-pill ${activeTab === 'all' ? 'is-active' : ''}`}
-            onClick={() => setActiveTab('all')}
-          >
-            <span>All Media</span>
-            <span className="category-pill-count">{allMedia.length}</span>
-          </button>
-          <button
-            type="button"
-            className={`media-category-pill ${activeTab === 'video' ? 'is-active' : ''}`}
-            onClick={() => setActiveTab('video')}
-          >
-            <span>🎥 Drone &amp; Site Videos</span>
-            <span className="category-pill-count">{videoCount}</span>
-          </button>
-          <button
-            type="button"
-            className={`media-category-pill ${activeTab === 'image' ? 'is-active' : ''}`}
-            onClick={() => setActiveTab('image')}
-          >
-            <span>📷 High-Res Photos</span>
-            <span className="category-pill-count">{imageCount}</span>
-          </button>
+          {tabOptions.map((tab) => {
+            const TabIcon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                className={`media-category-pill ${activeTab === tab.id ? 'is-active' : ''}`}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {TabIcon && <TabIcon size={16} />}
+                <span>{tab.label}</span>
+                <span className="category-pill-count">{tab.count}</span>
+              </button>
+            );
+          })}
         </div>
 
         <div className="media-category-bar" style={{background:'rgba(255,255,255,0.03)'}}>
@@ -604,10 +715,12 @@ function MediaPage() {
       {/* Grid of All Media Items */}
       <div className="unified-media-grid">
         {displayed.map((item: any, idx: number) => {
-          const isVideo = item.type === 'video';
+          const isVideo = item.type === 'video' || item.type === 'youtube' || (item.type === 'instagram' && item.videoUrl);
+          const PlatformIcon = item.platform === 'youtube' ? Youtube : item.platform === 'instagram' ? Instagram : item.platform === 'linkedin' ? Linkedin : isVideo ? Video : ImageIcon;
+
           return (
             <div 
-              className="unified-media-card" 
+              className={`unified-media-card card-platform-${item.platform || item.type}`} 
               key={item.id || idx}
               onClick={() => setLightboxItem(item)}
               role="button"
@@ -615,46 +728,60 @@ function MediaPage() {
               onKeyDown={(e) => e.key === 'Enter' && setLightboxItem(item)}
             >
               <div className="media-thumbnail-wrapper">
-                {isVideo ? (
-                  <>
-                    <video
-                      src={item.url}
-                      muted
-                      preload="metadata"
-                      playsInline
-                      className="card-media-video"
-                    />
-                    <div className="play-button-overlay">
-                      <Play size={22} fill="white" strokeWidth={0} />
-                    </div>
-                    <span className="media-badge video-badge">DRONE VIDEO</span>
-                  </>
-                ) : (
-                  <>
-                    <img
-                      src={item.url}
-                      alt={item.title}
-                      loading="lazy"
-                      className="card-media-img"
-                    />
-                    <span className="media-badge photo-badge">SITE PHOTO</span>
-                  </>
+                <img
+                  src={item.poster || item.url}
+                  alt={item.title}
+                  loading="lazy"
+                  className="card-media-img"
+                />
+
+                {isVideo && (
+                  <div className="play-button-overlay">
+                    <Play size={24} fill="white" strokeWidth={0} />
+                  </div>
                 )}
-                <span className="media-category-chip">{item.category}</span>
+
+                {item.duration && (
+                  <span className="media-duration-tag">{item.duration}</span>
+                )}
+
+                <span className={`media-badge badge-${item.platform || item.type}`}>
+                  <PlatformIcon size={12} />
+                  <span>{item.tag}</span>
+                </span>
               </div>
+
               <div className="media-card-info">
-                <span className="media-card-project-pill">{item.projectTitle}</span>
+                <div className="media-card-subtitle-row">
+                  <span className="media-card-project-pill">{item.subtitle || item.projectTitle}</span>
+                  {item.metrics && <span className="media-card-metrics-pill">{item.metrics}</span>}
+                </div>
                 <h4 className="media-card-title">{item.title}</h4>
                 <p className="media-card-desc">{item.description}</p>
                 <div className="media-card-footer">
-                  <span className="media-action-hint">{isVideo ? 'Watch Video ↗' : 'View Full Image ↗'}</span>
-                  <Link 
-                    to={'/works/projects/' + item.projectId} 
-                    className="media-card-project-link"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    Scope →
-                  </Link>
+                  <span className="media-action-hint">
+                    {isVideo ? '▶ Play Media' : '🔍 View High-Res'}
+                  </span>
+                  {item.url && item.url.startsWith('http') ? (
+                    <a 
+                      href={item.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="media-card-external-btn"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <span>Open Link</span>
+                      <ExternalLink size={13} />
+                    </a>
+                  ) : item.projectId ? (
+                    <Link 
+                      to={'/works/projects/' + item.projectId} 
+                      className="media-card-project-link"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Scope →
+                    </Link>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -680,9 +807,10 @@ function MediaPage() {
               ✕
             </button>
             <div className="lightbox-media-container">
-              {lightboxItem.type === 'video' ? (
+              {lightboxItem.videoUrl ? (
                 <video
-                  src={lightboxItem.url}
+                  src={lightboxItem.videoUrl}
+                  poster={lightboxItem.poster}
                   controls
                   autoPlay
                   playsInline
@@ -690,7 +818,7 @@ function MediaPage() {
                 />
               ) : (
                 <img
-                  src={lightboxItem.url}
+                  src={lightboxItem.poster || lightboxItem.url}
                   alt={lightboxItem.title}
                   className="lightbox-image"
                 />
@@ -699,10 +827,33 @@ function MediaPage() {
             <div className="lightbox-details">
               <div className="lightbox-header-row">
                 <div>
-                  <span className="lightbox-category-tag">{lightboxItem.projectTitle} · {lightboxItem.category}</span>
+                  <span className="lightbox-category-tag">
+                    {lightboxItem.subtitle || lightboxItem.projectTitle} · {lightboxItem.tag}
+                  </span>
                   <h3>{lightboxItem.title}</h3>
                 </div>
-                <span className="lightbox-type-pill">{lightboxItem.type === 'video' ? 'VIDEO FOOTAGE' : 'HIGH-RES PHOTO'}</span>
+                <div style={{display:'flex',gap:'10px',alignItems:'center'}}>
+                  {lightboxItem.url && lightboxItem.url.startsWith('http') && (
+                    <a 
+                      href={lightboxItem.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="button light"
+                      style={{padding:'8px 16px',fontSize:'13px'}}
+                    >
+                      <span>Visit Channel ↗</span>
+                    </a>
+                  )}
+                  {lightboxItem.projectId && (
+                    <Link 
+                      to={'/works/projects/' + lightboxItem.projectId} 
+                      className="button light"
+                      style={{padding:'8px 16px',fontSize:'13px'}}
+                    >
+                      <span>Project Details →</span>
+                    </Link>
+                  )}
+                </div>
               </div>
               <p>{lightboxItem.description}</p>
             </div>
@@ -715,7 +866,7 @@ function MediaPage() {
 
 function UpdatesPage() {
   return (
-    <Page type="resources-updates" title="Company Updates & Project Milestones" lead="Official project notices, grid synchronisation milestones, fleet additions, and corporate safety records." image={transmission}>
+    <Page type="resources-updates" title="Official Updates &amp; Project Milestones" lead="Official project notices, grid synchronisation milestones, fleet additions, and corporate safety records." image={transmission}>
       <div className="updates-page-container">
         <div className="updates-hero-block">
           <span className="kicker">OFFICIAL DISPATCHES &amp; MILESTONES</span>
@@ -726,25 +877,37 @@ function UpdatesPage() {
         <div className="updates-feed">
           {newsUpdates.map((item) => (
             <article className="update-card" key={item.id}>
-              <div className="update-card-header">
-                <span className="update-category-badge">{item.category}</span>
-                <time className="update-date">{item.date}</time>
+              <div className="update-card-img">
+                <img src={item.image} alt={item.title} loading="lazy" />
+                <span className="update-tag-pill">{item.tag}</span>
               </div>
-              <h3>{item.title}</h3>
-              <p className="update-summary">{item.summary}</p>
-              
-              <div className="update-highlights-list">
-                {item.highlights.map((h, i) => (
-                  <div key={i} className="update-highlight-item">
-                    <CheckCircle2 size={16} />
-                    <span>{h}</span>
+              <div className="update-card-body">
+                <div className="update-card-header">
+                  <span className="update-category-badge">{item.category}</span>
+                  <time className="update-date">📅 {item.date}</time>
+                </div>
+                <h3 className="update-title">{item.title}</h3>
+                <p className="update-summary">{item.summary}</p>
+                
+                <div className="update-highlights-box">
+                  <span className="highlights-header">Key Execution Highlights:</span>
+                  <div className="update-highlights-list">
+                    {item.highlights.map((h, i) => (
+                      <div key={i} className="update-highlight-item">
+                        <CheckCircle2 size={16} className="highlight-icon" />
+                        <span>{h}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
 
-              <div className="update-card-footer">
-                <span className="update-location">📍 {item.location}</span>
-                <Link to="/contact" className="update-action-link">Discuss Similar Scope →</Link>
+                <div className="update-card-footer">
+                  <span className="update-location"><MapPin size={15} /> {item.location}</span>
+                  <Link to={item.link || "/contact"} className="update-action-btn">
+                    <span>View Project Scope</span>
+                    <ArrowRight size={15} />
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
@@ -753,6 +916,7 @@ function UpdatesPage() {
     </Page>
   );
 }
+
 
 function IndustryReferences() {
   return (
