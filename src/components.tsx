@@ -43,14 +43,12 @@ const nav: NavItem[] = [
 export function Header(){
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({});
   const location = useLocation();
 
   // Reset menu and submenus whenever page route changes
   useEffect(() => {
     setOpen(false);
     setActiveDropdown(null);
-    setMobileExpanded({});
   }, [location.pathname]);
 
   const close = () => { 
@@ -58,13 +56,13 @@ export function Header(){
     setActiveDropdown(null); 
   };
 
-  const toggleMobileSubmenu = (href: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setMobileExpanded(prev => ({
-      ...prev,
-      [href]: !prev[href]
-    }));
+  const handleDropdownClick = (href: string, e: React.MouseEvent) => {
+    if (window.innerWidth <= 992) {
+      e.preventDefault();
+      setActiveDropdown(prev => prev === href ? null : href);
+    } else {
+      close();
+    }
   };
 
   useEffect(() => {
@@ -96,26 +94,20 @@ export function Header(){
         <nav className={open ? 'site-nav is-open' : 'site-nav'} aria-label="Main navigation">
           {nav.map(item => item.children ? (
             <div 
-              className={`nav-dropdown${activeDropdown === item.href ? ' is-open' : ''}${mobileExpanded[item.href] ? ' is-mobile-open' : ''}`} 
+              className={`nav-dropdown${activeDropdown === item.href ? ' is-open' : ''}`} 
               key={item.href}
-              onMouseEnter={() => setActiveDropdown(item.href)}
-              onMouseLeave={() => setActiveDropdown(null)}
+              onMouseEnter={() => window.innerWidth > 992 && setActiveDropdown(item.href)}
+              onMouseLeave={() => window.innerWidth > 992 && setActiveDropdown(null)}
             >
-              <div className="nav-dropdown-row">
-                <NavLink to={item.href} onClick={close} className="nav-dropdown-title">
-                  <span>{item.label}</span>
-                </NavLink>
-                <button
-                  type="button"
-                  className={`nav-accordion-toggle${mobileExpanded[item.href] ? ' is-expanded' : ''}`}
-                  aria-label={`Toggle ${item.label} options`}
-                  aria-expanded={Boolean(mobileExpanded[item.href])}
-                  onClick={(e) => toggleMobileSubmenu(item.href, e)}
-                >
-                  <ChevronDown size={16} className={`dropdown-chevron-icon${mobileExpanded[item.href] ? ' is-rotated' : ''}`}/>
-                </button>
-              </div>
-              <div className={`dropdown-menu${mobileExpanded[item.href] ? ' is-mobile-expanded' : ''}`}>
+              <NavLink 
+                to={item.href} 
+                onClick={(e) => handleDropdownClick(item.href, e)}
+                className="nav-dropdown-link"
+              >
+                <span>{item.label}</span>
+                <ChevronDown size={14} className="dropdown-chevron-icon"/>
+              </NavLink>
+              <div className="dropdown-menu">
                 {item.children.map(child => {
                   const Icon = child.icon;
                   return (
