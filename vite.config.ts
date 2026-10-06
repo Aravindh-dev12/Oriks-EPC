@@ -17,8 +17,8 @@ function copyDirFiltered(src: string, dest: string) {
       copyDirFiltered(srcPath, destPath);
     } else {
       const ext = path.extname(entry.name).toLowerCase();
-      // Exclude multi-gigabyte raw drone footage (.mp4, .dng) from dist to avoid ENOSPC
-      if (['.mp4', '.dng', '.mov', '.avi'].includes(ext)) {
+      // Exclude multi-gigabyte raw drone footage (.mp4, .dng) from dist to avoid ENOSPC, but include hero-out-2k.mp4
+      if (['.mp4', '.dng', '.mov', '.avi'].includes(ext) && entry.name !== 'hero-out-2k.mp4') {
         continue;
       }
       try {
