@@ -41,12 +41,70 @@ const nav: NavItem[] = [
 ];
 
 export function Header(){
- const[open,setOpen]=useState(false); const close=()=>setOpen(false);
- return <header><div className="wrap nav">
-  <Link to="/" className="brand" onClick={close}><img src={logo} alt="Propecare"/><span><b>PROPECARE</b><small>INFRA PROJECTS</small></span></Link>
-  <button type="button" className={`mobile-menu-toggle${open?' is-open':''}`} aria-label={open?'Close menu':'Open menu'} aria-expanded={open} onClick={()=>setOpen(v=>!v)}><span/><span/><span/></button>
-  <nav className={open?'site-nav is-open':'site-nav'} aria-label="Main navigation">{nav.map(item=>item.children?<div className="nav-dropdown" key={item.href}><NavLink to={item.href} onClick={close}><span>{item.label}</span><ChevronDown size={14} className="dropdown-chevron-icon"/></NavLink><div className="dropdown-menu">{item.children.map(child=>{const Icon=child.icon;return <Link key={child.href} to={child.href} onClick={close} className="dropdown-item-link"><Icon size={16} strokeWidth={2} className="nav-item-icon"/><span>{child.label}</span></Link>})}</div></div>:<NavLink key={item.href} to={item.href} end={item.href==='/' } onClick={close}>{item.label}</NavLink>)}<NavLink className="nav-button" to="/contact" onClick={close}>Contact Us</NavLink></nav>
- </div></header>;
+  const [open, setOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const close = () => { setOpen(false); setActiveDropdown(null); };
+
+  useEffect(() => {
+    const handleDocumentClick = (e: MouseEvent) => {
+      if (!(e.target as HTMLElement).closest('.nav-dropdown')) {
+        setActiveDropdown(null);
+      }
+    };
+    document.addEventListener('click', handleDocumentClick);
+    return () => document.removeEventListener('click', handleDocumentClick);
+  }, []);
+
+  return (
+    <header>
+      <div className="wrap nav">
+        <Link to="/" className="brand" onClick={close}>
+          <img src={logo} alt="Propecare"/>
+          <span><b>PROPECARE</b><small>INFRA PROJECTS</small></span>
+        </Link>
+        <button 
+          type="button" 
+          className={`mobile-menu-toggle${open ? ' is-open' : ''}`} 
+          aria-label={open ? 'Close menu' : 'Open menu'} 
+          aria-expanded={open} 
+          onClick={() => setOpen(v => !v)}
+        >
+          <span/><span/><span/>
+        </button>
+        <nav className={open ? 'site-nav is-open' : 'site-nav'} aria-label="Main navigation">
+          {nav.map(item => item.children ? (
+            <div 
+              className={`nav-dropdown${activeDropdown === item.href ? ' is-open' : ''}`} 
+              key={item.href}
+              onMouseEnter={() => setActiveDropdown(item.href)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <NavLink to={item.href} onClick={close}>
+                <span>{item.label}</span>
+                <ChevronDown size={14} className="dropdown-chevron-icon"/>
+              </NavLink>
+              <div className="dropdown-menu">
+                {item.children.map(child => {
+                  const Icon = child.icon;
+                  return (
+                    <Link key={child.href} to={child.href} onClick={close} className="dropdown-item-link">
+                      <Icon size={16} strokeWidth={2} className="nav-item-icon"/>
+                      <span>{child.label}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            <NavLink key={item.href} to={item.href} end={item.href === '/'} onClick={close}>
+              {item.label}
+            </NavLink>
+          ))}
+          <NavLink className="nav-button" to="/contact" onClick={close}>Contact Us</NavLink>
+        </nav>
+      </div>
+    </header>
+  );
 }
 export function Footer(){
   const location = useLocation();

@@ -464,18 +464,8 @@ function BlogsPage() {
         <p>Our engineering insights turn field lessons and utility-scale delivery into practical guidance for developers, EPCs, and asset owners across South India.</p>
       </div>
 
-      {/* Perfectly positioned and styled blog filter toolbar */}
-      <div className="blog-filter-section">
-        <div className="blog-filter-header">
-          <div className="blog-filter-label">
-            <Filter size={15} />
-            <span>TOPIC FILTER</span>
-          </div>
-          <span className="blog-filter-count">
-            Showing {displayed.length} of {blogList.length} articles
-          </span>
-        </div>
-        <div className="blog-filter-pills-wrap">
+      {/* Clean professional filter pills without outer box, border, or background */}
+      <div className="blog-filter-pills-wrap">
           {categories.map((c) => (
             <button
               key={c}
@@ -490,7 +480,6 @@ function BlogsPage() {
             </button>
           ))}
         </div>
-      </div>
 
       <div className="articles-grid">
         {displayed.map((a) => (
