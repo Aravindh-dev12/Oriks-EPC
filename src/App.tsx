@@ -15,8 +15,8 @@ import {
 const solar = 'https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const grid = 'https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const transmission = 'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200';
-const wind = '/images/wind-turbines.jpg';
-const transport = 'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200';
+const wind = '/images/indian-windmill.png';
+const transport = '/images/indian-transport-truck.jpg';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -47,7 +47,7 @@ function Home() {
         <div className="sector-feature-grid">
           <Link className="sector-feature sector-feature--large" to="/works/solar"><img src={solar} alt="Solar infrastructure"/><div><span>01</span><h3>Solar</h3><p>Plant infrastructure, electrical balance-of-plant and power evacuation.</p></div></Link>
           <Link className="sector-feature sector-feature--wind" to="/works/windmill"><img src={wind} alt="Wind turbines"/><div><span>02</span><h3>Wind</h3><p>Electrical packages, site interfaces and movement of turbine components.</p></div></Link>
-          <Link className="sector-feature" to="/works/transport"><img src={transport} alt="Heavy transport logistics"/><div><span>03</span><h3>Heavy movement</h3><p>ODC planning, route readiness and site delivery for critical equipment.</p></div></Link>
+          <Link className="sector-feature sector-feature--transport" to="/works/transport"><img src={transport} alt="Indian heavy transport logistics"/><div><span>03</span><h3>Heavy movement</h3><p>ODC planning, route readiness and site delivery for critical equipment.</p></div></Link>
         </div>
       </div>
     </section>

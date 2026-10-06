@@ -1,8 +1,8 @@
 const solar='https://images.pexels.com/photos/15751120/pexels-photo-15751120.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const grid='https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg?auto=compress&cs=tinysrgb&w=2200';
 const transmission='https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200';
-const wind='/images/wind-turbines.jpg';
-const transport='https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200';
+const wind='/images/indian-windmill.png';
+const transport='/images/indian-transport-truck.jpg';
 
 export const works=[
  {
@@ -321,7 +321,7 @@ export const works=[
   short:'Electrical infrastructure, balance-of-plant coordination and site interfaces for wind-energy projects.',
   headline:'Wind projects combine power infrastructure with difficult physical access.',
   description:'Wind sites add long-distance access, turbine-component logistics, construction sequencing and electrical collection or evacuation interfaces. Propercare separates those constraints, then reconnects them into one delivery sequence.',
-  image:'/images/wind-turbines.jpg',
+  image:'/images/indian-windmill.png',
   bullets:['Wind-farm electrical works','Collection and pooling systems','Evacuation infrastructure','Turbine-site interface coordination','Testing and commissioning'],
   details:['Coordinate site electrical packages around turbine and civil interfaces.','Support collection and pooling infrastructure from turbine strings toward the grid interface.','Plan the receiving infrastructure with protection and energisation in view.','Make access, delivery windows and site readiness visible to the project team.','Close the loop through inspection, testing and commissioning records.'],
   steps:['Map turbine, electrical and logistics interfaces','Prepare package sequence and site readiness','Execute electrical and support works','Test, energise and hand over'],
@@ -335,7 +335,7 @@ export const works=[
   short:'Route-led movement of oversized renewable and industrial equipment, from cargo assessment through site delivery.',
   headline:'The safest heavy movement is engineered before it moves.',
   description:'Industry leaders in wind and ODC logistics emphasise cargo analysis, route surveys, equipment selection, permits, escorts, staging and site readiness. Propercare uses that project logic to frame every movement enquiry.',
-  image:'https://images.pexels.com/photos/2199293/pexels-photo-2199293.jpeg?auto=compress&cs=tinysrgb&w=2200',
+  image:'/images/indian-transport-truck.jpg',
   bullets:['Cargo and dimension assessment','Route survey and feasibility','ODC equipment planning','Permit and movement coordination','Site delivery and handover'],
   details:['Start with the actual dimensions, weight, lifting points and handling limitations.','Review roads, turns, bridges, clearances, access and temporary works.','Match the transport configuration to cargo and route conditions.','Coordinate the approvals and movement controls needed for execution.','Align arrival, unloading, lifting and site acceptance.'],
   steps:['Capture cargo and origin / destination data','Survey and validate the route','Engineer the movement and mobilisation','Deliver, unload and close the movement'],
