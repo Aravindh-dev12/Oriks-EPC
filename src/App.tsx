@@ -502,15 +502,28 @@ function MediaPage() {
 
   // Aggregate all media items across all executed projects
   const allMedia = works.flatMap(w => 
-    (w.projects || []).flatMap(p => 
-      (p.mediaItems || []).map((m: any) => ({
+    (w.projects || []).flatMap((p: any) => [
+      ...(p.videos || []).map((v: any) => ({
+        ...v,
+        url: v.src,
+        type: 'video' as const,
+        category: v.category || 'video',
+        projectId: p.id,
+        projectTitle: p.title,
+        sectorTitle: w.title,
+        sectorSlug: w.slug
+      })),
+      ...(p.media || []).map((m: any) => ({
         ...m,
+        url: m.url,
+        type: 'image' as const,
+        category: m.category || 'aerial',
         projectId: p.id,
         projectTitle: p.title,
         sectorTitle: w.title,
         sectorSlug: w.slug
       }))
-    )
+    ])
   );
 
   const videoCount = allMedia.filter(m => m.type === 'video').length;

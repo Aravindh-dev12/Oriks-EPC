@@ -521,7 +521,13 @@ export const newsUpdates = [
     date: '04 OCT 2026',
     tag: 'PROJECT MILESTONE',
     category: 'Solar EPC',
+    location: 'Thuraiyur, Tiruchirappalli, Tamil Nadu',
     summary: 'Our site engineering teams have achieved 100% completion of pile foundation casting, tracker table pitch calibration, and 33kV collection cabling at the Thuraiyur utility solar plant in Tiruchirappalli District.',
+    highlights: [
+      '100% Ramming piles completed across all utility tables',
+      '33kV internal collection trenching & cabling certified',
+      'Structural bolt torque marking and pre-commissioning signoff complete'
+    ],
     image: '/projects/solar/solar1/DJI_0028.JPG',
     link: '/works/projects/solar-1'
   },
@@ -531,7 +537,13 @@ export const newsUpdates = [
     date: '28 SEP 2026',
     tag: 'ODC HAULAGE',
     category: 'Heavy Logistics',
+    location: 'Ennore to Central Tamil Nadu Corridor',
     summary: 'Propecare Logistics coordinated an escorted 380 km multimodal highway haulage for a critical 400kV generator transformer, negotiating bridge bypass engineering and zero-incident site gate offloading.',
+    highlights: [
+      '380 km escorted heavy haulage with highway authority clearances',
+      '16-axle hydraulic modular trailer configuration deployed',
+      'Zero-incident delivery with hydraulic jacking onto foundation pad'
+    ],
     image: '/projects/transport/transport1/DJI_0078.JPG',
     link: '/works/projects/transport-1'
   },
@@ -541,7 +553,13 @@ export const newsUpdates = [
     date: '18 SEP 2026',
     tag: 'FIELD MOBILISATION',
     category: 'Solar BOS',
+    location: 'Southern Tamil Nadu Energy Belt',
     summary: 'High-precision RTK drone surveys and structural ramming tests have commenced across the project terrain in Tamil Nadu, laying the groundwork for rapid mounting assembly and 33kV pooling yard integration.',
+    highlights: [
+      'High-precision RTK drone topography survey complete',
+      'Geotechnical soil resistivity and pull-out tests confirmed',
+      'Civil access roadways and boundary security deployed'
+    ],
     image: '/projects/solar/solar2/DJI_0127.JPG',
     link: '/works/projects/solar-2'
   },
@@ -551,7 +569,13 @@ export const newsUpdates = [
     date: '05 SEP 2026',
     tag: 'REGULATORY UPDATE',
     category: 'Grid Compliance',
+    location: 'Statewide / TANGEDCO Interconnection',
     summary: 'State transmission authorities release updated compliance guidelines for automated SCADA telemetry, telemetry verification, and harmonic injection audits at 110kV/230kV pooling substations.',
+    highlights: [
+      'Updated CEA and state grid code compliance procedures',
+      'Telemetry data integration requirements with State Load Despatch Centre',
+      'Harmonic audit guidelines for pooling substations above 25 MW'
+    ],
     image: 'https://images.pexels.com/photos/14939042/pexels-photo-14939042.jpeg?auto=compress&cs=tinysrgb&w=2200',
     link: '/services/substations'
   },
@@ -561,7 +585,13 @@ export const newsUpdates = [
     date: '22 AUG 2026',
     tag: 'CAPABILITY EXPANSION',
     category: 'Logistics Fleet',
+    location: 'Karur Equipment Depot',
     summary: 'Acquisition of additional heavy multi-axle modular transport lines and commercial DJI survey drones equipped with high-resolution multispectral cameras for ongoing solar and infrastructure projects.',
+    highlights: [
+      'Goldhofer-compatible multi-axle modular trailer lines added',
+      'Commercial RTK survey drones with centimeter-level precision',
+      'Enhanced in-house route simulation and swept path software tools'
+    ],
     image: '/projects/transport/transport1/DJI_0098.JPG',
     link: '/services/epc'
   }
