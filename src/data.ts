@@ -329,30 +329,44 @@ export const works=[
   projects:[]
  },
  {
-  slug:'transport',
-  category:'ODC / HEAVY MOVEMENT',
-  title:'Transport & Logistics',
-  short:'Route-led movement of oversized renewable and industrial equipment, from cargo assessment through site delivery.',
-  headline:'The safest heavy movement is engineered before it moves.',
-  description:'Industry leaders in wind and ODC logistics emphasise cargo analysis, route surveys, equipment selection, permits, escorts, staging and site readiness. Propercare uses that project logic to frame every movement enquiry.',
-  image:'/images/indian-transport-truck.jpg',
-  bullets:['Cargo and dimension assessment','Route survey and feasibility','ODC equipment planning','Permit and movement coordination','Site delivery and handover'],
-  details:['Start with the actual dimensions, weight, lifting points and handling limitations.','Review roads, turns, bridges, clearances, access and temporary works.','Match the transport configuration to cargo and route conditions.','Coordinate the approvals and movement controls needed for execution.','Align arrival, unloading, lifting and site acceptance.'],
-  steps:['Capture cargo and origin / destination data','Survey and validate the route','Engineer the movement and mobilisation','Deliver, unload and close the movement'],
-  stepDetails:['Gather drawings, dimensions, weight, target dates and site contacts.','Identify constraints before equipment is committed.','Define configuration, sequence, controls and responsibilities.','Coordinate the final approach and proof of delivery.'],
+  slug:'transmission',
+  category:'TRANSMISSION / GRID INFRASTRUCTURE',
+  title:'Transmissions',
+  short:'High-voltage transmission lines, pooling substation interties, tower erection, stringing, and grid evacuation engineering.',
+  headline:'Reliable transmission infrastructure connecting generation assets to the national grid.',
+  description:'Power transmission bridges the gap between clean energy generation and regional consumption. From route survey, tower foundation, lattice assembly to conductor stringing and grid compliance, Propercare coordinates high-voltage evacuation networks across diverse terrains.',
+  image:transmission,
+  bullets:['High-voltage transmission corridors','Tower foundation and lattice erection','Conductor stringing and sagging','Pooling substation evacuation interfaces','Testing, clearance and statutory charging'],
+  details:['Route alignment, profiling, crossing permissions and statutory approvals.','Pile/raft foundations, tower erection and structural torque verification.','Precision conductor stringing, earth wire/OPGW installation and tensioning.','Coordination of line terminal bays, isolators and lightning arrestors.','Pre-charging dielectric tests, protection setting sign-off and energisation.'],
+  steps:['Route survey, profiling and clearances','Tower foundation civil works & erection','Stringing, tensioning and OPGW installation','Pre-commissioning tests and grid charging'],
+  stepDetails:['Map right-of-way, highway/rail crossings, soil profiles and statutory approvals.','Cast reinforced foundations and erect lattice towers with strict torque controls.','Pull conductors and optical ground wire with calibrated tension and clearance checks.','Execute insulation resistance, line continuity tests and energise the transmission link.'],
+  projects:[]
+ },
+ {
+  slug:'highways',
+  category:'HIGHWAYS / CORRIDOR INFRASTRUCTURE',
+  title:'Highway Works',
+  short:'Route-engineered transit, highway corridor clearance, and multi-axle modular movement for critical infrastructure.',
+  headline:'Engineered highway transit and corridor execution for mission-critical infrastructure.',
+  description:'Highway corridors and access roadways are vital arteries for heavy industrial and renewable movement. Propercare delivers highway transit engineering, heavy multi-axle modular haulage, intersection modifications, bridge load distribution, and end-to-end corridor logistics.',
+  image:transport,
+  bullets:['Highway corridor survey and route engineering','Multi-axle hydraulic modular transport','Bridge capacity & bypass assessment','Junction turn clearance & road widening','Escorted transit and zero-incident delivery'],
+  details:['Comprehensive corridor analysis, overhead wire elevations and turning geometry.','Heavy payload movement utilizing synchronized hydraulic multi-axle trailers.','Structural load distribution calculations and bridge bypass coordination.','Temporary civil works, turning radius modifications and approach road creation.','Live drone tracking, pilot vehicles, and safe delivery sign-off.'],
+  steps:['Corridor survey & route validation','Trailer configuration & axle load engineering','Highway transit with drone convoy tracking','Site approach delivery and precision handover'],
+  stepDetails:['Analyze turning radii, vertical clearances, bridge structural ratings and permits.','Mobilize multi-axle modular units matching cargo weight and center of gravity.','Execute movement under escorted controls with continuous aerial drone monitoring.','Safely navigate site gates, bay positioning and cargo tie-down release.'],
   projects:[
     {
       id:'transport-1',
-      title:'Transport Project 1 - Heavy ODC & Multimodal Logistics',
-      name:'Project Transport 1',
+      title:'Highway Project 1 - Heavy ODC & Multimodal Logistics',
+      name:'Project Highway Transit 1',
       capacity:'Heavy ODC Payload',
       client:'State Transmission Corporation / Heavy Electrical OEM',
       location:'Tamil Nadu Highway Corridor, India',
       status:'Successfully Delivered',
-      tag:'ODC HEAVY HAULAGE',
+      tag:'HIGHWAY CORRIDOR HAULAGE',
       scope:'Hydraulic multi-axle modular trailer conveyance of heavy transformers and oversized renewable equipment with comprehensive route surveys, bridge bypass engineering, and live drone convoy tracking.',
       image:'/projects/transport/transport1/DJI_0078.JPG',
-      stat:'Multi-Axle Heavy Haulage',
+      stat:'Multi-Axle Highway Haulage',
       metrics:[
         {label:'Movement Type',value:'ODC Heavy Modular Movement'},
         {label:'Equipment',value:'Hydraulic Multi-Axle Modular Trailer Fleet'},
@@ -476,7 +490,8 @@ export const services=[
 export const sectors=[
  {name:'SOLAR',focus:'Generation + electrical balance-of-plant'},
  {name:'WIND',focus:'Turbine sites + collection + access'},
- {name:'ODC',focus:'Cargo + route + site delivery'}
+ {name:'TRANSMISSION',focus:'High-voltage lines + towers + grid intertie'},
+ {name:'HIGHWAYS',focus:'Corridor transit + heavy haulage + route engineering'}
 ];
 export const clients=[
  {name:'Renewable developers & asset owners',need:'Need predictable progress, visible risk and confidence that site packages are ready when required.',value:'Visibility + accountability'},

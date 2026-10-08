@@ -36,18 +36,19 @@ function Home() {
       </div>
       <div className="wrap home-stat-row">
         <div><b>01</b><span>Renewable infrastructure partner</span></div>
-        <div><b>03</b><span>Primary work sectors</span></div>
+        <div><b>04</b><span>Primary work sectors</span></div>
         <div><b>04</b><span>Core delivery packages</span></div>
         <div><b>360°</b><span>Generation-to-grid view</span></div>
       </div>
     </section>
 
     <section className="home-sector-showcase">
-      <div className="wrap"><Section eyebrow="02 / WHERE WE WORK" title="Three project environments. One practical delivery mindset." />
+      <div className="wrap"><Section eyebrow="02 / WHERE WE WORK" title="Four project environments. One practical delivery mindset." />
         <div className="sector-feature-grid">
-          <Link className="sector-feature sector-feature--large" to="/works/solar"><img src={solar} alt="Solar infrastructure"/><div><span>01</span><h3>Solar</h3><p>Plant infrastructure, electrical balance-of-plant and power evacuation.</p></div></Link>
+          <Link className="sector-feature" to="/works/solar"><img src={solar} alt="Solar infrastructure"/><div><span>01</span><h3>Solar</h3><p>Plant infrastructure, electrical balance-of-plant and power evacuation.</p></div></Link>
           <Link className="sector-feature sector-feature--wind" to="/works/windmill"><img src={wind} alt="Wind turbines"/><div><span>02</span><h3>Wind</h3><p>Electrical packages, site interfaces and movement of turbine components.</p></div></Link>
-          <Link className="sector-feature sector-feature--transport" to="/works/transport"><img src={transport} alt="Indian heavy transport logistics"/><div><span>03</span><h3>Heavy movement</h3><p>ODC planning, route readiness and site delivery for critical equipment.</p></div></Link>
+          <Link className="sector-feature sector-feature--transmission" to="/works/transmission"><img src={transmission} alt="Power transmission infrastructure"/><div><span>03</span><h3>Transmissions</h3><p>High-voltage lines, substation interties and grid evacuation engineering.</p></div></Link>
+          <Link className="sector-feature sector-feature--highways" to="/works/highways"><img src={transport} alt="Highway corridor and heavy transit"/><div><span>04</span><h3>Highway Works</h3><p>Highway corridor transit, modular haulage and route engineering.</p></div></Link>
         </div>
       </div>
     </section>
@@ -89,7 +90,7 @@ function Works() {
   return <Page type="work" title="Our Works" lead="Sector-led project capabilities, built around the conditions that make renewable infrastructure difficult." image={solar}>
     <div className="works-intro"><div><span className="kicker">SECTOR MAP</span><h2>Different assets. Different risks. Different delivery logic.</h2></div><p>Solar has electrical and grid interfaces. Wind adds large components, access and heavy movement. Industrial transport is a route-engineering problem. Our pages separate these realities instead of treating them as one generic service.</p></div>
     <div className="works-stack">{works.map((w,i)=>{
-      const WorkIcon = w.slug === 'solar' ? SunMedium : w.slug === 'windmill' ? Wind : Truck;
+      const WorkIcon = w.slug === 'solar' ? SunMedium : w.slug === 'windmill' ? Wind : w.slug === 'transmission' ? Zap : Truck;
       return <Link to={'/works/'+w.slug} className="work-row" key={w.slug}>
         <div className="work-row-number">0{i+1}</div>
         <div className="work-row-image"><img src={w.image} alt={w.title}/></div>
@@ -140,8 +141,10 @@ function Works() {
 }
 
 function Work() {
-  const {slug}=useParams(); const work=works.find(w=>w.slug===slug)??works[0];
-  const WorkIcon = work.slug === 'solar' ? SunMedium : work.slug === 'windmill' ? Wind : Truck;
+  const {slug}=useParams();
+  const resolvedSlug = slug === 'transport' ? 'highways' : slug;
+  const work=works.find(w=>w.slug===resolvedSlug)??works[0];
+  const WorkIcon = work.slug === 'solar' ? SunMedium : work.slug === 'windmill' ? Wind : work.slug === 'transmission' ? Zap : Truck;
   return <Page type="work-detail" title={work.title} lead={work.short} image={work.image}>
     <div className="detail-lead">
       <div>
@@ -207,7 +210,7 @@ function ProjectDetail() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [lightboxItem, setLightboxItem] = useState<any>(null);
 
-  const WorkIcon = parentWork.slug === 'solar' ? SunMedium : parentWork.slug === 'windmill' ? Wind : Truck;
+  const WorkIcon = parentWork.slug === 'solar' ? SunMedium : parentWork.slug === 'windmill' ? Wind : parentWork.slug === 'transmission' ? Zap : Truck;
 
   const allMediaItems = [
     ...(foundProject.videos || []).map((v: any) => ({ ...v, type: 'video', category: 'video' })),
