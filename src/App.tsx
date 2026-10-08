@@ -431,7 +431,13 @@ function ProjectDetail() {
 
 function Solutions() {
   return <Page type="solutions" title="Our Solutions" lead="Specialist delivery packages for renewable generation, electrical infrastructure and project movement." image={transmission}>
-    <div className="solutions-intro"><span className="kicker">CAPABILITY ARCHITECTURE</span><h2>Choose the package. Keep the interfaces connected.</h2><p>Rather than presenting one oversized list of services, Propercare groups work around the decisions clients actually make: build the plant, evacuate the power, establish the substation, or get the asset tested and ready for operation.</p></div>
+    <div className="solutions-intro">
+      <div>
+        <span className="kicker">CAPABILITY ARCHITECTURE</span>
+        <h2>Choose the package. Keep the interfaces connected.</h2>
+      </div>
+      <p>Rather than presenting one oversized list of services, Propercare groups work around the decisions clients actually make: build the plant, evacuate the power, establish the substation, or get the asset tested and ready for operation.</p>
+    </div>
     <div className="solution-cards">{services.map((s,i)=><Link to={'/services/'+s.slug} key={s.slug} className="solution-card"><img src={s.image} alt={s.title}/><div><span>0{i+1} / SOLUTION</span><h3>{s.title}</h3><p>{s.short}</p><b style={{display:'inline-flex',alignItems:'center',gap:'5px'}}><span>See scope</span><ArrowRight size={14}/></b></div></Link>)}</div>
     <div className="solutions-process"><div><span className="kicker">01</span><h3>Define</h3><p>Scope, drawings, site conditions, quantities, dates and interfaces.</p></div><div><span className="kicker">02</span><h3>Coordinate</h3><p>Resources, procurement, contractors, access, testing and reporting.</p></div><div><span className="kicker">03</span><h3>Execute</h3><p>Field activity managed against the agreed sequence and controls.</p></div><div><span className="kicker">04</span><h3>Close</h3><p>Testing evidence, punch-list closure, records and handover.</p></div></div>
   </Page>;
@@ -858,7 +864,13 @@ function Article() {
 
 function Clients() {
  return <Page type="clients" title="Our Clients" lead="A partnership model for developers, EPCs, manufacturers, operators and infrastructure stakeholders." image={solar}>
-   <div className="clients-opening"><span className="kicker">WHO WE SUPPORT</span><h2>Built around the people who have to make the project work.</h2><p>Propercare should not claim relationships it has not earned. Instead, this page explains the stakeholder groups we are designed to support and the information each group needs from a project partner.</p></div>
+   <div className="clients-opening">
+     <div>
+       <span className="kicker">WHO WE SUPPORT</span>
+       <h2>Built around the people who have to make the project work.</h2>
+     </div>
+     <p>Propercare should not claim relationships it has not earned. Instead, this page explains the stakeholder groups we are designed to support and the information each group needs from a project partner.</p>
+   </div>
    <div className="stakeholder-grid">{clients.map((c,i)=><article key={c.name}><span>0{i+1}</span><h3>{c.name}</h3><p>{c.need}</p><b>{c.value}</b></article>)}</div>
    <div className="client-proof"><div><span className="kicker">FOR DEVELOPERS & OWNERS</span><h3>Visibility on scope, progress, risk and readiness.</h3><p>Use Propercare when coordination across multiple delivery interfaces needs one practical point of contact.</p></div><div><span className="kicker">FOR EPC & OEM PARTNERS</span><h3>Execution support that respects your engineering package.</h3><p>Bring us the defined scope and site constraints; we focus on the field, logistics and handover interfaces around it.</p></div></div>
  </Page>;
